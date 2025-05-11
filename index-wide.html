@@ -1,4 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
 <html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JASEMAN.COM (wide)</title>
+
+<style>
+        .transparent-image {
+            opacity: 0.2; /* Adjust this value between 0 (completely transparent) and 1 (fully opaque) */
+        }
+
+        #specific-image-container {
+            position: relative;
+            width: 100%;
+        }
+        #specific-image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        #specific-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            color: black;
+
+        }
+    </style>
+
+
+    <script>
+        window.onload = function() {
+            if (window.innerWidth < 1900) {
+                window.location.href = "index.html";
+            }
+        };
+    </script>
+</head>
 <body>
 This is the 1920 pixel wide version of my Github site!
 </body>
