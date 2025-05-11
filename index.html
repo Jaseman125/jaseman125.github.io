@@ -1,4 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
 <html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jaseman.com - phone optimized version</title>
+
+<style>
+        .transparent-image {
+            opacity: 0.2; /* Adjust this value between 0 (completely transparent) and 1 (fully opaque) */
+        }
+
+        #specific-image-container {
+            position: relative;
+            width: 100%;
+        }
+        #specific-image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        #specific-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            color: black;
+
+        }
+    </style>
+
+<script>
+ window.onload = function () {
+            var screenWidth = window.innerWidth;
+            if (screenWidth > 3600) {
+                window.location.href = "scroll.html";
+            } else if (screenWidth > 1900) {
+                window.location.href = "index-wide.php";
+            }
+        };
+</script>
+
+</head>
+
 <body>
 This is my Github site homepage - suitable for viewing on mobile phones.
 </body>
