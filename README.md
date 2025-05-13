@@ -28,3 +28,9 @@ https://jaseman125.github.io/movies/movies.html<br/>
 https://jaseman125.github.io/photo-album/photos.html<br/>
 https://jaseman125.github.io/pictures/pictures.html<br/>
 https://jaseman125.github.io/software/software.html<br/>
+## JASEMANCOM HOME PC
+JASEMANCOM is the hostname of my gaming PC that I leave running 24/7 at home.<br/>
+This PC used to host the website until I transferred it on 13th May 2025.<br/>
+Some of the content has not yet been imported into Github.<br/>
+I have put links in the Git-hub pages to the older versions of the pages that still reside on JASEMANCOM.<br/>
+Most of the content should be in Github soon - I'm actively working on this at the moment.<br/>
