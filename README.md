@@ -1,4 +1,4 @@
-![Image](https://jaseman125.github.io/img/jaseman-header.png)
+![Jaseman Homepage Title Banner](https://jaseman125.github.io/img/jaseman-header.png)
 
 # JASEMAN.COM MAIN REPOSITORY
 ## Overview
