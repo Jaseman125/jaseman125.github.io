@@ -34,3 +34,7 @@ This PC used to host the website until I transferred it on 13th May 2025.<br/>
 Some of the content has not yet been imported into Github.<br/>
 I have put links in the Git-hub pages to the older versions of the pages that still reside on JASEMANCOM.<br/>
 Most of the content should be in Github soon - I'm actively working on this at the moment.<br/>
+My home ISP (BT) do not provide me with a static IP and occassionally this changes.<br/>
+When the public IP of my home router changes I will need to update any references to it in the HTML pages.<br/>
+# MY CURRENT PUBLIC IP ADDRESS AT HOME:
+## 109.180.239.72
