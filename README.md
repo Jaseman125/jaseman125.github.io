@@ -22,3 +22,9 @@ There are several sub-repositories in my account (Branches from this one).<br/>
 The reason I added these is in-case I fill up the storage.<br/>
 Github allows 1 GB of storage maximum per repository.<br/>
 The sub-repositories are:<br/>
+https://jaseman125.github.io/lego/lego.html<br/>
+https://jaseman125.github.io/music/music.html<br/>
+https://jaseman125.github.io/movies/movies.html<br/>
+https://jaseman125.github.io/photo-album/photos.html<br/>
+https://jaseman125.github.io/pictures/pictures.html<br/>
+https://jaseman125.github.io/software/software.html<br/>
