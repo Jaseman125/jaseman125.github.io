@@ -39,4 +39,6 @@ Most of the content should be in Github soon - I'm actively working on this at t
 My home ISP (BT) do not provide me with a static IP and occassionally this changes.<br/>
 When the public IP of my home router changes I will need to update any references to it in the HTML pages.<br/>
 # MY CURRENT PUBLIC IP ADDRESS AT HOME:
-## 109.180.239.72
+## 109.180.239.72<br/>
+
+# https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
