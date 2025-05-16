@@ -38,7 +38,7 @@ I have put links in the Git-hub pages to the older versions of the pages that st
 Most of the content should be in Github soon - I'm actively working on this at the moment.<br/>
 My home ISP (BT) do not provide me with a static IP and occassionally this changes.<br/>
 When the public IP of my home router changes I will need to update any references to it in the HTML pages.<br/>
-There is an index.php file in my Dropbox public folder that gets loaded when you visit JASEMAN.CO.UK<br/>
+There is an index.php file in my Dropbox public folder that gets loaded when you visit HTTP://JASEMAN.CO.UK<br/>
 # MY CURRENT PUBLIC IP ADDRESS AT HOME:
 ## 109.180.239.72<br/>
 
