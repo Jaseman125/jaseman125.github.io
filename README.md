@@ -11,7 +11,7 @@ Website link: https://jaseman125.github.io/index.html<br/>
 Files webpage: https://github.com/Jaseman125/jaseman125.github.io/tree/main<br/>
 ## JASEMAN.COM & JASEMAN.CO.UK DOMAINS
 My Domains are provided by IONOS.<br/>
-If you visit JASEMAN.CO.UK you get bounced to JASEMAN.COM.<br/>
+If you visit JASEMAN.CO.UK you will be directed to the IIS server on 'JASEMANCOM' (My Home PC)<br/>
 I added the following A records in the DNS Settings for JASEMAN.COM:<br/>
 @	185.199.108.153<br/>
 @	185.199.109.153<br/>
