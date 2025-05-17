@@ -1,0 +1,25 @@
+<html>
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function loadHTML(targetId, fileName) {
+                fetch(fileName)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById(targetId).innerHTML = data;
+                    });
+            }
+
+            loadHTML("section1", "file://file1.html");
+            loadHTML("section2", "file://file2.html");
+            loadHTML("section3", "file://file3.html");
+        });
+    </script>
+</head>
+<body>
+    <div id="section1"></div>
+    <div id="section2"></div>
+    <div id="section3"></div>
+
+</body>
+</html>
