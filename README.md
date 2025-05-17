@@ -9,6 +9,12 @@ scroll.html is an easter egg file - in order to see this from the website you ha
 The 'img' folder contains images that appear on the homepage and possibly on some of the sub pages as well.<br/>
 Website link: https://jaseman125.github.io/index.html<br/>
 Files webpage: https://github.com/Jaseman125/jaseman125.github.io/tree/main<br/>
+
+## JQUERY.JS
+I load jquery.js into HTML pages in order to pull HTML code into the page from another file.<br/>
+There is a script that needs to be added into the head section of the HTML page for it to work.<br/>
+You create a div within the body of the HTML at the desired location with id="#name", where #name is relates to the file you want to pull in as determined in the head script.<br/>
+
 ## JASEMAN.COM & JASEMAN.CO.UK DOMAINS
 My Domains are provided by IONOS.<br/>
 If you visit JASEMAN.CO.UK you will be directed to the IIS server on 'JASEMANCOM' (My Home PC)<br/>
@@ -19,6 +25,7 @@ I added the following A records in the DNS Settings for JASEMAN.COM:<br/>
 @	185.199.111.153<br/>
 I also added the CNAME record:<br/>
 www	jaseman125.github.io<br/>
+
 ## SUB-REPOSITORIES
 There are several sub-repositories in my account (Branches from this one).<br/>
 The reason I added these is in-case I fill up the storage.<br/>
@@ -30,6 +37,7 @@ https://jaseman125.github.io/movies/movies.html<br/>
 https://jaseman125.github.io/photo-album/photos.html<br/>
 https://jaseman125.github.io/pictures/pictures.html<br/>
 https://jaseman125.github.io/software/software.html<br/>
+
 ## JASEMANCOM HOME PC / JASEMAN.CO.UK
 JASEMANCOM is the hostname of my gaming PC that I leave running 24/7 at home.<br/>
 This PC used to host the website until I transferred it on 13th May 2025 (My 52nd Birthday).<br/>
@@ -39,6 +47,7 @@ Most of the content should be in Github soon - I'm actively working on this at t
 My home ISP (BT) do not provide me with a static IP and occassionally this changes.<br/>
 When the public IP of my home router changes I will need to update any references to it in the HTML pages.<br/>
 There is an index.php file in my Dropbox public folder that gets loaded when you visit HTTP://JASEMAN.CO.UK<br/>
+
 # MY CURRENT PUBLIC IP ADDRESS AT HOME:
 ## 109.180.239.72<br/>
 
