@@ -10,12 +10,11 @@ The 'img' folder contains images that appear on the homepage and possibly on som
 Website link: https://jaseman125.github.io/index.html<br/>
 Files webpage: https://github.com/Jaseman125/jaseman125.github.io/tree/main<br/>
 
-## IMPORT EXTERNAL HTML CODE WITHOUT JQUERY.JS
-I used to use jquery.js to import external code into HTML pages.<br/>
-I can now do this in Github without requiring jquery.js.<br/>
-I have created test.html, file1.html, file2.html and file3.html to demonstrate this.<br/>
-NOTE: This might not work if the files are not stored within Github and also it is important to include the full path in the references to the external files.<br/>
-Visit https://jaseman125.github.io/test.html to see this example and then examine the HTML code for future use.<br/>
+## IMPORT EXTERNAL HTML WITH JQUERY.JS
+I use jquery.js to import external code into HTML pages.<br/>
+A script needs to be added to the head section.<br/>
+divs with id's are placed within the body of the page where needed.<br/>
+You can only use an id once.  If you need multiple instances of the same imported file, add another line in the head with a different id<br/>
 
 ## JASEMAN.COM & JASEMAN.CO.UK DOMAINS
 My Domains are provided by IONOS.<br/>
