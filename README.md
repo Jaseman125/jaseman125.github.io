@@ -11,7 +11,7 @@ Website link: https://jaseman125.github.io/index.html<br/>
 Files webpage: https://github.com/Jaseman125/jaseman125.github.io/tree/main<br/>
 
 ## IMPORT EXTERNAL HTML CODE WITHOUT JQUERY.JS
-I used to use jquery.js to imoprt external code into HTML pages.<br/>
+I used to use jquery.js to import external code into HTML pages.<br/>
 I can now do this in Github without requiring jquery.js.<br/>
 I have created test.html, file1.html, file2.html and file3.html to demonstrate this.<br/>
 NOTE: This might not work if the files are not stored within Github and also it is important to include the full path in the references to the external files.<br/>
