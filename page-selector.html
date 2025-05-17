@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-        function goToPage() {
-            var selectedPage = document.getElementById("pageSelect").value;
-            if (selectedPage) {
-                window.location.href = selectedPage;
-            }
-        }
-    </script>
+<script>
+function goToPage() {
+var selectedPage = document.getElementById("pageSelect").value;
+if (selectedPage) {
+window.open(selectedPage, "_blank"); // Opens in a new tab
+}
+}
+</script>
 </head>
+
 <body>
 
     <select id="pageSelect">
         <option value="">Select a page</option>
-        <option value="page1.html">Page 1</option>
+        <option value="http://jaseman.co.uk">JASEMAN.CO.UK</option>
         <option value="page2.html">Page 2</option>
         <option value="page3.html">Page 3</option>
     </select>
