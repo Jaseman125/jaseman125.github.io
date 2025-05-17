@@ -5,7 +5,7 @@
 These files are the content for my personal website.<br/>
 <br/>
 index.html is the homepage that will load on devices which have less that 1900 pixel width screens (Phones mostly).<br/>
-index-wide.html is the homepage designed for computers with screens that are set to 1920 pixels width (PCs, Laptops and possibly some tablets).<br/>
+index-wide.html is the homepage designed for screens > 1920 pixels width (PCs, Laptops and possibly some tablets).<br/>
 page-selector.html is a pull down menu.  Choose a URL and hit GO.  Pages open in a new tab.<br/>
 scroll.html is an easter egg file - in order to see this from the website you have to open index.html and then stretch it across two 1920 pixel width monitors and refresh the page.<br/>
 <br/>
