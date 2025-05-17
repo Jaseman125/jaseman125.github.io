@@ -13,7 +13,7 @@ Files webpage: https://github.com/Jaseman125/jaseman125.github.io/tree/main<br/>
 ## JQUERY.JS
 I load jquery.js into HTML pages in order to pull HTML code into the page from another file.<br/>
 There is a script that needs to be added into the head section of the HTML page for it to work.<br/>
-You create a div within the body of the HTML at the desired location with id="#name", where #name is relates to the file you want to pull in as determined in the head script.<br/>
+You create a div within the body of the HTML at the desired location with id="#name" where #name correlates to the file you want to pull in (Defined in the head script).<br/>
 
 ## JASEMAN.COM & JASEMAN.CO.UK DOMAINS
 My Domains are provided by IONOS.<br/>
