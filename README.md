@@ -6,7 +6,9 @@ These files are the content for my personal website.<br/>
 <br/>
 index.html is the homepage that will load on devices which have less that 1900 pixel width screens (Phones mostly).<br/>
 index-wide.html is the homepage designed for screens > 1920 pixels width (PCs, Laptops and possibly some tablets).<br/>
+jquery-loader.html is an example showing how you can use jquery.js to insert html files into other html files.<br/>
 page-selector.html is a pull down menu.  Choose a URL and hit GO.  Pages open in a new tab.<br/>
+podcast-playlist.html contains a scaleable embedded Jaseman Podcast YouTube Playlist.<br/>
 scroll.html is an easter egg file - To see it, open index.html and then stretch it across two 1920 pixel width monitors and refresh the page.<br/>
 <br/>
 The 'img' folder contains images that appear on the homepage and possibly on some of the sub pages as well.<br/>
