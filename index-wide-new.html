@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Checkbox Table</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('your-background-image.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+        td {
+            text-align: center;
+            width: 20%;
+        }
+        td:nth-child(2) {
+            width: 60%;
+        }
+        .checkbox-container {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        tr:first-child {
+            background-color: rgba(0, 0, 0, 0.1); /* 10% opacity black */
+        }
+        input[type="checkbox"] {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        input[type="checkbox"]:checked {
+            background-color: red;
+        }
+        tr:last-child {
+            height: 100%;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>
+            <div class="checkbox-container">
+                <input type="checkbox" name="col1" checked onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+            </div>
+        </td>
+        <td>
+            <div class="checkbox-container">
+                <input type="checkbox" name="col2" checked onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+            </div>
+        </td>
+        <td>
+            <div class="checkbox-container">
+                <input type="checkbox" name="col3" checked onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td id="col1-content" style="vertical-align: top;">Default content for Column 1</td>
+        <td id="col2-content" style="vertical-align: top;">Default content for Column 2</td>
+        <td id="col3-content" style="vertical-align: top;">Default content for Column 3</td>
+    </tr>
+</table>
+
+<script>
+function toggleCheckboxes(clickedCheckbox, columnName) {
+    let checkboxes = document.getElementsByName(columnName);
+    checkboxes.forEach(cb => cb.checked = false);
+    clickedCheckbox.checked = true;
+
+    updateContent(columnName, clickedCheckbox);
+}
+
+function updateContent(columnName, clickedCheckbox) {
+    let content = {
+        col1: ["Content 1A", "Content 1B", "Content 1C", "Content 1D", "Content 1E", "Content 1F", "Content 1G", "Content 1H"],
+        col2: ["Content 2A", "Content 2B", "Content 2C", "Content 2D", "Content 2E", "Content 2F", "Content 2G", "Content 2H"],
+        col3: ["Content 3A", "Content 3B", "Content 3C", "Content 3D", "Content 3E", "Content 3F", "Content 3G", "Content 3H"]
+    };
+
+    let selectedIndex = Array.from(document.getElementsByName(columnName)).indexOf(clickedCheckbox);
+    document.getElementById(columnName + "-content").innerText = content[columnName][selectedIndex];
+}
+</script>
+
+</body>
+</html>
