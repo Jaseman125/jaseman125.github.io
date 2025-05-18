@@ -1,0 +1,189 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scalable Analog + Digital Clock (using SVG, CSS & JS)</title>
+  <style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3E423A;
+  font-family: 'Montserrat', sans-serif;
+}
+
+svg {
+  height: 100vh;
+  fill: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.circle_text {
+  font-size: 13px;
+  fill: #cccccc; 
+  stroke: #dddddd;
+}
+
+.clock_text {
+  font-weight: bold;
+  font-size: 9px;
+  fill: #0000ff; 
+}
+
+.circle_progress {
+  fill: none;
+  stroke-width: 3;
+  stroke-opacity: 0.3;
+  stroke-linecap: round;
+  stroke: #AAFF00; 
+}
+
+.circle_progress--fill {
+  --initialStroke: 0;
+  --transitionDuration: 0;
+  stroke-opacity: 1;
+  stroke-dasharray: var(--initialStroke);
+  stroke-dashoffset: var(--initialStroke);
+  transition: stroke-dashoffset var(--transitionDuration) ease;
+}
+
+.circle {
+  position: relative;
+  fill: none;
+  stroke: #f00;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+}
+
+#pin, #hour, #min, #sec { 
+  stroke-width: 1px;
+  fill: #995959;
+  stroke: #999999;
+}
+#sec { stroke: #f55; }
+#markers { stroke: #ddd; }
+  </style>
+</head>
+<body>
+
+
+<svg viewBox="0 0 100 100" class="circle_svg" id="svg">
+  <circle cx="50" cy="50" r="43.4" class="circle"/> <!-- red ring -->
+  <circle cx="50" cy="50" r="46" class="circle_progress circle_progress--path"></circle>
+  <circle cx="50" cy="50" r="46" class="circle_progress circle_progress--fill" id="fill-circle"></circle>
+
+  <g id="hands">
+    <rect id="hour" x="47.5" y="15.5" width="5" height="35" rx="2.5" ry="2.55" />
+    <rect id="min" x="48.5" y="12.5" width="3" height="40" rx="2" ry="2"/>
+    <line id="sec" x1="50" y1="50" x2="50" y2="16" />
+  </g>
+ 
+  <g id="markers"></g>
+
+  <circle id="pin" cx="50" cy="50" r="4"/>
+
+  <text x="24" y="70" id="time" class="circle_text">12:34:58</text>
+
+  <g id="numbers">
+   <!-- Coords decided visually -->
+   <text class="clock_text" x="45" y="18">12</text>
+   <text class="clock_text" x="83" y="53">3</text>
+   <text class="clock_text" x="47" y="88">6</text>
+   <text class="clock_text" x="12" y="53">9</text>
+  </g>
+
+</svg>
+
+<script>
+
+addLargeMarkers ()
+addSmallMarkers ()
+setClockTime ()
+animBorder ()
+
+function animBorder ()
+{
+  var farkle = document.getElementById ("fill-circle");
+  farkle.setAttribute ("transform", "rotate(-90, 50, 50)");
+  
+  const transitionDuration = 10000;
+
+  var progress = document.querySelector ('.circle_progress--fill');
+  var radius = progress.r.baseVal.value;
+  var circumference = 2 * Math.PI * radius;
+  
+  progress.style.setProperty ('--transitionDuration', `${transitionDuration}ms`);
+  progress.style.setProperty ('--initialStroke', circumference);
+
+  setTimeout (() => progress.style.strokeDashoffset = 0, 0);
+}
+
+function setClockTime ()
+{
+  const now = new Date ();
+  // digital - format and generate time string
+  var secFmt = formatTime (now.getSeconds());
+  var minFmt = formatTime (now.getMinutes());
+  var hourFmt = formatTime ((now.getHours() % 12));
+  var val = hourFmt + ":" + minFmt + ":" + secFmt;
+  time.innerHTML = val;
+
+  // analog - set angles for hands
+  setHand (sec, 6 * now.getSeconds ());
+  setHand (min, 6 * now.getMinutes ());
+  setHand (hour, 30 * (now.getHours () % 12) + now.getMinutes () / 2);
+
+  var t = setTimeout (setClockTime, 500);
+}
+
+function setHand (el, deg) 
+{
+  el.setAttribute ('transform', 'rotate(' + deg + ' 50 50)');
+}
+
+function formatTime (i) 
+{
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+
+function addSmallMarkers ()
+{
+  for (i=0; i<360; i += 6)
+  {
+    addMarker (i, 2);
+  }
+}
+
+function addLargeMarkers ()
+{
+  for (i=0; i<360; i += 30)
+  {
+    addMarker (i, 4);
+  }
+}
+
+function addMarker (angle, size)
+{
+  var svgMarkers = document.getElementById ('markers'); //Get svg marker element
+  var newElement = document.createElementNS ("http://www.w3.org/2000/svg", 'rect'); 
+  newElement.setAttribute ("x","50"); 
+  newElement.setAttribute ("y","5"); 
+  newElement.setAttribute ("width","0.1"); 
+  newElement.setAttribute ("height", size); 
+  newElement.setAttribute ("transform","rotate(" + angle + " 50 50)"); 
+  svgMarkers.appendChild (newElement);
+}
+
+</script>
+
+</body>
+</html>
