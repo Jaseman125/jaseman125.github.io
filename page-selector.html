@@ -3,11 +3,15 @@
 <head>
 <style>
   select {
-    background-color: black;
-    color: #00FF00;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% transparency */
+    color: #00FF00; /* Bright green text */
     padding: 5px;
     border: 1px solid green;
-    opacity: 0.5;
+  }
+
+  option {
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent background for dropdown options */
+    color: #00FF00;
   }
 
   button {
@@ -15,6 +19,7 @@
     color: black;
     padding: 5px;
     border: 1px solid black;
+    border-radius: 5px; /* Slight rounding of the corners */
   }
 </style>
 <script>
@@ -44,5 +49,5 @@ function goToPage() {
 
 <button onclick="goToPage()">Go</button>
 </body>
-  
+
 </html>
