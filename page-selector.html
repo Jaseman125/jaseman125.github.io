@@ -10,8 +10,13 @@
   }
 
   option {
-    background-color: rgba(0, 0, 0, 0.7); /* Transparent background for dropdown options */
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent background for dropdown options */
     color: #00FF00;
+  }
+
+  /* This may not work in all browsers due to limitations on <option> elements */
+  option:hover {
+    color: red; /* Change text to red on hover */
   }
 
   button {
