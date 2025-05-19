@@ -1,36 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JASEMAN.COM (wide)</title>
-
-<style>
-        .transparent-image {
-            opacity: 0.2; /* Adjust this value between 0 (completely transparent) and 1 (fully opaque) */
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('img/background.png'); /* A ghosted 1920x1200 picture that sits behind all the content */
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
         }
-
-        #specific-image-container {
-            position: relative;
+        table {
+            border-collapse: collapse;
             width: 100%;
+            height: 100vh;
+            border: none;
         }
-        #specific-image {
-            display: block;
-            width: 100%;
-            height: auto;
+        td {
+            text-align: center;
+            width: 20%;
         }
-        #specific-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            white-space: nowrap;
-            color: black;
-
+        td:nth-child(2) {
+            width: 60%;
+        }
+        .checkbox-container {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        tr:first-child {
+            background-color: rgba(0, 0, 0, 0.1); /* 10% opacity black */
+        }
+        input[type="checkbox"] {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        input[type="checkbox"]:checked {
+            background-color: red;
+        }
+        tr:last-child {
+            height: 100%;
+            vertical-align: top;
         }
     </style>
-
 
     <script>
         window.onload = function() {
@@ -39,157 +61,117 @@
             }
         };
     </script>
-
-<script src="https://jaseman125.github.io/jquery.js" onload="$(function(){
-$('#jasemanpodcast').load('podcast-playlist.html');
-});"></script>
-
 </head>
-<body style="margin: 0; padding: 0; border: 0;">
+    
+<body>
 
-<table align="center" cellpadding="0" cellspacing="0">
-<tr>
-<td bgcolor="#eeeedd" width="20%" align="center" valign="top">
+<table>
+    <tr>
+        <td>
+            <div class="checkbox-container">
+                <input type="checkbox" name="col1" checked onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+                <input type="checkbox" name="col1" onclick="toggleCheckboxes(this, 'col1')">
+            </div>
+        </td>
+        <td>
+            <div class="checkbox-container">
+                <input type="checkbox" name="col2" checked onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+                <input type="checkbox" name="col2" onclick="toggleCheckboxes(this, 'col2')">
+            </div>
+        </td>
+        <td>
+            <div class="checkbox-container">
+                <input type="checkbox" name="col3" checked onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+                <input type="checkbox" name="col3" onclick="toggleCheckboxes(this, 'col3')">
+            </div>
+        </td>
+    </tr>
+    <tr>
 
-<div id="specific-image-container">
-<img src="https://jaseman125.github.io/photo-album/house.jpg" id="specific-image" class="transparent-image">
-<div id="specific-text">
-<p style="font-family: sans-serif; font-weight: bold; font-size: 20px;margin-top: -20px; margin-bottom: 0px;">This is the personal website of</p>
-<a href="https://www.facebook.com/jason.a.davies" target="_new" style="text-decoration: none; color: black;"><p style="font-family: sans-serif; font-weight: bold; font-size: 28px;margin-top: 0px; margin-bottom: 0px;">Jason Andrew Davies</p></a>
-<p style="font-family: sans-serif; font-weight: bold; font-size: 20px;margin-top: 0px; margin-bottom: 0px;">also known as</p>
-<p style="font-family: sans-serif; font-weight: bold; font-size: 30px;margin-top: 0px; margin-bottom: 0px;">'Jaseman'</p>
-<br><br><br>
-</div></div>
-
-<div id="specific-image-container">
-<img src="https://jaseman125.github.io/photo-album/100-photos/2015-marco-island1.jpg" id="specific-image" class="transparent-image">
-<div id="specific-text">
-<iframe src="https://jaseman125.github.io/clock.html" width="380" height="229" style="border: none; margin: 0; padding: 0; display: block; opacity: 0.2; margin-top: -336px;"></iframe>
-</div></div>
-
-<div id="specific-image-container">
-<img src="https://jaseman125.github.io/photo-album/20190908_173050-audi-tt-and-a4-rear-chocks-away-car-park-hawarden-airport.jpg" id="specific-image" class="transparent-image">
-<div id="specific-text">
-<p style="font-family: sans-serif; font-weight: bold; font-size: 18px;margin-top: -290px; margin-bottom: 20px;">Here at <a href="https://jaseman.com" style="text-decoration: none; color: #880000;">JASEMAN.COM</a> I share my</p>
-<p style="font-family: sans-serif; font-weight: bold; font-size: 18px;margin-top: 0px; margin-bottom: 20px;">passion for <a href="https://jaseman125.github.io/lego/lego-wide.html" style="text-decoration: none; color: #880000;">LEGO</a>, <a href="https://jaseman125.github.io/music/music-wide.html" style="text-decoration: none; color: #880000;">Music</a> and <a href="https://jaseman125.github.io/movies/movies-wide.html" style="text-decoration: none; color: #880000;">Movies</a>.</p>
-<p style="font-family: sans-serif; font-weight: bold; font-size: 18px;margin-top: 0px; margin-bottom: 20px;">You can also watch my <a href="https://www.youtube.com/watch?v=Es8wrl7Yq8Q&list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-&pp=gAQB" target="_new" style="text-decoration: none; color: #880000;">Podcast Videos</a></p>
-<p style="font-family: sans-serif; font-weight: bold; font-size: 18px;margin-top: 0px; margin-bottom: 20px;">and see my <a href="https://jaseman125.github.io/photo-album/photos-wide.html" style="text-decoration: none; color: #880000;">Photo Albums</a> and <a href="https://jaseman125.github.io/pictures/pictures-wide.html" style="text-decoration: none; color: #880000;">Pictures</a>.</p>
-</div></div>
-
-<div id="specific-image-container">
-<img src="https://jaseman125.github.io/photo-album/2023-jaseburner-at-the-flash.jpg" id="specific-image" class="transparent-image">
-<div id="specific-text">
-<p style="font-family: sans-serif; font-weight: bold; font-size: 18px;margin-top: 0px; margin-bottom: 20px;">Along the top of this page you can use</p>
-<p style="font-family: sans-serif; font-weight: bold; font-size: 18px;margin-top: 0px; margin-bottom: 20px;">the icons to access my website pages as</p>
-<p style="font-family: sans-serif; font-weight: bold; font-size: 18px;margin-top: 0px; margin-bottom: 20px;">well as my social media pages, etc.</p>
-
-<p style="font-family: sans-serif; font-weight: bold; font-size: 18px;margin-top: 0px; margin-bottom: 20px;">There is more content to be found by</p>
-<p style="font-family: sans-serif; font-weight: bold; font-size: 18px;margin-top: 0px; margin-bottom: 20px;">using the links on sub-pages</p>
-<p style="font-family: sans-serif; font-weight: bold; font-size: 18px;margin-top: 0px; margin-bottom: 20px;">and browsing the folders.</p>
-</div></div>
         
-<p style="font-family: sans-serif; text-decoration: none; color: black; font-size: 10px; margin-left: 6px;" align="center">If you are viewing this site from a phone, some content won't be available</p>
-<p style="font-family: sans-serif; text-decoration: none; color: black; font-size: 10px; margin-left: 6px;" align="center">For the best experience, use a PC with 1920 pixels screen width (MAXIMIZED!).</p>
-<p style="font-family: sans-serif; text-decoration: none; color: black; font-size: 10px; margin-left: 6px;" align="center">I only test the layout and appearance for MS Edge and Chrome browsers.</p>
-<p style="font-family: sans-serif; text-decoration: none; color: black; font-size: 10px; margin-left: 6px;" align="center">Browsers such as Safari, Firefox or Opera may have unexpected results.</p>
-        
+<td id="col1-content" style="vertical-align: top;">
+<iframe src='homepage-left-sidebar.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>
 </td>
 
-<td align="center" width="60%" valign="top">
-<img src="img/jaseman-header.png" width="98%" style="margin-top: 10px; margin-bottom: 10px;">
 
-<a href="https://jaseman.com"><img src="img/home.png" width="5%"></a><img src="img/1x1whitepixel.png" width="0.2%">
-<a href="https://jaseman125.github.io/lego/lego-wide.html"><img src="img/lego.png" width="4%"></a><img src="img/1x1whitepixel.png" width="0.2%">
-<a href="https://jaseman125.github.io/music/music-wide.html"><img src="img/music.png" width="5%"></a><img src="img/1x1whitepixel.png" width="0.2%">
-<a href="https://jaseman125.github.io/movies/movies-wide.html"><img src="img/movies.png" width="5%"></a><img src="img/1x1whitepixel.png" width="0.2%">
-<a href="https://jaseman125.github.io/photo-album/photos-wide.html"><img src="img/photos.png" width="5%"></a><img src="img/1x1whitepixel.png" width="0.2%">
-<a href="https://jaseman125.github.io/pictures/pictures-wide.html"><img src="img/pictures.png" width="5%"></a><img src="img/1x1whitepixel.png" width="0.2%">
-<a href="https://jaseman125.github.io/software/software-wide.html"><img src="img/software.png" width="5%"></a><img src="img/1x1whitepixel.png" width="0.2%">
-
-<a target="_new" href="https://www.youtube.com/watch?v=UHyjyfxARMQ&list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-&pp=gAQBiAQB"><img src="img/podcast.png" width="4%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="0.2%">
-<a target="_new" href="https://jaseman125.podbean.com/"><img src="img/podbean.png" width="4%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="0.2%">
-<a target="_new" href="https://www.smule.com/jaseman125"><img src="img/smule.png" width="4%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="0.2%">
-<a target="_new" href="https://www.flickr.com/photos/91786940@N05/"><img src="img/flickr.png" width="4%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="0.2%">
-<a target="_new" href="https://uk.pinterest.com/jaseman125/"><img src="img/pinterest.png" width="4%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="0.2%">
-<a target="_new" href="https://www.ebay.co.uk/usr/jaseman125"><img src="img/ebay.png" width="4%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="0.2%">
-<a target="_new" href="https://www.bricklink.com/aboutMe.asp?u=jaseman125"><img src="img/bricklink.png" width="4%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="0.2%">
-<a target="_new" href="https://www.linkedin.com/in/jason-davies-30474364/"><img src="img/linkedin.png" width="4%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="0.2%">
-<a target="_new" href="https://x.com/jaseman125"><img src="img/x.png" width="4%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="0.2%">
-<a target="_new" href="https://www.instagram.com/jasonandrewdavies/"><img src="img/instagram.png" width="4%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="0.2%">
-<a target="_new" href="https://www.facebook.com/jason.a.davies"><img src="img/facebook.png" width="4%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="0.2%">
-<a target="_new" href="https://www.youtube.com/@jaseman"><img src="img/youtube.png" width="4%" border="0"></a>
         
-<table cellpadding="0" cellspacing="0" border="0" width="98%"><tr><td><div align="center" id="jasemanpodcast"</div></td></tr></table>
-
-<img src="img/jaseman-header-bg.png" width="98%" style="margin-top: 60px; margin-bottom: 8px;">
-
+<td id="col2-content" style="vertical-align: top;">
+<iframe src='homepage-centre-column.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>
 </td>
 
-<td bgcolor="#eeeedd" width="20%" align="center" valign="top">
 
-<div id="specific-image-container">
-<img src="https://jaseman125.github.io/photo-album/100-photos/20200522-jaseman-com-hat.jpg" id="specific-image" class="transparent-image">
-<div id="specific-text">
-<a target="_new" href="https://jaseman.com"><img src="img/stoneheading.png" width="100%" style="margin-top: 6px; margin-bottom: 20px;"></a><p>
-        
-<p style="font-family: sans-serif; font-weight: bold; font-size: 36px; margin-top: 0px; margin-bottom: 10px;">Browsable Folders:</p>
 
-<table cellspacing="0" cellpadding="10" border="0">
-<tr style="background-color: rgba(0, 0, 0, 0.3);">
-<td align="center" width="50%"><a href="https://github.com/Jaseman125?tab=repositories" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 18px;"><p style="margin-top: -6px; margin-bottom: -10px;">JASEMAN.COM</a></p></td>
-<td align="center" width="50%"><a href="http://jaseman.co.uk" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 18px;"><p style="margin-top: -6px; margin-bottom: -10px;">JASEMAN.CO.UK</a></p></td>
-</tr>
- <tr style="background-color: rgba(0, 0, 0, 0.2);">
-<td align="center"><p style="font-family: sans-serif; margin-top: -6px; font-size: 12px; margin-bottom: -10px;">Jaseman125.github.io</a></p></td>
-<td align="center"><p style="font-family: sans-serif; margin-top: -6px; font-size: 12px; margin-bottom: -10px;">JASEMANCOM</a></p></td>
-</tr>
-<tr style="background-color: rgba(0, 0, 0, 0.1);">
-<td valign="top" align="center" valign="top">
-<a href="https://github.com/Jaseman125/jaseman125.github.io/tree/main" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-top: -3px; margin-bottom: 28px;">Main</a></p>
-<a href="https://github.com/Jaseman125/lego/tree/main" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: 28px;">LEGO</a></p>
-<a href="https://github.com/Jaseman125/music/tree/main" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: 28px;">Music</a></p>
-<a href="https://github.com/Jaseman125/movies/tree/main" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: 28px;">Movies</a></p>
-<a href="https://github.com/Jaseman125/photo-album/tree/main" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: 28px;">Photo Album</a></p>
-<a href="https://github.com/Jaseman125/pictures/tree/main" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: 28px;">Pictures</a></p>
-<a href="https://github.com/Jaseman125/software/tree/main" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: -2px;">Software</a></p>
+<td id="col3-content" style="vertical-align: top;">
+<iframe src='homepage-right-sidebar.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>    
 </td>
-
-<td valign="top" align="center" valign="top">
-
-<a href="http://jaseman.co.uk/lego/Bricklink%20Studio%20Files/" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-top: -3px; margin-bottom: 28px;">Bricklink Studio Files</a></p>
-<a href="http://jaseman.co.uk/lego" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: 28px;">LEGO</a></p>
-<a href="http://jaseman.co.uk/car-music" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: 28px;">Car Music</a></p>
-<a href="http://jaseman.co.uk/podcast" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: 28px;">Podcast</a></p>
-<a href="http://jaseman.co.uk/photo-album" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: 28px;">Photo Album</a></p>
-<a href="http://jaseman.co.uk/pictures" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: 28px;">Pictures</a></p>
-<a href="http://jaseman.co.uk/software" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: -2px;">Software</a></p></td>
 </tr>
 </table>
 
-</div></div>
-
-<iframe src="https://calendar.google.com/calendar/embed?src=ac61d573f2bcbb1fd36dcdf82de63fe9b4874347f95a3149e82ecbff9ed6e74e%40group.calendar.google.com&ctz=Europe%2FLondon" style="border: 0" width="100%" height="320" frameborder="0" scrolling="no"></iframe>
-
-<a class="weatherwidget-io" href="https://forecast7.com/en/53d09n2d98/gresford/" data-label_1="GRESFORD" data-label_2="WEATHER" data-theme="original" >GRESFORD WEATHER</a>
 <script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+function toggleCheckboxes(clickedCheckbox, columnName) {
+    let checkboxes = document.getElementsByName(columnName);
+    checkboxes.forEach(cb => cb.checked = false);
+    clickedCheckbox.checked = true;
+
+    updateContent(columnName, clickedCheckbox);
+}
+
+function updateContent(columnName, clickedCheckbox) {
+    let content = {
+        col1: [
+            "<iframe src='homepage-left-sidebar.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>", 
+            "LEGO LEFT SIDEBAR", 
+            "MUSIC LEFT SIDEBAR",
+            "MOVIES LEFT SIDEBAR",
+            "PHOTO ALBUM LEFT SIDEBAR",
+            "PICTURES LEFT SIDEBAR",
+            "SOFTWARE LEFT SIDEBAR",
+            "OTHER LEFT SIDEBAR"
+        ],
+        col2: [
+            "<iframe src='homepage-centre-column.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>", 
+            "LEGO CENTRE COLUMN", 
+            "MUSIC CENTRE COLUMN",
+            "MOVIES CENTRE COLUMN",
+            "PHOTO ALBUM CENTRE COLUMN",
+            "PICTURES CENTRE COLUMN",
+            "SOFTWARE CENTRE COLUMN",
+            "OTHER CENTRE COLUMN"
+        ],
+        col3: [
+            "<iframe src='homepage-right-sidebar.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>", 
+            "LEGO RIGHT SIDEBAR", 
+            "MUSIC RIGHT SIDEBAR",
+            "MOVIES RIGHT SIDEBAR",
+            "PHOTO ALBUM RIGHT SIDEBAR",
+            "PICTURES RIGHT SIDEBAR",
+            "SOFTWARE RIGHT SIDEBAR",
+            "OTHER RIGHT SIDEBAR"
+        ]
+    };
+
+    let selectedIndex = Array.from(document.getElementsByName(columnName)).indexOf(clickedCheckbox);
+    document.getElementById(columnName + "-content").innerHTML = content[columnName][selectedIndex];
+}
 </script>
 
-</td>
-</tr>
-</table>
-        
 </body>
-        
 </html>
