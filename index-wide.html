@@ -110,21 +110,10 @@
 <td id="col1-content" style="vertical-align: top;">
 <iframe src='homepage-left-sidebar.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>
 </td>
-
-
         
-<td id="col2-content" style="vertical-align: top; position: relative;">
-    <!-- Always-present page selector -->
-    <iframe src='page-selector.html' width='100%' height='100' scrolling='no' style='border: none;'></iframe>
-
-    <!-- Dynamic content container -->
-    <div id="dynamic-content">
-        <iframe id="centreColumnIframe" src='homepage-centre-column.html' width='100%' height='787' scrolling='no' style='border: none;'></iframe>
-    </div>
+<td id="col2-content" style="vertical-align: top;">
+<iframe src='homepage-centre-sidebar.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>
 </td>
-
-
-
 
 <td id="col3-content" style="vertical-align: top;">
 <iframe src='homepage-right-sidebar.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>    
@@ -154,23 +143,16 @@ function updateContent(columnName, clickedCheckbox) {
             "OTHER LEFT SIDEBAR"
         ],
 
-function updateContent(columnName, clickedCheckbox) {
-    let content = {
         col2: [
-            'homepage-centre-column.html',
-            'lego/lego-centre-column.html',
-            'music/music-centre-column.html',
-            'movies/movies-centre-column.html',
-            'photo-album/photos-centre-column.html',
-            'pictures/pictures-centre-column.html',
-            'software/software-centre-column.html',
-            'other-centre-column.html'
-        ]
-    };
-
-    let selectedIndex = Array.from(document.getElementsByName(columnName)).indexOf(clickedCheckbox);
-    document.querySelector("#dynamic-content iframe").src = content[columnName][selectedIndex];
-}
+            "<iframe src='homepage-centre-column.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>", 
+            "<iframe src='lego/lego-centre-column.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>", 
+            "<iframe src='music/music-centre-column.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>",
+            "<iframe src='movies/movies-centre-column.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>",
+            "<iframe src='photo-album/photos-centre-column.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>",
+            "<iframe src='pictures/pictures-centre-column.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>",
+            "<iframe src='software/software-centre-column.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>",
+            "OTHER CENTRE COLUMN"
+        ],
 
         col3: [
             "<iframe src='homepage-right-sidebar.html' width='100%' height='887' scrolling='no' style='border: none; margin: 0; padding: 0; display: block;'></iframe>", 
