@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JASEMAN.COM Homepage Right Sidebar</title>
+<style>
+        .transparent-image {
+            opacity: 0.2; /* Adjust this value between 0 (completely transparent) and 1 (fully opaque) */
+        }
+
+        #specific-image-container {
+            position: relative;
+            width: 100%;
+        }
+        #specific-image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        #specific-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            color: black;
+
+        }
+    </style>
 </head>
 
 <body style="margin: 0; padding: 0; border: 0;">
 <center>
 
+<div id="specific-image-container">
+<img src="https://jaseman125.github.io/photo-album/100-photos/20200522-jaseman-com-hat.jpg" id="specific-image" class="transparent-image">
+<div id="specific-text">
 <a target="_new" href="https://jaseman.com"><img src="img/stoneheading.png" width="100%" style="margin-top: -0px; opacity: 1; margin-bottom: 20px;"></a><p>
         
 <p style="font-family: sans-serif; font-weight: bold; font-size: 36px; margin-top: 0px; margin-bottom: 10px;">Browsable Folders:</p>
@@ -44,6 +71,7 @@
 <a href="http://jaseman.co.uk/software" target="_new" style="font-family: sans-serif; font-weight: bold; text-decoration: none; color: black; font-size: 16px;"><p style="margin-bottom: -2px;">Software</a></p></td>
 </tr>
 </table>
+</div></div>
 
 <iframe src='https://calendar.google.com/calendar/embed?src=ac61d573f2bcbb1fd36dcdf82de63fe9b4874347f95a3149e82ecbff9ed6e74e%40group.calendar.google.com&ctz=Europe%2FLondon' style='border: 0; width: 100%; height: 366px; frameborder: 0; scrolling: no; filter: opacity(50%);margin-top: 0px;'></iframe>
 
