@@ -2,19 +2,26 @@
 <html>
 <head>
 <style>
-  select, button {
+  select {
     background-color: black;
     color: green;
     padding: 5px;
     border: 1px solid green;
   }
+
+  button {
+    background-color: gray;
+    color: black;
+    padding: 5px;
+    border: 1px solid black;
+  }
 </style>
 <script>
 function goToPage() {
-var selectedPage = document.getElementById("pageSelect").value;
-if (selectedPage) {
-window.open(selectedPage, "_blank"); // Opens in a new tab
-}
+  var selectedPage = document.getElementById("pageSelect").value;
+  if (selectedPage) {
+    window.open(selectedPage, "_blank"); // Opens in a new tab
+  }
 }
 </script>
 </head>
@@ -36,4 +43,5 @@ window.open(selectedPage, "_blank"); // Opens in a new tab
 
 <button onclick="goToPage()">Go</button>
 </body>
+  
 </html>
