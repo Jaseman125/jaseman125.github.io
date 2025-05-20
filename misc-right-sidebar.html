@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JASEMAN.COM Misc Right Sidebar</title>
+    <style>
+        #leftrightcontainer {
+            width: 98%;
+            margin: auto;
+            text-align: center;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            margin: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+        #counter {
+            font-size: 20px;
+            font-weight: bold;
+
+	#content {
+	padding: 0;
+    	margin: 0;
+    	font-size: 20px;
+    	width: 100%;
+	white-space: pre-line;
+    	border: none;
+    	outline: none;
+    	background: transparent;
+    	line-height: 1.0; /* Adjust as needed */
+	display: block; /* Ensures full-width usage */
+}
+	    
+    </style>
+</head>
+<body>
+
+<div id="leftrightcontainer">
+    <div class="buttons">
+        <button onclick="prevPage()">⬅️ Prev</button>
+        <span id="counter">0</span>
+        <button onclick="nextPage()">Next ➡️</button>
+    </div>
+<div id="content">
+THIS DIV IS NECESSARY - DO NOT DELETE IT!
+    </div>
+</div>
+
+<script>
+    let pages = [
+
+`
+?
+<center><p style='font-family: sans-serif; font-weight: bold; font-size: 18px; margin-top: -0px; margin-bottom: 16px;'>USE THE LEFT AND RIGHT ARROWS ABOVE TO BROWSE THE MISC PAGES</p></center>
+`,
+
+`Page 1`,
+
+`Page 2`,
+
+`Page 3`
+
+    ];
+    
+    let currentPage = 0;
+
+    function updateContent() {
+        document.getElementById("content").innerHTML = pages[currentPage];
+        document.getElementById("counter").innerText = currentPage;
+    }
+
+    function nextPage() {
+        if (currentPage < pages.length - 1) {
+            currentPage++;
+            updateContent();
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 0) {
+            currentPage--;
+            updateContent();
+        }
+    }
+
+    updateContent(); // Ensure the initial content is displayed correctly
+</script>
+
+
+</body>
+	
+</html>
