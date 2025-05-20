@@ -60,6 +60,15 @@
         }
     </style>
 
+<script>
+  window.onload = function() {
+    var iframes = document.getElementsByTagName("iframe");
+    for (var i = 0; i < iframes.length; i++) {
+      iframes[i].src = iframes[i].src + "?t=" + new Date().getTime();
+    }
+  };
+</script>
+
     <script>
         window.onload = function() {
             if (window.innerWidth < 1900) {
