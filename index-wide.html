@@ -13,16 +13,18 @@
     <style>
         body {
             margin: 0;
+            width: 1920px;
+	        height: 1080px;
+            background-color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: white;
             opacity: 0;
             transition: opacity 3s ease-in;
-            
+            transition: background-image 0.5s ease-in-out;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             overflow: hidden;
         }
         table {
@@ -38,6 +40,27 @@
         td:nth-child(2) {
             width: 60%;
         }
+
+.floating-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 3px; /* Minimal padding to keep it compact */
+    border-radius: 3px;
+    display: flex;
+    gap: 3px; /* Small gap between buttons */
+    transform: scale(0.5); /* Keeps the box small */
+}
+
+        .bkgdbutton {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        
         .checkbox-container {
             display: flex;
             justify-content: center;
@@ -82,6 +105,30 @@
 </head>
     
 <body>
+
+<div class="floating-box">
+    <button class="bkgdbutton" onclick="changeBackground(-1)">◀</button>
+    <button class="bkgdbutton" onclick="changeBackground(1)">▶</button>
+</div>
+
+<script>
+    const backgrounds = [
+        "url('img/backgrounds/1.png')",
+        "url('img/backgrounds/2.png')",
+        "url('img/backgrounds/3.png')",
+        "url('img/backgrounds/4.png')",
+        "url('img/backgrounds/5.png')"
+    ];
+
+    let currentIndex = 0;
+
+    function changeBackground(direction) {
+        currentIndex = (currentIndex + direction + backgrounds.length) % backgrounds.length;
+        document.body.style.backgroundImage = backgrounds[currentIndex];
+    }
+
+    document.body.style.backgroundImage = backgrounds[currentIndex]; // Set initial background
+</script>
 
 <table>
     <tr>
