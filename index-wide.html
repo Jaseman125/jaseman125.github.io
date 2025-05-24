@@ -17,6 +17,9 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: black;
+            opacity: 0;
+            transition: opacity 3s ease-in;
             background-image: url('img/background.png'); /* A ghosted 1920x1200 picture that sits behind all the content */
             background-size: cover;
             background-position: center;
@@ -184,6 +187,12 @@ function updateContent(columnName, clickedCheckbox) {
     let selectedIndex = Array.from(document.getElementsByName(columnName)).indexOf(clickedCheckbox);
     document.getElementById(columnName + "-content").innerHTML = content[columnName][selectedIndex];
 }
+</script>
+
+<script>
+window.onload = function() {
+document.body.style.opacity = 1;
+};
 </script>
 
 </body>
