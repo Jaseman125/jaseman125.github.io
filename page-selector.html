@@ -7,6 +7,9 @@
     color: #00FF00; /* Bright green text */
     padding: 5px;
     border: 1px solid green;
+
+  max-height: 300px; /* Adjust to show more options */
+  overflow-y: auto;
   }
 
   option {
@@ -41,7 +44,7 @@ function goToPage() {
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td align="left" width="530">
-<select id="pageSelect" size="25">
+<select id="pageSelect">
 <option value="">Select a page</option>
 <option value="https://jaseman.com">JASEMAN.COM</option>
 <option value="http://jaseman.co.uk">JASEMAN.CO.UK</option>
