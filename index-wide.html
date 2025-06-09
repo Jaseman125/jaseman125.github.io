@@ -244,6 +244,14 @@ function updateContent(columnName, clickedCheckbox) {
 <script>
 window.onload = function() {
 document.body.style.opacity = 1;
+
+           var screenWidth = window.innerWidth;
+            if (screenWidth > 3600) {
+                window.location.href = "scroll.html";
+            } else if (screenWidth < 1900) {
+                window.location.href = "index.html";
+            }
+
 };
 </script>
 
