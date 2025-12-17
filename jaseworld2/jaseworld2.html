@@ -10,8 +10,8 @@
     background: #000;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start; /* anchor to top */
+    min-height: 100vh;
   }
   #viewer {
     position: relative;
@@ -55,7 +55,7 @@
 
   /* Inventory strip */
   #inventory {
-    margin-top: 10px;
+    margin-top: 5vh;
     display: flex;
     gap: 10px;
     max-width: 90vw;
@@ -72,7 +72,7 @@
 
   /* Overlay buttons strip */
   #overlays {
-    margin-top: 10px;
+    margin-top: 3vh;
     display: flex;
     gap: 12px;
   }
