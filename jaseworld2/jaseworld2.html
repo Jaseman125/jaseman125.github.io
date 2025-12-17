@@ -31,13 +31,13 @@
   }
   #left { top: 40%; left: 10px; transform: translateY(-50%); }
   #right { top: 40%; right: 10px; transform: translateY(-50%); }
-  #up { top: 10px; left: 50%; transform: translateX(-50%); }
-  #down { bottom: 90px; left: 50%; transform: translateX(-50%); }
+  #up { top: 4px; left: 50%; transform: translateX(-50%); }     /* closer to top */
+  #down { bottom: 4px; left: 50%; transform: translateX(-50%); } /* closer to bottom */
 
   /* Inventory strip */
   #inventory {
     position: absolute;
-    bottom: 10px;
+    bottom: 40px; /* lifted to avoid clashing with down arrow */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -57,7 +57,7 @@
   /* Overlay buttons strip */
   #overlays {
     position: absolute;
-    bottom: 160px; /* moved higher above the down arrow */
+    bottom: 100px; /* sits comfortably above inventory */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -66,10 +66,10 @@
   #overlays a {
     background: rgba(0,0,0,0.7);
     color: white;
-    padding: 10px 16px; /* bigger padding for readability */
+    padding: 10px 16px;
     border-radius: 6px;
     text-decoration: none;
-    font-size: 18px; /* larger text for phone screens */
+    font-size: 18px;
     border: 2px solid white;
   }
 
