@@ -17,7 +17,6 @@
     background:white;           /* fade to white */
     color:black;                /* fade text to visible */
   }
-  /* Ensure embedded elements also fade in */
   iframe, div, span {
     opacity:0;
     transition: opacity 2s;
@@ -78,9 +77,7 @@
 <script>
   /* === FADE-IN BACKGROUND + FOREGROUND EFFECT: DO NOT REMOVE === */
   window.addEventListener("load", () => {
-    setTimeout(() => {
-      document.body.classList.add("visible");
-    }, 5000); // delay before fade-in
+    document.body.classList.add("visible"); // fade in immediately
   });
   /* === END FADE-IN EFFECT === */
 </script>
