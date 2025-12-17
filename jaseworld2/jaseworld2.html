@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaseworld 2</title>
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #viewer {
+    position: relative;
+  }
+  #viewer img {
+    max-width: 90vw;
+    max-height: 80vh; /* leave space for inventory */
+    display: block;
+  }
+  .arrow {
+    position: absolute;
+    font-size: 3em;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    text-shadow: 2px 2px 4px black;
+  }
+  #left { top: 40%; left: 10px; transform: translateY(-50%); }
+  #right { top: 40%; right: 10px; transform: translateY(-50%); }
+  #up { top: 10px; left: 50%; transform: translateX(-50%); }
+  #down { bottom: 90px; left: 50%; transform: translateX(-50%); }
+
+  /* Inventory strip */
+  #inventory {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    max-width: 90vw;
+    overflow-x: auto;
+    padding: 5px;
+  }
+  #inventory img {
+    width: 60px;
+    height: auto;
+    border: 2px solid white;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+
+  /* Overlay buttons strip */
+  #overlays {
+    position: absolute;
+    bottom: 160px; /* moved higher above the down arrow */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+  }
+  #overlays a {
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 10px 16px; /* bigger padding for readability */
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 18px; /* larger text for phone screens */
+    border: 2px solid white;
+  }
+
+  /* Responsive tweak for smaller screens */
+  @media (max-width: 600px) {
+    #overlays a {
+      font-size: 20px;
+      padding: 12px 18px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="viewer">
+  <img id="roomImage" src="mainfoyer_north.png" alt="Room view">
+  <div id="overlays"></div>
+  <div id="left" class="arrow">&#8592;</div>
+  <div id="right" class="arrow">&#8594;</div>
+  <div id="up" class="arrow">&#8593;</div>
+  <div id="down" class="arrow">&#8595;</div>
+  <div id="inventory"></div>
+</div>
+
+<script>
+  // Define rooms and their images + inventory + overlay links
+  const rooms = {
+    mainfoyer: {
+      north: "mainfoyer_north.png",
+      east: "mainfoyer_east.png",
+      south: "mainfoyer_south.png",
+      west: "mainfoyer_west.png",
+      doorways: { north:true, east:true, south:true, west:true },
+      nextRooms: { north:"musicroom1", east:"legoroom1", south:"movieroom1", west:"photoroom1" },
+      items: [],
+      links: [
+        { href:"https://www.youtube.com/@jaseman", label:"YouTube" },
+        { href:"https://www.bricklink.com/aboutMe.asp?u=jaseman125", label:"Bricklink" },
+        { href:"https://www.ebay.co.uk/usr/jaseman125", label:"eBay" }
+      ]
+    },
+    musicroom1: {
+      north: "musicroom1_north.png",
+      east: "musicroom1_east.png",
+      south: "musicroom1_south.png",
+      west: "musicroom1_west.png",
+      doorways: { south:true },
+      nextRooms: { south:"mainfoyer" },
+      items: [],
+      links: []
+    },
+    legoroom1: {
+      north: "legoroom1_north.png",
+      east: "legoroom1_east.png",
+      south: "legoroom1_south.png",
+      west: "legoroom1_west.png",
+      doorways: { west:true },
+      nextRooms: { west:"mainfoyer" },
+      items: [],
+      links: []
+    },
+    movieroom1: {
+      north: "movieroom1_north.png",
+      east: "movieroom1_east.png",
+      south: "movieroom1_south.png",
+      west: "movieroom1_west.png",
+      doorways: { north:true },
+      nextRooms: { north:"mainfoyer" },
+      items: [],
+      links: []
+    },
+    photoroom1: {
+      north: "photoroom1_north.png",
+      east: "photoroom1_east.png",
+      south: "photoroom1_south.png",
+      west: "photoroom1_west.png",
+      doorways: { east:true },
+      nextRooms: { east:"mainfoyer" },
+      items: [],
+      links: []
+    }
+  };
+
+  let currentRoom = "mainfoyer";
+  const directions = ["north","east","south","west"];
+  let currentDirIndex = 0;
+
+  const roomImage = document.getElementById("roomImage");
+  const leftArrow = document.getElementById("left");
+  const rightArrow = document.getElementById("right");
+  const upArrow = document.getElementById("up");
+  const downArrow = document.getElementById("down");
+  const inventoryDiv = document.getElementById("inventory");
+  const overlaysDiv = document.getElementById("overlays");
+
+  function updateView() {
+    const dir = directions[currentDirIndex];
+    roomImage.src = rooms[currentRoom][dir];
+    upArrow.style.display = rooms[currentRoom].doorways[dir] ? "block" : "none";
+    const oppositeDir = directions[(currentDirIndex + 2) % 4];
+    downArrow.style.display = rooms[currentRoom].doorways[oppositeDir] ? "block" : "none";
+    updateInventory();
+    updateOverlays();
+  }
+
+  function updateInventory() {
+    inventoryDiv.innerHTML = "";
+    const items = rooms[currentRoom].items.slice(0, 10);
+    items.forEach(item => {
+      const link = document.createElement("a");
+      link.href = item;
+      link.target = "_blank";
+      const img = document.createElement("img");
+      img.src = item;
+      link.appendChild(img);
+      inventoryDiv.appendChild(link);
+    });
+  }
+
+  function updateOverlays() {
+    overlaysDiv.innerHTML = "";
+    const links = rooms[currentRoom].links || [];
+    links.slice(0,3).forEach(link => {
+      const a = document.createElement("a");
+      a.href = link.href;
+      a.target = "_blank";
+      a.textContent = link.label;
+      overlaysDiv.appendChild(a);
+    });
+  }
+
+  function rotateLeft() {
+    currentDirIndex = (currentDirIndex + 3) % 4; // counter-clockwise
+    updateView();
+  }
+
+  function rotateRight() {
+    currentDirIndex = (currentDirIndex + 1) % 4; // clockwise
+    updateView();
+  }
+
+  function moveForward() {
+    const dirIndex = currentDirIndex;
+    const dir = directions[dirIndex];
+    const next = rooms[currentRoom].nextRooms[dir];
+    if (next) {
+      currentRoom = next;
+      currentDirIndex = dirIndex;
+      updateView();
+    }
+  }
+
+  function moveBackward() {
+    const dirIndex = currentDirIndex;
+    const oppositeDir = directions[(dirIndex + 2) % 4];
+    const next = rooms[currentRoom].nextRooms[oppositeDir];
+    if (next) {
+      currentRoom = next;
+      currentDirIndex = dirIndex;
+      updateView();
+    }
+  }
+
+  leftArrow.addEventListener("click", rotateLeft);
+  rightArrow.addEventListener("click", rotateRight);
+  upArrow.addEventListener("click", moveForward);
+  downArrow.addEventListener("click", moveBackward);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") rotateLeft();
+    else if (e.key === "ArrowRight") rotateRight();
+    else if (e.key === "ArrowUp") moveForward();
+    else if (e.key === "ArrowDown") moveBackward();
+  });
+
+  updateView();
+</script>
+
+</body>
+</html>
