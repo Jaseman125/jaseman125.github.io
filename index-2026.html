@@ -7,15 +7,16 @@
 <style>
   body { margin: 0; padding: 0; background: white; }
 
-  .content-wrapper {
-    display: inline-block;       /* shrink-wrap to content */
-    margin: auto;                /* center horizontally */
+  /* Wrap both header and video together */
+  .aligned-block {
+    display: inline-block;   /* shrink to fit content */
+    margin: auto;            /* center horizontally */
   }
 
   .video-container {
     position: relative;
-    width: 100%;                 /* match wrapper width */
-    padding-bottom: 56.25%;      /* 16:9 aspect ratio */
+    width: 100%;             /* match wrapper width */
+    padding-bottom: 56.25%;  /* 16:9 aspect ratio */
     height: 0;
   }
   .video-container iframe {
@@ -27,8 +28,8 @@
 </head>
 <body>
 
-<div class="content-wrapper">
-  <table cellspacing="16" style="border-spacing:2vw; margin:auto;">
+<div class="aligned-block">
+  <table cellspacing="16" style="border-spacing:2vw;">
     <tr>
       <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
         <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">J</span>
