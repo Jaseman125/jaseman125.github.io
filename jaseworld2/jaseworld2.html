@@ -18,7 +18,7 @@
   }
   #viewer img {
     max-width: 90vw;
-    max-height: 80vh; /* leave space for inventory */
+    max-height: 80vh;
     display: block;
   }
   .arrow {
@@ -31,13 +31,13 @@
   }
   #left { top: 40%; left: 10px; transform: translateY(-50%); }
   #right { top: 40%; right: 10px; transform: translateY(-50%); }
-  #up { top: 4px; left: 50%; transform: translateX(-50%); }     /* closer to top */
-  #down { bottom: 4px; left: 50%; transform: translateX(-50%); } /* closer to bottom */
+  #up { top: 0px; left: 50%; transform: translateX(-50%); }       /* flush to top */
+  #down { bottom: 0px; left: 50%; transform: translateX(-50%); }  /* flush to bottom */
 
   /* Inventory strip */
   #inventory {
     position: absolute;
-    bottom: 40px; /* lifted to avoid clashing with down arrow */
+    bottom: 48px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -57,7 +57,7 @@
   /* Overlay buttons strip */
   #overlays {
     position: absolute;
-    bottom: 100px; /* sits comfortably above inventory */
+    bottom: 108px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -73,7 +73,6 @@
     border: 2px solid white;
   }
 
-  /* Responsive tweak for smaller screens */
   @media (max-width: 600px) {
     #overlays a {
       font-size: 20px;
@@ -95,7 +94,6 @@
 </div>
 
 <script>
-  // Define rooms and their images + inventory + overlay links
   const rooms = {
     mainfoyer: {
       north: "mainfoyer_north.png",
@@ -202,33 +200,29 @@
   }
 
   function rotateLeft() {
-    currentDirIndex = (currentDirIndex + 3) % 4; // counter-clockwise
+    currentDirIndex = (currentDirIndex + 3) % 4;
     updateView();
   }
 
   function rotateRight() {
-    currentDirIndex = (currentDirIndex + 1) % 4; // clockwise
+    currentDirIndex = (currentDirIndex + 1) % 4;
     updateView();
   }
 
   function moveForward() {
-    const dirIndex = currentDirIndex;
-    const dir = directions[dirIndex];
+    const dir = directions[currentDirIndex];
     const next = rooms[currentRoom].nextRooms[dir];
     if (next) {
       currentRoom = next;
-      currentDirIndex = dirIndex;
       updateView();
     }
   }
 
   function moveBackward() {
-    const dirIndex = currentDirIndex;
-    const oppositeDir = directions[(dirIndex + 2) % 4];
+    const oppositeDir = directions[(currentDirIndex + 2) % 4];
     const next = rooms[currentRoom].nextRooms[oppositeDir];
     if (next) {
       currentRoom = next;
-      currentDirIndex = dirIndex;
       updateView();
     }
   }
