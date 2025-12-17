@@ -4,12 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JASEMAN.COM</title>
+<style>
+  /* === FADE-IN EFFECT: DO NOT REMOVE === */
+  body {
+    margin:0;
+    padding:0;
+    background:white;
+    opacity:0;                /* start invisible */
+    transition: opacity 2s;   /* fade duration */
+  }
+  body.visible {
+    opacity:1;                /* fade to visible */
+  }
+  /* === END FADE-IN EFFECT === */
+</style>
 </head>
-<body style="margin:0; padding:0; background:white;">
+<body>
 
 <div style="width:calc(7 * 12vw + 6 * 2vw); margin:0 auto;">
 
-  <!-- Header row with vertical gap above -->
+  <!-- Header row -->
   <div style="display:flex; gap:2vw; justify-content:center; margin-top:2vw;">
     <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
       <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">J</span>
@@ -34,21 +48,31 @@
     </div>
   </div>
 
-  <!-- Video exactly matches header width -->
+  <!-- Video -->
   <div style="position:relative; width:100%; padding-bottom:56.25%; margin-top:2vw;">
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-"
             style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
             frameborder="0" allowfullscreen></iframe>
   </div>
 
-  <!-- Frame under the YouTube playlist -->
-  <div style="position:relative; width:100%; height:60vh; margin-top:2vw;">
+  <!-- Frame -->
+  <div style="position:relative; width:100%; height:65vh; margin-top:2vw;">
     <iframe src="jaseworld2/jaseworld2.html"
             style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
             frameborder="0"></iframe>
   </div>
 
 </div>
+
+<script>
+  /* === FADE-IN EFFECT: DO NOT REMOVE === */
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.body.classList.add("visible");
+    }, 5000); // delay before fade-in
+  });
+  /* === END FADE-IN EFFECT === */
+</script>
 
 </body>
 </html>
