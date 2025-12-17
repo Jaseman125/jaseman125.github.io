@@ -15,31 +15,47 @@
   }
   #viewer {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  #viewer img {
+
+  .arrow {
+    font-size: 3em;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    text-shadow: 2px 2px 4px black;
+    margin: 4px 0;
+  }
+
+  #imageContainer {
+    position: relative;
+  }
+
+  #roomImage {
     max-width: 90vw;
     max-height: 80vh;
     display: block;
   }
-  .arrow {
+
+  #left, #right {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 3em;
     color: white;
     cursor: pointer;
     user-select: none;
     text-shadow: 2px 2px 4px black;
   }
-  #left { top: 40%; left: 10px; transform: translateY(-50%); }
-  #right { top: 40%; right: 10px; transform: translateY(-50%); }
-  #up { top: 0px; left: 50%; transform: translateX(-50%); }       /* flush to top */
-  #down { bottom: 0px; left: 50%; transform: translateX(-50%); }  /* flush to bottom */
+
+  #left { left: 10px; }
+  #right { right: 10px; }
 
   /* Inventory strip */
   #inventory {
-    position: absolute;
-    bottom: 48px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 10px;
     display: flex;
     gap: 10px;
     max-width: 90vw;
@@ -56,10 +72,7 @@
 
   /* Overlay buttons strip */
   #overlays {
-    position: absolute;
-    bottom: 108px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 10px;
     display: flex;
     gap: 12px;
   }
@@ -84,12 +97,16 @@
 <body>
 
 <div id="viewer">
-  <img id="roomImage" src="mainfoyer_north.png" alt="Room view">
-  <div id="overlays"></div>
-  <div id="left" class="arrow">&#8592;</div>
-  <div id="right" class="arrow">&#8594;</div>
   <div id="up" class="arrow">&#8593;</div>
+
+  <div id="imageContainer">
+    <img id="roomImage" src="mainfoyer_north.png" alt="Room view">
+    <div id="left" class="arrow">&#8592;</div>
+    <div id="right" class="arrow">&#8594;</div>
+  </div>
+
   <div id="down" class="arrow">&#8595;</div>
+  <div id="overlays"></div>
   <div id="inventory"></div>
 </div>
 
