@@ -4,48 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JASEMAN.COM</title>
-<style>
-  body { margin: 0; padding: 0; background: white; }
-  .video-container { position: relative; height: 0; padding-bottom: 56.25%; }
-  .video-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-</style>
 </head>
-<body>
+<body style="margin:0; padding:0; background:white;">
 
-<!-- Shared width via CSS variables: cell size + gap produce identical width for header and video -->
-<div style="--cell:12vw; --gap:2vw; width: calc(7 * var(--cell) + 6 * var(--gap)); margin: 0 auto;">
+<div style="width:calc(7 * 12vw + 6 * 2vw); margin:0 auto;">
 
-  <!-- Remove deprecated align/cellspacing; use border-spacing only -->
-  <table style="border-spacing: var(--gap); margin: 0 auto;">
-    <tr>
-      <td style="background:#0000AA; width:var(--cell); height:var(--cell); text-align:center; vertical-align:middle;">
-        <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">J</span>
-      </td>
-      <td style="background:#0000AA; width:var(--cell); height:var(--cell); text-align:center; vertical-align:middle;">
-        <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
-      </td>
-      <td style="background:#0000AA; width:var(--cell); height:var(--cell); text-align:center; vertical-align:middle;">
-        <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">S</span>
-      </td>
-      <td style="background:#0000AA; width:var(--cell); height:var(--cell); text-align:center; vertical-align:middle;">
-        <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">E</span>
-      </td>
-      <td style="background:#0000AA; width:var(--cell); height:var(--cell); text-align:center; vertical-align:middle;">
-        <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">M</span>
-      </td>
-      <td style="background:#0000AA; width:var(--cell); height:var(--cell); text-align:center; vertical-align:middle;">
-        <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
-      </td>
-      <td style="background:#0000AA; width:var(--cell); height:var(--cell); text-align:center; vertical-align:middle;">
-        <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">N</span>
-      </td>
-    </tr>
-  </table>
-
-  <!-- Video matches exact computed width of header -->
-  <div class="video-container" style="width: 100%; margin-top: var(--gap);">
-    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
+  <!-- Header row with vertical gap above -->
+  <div style="display:flex; gap:2vw; justify-content:center; margin-top:2vw;">
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">J</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">S</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">E</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">M</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">N</span>
+    </div>
   </div>
+
+  <!-- Video exactly matches header width -->
+  <div style="position:relative; width:100%; padding-bottom:56.25%; margin-top:2vw;">
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-"
+            style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
+            frameborder="0" allowfullscreen></iframe>
+  </div>
+
 </div>
 
 </body>
