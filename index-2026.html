@@ -5,8 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JASEMAN.COM</title>
 <style>
-    /* Keep final page background white */
-    body { margin: 0; padding: 0; border: 0; background: white; }
+    body { margin: 0; padding: 0; background: white; }
+
+    /* Shared wrapper to control width */
+    .content-wrapper {
+        max-width: 90vw;   /* same width for header + video */
+        margin: auto;
+    }
 
     .video-container {
         position: relative;
@@ -25,59 +30,39 @@
 </head>
 <body>
 
-<!-- Black overlay that fades away over 5s -->
-<div id="fade-overlay" style="
-  position: fixed;
-  inset: 0;
-  background: black;
-  opacity: 1;
-  transition: opacity 5s ease;
-  pointer-events: none;
-  z-index: 9999;
-"></div>
+<div class="content-wrapper">
+  <table align="center" cellspacing="16" style="border-spacing:2vw; width:100%;">
+    <tr>
+      <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
+        <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">J</span>
+      </td>
+      <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
+        <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">A</span>
+      </td>
+      <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
+        <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">S</span>
+      </td>
+      <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
+        <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">E</span>
+      </td>
+      <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
+        <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">M</span>
+      </td>
+      <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
+        <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">A</span>
+      </td>
+      <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
+        <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">N</span>
+      </td>
+    </tr>
+  </table>
 
-<table align="center" cellspacing="16" style="border-spacing:2vw; margin:auto;">
-  <tr>
-    <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
-      <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">J</span>
-    </td>
-    <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
-      <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">A</span>
-    </td>
-    <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
-      <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">S</span>
-    </td>
-    <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
-      <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">E</span>
-    </td>
-    <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
-      <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">M</span>
-    </td>
-    <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
-      <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">A</span>
-    </td>
-    <td style="background:#0000AA; width:12vw; height:12vw; text-align:center; vertical-align:middle;">
-      <span style="font-size:10vw; color:white; font-family:sans-serif; font-weight:bold;">N</span>
-    </td>
-  </tr>
-</table>
-
-<div class="video-container">
-  <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-"
-          style="border: none; margin: 0; padding: 0; display: block;"
-          frameborder="0" allowfullscreen></iframe>
+  <div class="video-container" style="margin-top:2vw;">
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" 
+            style="border:none; margin:0; padding:0; display:block;" 
+            frameborder="0" allowfullscreen></iframe>
+  </div>
 </div>
-
-<script>
-  // Trigger the fade from black on load, then remove the overlay
-  window.addEventListener('load', function () {
-    var overlay = document.getElementById('fade-overlay');
-    overlay.style.opacity = '0';
-    setTimeout(function () {
-      if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
-    }, 5200);
-  });
-</script>
 
 </body>
 </html>
