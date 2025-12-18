@@ -75,6 +75,8 @@
     margin-top: 3vh;
     display: flex;
     gap: 4px; /* reduced gap */
+    flex-wrap: wrap;
+    justify-content: center;
   }
   #overlays a {
     background: rgba(0,0,0,0.7);
@@ -161,7 +163,9 @@
       doorways: { north:true },
       nextRooms: { north:"mainfoyer" },
       items: [],
-      links: []
+      links: [
+        { href:"https://www.youtube.com/watch?v=aKqWEi68gME&list=PLGnmo4N_SmKKdoqJGkQhpH0ngal5_bdvS", label:"Trailers" }
+      ]
     },
     photoroom1: {
       north: "photoroom1_north.png",
@@ -171,7 +175,9 @@
       doorways: { east:true },
       nextRooms: { east:"mainfoyer" },
       items: [],
-      links: []
+      links: [
+        { href:"https://youtu.be/NifPw1cM2W0?si=VBL_yio4ONlRjMBV", label:"Slideshow" }
+      ]
     }
   };
 
@@ -250,6 +256,7 @@
     const next = rooms[currentRoom].nextRooms[dir];
     if (next) {
       currentRoom = next;
+      currentDirIndex = 2; // face back toward where you came from
       updateView();
     }
   }
@@ -260,6 +267,7 @@
     const next = rooms[currentRoom].nextRooms[oppositeDir];
     if (next) {
       currentRoom = next;
+      currentDirIndex = 0; // optional: reset orientation when returning
       updateView();
     }
   }
