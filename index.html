@@ -1,131 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JASEMAN.COM (phone version)</title>
-
+<title>JASEMAN.COM</title>
 <style>
-        .transparent-image {
-            opacity: 0.2; /* Adjust this value between 0 (completely transparent) and 1 (fully opaque) */
-        }
+  /* === FADE-IN BACKGROUND + FOREGROUND EFFECT: DO NOT REMOVE === */
+  body {
+    margin:0;
+    padding:0;
+    background:black;           
+    color:transparent;          
+    transition: background 2s, color 2s; 
+  }
+  body.visible {
+    background:white;           
+    color:black;                
+  }
+  iframe, div, span {
+    opacity:0;
+    transition: opacity 2s;
+  }
+  body.visible iframe,
+  body.visible div,
+  body.visible span {
+    opacity:1;
+  }
+  /* === END FADE-IN EFFECT === */
+</style>
+</head>
+<body>
 
-        #specific-image-container {
-            position: relative;
-            width: 100%;
-        }
-        #specific-image {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-        #specific-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            white-space: nowrap;
-            color: black;
+<div style="width:calc(7 * 12vw + 6 * 2vw); margin:0 auto;">
 
-        }
-    </style>
+  <!-- Header row -->
+  <div style="display:flex; gap:2vw; justify-content:center; margin-top:2vw;">
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">J</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">S</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">E</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">M</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
+    </div>
+    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">N</span>
+    </div>
+  </div>
+
+  <!-- Video -->
+  <div style="position:relative; width:100%; padding-bottom:56.25%; margin-top:2vw;">
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-"
+            style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
+            frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <!-- Frame -->
+  <div style="position:relative; width:100%; height:58vh; margin-top:2vw;">
+    <iframe src="jaseworld2/jaseworld2.html"
+            style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
+            frameborder="0"></iframe>
+  </div>
+
+</div>
 
 <script>
- window.onload = function () {
-            var screenWidth = window.innerWidth;
-            if (screenWidth > 3600) {
-                window.location.href = "scroll.html";
-            } else if (screenWidth > 1900) {
-                window.location.href = "index-wide.html";
-            }
-        };
+  /* === FADE-IN BACKGROUND + FOREGROUND EFFECT: DO NOT REMOVE === */
+  window.addEventListener("load", () => {
+    document.body.classList.add("visible"); // fade in immediately
+  });
+  /* === END FADE-IN EFFECT === */
 </script>
 
-</head>
-
-<body>
-<center>
-<img src="img/jaseman-header.png" width="95%">
-<br><br>
-
-<a href="https://jaseman125.github.io/lego/lego.html"><img src="img/lego.png" width="22%"></a><img src="img/1x1whitepixel.png" width="9%">
-<a href="https://jaseman125.github.io/music/music.html"><img src="img/music.png" width="26%"></a><img src="img/1x1whitepixel.png" width="5%">
-<a href="https://jaseman125.github.io/movies/movies.html"><img src="img/movies.png" width="26%"></a>
-
-<p><br>
-
-<a href="https://jaseman125.github.io/photo-album/photos.html"><img src="img/photos.png" width="26%"></a><img src="img/1x1whitepixel.png" width="5%">
-<a href="https://jaseman125.github.io/pictures/pictures.html"><img src="img/pictures.png" width="26%"></a><img src="img/1x1whitepixel.png" width="5%">
-<a href="https://jaseman125.github.io/software/software.html"><img src="img/software.png" width="26%"></a>
-
-<br>
-<center><iframe width="94%" height="300" src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" frameborder="0" allowfullscreen></iframe></center>
-<br><br>
-
-<center>
-<p style='font-family: sans-serif; font-weight: bold; font-size: 38px; margin-top: 10px; margin-bottom: 10px; color: red; text-shadow: 2px 2px 4px black;'>PLEASE NOTE:<br>I'm leaving<br>Facebook<br>at the end of 2025</p>
-</center>
-
-<br><br>
-<a target="_new" href="https://www.youtube.com/watch?v=Es8wrl7Yq8Q&list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-&pp=gAQB"><img src="img/podcast.png" width="16%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="5%">
-<a target="_new" href="https://www.smule.com/jaseman125"><img src="img/smule.png" width="16%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="5%">
-<a target="_new" href="https://www.ebay.co.uk/usr/jaseman125"><img src="img/ebay.png" width="16%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="5%">
-<a target="_new" href="https://www.bricklink.com/aboutMe.asp?u=jaseman125"><img src="img/bricklink.png" width="16%" border="0"></a>
-<br><br>
-
-<a target="_new" href="https://www.linkedin.com/in/jason-davies-30474364/"><img src="img/linkedin.png" width="16%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="5%">
-<a target="_new" href="https://www.facebook.com/jason.a.davies"><img src="img/facebook.png" width="16%" border="0"></a>
-<img src="img/1x1whitepixel.png" width="5%">
-<a target="_new" href="https://www.youtube.com/@jaseman"><img src="img/youtube.png" width="16%" border="0"></a>
-
-<br><br><br><br>
-
-<p style="font-family: sans-serif; font-weight: bold; font-size: 36px;margin-top: -15px; margin-bottom: 17px;">Browsable Folders:</p>
-
-<a href="https://github.com/Jaseman125?tab=repositories" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 36px;"><p style="margin-bottom: 14px;">Github<br>
-Repositories</a></p>
-<a href="https://github.com/Jaseman125/jaseman125.github.io/tree/main" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 14px;">Main (Jaseman125.github.io)</a></p>
-<a href="https://github.com/Jaseman125/lego/tree/main" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">LEGO</a></p>
-<a href="https://github.com/Jaseman125/music/tree/main" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">Music</a></p>
-<a href="https://github.com/Jaseman125/movies/tree/main" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">Movies</a></p>
-<a href="https://github.com/Jaseman125/photo-album/tree/main" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">Photo Album</a></p>
-<a href="https://github.com/Jaseman125/pictures/tree/main" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">Pictures</a></p>
-<a href="https://github.com/Jaseman125/software/tree/main" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">Software</a></p>
-<br><br>
-
-<a href="http://jaseman.co.uk" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 36px;">JASEMAN.CO.UK</a></p>
-<a href="http://jaseman.co.uk/lego" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">LEGO</a></p>
-<a href="http://jaseman.co.uk/lego/Bricklink%20Studio%20Files/" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">Bricklink Studio Files</a></p>
-<a href="http://jaseman.co.uk/car-music" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">Car Music</a></p>
-<a href="http://jaseman.co.uk/podcast" target="_new" style="font-family: sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">Podcast</a></p>
-<a href="http://jaseman.co.uk/photo-album" target="_new" style="font-family: sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">Photo Album</a></p>
-<a href="http://jaseman.co.uk/pictures" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">Pictures</a></p>
-<a href="http://jaseman.co.uk/software" target="_new" style="font-family:  sans-serif; text-decoration: none; color: black; font-size: 28px;"><p style="margin-bottom: 12px;">Software</a></p></td>
-
-<br><br>
-
-<p style="font-family: sans-serif; font-weight: bold; font-size: 24px;margin-top: -15px; margin-bottom: 17px; background-color: yellow;">SEE WHAT YOU ARE MISSING!</p>
-
-<p style="font-family: sans-serif; font-weight: bold; font-size: 16px;margin-top: 0px; margin-bottom: 17px;">When you visit my website from a desktop PC instead of a phone, you can access extra content which is not suited to phone screens.</p>
-
-<p style="font-family: sans-serif; font-weight: bold; font-size: 16px;margin-top: 0px; margin-bottom: 17px;">To see the wider version with 3 columns, your screen resolution must be 1920 pixels or more (1080p / Full HD).</p>
-
-<a href="img/index-wide-screenshot.png" target="_new"><img src="img/index-wide-screenshot.png" width="95%"></a>
-<a href="img/lego-wide-screenshot.png" target="_new"><img src="img/lego-wide-screenshot.png" width="95%"></a>
-<a href="img/movies-wide-screenshot.png" target="_new"><img src="img/movies-wide-screenshot.png" width="95%"></a>
-<a href="img/music-wide-screenshot.png" target="_new"><img src="img/music-wide-screenshot.png" width="95%"></a>
-<a href="img/photos-wide-screenshot.png" target="_new"><img src="img/photos-wide-screenshot.png" width="95%"></a>
-<a href="img/pictures-wide-screenshot.png" target="_new"><img src="img/pictures-wide-screenshot.png" width="95%"></a>
-<a href="img/software-wide-screenshot.png" target="_new"><img src="img/software-wide-screenshot.png" width="95%"></a>
-
-<br><br>
-
-<img src="img/jaseman-header-bg.png" width="95%">
-</center>
 </body>
 </html>
