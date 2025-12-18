@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JASEMAN.COM</title>
 <style>
-  /* === FADE-IN BACKGROUND + FOREGROUND EFFECT: DO NOT REMOVE === */
   body {
     margin:0;
     padding:0;
@@ -26,14 +25,12 @@
   body.visible span {
     opacity:1;
   }
-  /* === END FADE-IN EFFECT === */
 </style>
 </head>
 <body>
 
 <div style="width:calc(7 * 12vw + 6 * 2vw); margin:0 auto;">
 
-  <!-- Header row -->
   <div style="display:flex; gap:2vw; justify-content:center; margin-top:2vw;">
     <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
       <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">J</span>
@@ -58,14 +55,12 @@
     </div>
   </div>
 
-  <!-- Video -->
   <div style="position:relative; width:100%; padding-bottom:56.25%; margin-top:2vw;">
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-"
             style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
             frameborder="0" allowfullscreen></iframe>
   </div>
 
-  <!-- Frame -->
   <div style="position:relative; width:100%; height:58vh; margin-top:2vw;">
     <iframe src="jaseworld2/jaseworld2.html"
             style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
@@ -75,11 +70,37 @@
 </div>
 
 <script>
-  /* === FADE-IN BACKGROUND + FOREGROUND EFFECT: DO NOT REMOVE === */
   window.addEventListener("load", () => {
-    document.body.classList.add("visible"); // fade in immediately
+    document.body.classList.add("visible");
+
+    const words = [
+      ["W","E","L","C","O","M","E"],
+      [" "," ","A","N","D"," "," "],
+      [" ","M","E","R","R","Y"," "],
+      ["C","H","R","S","T","M","S"],
+      ["J","A","S","E","M","A","N"]
+    ];
+
+    const spans = document.querySelectorAll("div > span");
+    let currentIndex = 0;
+
+    spans.forEach((span, i) => {
+      span.textContent = words[currentIndex][i] || "";
+    });
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % words.length;
+      const nextWord = words[currentIndex];
+      spans.forEach((span, i) => {
+        span.style.transition = "opacity 1s";
+        span.style.opacity = 0;
+        setTimeout(() => {
+          span.textContent = nextWord[i] || "";
+          span.style.opacity = 1;
+        }, 1000);
+      });
+    }, 5000);
   });
-  /* === END FADE-IN EFFECT === */
 </script>
 
 </body>
