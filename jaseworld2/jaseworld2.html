@@ -1,30 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- 
-COPILOT SYSTEM NOTE (Jaseworld 2):
-
-- The Jaseworld 2 system is saved as jaseworld2.html.
-- It is embedded as an iframe within the homepage of JASEMAN.COM.
-- Each room has 4 directional wall images (north/east/south/west), all generated using Bricklink Studio renders.
-- Images are swapped dynamically via JavaScript state (currentRoom + currentDirIndex). No page reloads.
-- Left/Right arrows: always active, rotate viewpoint within the current room (cycle through 4 directions).
-- Up/Down arrows: represent movement between rooms. They are always present in layout; if no doorway exists, they are invisible (visibility:hidden) but still occupy space to prevent layout jump.
-- Doorways are defined per room in the "doorways" object. Movement uses "nextRooms" mapping.
-- Inventory system: each room can have up to 10 image assets (URLs). These appear in a horizontal strip (#inventory). Each is clickable and opens in a new tab.
-- Overlay links: each room can define up to 3 external URLs with labels. These appear as styled buttons in #overlays.
-- Rooms are defined in the "rooms" object with keys: directional image paths, doorways, nextRooms, items[], links[].
-- Bricklink Studio images are referenced directly as PNG assets (e.g., mainfoyer_north.png).
-- Navigation can be controlled by clicking arrows or using keyboard Arrow keys.
-- This is Jaseworld 2: unlike Jaseworld 1 (which had 4 separate HTML pages per room), this version uses a single HTML file with JavaScript state management.
-- Color-direction mnemonic:
-  - Red (north) = Music (alert/alarm metaphor)
-  - Yellow (east) = Lego (packaging color)
-  - Blue (south) = Movies (logical anchor, not "blue movies")
-  - Green (west) = Photos (nature photography, recurring green tones)
--->
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jaseworld 2</title>
@@ -34,7 +10,7 @@ COPILOT SYSTEM NOTE (Jaseworld 2):
     background: #000;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* anchor to top */
+    align-items: flex-start;
     min-height: 100vh;
   }
   #viewer {
@@ -43,7 +19,6 @@ COPILOT SYSTEM NOTE (Jaseworld 2):
     flex-direction: column;
     align-items: center;
   }
-
   .arrow {
     font-size: 3em;
     color: white;
@@ -52,23 +27,19 @@ COPILOT SYSTEM NOTE (Jaseworld 2):
     text-shadow: 2px 2px 4px black;
     margin: 4px 0;
   }
-
   .arrow.inactive {
-    visibility: hidden;   /* invisible but still occupies space */
+    visibility: hidden;
     cursor: default;
     text-shadow: none;
   }
-
   #imageContainer {
     position: relative;
   }
-
   #roomImage {
     max-width: 90vw;
     max-height: 80vh;
     display: block;
   }
-
   #left, #right {
     position: absolute;
     top: 50%;
@@ -79,7 +50,6 @@ COPILOT SYSTEM NOTE (Jaseworld 2):
     user-select: none;
     text-shadow: 2px 2px 4px black;
   }
-
   #left { left: 10px; }
   #right { right: 10px; }
 
@@ -93,8 +63,8 @@ COPILOT SYSTEM NOTE (Jaseworld 2):
     padding: 5px;
   }
   #inventory img {
-    height: 60px;   /* fixed height for consistency */
-    width: auto;    /* width scales proportionally */
+    height: 60px;
+    width: auto;
     border: 2px solid white;
     cursor: pointer;
     flex: 0 0 auto;
@@ -115,7 +85,6 @@ COPILOT SYSTEM NOTE (Jaseworld 2):
     font-size: 18px;
     border: 2px solid white;
   }
-
   @media (max-width: 600px) {
     #overlays a {
       font-size: 20px;
@@ -150,7 +119,16 @@ COPILOT SYSTEM NOTE (Jaseworld 2):
       doorways: { north:true, east:true, south:true, west:true },
       nextRooms: { north:"musicroom1", east:"legoroom1", south:"movieroom1", west:"photoroom1" },
       items: [
-        "https://jaseman125.github.io/photo-album/100-photos/20200522-jaseman-com-hat.jpg"
+        "https://jaseman125.github.io/photo-album/20200522-jaseman-com-hat.jpg",
+        "https://jaseman125.github.io/photo-album/house.jpg",
+        "https://jaseman125.github.io/photo-album/100-photos/2015-marco-island1.jpg",
+        "https://jaseman125.github.io/photo-album/20190908_173050-audi-tt-and-a4-rear-chocks-away-car-park-hawarden-airport.jpg",
+        "https://jaseman125.github.io/photo-album/2023-jaseburner-at-the-flash.jpg",
+        "https://jaseman125.github.io/photo-album/2025-gresford-sunset1.jpg",
+        "https://jaseman125.github.io/lego/axl-and-jaseman.jpg",
+        "https://jaseman125.github.io/photo-album/2023-make-america-cowboy-again.jpg",
+        "https://jaseman125.github.io/photo-album/2024-colwyn-bay-cormorant.jpg",
+        "https://jaseman125.github.io/photo-album/2025-gresford-sunset2.jpg"
       ],
       links: [
         { href:"https://www.youtube.com/@jaseman", label:"YouTube" },
@@ -217,14 +195,12 @@ COPILOT SYSTEM NOTE (Jaseworld 2):
     const dir = directions[currentDirIndex];
     roomImage.src = rooms[currentRoom][dir];
 
-    // Forward arrow
     if (rooms[currentRoom].doorways[dir]) {
       upArrow.classList.remove("inactive");
     } else {
       upArrow.classList.add("inactive");
     }
 
-    // Backward arrow
     const oppositeDir = directions[(currentDirIndex + 2) % 4];
     if (rooms[currentRoom].doorways[oppositeDir]) {
       downArrow.classList.remove("inactive");
@@ -274,7 +250,7 @@ COPILOT SYSTEM NOTE (Jaseworld 2):
 
   function moveForward() {
     const dir = directions[currentDirIndex];
-    if (!rooms[currentRoom].doorways[dir]) return; // inactive
+    if (!rooms[currentRoom].doorways[dir]) return;
     const next = rooms[currentRoom].nextRooms[dir];
     if (next) {
       currentRoom = next;
@@ -284,7 +260,7 @@ COPILOT SYSTEM NOTE (Jaseworld 2):
 
   function moveBackward() {
     const oppositeDir = directions[(currentDirIndex + 2) % 4];
-    if (!rooms[currentRoom].doorways[oppositeDir]) return; // inactive
+    if (!rooms[currentRoom].doorways[oppositeDir]) return;
     const next = rooms[currentRoom].nextRooms[oppositeDir];
     if (next) {
       currentRoom = next;
