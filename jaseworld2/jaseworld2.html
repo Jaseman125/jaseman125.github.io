@@ -29,6 +29,12 @@
     margin: 4px 0;
   }
 
+  .arrow.inactive {
+    color: black;
+    cursor: default;
+    text-shadow: none;
+  }
+
   #imageContainer {
     position: relative;
   }
@@ -183,9 +189,22 @@
   function updateView() {
     const dir = directions[currentDirIndex];
     roomImage.src = rooms[currentRoom][dir];
-    upArrow.style.display = rooms[currentRoom].doorways[dir] ? "block" : "none";
+
+    // Forward arrow
+    if (rooms[currentRoom].doorways[dir]) {
+      upArrow.classList.remove("inactive");
+    } else {
+      upArrow.classList.add("inactive");
+    }
+
+    // Backward arrow
     const oppositeDir = directions[(currentDirIndex + 2) % 4];
-    downArrow.style.display = rooms[currentRoom].doorways[oppositeDir] ? "block" : "none";
+    if (rooms[currentRoom].doorways[oppositeDir]) {
+      downArrow.classList.remove("inactive");
+    } else {
+      downArrow.classList.add("inactive");
+    }
+
     updateInventory();
     updateOverlays();
   }
@@ -228,6 +247,7 @@
 
   function moveForward() {
     const dir = directions[currentDirIndex];
+    if (!rooms[currentRoom].doorways[dir]) return; // inactive
     const next = rooms[currentRoom].nextRooms[dir];
     if (next) {
       currentRoom = next;
@@ -237,6 +257,7 @@
 
   function moveBackward() {
     const oppositeDir = directions[(currentDirIndex + 2) % 4];
+    if (!rooms[currentRoom].doorways[oppositeDir]) return; // inactive
     const next = rooms[currentRoom].nextRooms[oppositeDir];
     if (next) {
       currentRoom = next;
