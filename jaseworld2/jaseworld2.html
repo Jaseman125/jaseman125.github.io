@@ -12,6 +12,8 @@
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
+    color: #fff;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   }
   #viewer {
     position: relative;
@@ -53,28 +55,11 @@
   #left { left: 10px; }
   #right { right: 10px; }
 
-  /* Inventory strip */
-  #inventory {
-    margin-top: 5vh;
-    display: flex;
-    gap: 10px;
-    max-width: 90vw;
-    overflow-x: auto;
-    padding: 5px;
-  }
-  #inventory img {
-    height: 40px;
-    width: auto;
-    border: 2px solid white;
-    cursor: pointer;
-    flex: 0 0 auto;
-  }
-
   /* Overlay buttons strip */
   #overlays {
     margin-top: 3vh;
     display: flex;
-    gap: 4px; /* reduced gap */
+    gap: 4px;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -93,22 +78,37 @@
       padding: 12px 18px;
     }
   }
+
+  /* Inventory strip */
+  #inventory {
+    margin-top: 5vh;
+    display: flex;
+    gap: 10px;
+    max-width: 90vw;
+    overflow-x: auto;
+    padding: 5px;
+  }
+  #inventory img {
+    height: 40px;
+    width: auto;
+    border: 2px solid white;
+    cursor: pointer;
+    display: block;
+  }
 </style>
 </head>
 <body>
 
 <div id="viewer">
-  <div id="up" class="arrow">&#8593;</div>
-
+  <div id="up" class="arrow" aria-label="Move forward">&#8593;</div>
   <div id="imageContainer">
     <img id="roomImage" src="mainfoyer_north.png" alt="Room view" />
-    <div id="left" class="arrow">&#8592;</div>
-    <div id="right" class="arrow">&#8594;</div>
+    <div id="left" class="arrow" aria-label="Rotate left">&#8592;</div>
+    <div id="right" class="arrow" aria-label="Rotate right">&#8594;</div>
   </div>
-
-  <div id="down" class="arrow">&#8595;</div>
-  <div id="overlays"></div>
-  <div id="inventory"></div>
+  <div id="down" class="arrow" aria-label="Move backward">&#8595;</div>
+  <div id="overlays" aria-label="Room links"></div>
+  <div id="inventory" aria-label="Room inventory"></div>
 </div>
 
 <script>
@@ -185,24 +185,26 @@
   const directions = ["north","east","south","west"];
   let currentDirIndex = 0;
 
-  const roomImage = document.getElementById("roomImage");
-  const leftArrow = document.getElementById("left");
-  const rightArrow = document.getElementById("right");
-  const upArrow = document.getElementById("up");
-  const downArrow = document.getElementById("down");
+  const roomImage    = document.getElementById("roomImage");
+  const leftArrow    = document.getElementById("left");
+  const rightArrow   = document.getElementById("right");
+  const upArrow      = document.getElementById("up");
+  const downArrow    = document.getElementById("down");
   const inventoryDiv = document.getElementById("inventory");
-  const overlaysDiv = document.getElementById("overlays");
+  const overlaysDiv  = document.getElementById("overlays");
 
   function updateView() {
     const dir = directions[currentDirIndex];
     roomImage.src = rooms[currentRoom][dir];
 
+    // Forward availability
     if (rooms[currentRoom].doorways[dir]) {
       upArrow.classList.remove("inactive");
     } else {
       upArrow.classList.add("inactive");
     }
 
+    // Backward availability
     const oppositeDir = directions[(currentDirIndex + 2) % 4];
     if (rooms[currentRoom].doorways[oppositeDir]) {
       downArrow.classList.remove("inactive");
@@ -216,13 +218,14 @@
 
   function updateInventory() {
     inventoryDiv.innerHTML = "";
-    const items = rooms[currentRoom].items.slice(0, 10);
-    items.forEach(item => {
+    const items = rooms[currentRoom].items || [];
+    items.forEach(src => {
       const link = document.createElement("a");
-      link.href = item;
+      link.href = src;
       link.target = "_blank";
       const img = document.createElement("img");
-      img.src = item;
+      img.src = src;
+      img.alt = "Inventory item";
       link.appendChild(img);
       inventoryDiv.appendChild(link);
     });
@@ -231,10 +234,11 @@
   function updateOverlays() {
     overlaysDiv.innerHTML = "";
     const links = rooms[currentRoom].links || [];
-    links.slice(0,3).forEach(link => {
+    links.forEach(link => {
       const a = document.createElement("a");
       a.href = link.href;
       a.target = "_blank";
+      a.rel = "noopener";
       a.textContent = link.label;
       overlaysDiv.appendChild(a);
     });
@@ -250,24 +254,29 @@
     updateView();
   }
 
+  // Keep orientation consistent: no automatic flipping.
   function moveForward() {
-    const dir = directions[currentDirIndex];
+    const dirIndex = currentDirIndex;
+    const dir = directions[dirIndex];
     if (!rooms[currentRoom].doorways[dir]) return;
     const next = rooms[currentRoom].nextRooms[dir];
     if (next) {
       currentRoom = next;
-      currentDirIndex = 2; // face back toward where you came from
+      // Stay facing the direction you moved.
+      currentDirIndex = dirIndex;
       updateView();
     }
   }
 
   function moveBackward() {
-    const oppositeDir = directions[(currentDirIndex + 2) % 4];
+    const oppositeIndex = (currentDirIndex + 2) % 4;
+    const oppositeDir = directions[oppositeIndex];
     if (!rooms[currentRoom].doorways[oppositeDir]) return;
     const next = rooms[currentRoom].nextRooms[oppositeDir];
     if (next) {
       currentRoom = next;
-      currentDirIndex = 0; // optional: reset orientation when returning
+      // Stay facing the direction you were facing (backwards movement keeps orientation).
+      currentDirIndex = currentDirIndex;
       updateView();
     }
   }
@@ -278,10 +287,10 @@
   downArrow.addEventListener("click", moveBackward);
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") rotateLeft();
+    if (e.key === "ArrowLeft")  rotateLeft();
     else if (e.key === "ArrowRight") rotateRight();
-    else if (e.key === "ArrowUp") moveForward();
-    else if (e.key === "ArrowDown") moveBackward();
+    else if (e.key === "ArrowUp")    moveForward();
+    else if (e.key === "ArrowDown")  moveBackward();
   });
 
   updateView();
