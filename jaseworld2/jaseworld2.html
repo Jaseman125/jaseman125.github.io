@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- 
+COPILOT SYSTEM NOTE (Jaseworld 2):
+
+- The Jaseworld 2 system is saved as jaseworld2.html.
+- It is embedded as an iframe within the homepage of JASEMAN.COM.
+- Each room has 4 directional wall images (north/east/south/west), all generated using Bricklink Studio renders.
+- Images are swapped dynamically via JavaScript state (currentRoom + currentDirIndex). No page reloads.
+- Left/Right arrows: always active, rotate viewpoint within the current room (cycle through 4 directions).
+- Up/Down arrows: represent movement between rooms. They are always present in layout; if no doorway exists, they are invisible (visibility:hidden) but still occupy space to prevent layout jump.
+- Doorways are defined per room in the "doorways" object. Movement uses "nextRooms" mapping.
+- Inventory system: each room can have up to 10 image assets (URLs). These appear in a horizontal strip (#inventory). Each is clickable and opens in a new tab.
+- Overlay links: each room can define up to 3 external URLs with labels. These appear as styled buttons in #overlays.
+- Rooms are defined in the "rooms" object with keys: directional image paths, doorways, nextRooms, items[], links[].
+- Bricklink Studio images are referenced directly as PNG assets (e.g., mainfoyer_north.png).
+- Navigation can be controlled by clicking arrows or using keyboard Arrow keys.
+- This is Jaseworld 2: unlike Jaseworld 1 (which had 4 separate HTML pages per room), this version uses a single HTML file with JavaScript state management.
+- Color-direction mnemonic:
+  - Red (north) = Music (alert/alarm metaphor)
+  - Yellow (east) = Lego (packaging color)
+  - Blue (south) = Movies (logical anchor, not "blue movies")
+  - Green (west) = Photos (nature photography, recurring green tones)
+-->
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jaseworld 2</title>
