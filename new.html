@@ -39,5 +39,17 @@
 <div id="bg-image-layer"></div>
 <div data-include="topleft-controls.html"></div>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-include]").forEach(el => {
+    fetch(el.getAttribute("data-include"))
+      .then(response => response.text())
+      .then(data => {
+        el.outerHTML = data;
+      });
+  });
+});
+</script>
+
 </body>
 </html>
