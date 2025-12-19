@@ -399,11 +399,19 @@ const bgImages = [
       "rgba(" + r + "," + g + "," + b + "," + opacity + ")";
 
     const current = bgImages[bgIndex];
+<<<<<<< HEAD
  if (current.url) {
   document.body.style.backgroundImage = "url('" + current.url + "')";
 } else {
   document.body.style.backgroundImage = "none";
 }
+=======
+    if (current.url) {
+      document.body.style.backgroundImage = "url('" + current.url + "')";
+    } else {
+      document.body.style.backgroundImage = "none";
+    }
+>>>>>>> parent of e9b9785 (updated)
 
     bgNameSpan.textContent = current.name;
   }
