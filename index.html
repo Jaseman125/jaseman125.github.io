@@ -183,13 +183,15 @@
     }
 
     /* DESKTOP CONTENT */
-    .content-desktop {
-      display:flex;
-      height:calc(100vh - 160px);
-      padding:20px;
-      gap:20px;
-      box-sizing:border-box;
-    }
+.content-desktop {
+  display:flex;
+  justify-content:center;
+  height:calc(100vh - 160px);
+  padding:20px;
+  gap:20px;
+  box-sizing:border-box;
+}
+
 
     /* YouTube panel flexes */
     .desktop-panel.yt-panel {
@@ -366,10 +368,20 @@ window.addEventListener("load", () => {
   }, 2000);
 
   /* BACKGROUND ENGINE */
-  const bgImages = [
-    { name:"None", url:null }
-    // Add more images here when ready
-  ];
+const bgImages = [
+  { name: "None", url: null },
+
+  { name: "01", url: "img/backgrounds/01.png" },
+  { name: "02", url: "img/backgrounds/02.png" },
+  { name: "03", url: "img/backgrounds/03.png" },
+  { name: "04", url: "img/backgrounds/04.png" },
+  { name: "05", url: "img/backgrounds/05.png" },
+  { name: "06", url: "img/backgrounds/06.png" },
+  { name: "07", url: "img/backgrounds/07.png" },
+  { name: "08", url: "img/backgrounds/08.png" },
+  { name: "09", url: "img/backgrounds/09.png" },
+  { name: "10", url: "img/backgrounds/10.png" }
+];
 
   let bgIndex = 0;
 
