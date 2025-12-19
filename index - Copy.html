@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JASEMAN.COM</title>
+<style>
+  body {
+    margin:0;
+    padding:0;
+    background:black;
+    color:transparent;
+    transition: background 2s, color 2s;
+  }
+  body.visible {
+    background:white;
+    color:black;
+  }
+  iframe, div, span {
+    opacity:0;
+    transition: opacity 2s;
+  }
+  body.visible iframe,
+  body.visible div,
+  body.visible span {
+    opacity:1;
+  }
+
+  .header-box {
+    width:12vw;
+    height:12vw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: background 1s;
+  }
+</style>
+</head>
+<body>
+
+<div style="width:calc(7 * 12vw + 6 * 2vw); margin:0 auto;">
+
+  <div style="display:flex; gap:2vw; justify-content:center; margin-top:2vw;">
+    <div class="header-box" style="background:#0000AA;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">J</span>
+    </div>
+    <div class="header-box" style="background:#0000AA;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
+    </div>
+    <div class="header-box" style="background:#0000AA;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">S</span>
+    </div>
+    <div class="header-box" style="background:#0000AA;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">E</span>
+    </div>
+    <div class="header-box" style="background:#0000AA;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">M</span>
+    </div>
+    <div class="header-box" style="background:#0000AA;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
+    </div>
+    <div class="header-box" style="background:#0000AA;">
+      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">N</span>
+    </div>
+  </div>
+
+  <div style="position:relative; width:100%; padding-bottom:56.25%; margin-top:2vw;">
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-"
+            style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
+            frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div style="position:relative; width:100%; height:58vh; margin-top:2vw;">
+    <iframe src="jaseworld2/jaseworld2.html"
+            style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
+            frameborder="0"></iframe>
+  </div>
+
+</div>
+
+<script>
+window.addEventListener("load", () => {
+  document.body.classList.add("visible");
+
+  const words = [
+    { letters:["W","E","L","C","O","M","E"], color:"#000000" },
+    { letters:["★","✦","♥","✿","☃","❄","☮"], color:"#000000" },
+    { letters:["☻","M","E","R","R","Y","☻"], color:"#008800" },
+    { letters:["C","H","R","S","T","M","S"], color:"#008800" },
+    { letters:["⌛","☠","I","M","☣","☢","✈"], color:"#880000" },
+    { letters:["L","E","A","V","I","N","G"], color:"#880000" },
+    { letters:["F","A","C","E","B","K","☹"], color:"#880000" },
+    { letters:["N","E","W","Y","E","A","R"], color:"#880000" },
+    { letters:["J","A","S","E","M","A","N"], color:"#0000AA" }
+  ];
+
+  const spans = document.querySelectorAll(".header-box span");
+  const boxes = document.querySelectorAll(".header-box");
+
+  let currentIndex = 0;
+
+  function applyWord(index) {
+    const entry = words[index];
+    const letters = entry.letters;
+    const color = entry.color;
+
+    spans.forEach((span, i) => {
+      span.style.opacity = 0;
+      setTimeout(() => {
+        span.textContent = letters[i] || "";
+        span.style.opacity = 1;
+      }, 1000);
+    });
+
+    boxes.forEach(box => {
+      box.style.background = color;
+    });
+  }
+
+  applyWord(0);
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % words.length;
+    applyWord(currentIndex);
+  }, 2000);
+});
+</script>
+
+</body>
+</html>

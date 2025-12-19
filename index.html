@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JASEMAN.COM</title>
+
 <style>
   body {
     margin:0;
@@ -11,6 +12,7 @@
     background:black;
     color:transparent;
     transition: background 2s, color 2s;
+    overflow-x:hidden;
   }
   body.visible {
     background:white;
@@ -34,11 +36,85 @@
     justify-content:center;
     transition: background 1s;
   }
+
+  /* ------------------------------ */
+  /* DESKTOP MODE (no scroll)       */
+  /* ------------------------------ */
+  @media (min-width: 900px) {
+
+    body {
+      overflow:hidden; /* no vertical scroll */
+    }
+
+    /* Header container */
+    .header-wrapper {
+      width:100%;
+      max-width:900px;
+      margin:0 auto;
+      height:150px; /* fixed desktop header height */
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:20px;
+    }
+
+    .header-box {
+      width:120px;
+      height:120px;
+    }
+
+    .header-box span {
+      font-size:90px !important;
+    }
+
+    /* Main desktop layout */
+    .desktop-flex {
+      display:flex;
+      width:100%;
+      height:calc(100vh - 150px); /* everything below header */
+      gap:20px;
+      padding:20px;
+      box-sizing:border-box;
+    }
+
+    .left-col,
+    .right-col {
+      flex:1;
+      height:100%;
+      position:relative;
+    }
+
+    .left-col iframe,
+    .right-col iframe {
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    /* Hide the mobile layout in desktop mode */
+    .mobile-only {
+      display:none;
+    }
+  }
+
+  /* ------------------------------ */
+  /* MOBILE MODE (your current layout) */
+  /* ------------------------------ */
+  @media (max-width: 899px) {
+    .desktop-only {
+      display:none;
+    }
+  }
+
 </style>
 </head>
 <body>
 
-<div style="width:calc(7 * 12vw + 6 * 2vw); margin:0 auto;">
+<!-- MOBILE LAYOUT (unchanged) -->
+<div class="mobile-only" style="width:calc(7 * 12vw + 6 * 2vw); margin:0 auto;">
 
   <div style="display:flex; gap:2vw; justify-content:center; margin-top:2vw;">
     <div class="header-box" style="background:#0000AA;">
@@ -66,14 +142,36 @@
 
   <div style="position:relative; width:100%; padding-bottom:56.25%; margin-top:2vw;">
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-"
-            style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
             frameborder="0" allowfullscreen></iframe>
   </div>
 
   <div style="position:relative; width:100%; height:58vh; margin-top:2vw;">
-    <iframe src="jaseworld2/jaseworld2.html"
-            style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
-            frameborder="0"></iframe>
+    <iframe src="jaseworld2/jaseworld2.html" frameborder="0"></iframe>
+  </div>
+
+</div>
+
+<!-- DESKTOP LAYOUT -->
+<div class="desktop-only">
+
+  <div class="header-wrapper">
+    <div class="header-box"><span>J</span></div>
+    <div class="header-box"><span>A</span></div>
+    <div class="header-box"><span>S</span></div>
+    <div class="header-box"><span>E</span></div>
+    <div class="header-box"><span>M</span></div>
+    <div class="header-box"><span>A</span></div>
+    <div class="header-box"><span>N</span></div>
+  </div>
+
+  <div class="desktop-flex">
+    <div class="left-col">
+      <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
+    </div>
+
+    <div class="right-col">
+      <iframe src="jaseworld2/jaseworld2.html"></iframe>
+    </div>
   </div>
 
 </div>
