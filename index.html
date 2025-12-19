@@ -58,21 +58,37 @@
   .header-left,
   .header-center,
   .header-right {
-    display:flex;
-    align-items:center;
     height:100%;
   }
 
+  /* LEFT CONTROLS — NOW VERTICAL */
   .header-left {
     position:absolute;
     left:20px;
-    gap:12px;
+    top:0;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:6px;
   }
 
+  .header-left > div {
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+
+  /* RIGHT CONTROLS */
   .header-right {
     position:absolute;
     right:20px;
-    gap:18px;
+    top:0;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:10px;
   }
 
   /* SLIDERS */
@@ -85,7 +101,6 @@
     font-size:14px;
     color:black;
     font-family:sans-serif;
-    margin-right:4px;
   }
 
   /* BACKGROUND SELECTOR */
@@ -113,18 +128,13 @@
     font-family:sans-serif;
   }
 
-  /* TOGGLES */
-  .toggle-group {
+  /* HEADER LETTER BOXES */
+  .header-center {
     display:flex;
     align-items:center;
-    gap:10px;
-  }
-  .toggle-group label {
-    font-size:14px;
-    font-family:sans-serif;
+    justify-content:center;
   }
 
-  /* HEADER LETTER BOXES */
   .header-row {
     display:flex;
     justify-content:center;
@@ -199,6 +209,7 @@
       display:flex;
       justify-content:center;
       align-items:center;
+      max-height:100%;
     }
 
     .content-desktop iframe {
@@ -207,6 +218,7 @@
       width:100%;
       height:100%;
       border:0;
+      object-fit:contain;
     }
   }
 
@@ -223,9 +235,9 @@
 
 <!-- DATA-DRIVEN BACKGROUND LIST -->
 <div id="bg-list">
-  <div data-bg="img/backgrounds/01.png" data-name="Example One"></div>
-  <div data-bg="img/backgrounds/02.png" data-name="Example Two"></div>
-  <div data-bg="img/backgrounds/03.png" data-name="Example Three"></div>
+  <div data-bg="example1.jpg" data-name="Example One"></div>
+  <div data-bg="example2.jpg" data-name="Example Two"></div>
+  <div data-bg="example3.jpg" data-name="Example Three"></div>
 </div>
 
 <!-- HEADER -->
@@ -234,7 +246,6 @@
   <!-- LEFT CONTROLS -->
   <div class="header-left">
 
-    <!-- RGB SLIDERS -->
     <div>
       <span class="ctrl-label">R</span>
       <input type="range" min="0" max="255" value="0" id="rSlider" class="ctrl-slider">
@@ -248,13 +259,11 @@
       <input type="range" min="0" max="255" value="0" id="bSlider" class="ctrl-slider">
     </div>
 
-    <!-- TRANSPARENCY -->
     <div>
       <span class="ctrl-label">Img</span>
       <input type="range" min="0" max="100" value="100" id="imgOpacity" class="ctrl-slider">
     </div>
 
-    <!-- BACKGROUND SELECTOR -->
     <div class="bg-selector">
       <div class="bg-btn" id="bgPrev">◀</div>
       <div class="bg-name" id="bgName">Example One</div>
@@ -413,11 +422,10 @@ function updateFrameLayout() {
 toggleYT.addEventListener("change", updateFrameLayout);
 toggleJW.addEventListener("change", updateFrameLayout);
 
+/* HEADER TOGGLE — NOW ONLY HIDES ANIMATION */
 toggleHeader.addEventListener("change", e => {
   const show = e.target.checked ? "flex" : "none";
   document.querySelector(".header-center").style.display = show;
-  document.querySelector(".header-left").style.display = show;
-  document.querySelector(".header-right").style.display = show;
 });
 
 updateFrameLayout();
