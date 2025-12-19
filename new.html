@@ -38,21 +38,17 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Load external module
     document.querySelectorAll("[data-include]").forEach(el => {
         fetch(el.getAttribute("data-include"))
             .then(response => response.text())
             .then(data => {
                 el.outerHTML = data;
-
-                // Wait for DOM to update, then initialise controls
                 setTimeout(initControls, 20);
             });
     });
 
     function initControls() {
 
-        // Background image list
         const bgImages = [
             { name: "None", url: null },
             { name: "01", url: "img/backgrounds/01.png" },
@@ -77,6 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const prevBtn = document.getElementById("bg-prev");
         const nextBtn = document.getElementById("bg-next");
         const nameSpan = document.getElementById("bg-name");
+
+        const resetBtn = document.getElementById("reset-button");
 
         const bgLayer = document.getElementById("bg-image-layer");
 
@@ -110,7 +108,18 @@ document.addEventListener("DOMContentLoaded", () => {
         bSlider.oninput = updateSolidBackground;
         opacitySlider.oninput = updateImageOpacity;
 
-        // Initial state
+        resetBtn.onclick = () => {
+            rSlider.value = 255;
+            gSlider.value = 255;
+            bSlider.value = 255;
+            opacitySlider.value = 100;
+            currentImageIndex = 0;
+
+            updateSolidBackground();
+            updateImage();
+            updateImageOpacity();
+        };
+
         updateSolidBackground();
         updateImage();
         updateImageOpacity();
