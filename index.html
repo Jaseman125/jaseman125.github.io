@@ -1,434 +1,341 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JASEMAN.COM</title>
+<title>JaseWorld Desktop</title>
 
 <style>
-  body {
-    margin:0;
-    padding:0;
-    background:black;
-    color:transparent;
-    transition: background 2s, color 2s;
-    overflow-x:hidden;
-  }
-  body.visible {
-    background:white;
-    color:black;
-  }
-  iframe, div, span {
-    opacity:0;
-    transition: opacity 2s;
-  }
-  body.visible iframe,
-  body.visible div,
-  body.visible span {
-    opacity:1;
-  }
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: rgb(255,255,255); /* default white */
+    overflow: hidden;
+}
 
-  /* BACKGROUND IMAGE LAYER */
-  body::before {
-    content:"";
-    position:fixed;
-    inset:0;
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    opacity:var(--imgOpacity, 1);
-    pointer-events:none;
-    transition:opacity 0.4s, background-image 0.4s;
-    z-index:-1;
-    background-image:var(--bgImage);
-  }
+/* HEADER ------------------------------------------------------------ */
 
-  /* HEADER WRAPPER (100px tall) */
-  .header-wrapper {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100px;
-    padding:0 20px;
-    box-sizing:border-box;
-    position:relative;
-  }
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
 
-  /* LEFT + CENTER + RIGHT ZONES */
-  .header-left,
-  .header-center,
-  .header-right {
-    height:100%;
-  }
+.header-squares {
+    display: flex;
+    gap: 20px; /* THIS DEFINES ALL SPACING LOGIC */
+}
 
-  /* LEFT CONTROLS — NOW VERTICAL */
-  .header-left {
-    position:absolute;
-    left:20px;
-    top:0;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    gap:6px;
-  }
+.square {
+    width: 40px;
+    height: 40px;
+    background: #333;
+    border-radius: 6px;
+    cursor: pointer;
+}
 
-  .header-left > div {
-    display:flex;
-    align-items:center;
-    gap:6px;
-  }
+/* LEFT CONTROL PANEL ------------------------------------------------ */
 
-  /* RIGHT CONTROLS */
-  .header-right {
-    position:absolute;
-    right:20px;
-    top:0;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    gap:10px;
-  }
+.header-left {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* align transparency with Red */
+    justify-content: center;
+    gap: 20px; /* matches header gap */
+}
 
-  /* SLIDERS */
-  .ctrl-slider {
-    width:120px;
-    height:20px;
-  }
+.ctrl-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
 
-  .ctrl-label {
-    font-size:14px;
-    color:black;
-    font-family:sans-serif;
-  }
+.ctrl-col > div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
 
-  /* BACKGROUND SELECTOR */
-  .bg-selector {
-    display:flex;
-    align-items:center;
-    gap:6px;
-  }
-  .bg-btn {
-    width:28px;
-    height:28px;
-    background:#ddd;
-    border:1px solid #999;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    font-size:18px;
-    user-select:none;
-  }
-  .bg-name {
-    font-size:14px;
-    min-width:120px;
-    text-align:center;
-    font-family:sans-serif;
-  }
+.ctrl-label {
+    width: 20px;
+    color: white;
+    font-size: 14px;
+}
 
-  /* HEADER LETTER BOXES */
-  .header-center {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
+.ctrl-slider {
+    width: 140px;
+}
 
-  .header-row {
-    display:flex;
-    justify-content:center;
-    gap:20px;
-  }
-  .header-box {
-    width:100px;
-    height:100px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#0000AA;
-  }
-  .header-box span {
-    font-size:70px;
-    color:white;
-    font-family:sans-serif;
-    font-weight:bold;
-    transition:opacity 1s;
-  }
+/* BACKGROUND SELECTOR ----------------------------------------------- */
 
-  /* MOBILE CONTENT */
-  .content-mobile {
-    width:calc(7 * 12vw + 6 * 2vw);
-    margin:0 auto;
-    margin-top:4vw;
-  }
-  .yt-wrapper {
-    position:relative;
-    width:100%;
-    padding-bottom:56.25%;
-    margin-bottom:4vw;
-  }
-  .yt-wrapper iframe {
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    border:0;
-  }
-  .jw-wrapper {
-    position:relative;
-    width:100%;
-    min-height:60vh;
-  }
-  .jw-wrapper iframe {
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    border:0;
-  }
+.bg-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+}
 
-  /* DESKTOP MODE */
-  @media (min-width:1100px) {
-    body { overflow:hidden; }
+.bg-btn {
+    padding: 4px 8px;
+    background: #333;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-    .content-mobile { display:none; }
+.bg-name {
+    min-width: 80px;
+    text-align: center;
+}
 
-    .content-desktop {
-      display:flex;
-      height:calc(100vh - 100px);
-      padding:20px;
-      gap:20px;
-      box-sizing:border-box;
-      justify-content:space-between;
-    }
+/* DESKTOP CONTENT AREA ---------------------------------------------- */
 
-    .content-desktop > div {
-      flex:1;
-      position:relative;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      max-height:100%;
-    }
+.content-desktop {
+    position: absolute;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 20px; /* MATCHES HEADER GAP */
+    display: flex;
+    gap: 20px;       /* MATCHES HEADER GAP */
+    overflow: hidden;
+}
 
-    .content-desktop iframe {
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
-      object-fit:contain;
-    }
-  }
+/* YOUTUBE PANEL ------------------------------------------------------ */
 
-  @media (max-width:1099px) {
-    .content-desktop { display:none; }
-    .header-left, .header-right { display:none; }
-  }
+#ytDesktopWrapper {
+    flex: 1; /* YouTube expands */
+    display: none;
+}
 
-  /* DATA-DRIVEN BACKGROUND LIST (HIDDEN) */
-  #bg-list { display:none; }
+#ytDesktopWrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: contain;
+}
+
+/* JASEWORLD2 PANEL --------------------------------------------------- */
+
+#jwDesktopWrapper {
+    width: 680px;   /* FIXED WIDTH */
+    flex: 0 0 auto; /* NEVER EXPAND */
+    display: none;
+}
+
+#jwDesktopWrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: contain;
+}
+
+/* BACKGROUND IMAGE ENGINE -------------------------------------------- */
+
+#bgImage {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 100px);
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    pointer-events: none;
+    z-index: -1;
+}
 </style>
+
 </head>
 <body>
 
-<!-- DATA-DRIVEN BACKGROUND LIST -->
-<div id="bg-list">
-  <div data-bg="example1.jpg" data-name="Example One"></div>
-  <div data-bg="example2.jpg" data-name="Example Two"></div>
-  <div data-bg="example3.jpg" data-name="Example Three"></div>
-</div>
+<!-- HEADER ------------------------------------------------------------ -->
 
-<!-- HEADER -->
-<div class="header-wrapper">
+<div class="header">
 
-  <!-- LEFT CONTROLS -->
-  <div class="header-left">
+    <div class="header-left">
 
-    <div>
-      <span class="ctrl-label">R</span>
-      <input type="range" min="0" max="255" value="0" id="rSlider" class="ctrl-slider">
-    </div>
-    <div>
-      <span class="ctrl-label">G</span>
-      <input type="range" min="0" max="255" value="0" id="gSlider" class="ctrl-slider">
-    </div>
-    <div>
-      <span class="ctrl-label">B</span>
-      <input type="range" min="0" max="255" value="0" id="bSlider" class="ctrl-slider">
+        <!-- COLUMN 1: RGB -->
+        <div class="ctrl-col">
+            <div>
+                <span class="ctrl-label">R</span>
+                <input type="range" min="0" max="255" value="255" id="rSlider" class="ctrl-slider">
+            </div>
+            <div>
+                <span class="ctrl-label">G</span>
+                <input type="range" min="0" max="255" value="255" id="gSlider" class="ctrl-slider">
+            </div>
+            <div>
+                <span class="ctrl-label">B</span>
+                <input type="range" min="0" max="255" value="255" id="bSlider" class="ctrl-slider">
+            </div>
+        </div>
+
+        <!-- COLUMN 2: Transparency + Background -->
+        <div class="ctrl-col">
+            <div>
+                <span class="ctrl-label">Img</span>
+                <input type="range" min="0" max="100" value="100" id="imgOpacity" class="ctrl-slider">
+            </div>
+
+            <div class="bg-selector">
+                <div class="bg-btn" id="bgPrev">◀</div>
+                <div class="bg-name" id="bgName">Image 01</div>
+                <div class="bg-btn" id="bgNext">▶</div>
+            </div>
+        </div>
+
     </div>
 
-    <div>
-      <span class="ctrl-label">Img</span>
-      <input type="range" min="0" max="100" value="100" id="imgOpacity" class="ctrl-slider">
+    <!-- HEADER SQUARES -->
+    <div class="header-squares">
+        <div class="square" id="toggleYT"></div>
+        <div class="square" id="toggleJW"></div>
     </div>
-
-    <div class="bg-selector">
-      <div class="bg-btn" id="bgPrev">◀</div>
-      <div class="bg-name" id="bgName">Example One</div>
-      <div class="bg-btn" id="bgNext">▶</div>
-    </div>
-
-  </div>
-
-  <!-- CENTER HEADER ANIMATION -->
-  <div class="header-center">
-    <div class="header-row">
-      <div class="header-box"><span>J</span></div>
-      <div class="header-box"><span>A</span></div>
-      <div class="header-box"><span>S</span></div>
-      <div class="header-box"><span>E</span></div>
-      <div class="header-box"><span>M</span></div>
-      <div class="header-box"><span>A</span></div>
-      <div class="header-box"><span>N</span></div>
-    </div>
-  </div>
-
-  <!-- RIGHT CONTROLS -->
-  <div class="header-right">
-    <div class="toggle-group">
-      <input type="checkbox" id="toggleHeader" checked>
-      <label for="toggleHeader">Header</label>
-    </div>
-    <div class="toggle-group">
-      <input type="checkbox" id="toggleYT" checked>
-      <label for="toggleYT">YouTube</label>
-    </div>
-    <div class="toggle-group">
-      <input type="checkbox" id="toggleJW" checked>
-      <label for="toggleJW">JASEWORLD2</label>
-    </div>
-  </div>
 
 </div>
 
-<!-- MOBILE STACK -->
-<div class="content-mobile">
-  <div class="yt-wrapper">
-    <iframe id="ytMobile" src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
-  </div>
-  <div class="jw-wrapper">
-    <iframe id="jwMobile" src="jaseworld2/jaseworld2.html"></iframe>
-  </div>
+<!-- BACKGROUND IMAGE -->
+<div id="bgImage"></div>
+
+<!-- DESKTOP CONTENT --------------------------------------------------- -->
+
+<div class="content-desktop">
+
+    <div id="ytDesktopWrapper">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+    </div>
+
+    <div id="jwDesktopWrapper">
+        <iframe src="jaseworld2.html"></iframe>
+    </div>
+
 </div>
 
-<!-- DESKTOP SIDE-BY-SIDE -->
-<div class="content-desktop" id="desktopContent">
-  <div id="ytDesktopWrapper">
-    <iframe id="ytDesktop" src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
-  </div>
-  <div id="jwDesktopWrapper">
-    <iframe id="jwDesktop" src="jaseworld2/jaseworld2.html"></iframe>
-  </div>
+<!-- BACKGROUND LIST (HIDDEN) ----------------------------------------- -->
+
+<div id="bg-list" style="display:none;">
+  <div data-bg="img/backgrounds/01.png" data-name="Image 01"></div>
+  <div data-bg="img/backgrounds/02.png" data-name="Image 02"></div>
+  <div data-bg="img/backgrounds/03.png" data-name="Image 03"></div>
+  <div data-bg="img/backgrounds/04.png" data-name="Image 04"></div>
+  <div data-bg="img/backgrounds/05.png" data-name="Image 05"></div>
+  <div data-bg="img/backgrounds/06.png" data-name="Image 06"></div>
+  <div data-bg="img/backgrounds/07.png" data-name="Image 07"></div>
+  <div data-bg="img/backgrounds/08.png" data-name="Image 08"></div>
+  <div data-bg="img/backgrounds/09.png" data-name="Image 09"></div>
+  <div data-bg="img/backgrounds/10.png" data-name="Image 10"></div>
 </div>
 
 <script>
-/* FADE-IN */
-window.addEventListener("load", () => {
-  document.body.classList.add("visible");
-});
+/* -----------------------------------------------------------
+   PANEL TOGGLES
+----------------------------------------------------------- */
 
-/* HEADER ANIMATION */
-const words = [
-  { letters:["W","E","L","C","O","M","E"], color:"#000000" },
-  { letters:["★","✦","♥","✿","☃","❄","☮"], color:"#000000" },
-  { letters:["☻","M","E","R","R","Y","☻"], color:"#008800" },
-  { letters:["C","H","R","S","T","M","S"], color:"#008800" },
-  { letters:["⌛","☠","I","M","☣","☢","✈"], color:"#880000" },
-  { letters:["L","E","A","V","I","N","G"], color:"#880000" },
-  { letters:["F","A","C","E","B","K","☹"], color:"#880000" },
-  { letters:["N","E","W","Y","E","A","R"], color:"#880000" },
-  { letters:["J","A","S","E","M","A","N"], color:"#0000AA" }
-];
+const ytBtn = document.getElementById("toggleYT");
+const jwBtn = document.getElementById("toggleJW");
 
-const spans = document.querySelectorAll(".header-box span");
-const boxes = document.querySelectorAll(".header-box");
-let currentIndex = 0;
+const ytWrap = document.getElementById("ytDesktopWrapper");
+const jwWrap = document.getElementById("jwDesktopWrapper");
 
-function applyWord(index) {
-  const entry = words[index];
-  spans.forEach((span, i) => {
-    span.style.opacity = 0;
-    setTimeout(() => {
-      span.textContent = entry.letters[i] || "";
-      span.style.opacity = 1;
-    }, 1000);
-  });
-  boxes.forEach(box => box.style.background = entry.color);
+function updateLayout() {
+
+    const ytOn = ytWrap.style.display === "block";
+    const jwOn = jwWrap.style.display === "block";
+
+    if (ytOn && jwOn) {
+        ytWrap.style.flex = "1";
+        jwWrap.style.margin = "0";
+    }
+
+    else if (jwOn && !ytOn) {
+        jwWrap.style.margin = "0 auto";
+    }
+
+    else if (ytOn && !jwOn) {
+        ytWrap.style.flex = "1";
+    }
 }
 
-applyWord(0);
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % words.length;
-  applyWord(currentIndex);
-}, 2000);
+ytBtn.addEventListener("click", () => {
+    ytWrap.style.display = (ytWrap.style.display === "block") ? "none" : "block";
+    updateLayout();
+});
 
-/* BACKGROUND ENGINE */
-const bgItems = [...document.querySelectorAll("#bg-list div")];
+jwBtn.addEventListener("click", () => {
+    jwWrap.style.display = (jwWrap.style.display === "block") ? "none" : "block";
+    updateLayout();
+});
+
+/* -----------------------------------------------------------
+   BACKGROUND ENGINE
+----------------------------------------------------------- */
+
+const bgImage = document.getElementById("bgImage");
+const bgList = Array.from(document.querySelectorAll("#bg-list div"));
+const bgName = document.getElementById("bgName");
+
 let bgIndex = 0;
 
 function applyBackground() {
-  const item = bgItems[bgIndex];
+    const item = bgList[bgIndex];
+    const url = item.dataset.bg;
+    const name = item.dataset.name;
 
-  const r = rSlider.value;
-  const g = gSlider.value;
-  const b = bSlider.value;
-  document.body.style.backgroundColor = `rgb(${r},${g},${b})`;
-
-  const opacity = imgOpacity.value / 100;
-  document.body.style.setProperty("--imgOpacity", opacity);
-  document.body.style.setProperty("--bgImage", `url(${item.dataset.bg})`);
-
-  bgName.textContent = item.dataset.name;
+    bgImage.style.backgroundImage = `url(${url})`;
+    bgName.textContent = name;
 }
 
-["rSlider","gSlider","bSlider","imgOpacity"].forEach(id => {
-  document.getElementById(id).addEventListener("input", applyBackground);
+document.getElementById("bgPrev").addEventListener("click", () => {
+    bgIndex = (bgIndex - 1 + bgList.length) % bgList.length;
+    applyBackground();
 });
 
-bgPrev.addEventListener("click", () => {
-  bgIndex = (bgIndex - 1 + bgItems.length) % bgItems.length;
-  applyBackground();
-});
-bgNext.addEventListener("click", () => {
-  bgIndex = (bgIndex + 1) % bgItems.length;
-  applyBackground();
+document.getElementById("bgNext").addEventListener("click", () => {
+    bgIndex = (bgIndex + 1) % bgList.length;
+    applyBackground();
 });
 
 applyBackground();
 
-/* FRAME VISIBILITY + CENTERING */
-const ytWrapper = document.getElementById("ytDesktopWrapper");
-const jwWrapper = document.getElementById("jwDesktopWrapper");
-const desktopContent = document.getElementById("desktopContent");
+/* -----------------------------------------------------------
+   RGB + OPACITY
+----------------------------------------------------------- */
 
-function updateFrameLayout() {
-  const ytOn = toggleYT.checked;
-  const jwOn = toggleJW.checked;
+const rSlider = document.getElementById("rSlider");
+const gSlider = document.getElementById("gSlider");
+const bSlider = document.getElementById("bSlider");
+const imgOpacity = document.getElementById("imgOpacity");
 
-  ytWrapper.style.display = ytOn ? "flex" : "none";
-  jwWrapper.style.display = jwOn ? "flex" : "none";
-
-  if (ytOn && jwOn) {
-    desktopContent.style.justifyContent = "space-between";
-  } else if (ytOn || jwOn) {
-    desktopContent.style.justifyContent = "center";
-  } else {
-    desktopContent.style.justifyContent = "center";
-  }
+function updateBackgroundColor() {
+    const r = rSlider.value;
+    const g = gSlider.value;
+    const b = bSlider.value;
+    document.body.style.background = `rgb(${r},${g},${b})`;
 }
 
-toggleYT.addEventListener("change", updateFrameLayout);
-toggleJW.addEventListener("change", updateFrameLayout);
+function updateImageOpacity() {
+    bgImage.style.opacity = imgOpacity.value / 100;
+}
 
-/* HEADER TOGGLE — NOW ONLY HIDES ANIMATION */
-toggleHeader.addEventListener("change", e => {
-  const show = e.target.checked ? "flex" : "none";
-  document.querySelector(".header-center").style.display = show;
-});
+rSlider.addEventListener("input", updateBackgroundColor);
+gSlider.addEventListener("input", updateBackgroundColor);
+bSlider.addEventListener("input", updateBackgroundColor);
+imgOpacity.addEventListener("input", updateImageOpacity);
 
-updateFrameLayout();
+updateBackgroundColor();
+updateImageOpacity();
 </script>
 
 </body>
