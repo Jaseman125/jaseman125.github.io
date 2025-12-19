@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JASEMAN.COM</title>
+
+<style>
+  body {
+    margin:0;
+    padding:0;
+    background:black;
+    color:transparent;
+    transition: background 2s, color 2s;
+    overflow-x:hidden;
+  }
+  body.visible {
+    background:white;
+    color:black;
+  }
+  iframe, div, span {
+    opacity:0;
+    transition: opacity 2s;
+  }
+  body.visible iframe,
+  body.visible div,
+  body.visible span {
+    opacity:1;
+  }
+
+  /* HEADER WRAPPER WITH EDGE PADDING */
+  .header-wrapper {
+    display:flex;
+    justify-content:center;
+    padding:0 20px;
+    margin-top:20px;
+  }
+
+  /* MOBILE HEADER (12vw squares) */
+  .header-row {
+    display:flex;
+    justify-content:center;
+    gap:2vw;
+  }
+
+  .header-box {
+    width:12vw;
+    height:12vw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#0000AA;
+  }
+
+  .header-box span {
+    font-size:10vw;
+    color:white;
+    font-family:sans-serif;
+    font-weight:bold;
+    transition:opacity 1s;
+  }
+
+  /* MOBILE CONTENT STACK */
+  .content-mobile {
+    width:calc(7 * 12vw + 6 * 2vw);
+    margin:0 auto;
+    margin-top:4vw;
+  }
+
+  /* TRUE 16:9 YOUTUBE */
+  .yt-wrapper {
+    position:relative;
+    width:100%;
+    padding-bottom:56.25%;
+    margin-bottom:4vw;
+  }
+  .yt-wrapper iframe {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+  /* JASEWORLD2 MOBILE */
+  .jw-wrapper {
+    position:relative;
+    width:100%;
+    min-height:60vh;
+  }
+  .jw-wrapper iframe {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+  /* DESKTOP MODE — UPDATED BREAKPOINT */
+  @media (min-width: 1100px) {
+
+    body {
+      overflow:hidden;
+    }
+
+    .header-row {
+      gap:20px;
+    }
+
+    /* DESKTOP HEADER = 100px */
+    .header-box {
+      width:100px;
+      height:100px;
+    }
+
+    .header-box span {
+      font-size:70px;
+    }
+
+    .content-mobile {
+      display:none;
+    }
+
+    .content-desktop {
+      display:flex;
+      height:calc(100vh - 160px); /* 100px header + 60px margins/padding */
+      padding:20px;
+      gap:20px;
+      box-sizing:border-box;
+    }
+
+    .content-desktop > div {
+      flex:1;
+      position:relative;
+    }
+
+    /* JASEWORLD2 DESKTOP WIDTH LIMIT */
+    .content-desktop > div:last-child {
+      max-width:680px;
+    }
+
+    .content-desktop iframe {
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+  }
+
+  @media (max-width: 1099px) {
+    .content-desktop {
+      display:none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ONE unified header row -->
+<div class="header-wrapper">
+  <div class="header-row">
+    <div class="header-box"><span>J</span></div>
+    <div class="header-box"><span>A</span></div>
+    <div class="header-box"><span>S</span></div>
+    <div class="header-box"><span>E</span></div>
+    <div class="header-box"><span>M</span></div>
+    <div class="header-box"><span>A</span></div>
+    <div class="header-box"><span>N</span></div>
+  </div>
+</div>
+
+<!-- MOBILE STACK -->
+<div class="content-mobile">
+
+  <div class="yt-wrapper">
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
+  </div>
+
+  <div class="jw-wrapper">
+    <iframe src="jaseworld2/jaseworld2.html"></iframe>
+  </div>
+
+</div>
+
+<!-- DESKTOP SIDE-BY-SIDE -->
+<div class="content-desktop">
+  <div>
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
+  </div>
+  <div>
+    <iframe src="jaseworld2/jaseworld2.html"></iframe>
+  </div>
+</div>
+
+<script>
+window.addEventListener("load", () => {
+  document.body.classList.add("visible");
+
+  const words = [
+    { letters:["W","E","L","C","O","M","E"], color:"#000000" },
+    { letters:["★","✦","♥","✿","☃","❄","☮"], color:"#000000" },
+    { letters:["☻","M","E","R","R","Y","☻"], color:"#008800" },
+    { letters:["C","H","R","S","T","M","S"], color:"#008800" },
+    { letters:["⌛","☠","I","M","☣","☢","✈"], color:"#880000" },
+    { letters:["L","E","A","V","I","N","G"], color:"#880000" },
+    { letters:["F","A","C","E","B","K","☹"], color:"#880000" },
+    { letters:["N","E","W","Y","E","A","R"], color:"#880000" },
+    { letters:["J","A","S","E","M","A","N"], color:"#0000AA" }
+  ];
+
+  const spans = document.querySelectorAll(".header-box span");
+  const boxes = document.querySelectorAll(".header-box");
+
+  let currentIndex = 0;
+
+  function applyWord(index) {
+    const entry = words[index];
+    const letters = entry.letters;
+    const color = entry.color;
+
+    spans.forEach((span, i) => {
+      span.style.opacity = 0;
+      setTimeout(() => {
+        span.textContent = letters[i] || "";
+        span.style.opacity = 1;
+      }, 1000);
+    });
+
+    boxes.forEach(box => {
+      box.style.background = color;
+    });
+  }
+
+  applyWord(0);
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % words.length;
+    applyWord(currentIndex);
+  }, 2000);
+});
+</script>
+
+</body>
+</html>

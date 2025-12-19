@@ -28,46 +28,130 @@
     opacity:1;
   }
 
-  /* HEADER WRAPPER WITH EDGE PADDING */
+  /* BACKGROUND IMAGE LAYER */
+  body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    opacity:var(--imgOpacity, 1);
+    pointer-events:none;
+    transition:opacity 0.4s, background-image 0.4s;
+    z-index:-1;
+    background-image:var(--bgImage);
+  }
+
+  /* HEADER WRAPPER (100px tall) */
   .header-wrapper {
     display:flex;
     justify-content:center;
+    align-items:center;
+    height:100px;
     padding:0 20px;
-    margin-top:20px;
+    box-sizing:border-box;
+    position:relative;
   }
 
-  /* MOBILE HEADER (12vw squares) */
+  /* LEFT + CENTER + RIGHT ZONES */
+  .header-left,
+  .header-center,
+  .header-right {
+    display:flex;
+    align-items:center;
+    height:100%;
+  }
+
+  .header-left {
+    position:absolute;
+    left:20px;
+    gap:12px;
+  }
+
+  .header-right {
+    position:absolute;
+    right:20px;
+    gap:18px;
+  }
+
+  /* SLIDERS */
+  .ctrl-slider {
+    width:120px;
+    height:20px;
+  }
+
+  .ctrl-label {
+    font-size:14px;
+    color:black;
+    font-family:sans-serif;
+    margin-right:4px;
+  }
+
+  /* BACKGROUND SELECTOR */
+  .bg-selector {
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .bg-btn {
+    width:28px;
+    height:28px;
+    background:#ddd;
+    border:1px solid #999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:18px;
+    user-select:none;
+  }
+  .bg-name {
+    font-size:14px;
+    min-width:120px;
+    text-align:center;
+    font-family:sans-serif;
+  }
+
+  /* TOGGLES */
+  .toggle-group {
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .toggle-group label {
+    font-size:14px;
+    font-family:sans-serif;
+  }
+
+  /* HEADER LETTER BOXES */
   .header-row {
     display:flex;
     justify-content:center;
-    gap:2vw;
+    gap:20px;
   }
-
   .header-box {
-    width:12vw;
-    height:12vw;
+    width:100px;
+    height:100px;
     display:flex;
     align-items:center;
     justify-content:center;
     background:#0000AA;
   }
-
   .header-box span {
-    font-size:10vw;
+    font-size:70px;
     color:white;
     font-family:sans-serif;
     font-weight:bold;
     transition:opacity 1s;
   }
 
-  /* MOBILE CONTENT STACK */
+  /* MOBILE CONTENT */
   .content-mobile {
     width:calc(7 * 12vw + 6 * 2vw);
     margin:0 auto;
     margin-top:4vw;
   }
-
-  /* TRUE 16:9 YOUTUBE */
   .yt-wrapper {
     position:relative;
     width:100%;
@@ -81,8 +165,6 @@
     height:100%;
     border:0;
   }
-
-  /* JASEWORLD2 MOBILE */
   .jw-wrapper {
     position:relative;
     width:100%;
@@ -96,47 +178,27 @@
     border:0;
   }
 
-  /* DESKTOP MODE — UPDATED BREAKPOINT */
-  @media (min-width: 1100px) {
+  /* DESKTOP MODE */
+  @media (min-width:1100px) {
+    body { overflow:hidden; }
 
-    body {
-      overflow:hidden;
-    }
-
-    .header-row {
-      gap:20px;
-    }
-
-    /* DESKTOP HEADER = 100px */
-    .header-box {
-      width:100px;
-      height:100px;
-    }
-
-    .header-box span {
-      font-size:70px;
-    }
-
-    .content-mobile {
-      display:none;
-    }
+    .content-mobile { display:none; }
 
     .content-desktop {
       display:flex;
-      height:calc(100vh - 160px); /* 100px header + 60px margins/padding */
+      height:calc(100vh - 100px);
       padding:20px;
       gap:20px;
       box-sizing:border-box;
+      justify-content:space-between;
     }
 
     .content-desktop > div {
       flex:1;
       position:relative;
-    }
-
-    /* JASEWORLD2 DESKTOP WIDTH LIMIT */
-    .content-desktop > div:last-child {
-      max-width:680px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
 
     .content-desktop iframe {
@@ -148,97 +210,217 @@
     }
   }
 
-  @media (max-width: 1099px) {
-    .content-desktop {
-      display:none;
-    }
+  @media (max-width:1099px) {
+    .content-desktop { display:none; }
+    .header-left, .header-right { display:none; }
   }
+
+  /* DATA-DRIVEN BACKGROUND LIST (HIDDEN) */
+  #bg-list { display:none; }
 </style>
 </head>
 <body>
 
-<!-- ONE unified header row -->
+<!-- DATA-DRIVEN BACKGROUND LIST -->
+<div id="bg-list">
+  <div data-bg="img/backgrounds/01.png" data-name="Example One"></div>
+  <div data-bg="img/backgrounds/02.png" data-name="Example Two"></div>
+  <div data-bg="img/backgrounds/03.png" data-name="Example Three"></div>
+</div>
+
+<!-- HEADER -->
 <div class="header-wrapper">
-  <div class="header-row">
-    <div class="header-box"><span>J</span></div>
-    <div class="header-box"><span>A</span></div>
-    <div class="header-box"><span>S</span></div>
-    <div class="header-box"><span>E</span></div>
-    <div class="header-box"><span>M</span></div>
-    <div class="header-box"><span>A</span></div>
-    <div class="header-box"><span>N</span></div>
+
+  <!-- LEFT CONTROLS -->
+  <div class="header-left">
+
+    <!-- RGB SLIDERS -->
+    <div>
+      <span class="ctrl-label">R</span>
+      <input type="range" min="0" max="255" value="0" id="rSlider" class="ctrl-slider">
+    </div>
+    <div>
+      <span class="ctrl-label">G</span>
+      <input type="range" min="0" max="255" value="0" id="gSlider" class="ctrl-slider">
+    </div>
+    <div>
+      <span class="ctrl-label">B</span>
+      <input type="range" min="0" max="255" value="0" id="bSlider" class="ctrl-slider">
+    </div>
+
+    <!-- TRANSPARENCY -->
+    <div>
+      <span class="ctrl-label">Img</span>
+      <input type="range" min="0" max="100" value="100" id="imgOpacity" class="ctrl-slider">
+    </div>
+
+    <!-- BACKGROUND SELECTOR -->
+    <div class="bg-selector">
+      <div class="bg-btn" id="bgPrev">◀</div>
+      <div class="bg-name" id="bgName">Example One</div>
+      <div class="bg-btn" id="bgNext">▶</div>
+    </div>
+
   </div>
+
+  <!-- CENTER HEADER ANIMATION -->
+  <div class="header-center">
+    <div class="header-row">
+      <div class="header-box"><span>J</span></div>
+      <div class="header-box"><span>A</span></div>
+      <div class="header-box"><span>S</span></div>
+      <div class="header-box"><span>E</span></div>
+      <div class="header-box"><span>M</span></div>
+      <div class="header-box"><span>A</span></div>
+      <div class="header-box"><span>N</span></div>
+    </div>
+  </div>
+
+  <!-- RIGHT CONTROLS -->
+  <div class="header-right">
+    <div class="toggle-group">
+      <input type="checkbox" id="toggleHeader" checked>
+      <label for="toggleHeader">Header</label>
+    </div>
+    <div class="toggle-group">
+      <input type="checkbox" id="toggleYT" checked>
+      <label for="toggleYT">YouTube</label>
+    </div>
+    <div class="toggle-group">
+      <input type="checkbox" id="toggleJW" checked>
+      <label for="toggleJW">JASEWORLD2</label>
+    </div>
+  </div>
+
 </div>
 
 <!-- MOBILE STACK -->
 <div class="content-mobile">
-
   <div class="yt-wrapper">
-    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
+    <iframe id="ytMobile" src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
   </div>
-
   <div class="jw-wrapper">
-    <iframe src="jaseworld2/jaseworld2.html"></iframe>
+    <iframe id="jwMobile" src="jaseworld2/jaseworld2.html"></iframe>
   </div>
-
 </div>
 
 <!-- DESKTOP SIDE-BY-SIDE -->
-<div class="content-desktop">
-  <div>
-    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
+<div class="content-desktop" id="desktopContent">
+  <div id="ytDesktopWrapper">
+    <iframe id="ytDesktop" src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
   </div>
-  <div>
-    <iframe src="jaseworld2/jaseworld2.html"></iframe>
+  <div id="jwDesktopWrapper">
+    <iframe id="jwDesktop" src="jaseworld2/jaseworld2.html"></iframe>
   </div>
 </div>
 
 <script>
+/* FADE-IN */
 window.addEventListener("load", () => {
   document.body.classList.add("visible");
-
-  const words = [
-    { letters:["W","E","L","C","O","M","E"], color:"#000000" },
-    { letters:["★","✦","♥","✿","☃","❄","☮"], color:"#000000" },
-    { letters:["☻","M","E","R","R","Y","☻"], color:"#008800" },
-    { letters:["C","H","R","S","T","M","S"], color:"#008800" },
-    { letters:["⌛","☠","I","M","☣","☢","✈"], color:"#880000" },
-    { letters:["L","E","A","V","I","N","G"], color:"#880000" },
-    { letters:["F","A","C","E","B","K","☹"], color:"#880000" },
-    { letters:["N","E","W","Y","E","A","R"], color:"#880000" },
-    { letters:["J","A","S","E","M","A","N"], color:"#0000AA" }
-  ];
-
-  const spans = document.querySelectorAll(".header-box span");
-  const boxes = document.querySelectorAll(".header-box");
-
-  let currentIndex = 0;
-
-  function applyWord(index) {
-    const entry = words[index];
-    const letters = entry.letters;
-    const color = entry.color;
-
-    spans.forEach((span, i) => {
-      span.style.opacity = 0;
-      setTimeout(() => {
-        span.textContent = letters[i] || "";
-        span.style.opacity = 1;
-      }, 1000);
-    });
-
-    boxes.forEach(box => {
-      box.style.background = color;
-    });
-  }
-
-  applyWord(0);
-
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % words.length;
-    applyWord(currentIndex);
-  }, 2000);
 });
+
+/* HEADER ANIMATION */
+const words = [
+  { letters:["W","E","L","C","O","M","E"], color:"#000000" },
+  { letters:["★","✦","♥","✿","☃","❄","☮"], color:"#000000" },
+  { letters:["☻","M","E","R","R","Y","☻"], color:"#008800" },
+  { letters:["C","H","R","S","T","M","S"], color:"#008800" },
+  { letters:["⌛","☠","I","M","☣","☢","✈"], color:"#880000" },
+  { letters:["L","E","A","V","I","N","G"], color:"#880000" },
+  { letters:["F","A","C","E","B","K","☹"], color:"#880000" },
+  { letters:["N","E","W","Y","E","A","R"], color:"#880000" },
+  { letters:["J","A","S","E","M","A","N"], color:"#0000AA" }
+];
+
+const spans = document.querySelectorAll(".header-box span");
+const boxes = document.querySelectorAll(".header-box");
+let currentIndex = 0;
+
+function applyWord(index) {
+  const entry = words[index];
+  spans.forEach((span, i) => {
+    span.style.opacity = 0;
+    setTimeout(() => {
+      span.textContent = entry.letters[i] || "";
+      span.style.opacity = 1;
+    }, 1000);
+  });
+  boxes.forEach(box => box.style.background = entry.color);
+}
+
+applyWord(0);
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % words.length;
+  applyWord(currentIndex);
+}, 2000);
+
+/* BACKGROUND ENGINE */
+const bgItems = [...document.querySelectorAll("#bg-list div")];
+let bgIndex = 0;
+
+function applyBackground() {
+  const item = bgItems[bgIndex];
+
+  const r = rSlider.value;
+  const g = gSlider.value;
+  const b = bSlider.value;
+  document.body.style.backgroundColor = `rgb(${r},${g},${b})`;
+
+  const opacity = imgOpacity.value / 100;
+  document.body.style.setProperty("--imgOpacity", opacity);
+  document.body.style.setProperty("--bgImage", `url(${item.dataset.bg})`);
+
+  bgName.textContent = item.dataset.name;
+}
+
+["rSlider","gSlider","bSlider","imgOpacity"].forEach(id => {
+  document.getElementById(id).addEventListener("input", applyBackground);
+});
+
+bgPrev.addEventListener("click", () => {
+  bgIndex = (bgIndex - 1 + bgItems.length) % bgItems.length;
+  applyBackground();
+});
+bgNext.addEventListener("click", () => {
+  bgIndex = (bgIndex + 1) % bgItems.length;
+  applyBackground();
+});
+
+applyBackground();
+
+/* FRAME VISIBILITY + CENTERING */
+const ytWrapper = document.getElementById("ytDesktopWrapper");
+const jwWrapper = document.getElementById("jwDesktopWrapper");
+const desktopContent = document.getElementById("desktopContent");
+
+function updateFrameLayout() {
+  const ytOn = toggleYT.checked;
+  const jwOn = toggleJW.checked;
+
+  ytWrapper.style.display = ytOn ? "flex" : "none";
+  jwWrapper.style.display = jwOn ? "flex" : "none";
+
+  if (ytOn && jwOn) {
+    desktopContent.style.justifyContent = "space-between";
+  } else if (ytOn || jwOn) {
+    desktopContent.style.justifyContent = "center";
+  } else {
+    desktopContent.style.justifyContent = "center";
+  }
+}
+
+toggleYT.addEventListener("change", updateFrameLayout);
+toggleJW.addEventListener("change", updateFrameLayout);
+
+toggleHeader.addEventListener("change", e => {
+  const show = e.target.checked ? "flex" : "none";
+  document.querySelector(".header-center").style.display = show;
+  document.querySelector(".header-left").style.display = show;
+  document.querySelector(".header-right").style.display = show;
+});
+
+updateFrameLayout();
 </script>
 
 </body>
