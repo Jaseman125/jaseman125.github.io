@@ -9,13 +9,12 @@
   body {
     margin:0;
     padding:0;
-    background:black;
+    background:white;
     color:transparent;
     transition: background 2s, color 2s;
     overflow-x:hidden;
   }
   body.visible {
-    background:white;
     color:black;
   }
   iframe, div, span {
@@ -28,33 +27,21 @@
     opacity:1;
   }
 
-  /* GLOBAL BACKGROUND BEHAVIOUR */
-  body {
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-  }
-
   /* HEADER WRAPPER */
   .header-wrapper {
     margin-top:20px;
     padding:0 20px;
   }
 
-  /* DESKTOP HEADER ROW (3 columns) */
+  /* DESKTOP HEADER ROW */
   .header-desktop-row {
     display:flex;
     align-items:center;
     justify-content:center;
+    column-gap:20px;
   }
 
-  /* LEFT CONTROLS + RIGHT TOGGLES ARE HIDDEN ON MOBILE BY DEFAULT */
-  .desktop-controls,
-  .desktop-toggles {
-    display:none;
-  }
-
-  /* MOBILE HEADER (12vw squares) */
+  /* MOBILE HEADER */
   .header-row {
     display:flex;
     justify-content:center;
@@ -78,14 +65,13 @@
     transition:opacity 1s;
   }
 
-  /* MOBILE CONTENT STACK */
+  /* MOBILE CONTENT */
   .content-mobile {
     width:calc(7 * 12vw + 6 * 2vw);
     margin:0 auto;
     margin-top:4vw;
   }
 
-  /* TRUE 16:9 YOUTUBE */
   .yt-wrapper {
     position:relative;
     width:100%;
@@ -100,7 +86,6 @@
     border:0;
   }
 
-  /* JASEWORLD2 MOBILE */
   .jw-wrapper {
     position:relative;
     width:100%;
@@ -114,7 +99,7 @@
     border:0;
   }
 
-  /* DESKTOP MODE — UPDATED BREAKPOINT */
+  /* DESKTOP MODE */
   @media (min-width: 1100px) {
 
     body {
@@ -125,7 +110,6 @@
       gap:20px;
     }
 
-    /* DESKTOP HEADER = 100px */
     .header-box {
       width:100px;
       height:100px;
@@ -139,43 +123,18 @@
       display:none;
     }
 
-    /* DESKTOP HEADER ROW:
-       [ CONTROLS ] --20px-- [ HEADER ] --20px-- [ TOGGLES ] */
-    .header-desktop-row {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      column-gap:20px;
-    }
-
+    /* LEFT CONTROL PANEL */
     .desktop-controls {
       display:block;
       max-width:320px;
-      margin-right:0;
     }
 
-    .desktop-toggles {
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-left:0;
-    }
-
-    /* CONTROL PANEL LAYOUT (TWO COLUMNS) */
     .controls-panel {
-      background:rgba(0,0,0,0.6);
-      padding:10px;
-      border-radius:8px;
-      color:white;
-      font-family:sans-serif;
-      font-size:12px;
-    }
-
-    .controls-title {
-      margin:0 0 8px 0;
-      font-size:13px;
-      font-weight:bold;
-      text-align:left;
+      padding:0;
+      margin:0;
+      background:none;
+      border-radius:0;
+      color:inherit;
     }
 
     .controls-grid {
@@ -184,6 +143,8 @@
       column-gap:10px;
       row-gap:6px;
       align-items:center;
+      font-family:sans-serif;
+      font-size:12px;
     }
 
     .controls-grid label {
@@ -194,24 +155,10 @@
       width:100%;
     }
 
-    .controls-left {
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-    }
-
-    .controls-right {
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-    }
-
     .image-controls {
       display:flex;
       align-items:center;
       gap:4px;
-      justify-content:flex-start;
-      flex-wrap:wrap;
     }
 
     .image-controls button {
@@ -226,49 +173,19 @@
       font-size:11px;
     }
 
-    .opacity-row {
+    /* RIGHT TOGGLES */
+    .desktop-toggles {
       display:flex;
       flex-direction:column;
-      gap:2px;
-    }
-
-    .opacity-row label {
-      font-size:11px;
-    }
-
-    /* TOGGLE BUTTONS (RIGHT SIDE) */
-    .toggle-square {
-      width:40px;
-      height:40px;
-      background:#333;
-      border-radius:6px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
+      gap:10px;
       font-family:sans-serif;
-      font-size:18px;
-      cursor:pointer;
-      user-select:none;
-      transition:background 0.3s, transform 0.2s;
+      font-size:12px;
     }
 
-    .toggle-square.active {
-      background:#008800;
-      transform:translateY(-1px);
-    }
-
-    .toggle-label {
-      font-size:10px;
-      text-align:center;
-      color:white;
-      font-family:sans-serif;
-    }
-
-    /* DESKTOP CONTENT AREA */
+    /* DESKTOP CONTENT */
     .content-desktop {
       display:flex;
-      height:calc(100vh - 160px); /* 100px header + 60px margins/padding */
+      height:calc(100vh - 160px);
       padding:20px;
       gap:20px;
       box-sizing:border-box;
@@ -277,14 +194,9 @@
     .desktop-panel {
       flex:1;
       position:relative;
-      background:rgba(0,0,0,0.3);
-      border-radius:8px;
+      background:none;
+      border-radius:0;
       overflow:hidden;
-    }
-
-    /* JASEWORLD2 DESKTOP WIDTH LIMIT */
-    .desktop-panel.jw-panel {
-      max-width:680px;
     }
 
     .desktop-panel iframe {
@@ -309,44 +221,43 @@
 </head>
 <body>
 
-<!-- HEADER AREA: CONTROLS | HEADER | TOGGLES -->
 <div class="header-wrapper">
   <div class="header-desktop-row">
 
-    <!-- LEFT: DESKTOP CONTROLS (HIDDEN ON MOBILE) -->
+    <!-- LEFT CONTROLS -->
     <div class="desktop-controls">
       <div class="controls-panel">
-        <p class="controls-title">Background controls</p>
         <div class="controls-grid">
-          <!-- LEFT COLUMN: RGB SLIDERS -->
-          <div class="controls-left">
+
+          <!-- LEFT COLUMN -->
+          <div>
             <label for="r-slider">Red</label>
-            <input id="r-slider" type="range" min="0" max="255" value="0">
+            <input id="r-slider" type="range" min="0" max="255" value="255">
 
             <label for="g-slider">Green</label>
-            <input id="g-slider" type="range" min="0" max="255" value="0">
+            <input id="g-slider" type="range" min="0" max="255" value="255">
 
             <label for="b-slider">Blue</label>
-            <input id="b-slider" type="range" min="0" max="255" value="170">
+            <input id="b-slider" type="range" min="0" max="255" value="255">
           </div>
 
-          <!-- RIGHT COLUMN: IMAGE + OPACITY -->
-          <div class="controls-right">
+          <!-- RIGHT COLUMN -->
+          <div>
             <div class="image-controls">
               <button id="bg-prev">&lt;</button>
               <span class="image-name" id="bg-name">None</span>
               <button id="bg-next">&gt;</button>
             </div>
-            <div class="opacity-row">
-              <label for="bg-opacity">Background opacity</label>
-              <input id="bg-opacity" type="range" min="0" max="100" value="100">
-            </div>
+
+            <label for="bg-opacity">Opacity</label>
+            <input id="bg-opacity" type="range" min="0" max="100" value="100">
           </div>
+
         </div>
       </div>
     </div>
 
-    <!-- CENTER: HEADER ROW (ALWAYS PRESENT) -->
+    <!-- HEADER -->
     <div class="header-row">
       <div class="header-box"><span>J</span></div>
       <div class="header-box"><span>A</span></div>
@@ -357,24 +268,23 @@
       <div class="header-box"><span>N</span></div>
     </div>
 
-    <!-- RIGHT: DESKTOP TOGGLES (HIDDEN ON MOBILE) -->
+    <!-- RIGHT TOGGLES -->
     <div class="desktop-toggles">
       <div>
-        <div id="toggle-yt" class="toggle-square active">Y</div>
-        <div class="toggle-label">YouTube</div>
+        <input type="checkbox" id="toggle-yt" checked>
+        <label for="toggle-yt">YouTube</label>
       </div>
       <div>
-        <div id="toggle-jw" class="toggle-square active">J</div>
-        <div class="toggle-label">Jaseworld</div>
+        <input type="checkbox" id="toggle-jw" checked>
+        <label for="toggle-jw">Jaseworld</label>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- MOBILE STACK -->
+<!-- MOBILE -->
 <div class="content-mobile">
-
   <div class="yt-wrapper">
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
   </div>
@@ -382,10 +292,9 @@
   <div class="jw-wrapper">
     <iframe src="jaseworld2/jaseworld2.html"></iframe>
   </div>
-
 </div>
 
-<!-- DESKTOP SIDE-BY-SIDE (PANELS TOGGLED BY RIGHT SQUARES) -->
+<!-- DESKTOP -->
 <div class="content-desktop">
   <div class="desktop-panel yt-panel" id="yt-panel">
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
@@ -399,9 +308,7 @@
 window.addEventListener("load", () => {
   document.body.classList.add("visible");
 
-  /* =========================
-     HEADER ANIMATION (UNCHANGED)
-     ========================= */
+  /* HEADER ANIMATION */
   const words = [
     { letters:["W","E","L","C","O","M","E"], color:"#000000" },
     { letters:["★","✦","♥","✿","☃","❄","☮"], color:"#000000" },
@@ -444,15 +351,9 @@ window.addEventListener("load", () => {
     applyWord(currentIndex);
   }, 2000);
 
-  /* =========================
-     BACKGROUND ENGINE
-     ========================= */
-
+  /* BACKGROUND ENGINE */
   const bgImages = [
-    { name:"None", url:null },
-    { name:"Image 1", url:"images/bg1.jpg" },
-    { name:"Image 2", url:"images/bg2.jpg" },
-    { name:"Image 3", url:"images/bg3.jpg" }
+    { name:"None", url:null }
   ];
 
   let bgIndex = 0;
@@ -466,22 +367,22 @@ window.addEventListener("load", () => {
   const bgNameSpan = document.getElementById("bg-name");
 
   function updateBackground() {
-    const r = parseInt(rSlider.value, 10) || 0;
-    const g = parseInt(gSlider.value, 10) || 0;
-    const b = parseInt(bSlider.value, 10) || 0;
-    const opacity = (parseInt(opacitySlider.value, 10) || 0) / 100;
+    const r = parseInt(rSlider.value, 10);
+    const g = parseInt(gSlider.value, 10);
+    const b = parseInt(bSlider.value, 10);
+    const opacity = parseInt(opacitySlider.value, 10) / 100;
 
-    const color = "rgba(" + r + "," + g + "," + b + "," + opacity + ")";
-    document.body.style.backgroundColor = color;
+    document.body.style.backgroundColor =
+      "rgba(" + r + "," + g + "," + b + "," + opacity + ")";
 
     const current = bgImages[bgIndex];
-    if (current && current.url) {
+    if (current.url) {
       document.body.style.backgroundImage = "url('" + current.url + "')";
     } else {
       document.body.style.backgroundImage = "none";
     }
 
-    bgNameSpan.textContent = current ? current.name : "None";
+    bgNameSpan.textContent = current.name;
   }
 
   function changeImage(delta) {
@@ -491,50 +392,29 @@ window.addEventListener("load", () => {
     updateBackground();
   }
 
-  if (rSlider && gSlider && bSlider && opacitySlider) {
-    rSlider.addEventListener("input", updateBackground);
-    gSlider.addEventListener("input", updateBackground);
-    bSlider.addEventListener("input", updateBackground);
-    opacitySlider.addEventListener("input", updateBackground);
-  }
+  rSlider.addEventListener("input", updateBackground);
+  gSlider.addEventListener("input", updateBackground);
+  bSlider.addEventListener("input", updateBackground);
+  opacitySlider.addEventListener("input", updateBackground);
 
-  if (bgPrev && bgNext) {
-    bgPrev.addEventListener("click", () => changeImage(-1));
-    bgNext.addEventListener("click", () => changeImage(1));
-  }
+  bgPrev.addEventListener("click", () => changeImage(-1));
+  bgNext.addEventListener("click", () => changeImage(1));
 
   updateBackground();
 
-  /* =========================
-     TOGGLES FOR DESKTOP PANELS
-     ========================= */
-
+  /* TOGGLES */
   const ytToggle = document.getElementById("toggle-yt");
   const jwToggle = document.getElementById("toggle-jw");
   const ytPanel = document.getElementById("yt-panel");
   const jwPanel = document.getElementById("jw-panel");
 
   function setPanelVisibility() {
-    const ytOn = ytToggle.classList.contains("active");
-    const jwOn = jwToggle.classList.contains("active");
-
-    if (ytPanel) ytPanel.classList.toggle("hidden", !ytOn);
-    if (jwPanel) jwPanel.classList.toggle("hidden", !jwOn);
+    ytPanel.style.display = ytToggle.checked ? "block" : "none";
+    jwPanel.style.display = jwToggle.checked ? "block" : "none";
   }
 
-  if (ytToggle && ytPanel) {
-    ytToggle.addEventListener("click", () => {
-      ytToggle.classList.toggle("active");
-      setPanelVisibility();
-    });
-  }
-
-  if (jwToggle && jwPanel) {
-    jwToggle.addEventListener("click", () => {
-      jwToggle.classList.toggle("active");
-      setPanelVisibility();
-    });
-  }
+  ytToggle.addEventListener("change", setPanelVisibility);
+  jwToggle.addEventListener("change", setPanelVisibility);
 
   setPanelVisibility();
 });
