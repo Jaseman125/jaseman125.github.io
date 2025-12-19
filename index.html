@@ -8,13 +8,13 @@
   body {
     margin:0;
     padding:0;
-    background:black;           
-    color:transparent;          
-    transition: background 2s, color 2s; 
+    background:black;
+    color:transparent;
+    transition: background 2s, color 2s;
   }
   body.visible {
-    background:white;           
-    color:black;                
+    background:white;
+    color:black;
   }
   iframe, div, span {
     opacity:0;
@@ -25,6 +25,15 @@
   body.visible span {
     opacity:1;
   }
+
+  .header-box {
+    width:12vw;
+    height:12vw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: background 1s;
+  }
 </style>
 </head>
 <body>
@@ -32,25 +41,25 @@
 <div style="width:calc(7 * 12vw + 6 * 2vw); margin:0 auto;">
 
   <div style="display:flex; gap:2vw; justify-content:center; margin-top:2vw;">
-    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+    <div class="header-box" style="background:#0000AA;">
       <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">J</span>
     </div>
-    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+    <div class="header-box" style="background:#0000AA;">
       <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
     </div>
-    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+    <div class="header-box" style="background:#0000AA;">
       <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">S</span>
     </div>
-    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+    <div class="header-box" style="background:#0000AA;">
       <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">E</span>
     </div>
-    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+    <div class="header-box" style="background:#0000AA;">
       <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">M</span>
     </div>
-    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+    <div class="header-box" style="background:#0000AA;">
       <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
     </div>
-    <div style="background:#0000AA; width:12vw; height:12vw; display:flex; align-items:center; justify-content:center;">
+    <div class="header-box" style="background:#0000AA;">
       <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">N</span>
     </div>
   </div>
@@ -70,40 +79,50 @@
 </div>
 
 <script>
-  window.addEventListener("load", () => {
-    document.body.classList.add("visible");
+window.addEventListener("load", () => {
+  document.body.classList.add("visible");
 
-const words = [
-  ["W","E","L","C","O","M","E"],
-  [" ","M","E","R","R","Y"," "],
-  ["C","H","R","S","T","M","S"],
-  [" "," ","I","M"," "," "," "],
-  ["L","E","A","V","I","N","G"],
-  ["F","A","C","E","B","K"," "],
-  ["N","E","W","Y","E","A","R"],
-  ["J","A","S","E","M","A","N"]
-];
+  const words = [
+    { letters:["W","E","L","C","O","M","E"], color:"#0000AA" },
+    { letters:[" ","M","E","R","R","Y"," "], color:"#008000" },
+    { letters:["C","H","R","S","T","M","S"], color:"#AA0000" },
+    { letters:[" "," ","I","M"," "," "," "], color:"#444444" },
+    { letters:["L","E","A","V","I","N","G"], color:"#AA5500" },
+    { letters:["F","A","C","E","B","K"," "], color:"#3333AA" },
+    { letters:["N","E","W","Y","E","A","R"], color:"#0066CC" },
+    { letters:["J","A","S","E","M","A","N"], color:"#0000AA" }
+  ];
 
-    const spans = document.querySelectorAll("div > span");
-    let currentIndex = 0;
+  const spans = document.querySelectorAll(".header-box span");
+  const boxes = document.querySelectorAll(".header-box");
+
+  let currentIndex = 0;
+
+  function applyWord(index) {
+    const entry = words[index];
+    const letters = entry.letters;
+    const color = entry.color;
 
     spans.forEach((span, i) => {
-      span.textContent = words[currentIndex][i] || "";
+      span.style.opacity = 0;
+      setTimeout(() => {
+        span.textContent = letters[i] || "";
+        span.style.opacity = 1;
+      }, 1000);
     });
 
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % words.length;
-      const nextWord = words[currentIndex];
-      spans.forEach((span, i) => {
-        span.style.transition = "opacity 1s";
-        span.style.opacity = 0;
-        setTimeout(() => {
-          span.textContent = nextWord[i] || "";
-          span.style.opacity = 1;
-        }, 1000);
-      });
-    }, 2000);
-  });
+    boxes.forEach(box => {
+      box.style.background = color;
+    });
+  }
+
+  applyWord(0);
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % words.length;
+    applyWord(currentIndex);
+  }, 2000);
+});
 </script>
 
 </body>
