@@ -191,8 +191,19 @@
       box-sizing:border-box;
     }
 
-    .desktop-panel {
+    /* YouTube panel flexes */
+    .desktop-panel.yt-panel {
       flex:1;
+      position:relative;
+      background:none;
+      border-radius:0;
+      overflow:hidden;
+    }
+
+    /* Jaseworld fixed width */
+    .desktop-panel.jw-panel {
+      width:680px;
+      flex:0 0 680px;
       position:relative;
       background:none;
       border-radius:0;
@@ -212,9 +223,12 @@
     }
   }
 
+  /* MOBILE MODE — hide desktop-only elements */
   @media (max-width: 1099px) {
-    .content-desktop {
-      display:none;
+    .content-desktop,
+    .desktop-controls,
+    .desktop-toggles {
+      display:none !important;
     }
   }
 </style>
@@ -354,6 +368,7 @@ window.addEventListener("load", () => {
   /* BACKGROUND ENGINE */
   const bgImages = [
     { name:"None", url:null }
+    // Add more images here when ready
   ];
 
   let bgIndex = 0;
