@@ -73,13 +73,16 @@
   window.addEventListener("load", () => {
     document.body.classList.add("visible");
 
-    const words = [
-      ["W","E","L","C","O","M","E"],
-      [" "," ","A","N","D"," "," "],
-      [" ","M","E","R","R","Y"," "],
-      ["C","H","R","S","T","M","S"],
-      ["J","A","S","E","M","A","N"]
-    ];
+const words = [
+  ["W","E","L","C","O","M","E"],
+  [" ","M","E","R","R","Y"," "],
+  ["C","H","R","S","T","M","S"],
+  ["J","A","S","E","M","A","N"],
+  [" "," ","I","M"," "," "," "],
+  ["L","E","A","V","I","N","G"],
+  ["F","A","C","E","B","K"," "],
+  ["N","E","W","Y","E","A","R"]
+];
 
     const spans = document.querySelectorAll("div > span");
     let currentIndex = 0;
@@ -99,7 +102,7 @@
           span.style.opacity = 1;
         }, 1000);
       });
-    }, 5000);
+    }, 2000);
   });
 </script>
 
