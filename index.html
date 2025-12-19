@@ -28,9 +28,7 @@
     opacity:1;
   }
 
-  /* ------------------------------------------------------ */
-  /* HEADER WRAPPER (adds left/right padding)               */
-  /* ------------------------------------------------------ */
+  /* HEADER WRAPPER WITH EDGE PADDING */
   .header-wrapper {
     display:flex;
     justify-content:center;
@@ -38,9 +36,7 @@
     margin-top:20px;
   }
 
-  /* ------------------------------------------------------ */
-  /* ONE HEADER ROW — MOBILE DEFAULT (12vw squares)         */
-  /* ------------------------------------------------------ */
+  /* MOBILE HEADER (12vw squares) */
   .header-row {
     display:flex;
     justify-content:center;
@@ -64,16 +60,14 @@
     transition:opacity 1s;
   }
 
-  /* ------------------------------------------------------ */
-  /* MOBILE LAYOUT (stacked iframes)                        */
-  /* ------------------------------------------------------ */
+  /* MOBILE CONTENT STACK */
   .content-mobile {
     width:calc(7 * 12vw + 6 * 2vw);
     margin:0 auto;
     margin-top:4vw;
   }
 
-  /* TRUE 16:9 RESPONSIVE YOUTUBE */
+  /* TRUE 16:9 YOUTUBE */
   .yt-wrapper {
     position:relative;
     width:100%;
@@ -88,7 +82,7 @@
     border:0;
   }
 
-  /* JASEWORLD2 MOBILE HEIGHT FIX */
+  /* JASEWORLD2 MOBILE */
   .jw-wrapper {
     position:relative;
     width:100%;
@@ -102,9 +96,7 @@
     border:0;
   }
 
-  /* ------------------------------------------------------ */
-  /* DESKTOP MODE (200px squares, side-by-side layout)      */
-  /* ------------------------------------------------------ */
+  /* DESKTOP MODE */
   @media (min-width: 1200px) {
 
     body {
@@ -115,13 +107,14 @@
       gap:20px;
     }
 
+    /* DESKTOP HEADER = 100px */
     .header-box {
-      width:200px;
-      height:200px;
+      width:100px;
+      height:100px;
     }
 
     .header-box span {
-      font-size:150px;
+      font-size:70px;
     }
 
     .content-mobile {
@@ -130,7 +123,7 @@
 
     .content-desktop {
       display:flex;
-      height:calc(100vh - 260px);
+      height:calc(100vh - 160px); /* 100px header + 60px margins/padding */
       padding:20px;
       gap:20px;
       box-sizing:border-box;
@@ -139,6 +132,11 @@
     .content-desktop > div {
       flex:1;
       position:relative;
+    }
+
+    /* JASEWORLD2 DESKTOP WIDTH LIMIT */
+    .content-desktop > div:last-child {
+      max-width:680px;
     }
 
     .content-desktop iframe {
