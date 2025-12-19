@@ -1,0 +1,126 @@
+<div id="topleft-controls">
+  <div class="controls-grid">
+
+    <!-- Column 1: RGB sliders -->
+    <input id="r-slider" type="range" min="0" max="255" value="255">
+    <input id="g-slider" type="range" min="0" max="255" value="255">
+    <input id="b-slider" type="range" min="0" max="255" value="255">
+
+    <!-- Column 2: image selector + opacity -->
+    <div class="image-selector">
+      <button id="bg-prev">&lt;</button>
+      <span id="bg-name">None</span>
+      <button id="bg-next">&gt;</button>
+    </div>
+
+    <input id="bg-opacity" type="range" min="0" max="100" value="100">
+
+  </div>
+</div>
+
+<style>
+  #topleft-controls {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100px;
+    padding: 4px;
+    z-index: 9999;
+  }
+
+  .controls-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 6px;
+    height: 100%;
+  }
+
+  input[type="range"] {
+    width: 100%;
+  }
+
+  .image-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .image-selector span {
+    flex: 1;
+    text-align: center;
+  }
+</style>
+
+<script>
+  // Background image list (module-owned)
+  const bgImages = [
+    { name: "None", url: null },
+    { name: "01", url: "img/backgrounds/01.png" },
+    { name: "02", url: "img/backgrounds/02.png" },
+    { name: "03", url: "img/backgrounds/03.png" },
+    { name: "04", url: "img/backgrounds/04.png" },
+    { name: "05", url: "img/backgrounds/05.png" },
+    { name: "06", url: "img/backgrounds/06.png" },
+    { name: "07", url: "img/backgrounds/07.png" },
+    { name: "08", url: "img/backgrounds/08.png" },
+    { name: "09", url: "img/backgrounds/09.png" },
+    { name: "10", url: "img/backgrounds/10.png" }
+  ];
+
+  let currentImageIndex = 0;
+
+  const rSlider = document.getElementById("r-slider");
+  const gSlider = document.getElementById("g-slider");
+  const bSlider = document.getElementById("b-slider");
+  const opacitySlider = document.getElementById("bg-opacity");
+
+  const prevBtn = document.getElementById("bg-prev");
+  const nextBtn = document.getElementById("bg-next");
+  const nameSpan = document.getElementById("bg-name");
+
+  const bgLayer = document.getElementById("bg-image-layer");
+
+  function updateSolidBackground() {
+    const r = rSlider.value;
+    const g = gSlider.value;
+    const b = bSlider.value;
+    document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+  }
+
+  function updateImageOpacity() {
+    const value = opacitySlider.value / 100;
+    bgLayer.style.opacity = value;
+  }
+
+  function updateImage() {
+    const item = bgImages[currentImageIndex];
+    nameSpan.textContent = item.name;
+
+    if (item.url) {
+      bgLayer.style.backgroundImage = `url('${item.url}')`;
+    } else {
+      bgLayer.style.backgroundImage = "none";
+    }
+  }
+
+  prevBtn.onclick = () => {
+    currentImageIndex = (currentImageIndex - 1 + bgImages.length) % bgImages.length;
+    updateImage();
+  };
+
+  nextBtn.onclick = () => {
+    currentImageIndex = (currentImageIndex + 1) % bgImages.length;
+    updateImage();
+  };
+
+  rSlider.oninput = updateSolidBackground;
+  gSlider.oninput = updateSolidBackground;
+  bSlider.oninput = updateSolidBackground;
+  opacitySlider.oninput = updateImageOpacity;
+
+  // Initial state
+  updateSolidBackground();
+  updateImage();
+  updateImageOpacity();
+</script>

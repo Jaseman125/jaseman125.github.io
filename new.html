@@ -15,20 +15,29 @@
     }
 
     #bg {
+        display: none;
+    }
+
+    #bg-image-layer {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        object-fit: cover;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 1;
         z-index: -1;
+        pointer-events: none;
     }
 </style>
 
 </head>
 <body>
 
-<img id="bg" src="img/backgrounds/04.png" alt="">
+<div id="bg-image-layer"></div>
+<div data-include="topleft-controls.html"></div>
 
 </body>
 </html>
