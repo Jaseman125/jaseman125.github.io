@@ -265,6 +265,8 @@
               <button id="bg-next">&gt;</button>
             </div>
 
+            <label for="bg-opacity">Opacity</label>
+            <input id="bg-opacity" type="range" min="0" max="100" value="100">
           </div>
 
         </div>
@@ -386,6 +388,7 @@ const bgImages = [
   const rSlider = document.getElementById("r-slider");
   const gSlider = document.getElementById("g-slider");
   const bSlider = document.getElementById("b-slider");
+  const opacitySlider = document.getElementById("bg-opacity");
   const bgPrev = document.getElementById("bg-prev");
   const bgNext = document.getElementById("bg-next");
   const bgNameSpan = document.getElementById("bg-name");
@@ -394,24 +397,18 @@ const bgImages = [
     const r = parseInt(rSlider.value, 10);
     const g = parseInt(gSlider.value, 10);
     const b = parseInt(bSlider.value, 10);
+    const opacity = parseInt(opacitySlider.value, 10) / 100;
 
     document.body.style.backgroundColor =
       "rgba(" + r + "," + g + "," + b + "," + opacity + ")";
 
     const current = bgImages[bgIndex];
-<<<<<<< HEAD
- if (current.url) {
+ if (current.url && opacity > 0) {
   document.body.style.backgroundImage = "url('" + current.url + "')";
 } else {
   document.body.style.backgroundImage = "none";
 }
-=======
-    if (current.url) {
-      document.body.style.backgroundImage = "url('" + current.url + "')";
-    } else {
-      document.body.style.backgroundImage = "none";
-    }
->>>>>>> parent of e9b9785 (updated)
+
 
     bgNameSpan.textContent = current.name;
   }
@@ -426,6 +423,7 @@ const bgImages = [
   rSlider.addEventListener("input", updateBackground);
   gSlider.addEventListener("input", updateBackground);
   bSlider.addEventListener("input", updateBackground);
+  opacitySlider.addEventListener("input", updateBackground);
 
   bgPrev.addEventListener("click", () => changeImage(-1));
   bgNext.addEventListener("click", () => changeImage(1));
