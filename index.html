@@ -403,11 +403,12 @@ const bgImages = [
       "rgba(" + r + "," + g + "," + b + "," + opacity + ")";
 
     const current = bgImages[bgIndex];
-    if (current.url) {
-      document.body.style.backgroundImage = "url('" + current.url + "')";
-    } else {
-      document.body.style.backgroundImage = "none";
-    }
+ if (current.url && opacity > 0) {
+  document.body.style.backgroundImage = "url('" + current.url + "')";
+} else {
+  document.body.style.backgroundImage = "none";
+}
+
 
     bgNameSpan.textContent = current.name;
   }
