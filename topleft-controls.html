@@ -1,20 +1,23 @@
 <div id="topleft-controls">
   <div class="controls-grid">
 
-    <!-- RGB sliders -->
-    <input id="r-slider" type="range" min="0" max="255" value="255">
-    <input id="g-slider" type="range" min="0" max="255" value="255">
-    <input id="b-slider" type="range" min="0" max="255" value="255">
-
-    <!-- Image selector -->
-    <div class="image-selector">
-      <button id="bg-prev">&lt;</button>
-      <span id="bg-name">None</span>
-      <button id="bg-next">&gt;</button>
+    <!-- LEFT COLUMN: RGB sliders -->
+    <div class="left-column">
+      <input id="r-slider" type="range" min="0" max="255" value="255">
+      <input id="g-slider" type="range" min="0" max="255" value="255">
+      <input id="b-slider" type="range" min="0" max="255" value="255">
     </div>
 
-    <!-- Opacity -->
-    <input id="bg-opacity" type="range" min="0" max="100" value="100">
+    <!-- RIGHT COLUMN: selector + opacity -->
+    <div class="right-column">
+      <div class="image-selector">
+        <button id="bg-prev">&lt;</button>
+        <span id="bg-name">None</span>
+        <button id="bg-next">&gt;</button>
+      </div>
+
+      <input id="bg-opacity" type="range" min="0" max="100" value="100">
+    </div>
 
   </div>
 </div>
@@ -33,8 +36,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 10px;
-    row-gap: 6px;
     height: 100%;
+  }
+
+  .left-column,
+  .right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   input[type="range"] {
