@@ -9,13 +9,12 @@
   body {
     margin:0;
     padding:0;
-    background:black;
+    background:white;
     color:transparent;
     transition: background 2s, color 2s;
     overflow-x:hidden;
   }
   body.visible {
-    background:white;
     color:black;
   }
   iframe, div, span {
@@ -28,15 +27,21 @@
     opacity:1;
   }
 
-  /* HEADER WRAPPER WITH EDGE PADDING */
+  /* HEADER WRAPPER */
   .header-wrapper {
-    display:flex;
-    justify-content:center;
-    padding:0 20px;
     margin-top:20px;
+    padding:0 20px;
   }
 
-  /* MOBILE HEADER (12vw squares) */
+  /* DESKTOP HEADER ROW */
+  .header-desktop-row {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    column-gap:20px;
+  }
+
+  /* MOBILE HEADER */
   .header-row {
     display:flex;
     justify-content:center;
@@ -60,14 +65,13 @@
     transition:opacity 1s;
   }
 
-  /* MOBILE CONTENT STACK */
+  /* MOBILE CONTENT */
   .content-mobile {
     width:calc(7 * 12vw + 6 * 2vw);
     margin:0 auto;
     margin-top:4vw;
   }
 
-  /* TRUE 16:9 YOUTUBE */
   .yt-wrapper {
     position:relative;
     width:100%;
@@ -82,7 +86,6 @@
     border:0;
   }
 
-  /* JASEWORLD2 MOBILE */
   .jw-wrapper {
     position:relative;
     width:100%;
@@ -96,7 +99,7 @@
     border:0;
   }
 
-  /* DESKTOP MODE — UPDATED BREAKPOINT */
+  /* DESKTOP MODE */
   @media (min-width: 1100px) {
 
     body {
@@ -107,7 +110,6 @@
       gap:20px;
     }
 
-    /* DESKTOP HEADER = 100px */
     .header-box {
       width:100px;
       height:100px;
@@ -121,58 +123,184 @@
       display:none;
     }
 
-    .content-desktop {
-      display:flex;
-      height:calc(100vh - 160px); /* 100px header + 60px margins/padding */
-      padding:20px;
-      gap:20px;
-      box-sizing:border-box;
+    /* LEFT CONTROL PANEL */
+    .desktop-controls {
+      display:block;
+      max-width:320px;
     }
 
-    .content-desktop > div {
+    .controls-panel {
+      padding:0;
+      margin:0;
+      background:none;
+      border-radius:0;
+      color:inherit;
+    }
+
+    .controls-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      column-gap:10px;
+      row-gap:6px;
+      align-items:center;
+      font-family:sans-serif;
+      font-size:12px;
+    }
+
+    .controls-grid label {
+      font-size:11px;
+    }
+
+    .controls-grid input[type="range"] {
+      width:100%;
+    }
+
+    .image-controls {
+      display:flex;
+      align-items:center;
+      gap:4px;
+    }
+
+    .image-controls button {
+      padding:2px 6px;
+      font-size:11px;
+      cursor:pointer;
+    }
+
+    .image-name {
+      min-width:60px;
+      text-align:center;
+      font-size:11px;
+    }
+
+    /* RIGHT TOGGLES */
+    .desktop-toggles {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      font-family:sans-serif;
+      font-size:12px;
+    }
+
+    /* DESKTOP CONTENT */
+.content-desktop {
+  display:flex;
+  justify-content:center;
+  height:calc(100vh - 160px);
+  padding:20px;
+  gap:20px;
+  box-sizing:border-box;
+}
+
+
+    /* YouTube panel flexes */
+    .desktop-panel.yt-panel {
       flex:1;
       position:relative;
+      background:none;
+      border-radius:0;
+      overflow:hidden;
     }
 
-    /* JASEWORLD2 DESKTOP WIDTH LIMIT */
-    .content-desktop > div:last-child {
-      max-width:680px;
+    /* Jaseworld fixed width */
+    .desktop-panel.jw-panel {
+      width:680px;
+      flex:0 0 680px;
+      position:relative;
+      background:none;
+      border-radius:0;
+      overflow:hidden;
     }
 
-    .content-desktop iframe {
+    .desktop-panel iframe {
       position:absolute;
       inset:0;
       width:100%;
       height:100%;
       border:0;
     }
+
+    .desktop-panel.hidden {
+      display:none;
+    }
   }
 
+  /* MOBILE MODE — hide desktop-only elements */
   @media (max-width: 1099px) {
-    .content-desktop {
-      display:none;
+    .content-desktop,
+    .desktop-controls,
+    .desktop-toggles {
+      display:none !important;
     }
   }
 </style>
 </head>
 <body>
 
-<!-- ONE unified header row -->
 <div class="header-wrapper">
-  <div class="header-row">
-    <div class="header-box"><span>J</span></div>
-    <div class="header-box"><span>A</span></div>
-    <div class="header-box"><span>S</span></div>
-    <div class="header-box"><span>E</span></div>
-    <div class="header-box"><span>M</span></div>
-    <div class="header-box"><span>A</span></div>
-    <div class="header-box"><span>N</span></div>
+  <div class="header-desktop-row">
+
+    <!-- LEFT CONTROLS -->
+    <div class="desktop-controls">
+      <div class="controls-panel">
+        <div class="controls-grid">
+
+          <!-- LEFT COLUMN -->
+          <div>
+            <label for="r-slider">Red</label>
+            <input id="r-slider" type="range" min="0" max="255" value="255">
+
+            <label for="g-slider">Green</label>
+            <input id="g-slider" type="range" min="0" max="255" value="255">
+
+            <label for="b-slider">Blue</label>
+            <input id="b-slider" type="range" min="0" max="255" value="255">
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div>
+            <div class="image-controls">
+              <button id="bg-prev">&lt;</button>
+              <span class="image-name" id="bg-name">None</span>
+              <button id="bg-next">&gt;</button>
+            </div>
+
+            <label for="bg-opacity">Opacity</label>
+            <input id="bg-opacity" type="range" min="0" max="100" value="100">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="header-row">
+      <div class="header-box"><span>J</span></div>
+      <div class="header-box"><span>A</span></div>
+      <div class="header-box"><span>S</span></div>
+      <div class="header-box"><span>E</span></div>
+      <div class="header-box"><span>M</span></div>
+      <div class="header-box"><span>A</span></div>
+      <div class="header-box"><span>N</span></div>
+    </div>
+
+    <!-- RIGHT TOGGLES -->
+    <div class="desktop-toggles">
+      <div>
+        <input type="checkbox" id="toggle-yt" checked>
+        <label for="toggle-yt">YouTube</label>
+      </div>
+      <div>
+        <input type="checkbox" id="toggle-jw" checked>
+        <label for="toggle-jw">Jaseworld</label>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- MOBILE STACK -->
+<!-- MOBILE -->
 <div class="content-mobile">
-
   <div class="yt-wrapper">
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
   </div>
@@ -180,15 +308,14 @@
   <div class="jw-wrapper">
     <iframe src="jaseworld2/jaseworld2.html"></iframe>
   </div>
-
 </div>
 
-<!-- DESKTOP SIDE-BY-SIDE -->
+<!-- DESKTOP -->
 <div class="content-desktop">
-  <div>
+  <div class="desktop-panel yt-panel" id="yt-panel">
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
   </div>
-  <div>
+  <div class="desktop-panel jw-panel" id="jw-panel">
     <iframe src="jaseworld2/jaseworld2.html"></iframe>
   </div>
 </div>
@@ -197,6 +324,7 @@
 window.addEventListener("load", () => {
   document.body.classList.add("visible");
 
+  /* HEADER ANIMATION */
   const words = [
     { letters:["W","E","L","C","O","M","E"], color:"#000000" },
     { letters:["★","✦","♥","✿","☃","❄","☮"], color:"#000000" },
@@ -238,6 +366,85 @@ window.addEventListener("load", () => {
     currentIndex = (currentIndex + 1) % words.length;
     applyWord(currentIndex);
   }, 2000);
+
+  /* BACKGROUND ENGINE */
+const bgImages = [
+  { name: "None", url: null },
+
+  { name: "01", url: "img/backgrounds/01.png" },
+  { name: "02", url: "img/backgrounds/02.png" },
+  { name: "03", url: "img/backgrounds/03.png" },
+  { name: "04", url: "img/backgrounds/04.png" },
+  { name: "05", url: "img/backgrounds/05.png" },
+  { name: "06", url: "img/backgrounds/06.png" },
+  { name: "07", url: "img/backgrounds/07.png" },
+  { name: "08", url: "img/backgrounds/08.png" },
+  { name: "09", url: "img/backgrounds/09.png" },
+  { name: "10", url: "img/backgrounds/10.png" }
+];
+
+  let bgIndex = 0;
+
+  const rSlider = document.getElementById("r-slider");
+  const gSlider = document.getElementById("g-slider");
+  const bSlider = document.getElementById("b-slider");
+  const opacitySlider = document.getElementById("bg-opacity");
+  const bgPrev = document.getElementById("bg-prev");
+  const bgNext = document.getElementById("bg-next");
+  const bgNameSpan = document.getElementById("bg-name");
+
+  function updateBackground() {
+    const r = parseInt(rSlider.value, 10);
+    const g = parseInt(gSlider.value, 10);
+    const b = parseInt(bSlider.value, 10);
+    const opacity = parseInt(opacitySlider.value, 10) / 100;
+
+    document.body.style.backgroundColor =
+      "rgba(" + r + "," + g + "," + b + "," + opacity + ")";
+
+    const current = bgImages[bgIndex];
+ if (current.url && opacity > 0) {
+  document.body.style.backgroundImage = "url('" + current.url + "')";
+} else {
+  document.body.style.backgroundImage = "none";
+}
+
+
+    bgNameSpan.textContent = current.name;
+  }
+
+  function changeImage(delta) {
+    bgIndex += delta;
+    if (bgIndex < 0) bgIndex = bgImages.length - 1;
+    if (bgIndex >= bgImages.length) bgIndex = 0;
+    updateBackground();
+  }
+
+  rSlider.addEventListener("input", updateBackground);
+  gSlider.addEventListener("input", updateBackground);
+  bSlider.addEventListener("input", updateBackground);
+  opacitySlider.addEventListener("input", updateBackground);
+
+  bgPrev.addEventListener("click", () => changeImage(-1));
+  bgNext.addEventListener("click", () => changeImage(1));
+
+  updateBackground();
+
+  /* TOGGLES */
+  const ytToggle = document.getElementById("toggle-yt");
+  const jwToggle = document.getElementById("toggle-jw");
+  const ytPanel = document.getElementById("yt-panel");
+  const jwPanel = document.getElementById("jw-panel");
+
+  function setPanelVisibility() {
+    ytPanel.style.display = ytToggle.checked ? "block" : "none";
+    jwPanel.style.display = jwToggle.checked ? "block" : "none";
+  }
+
+  ytToggle.addEventListener("change", setPanelVisibility);
+  jwToggle.addEventListener("change", setPanelVisibility);
+
+  setPanelVisibility();
 });
 </script>
 
