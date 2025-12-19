@@ -37,25 +37,23 @@
     transition: background 1s;
   }
 
-  /* ------------------------------ */
-  /* DESKTOP MODE (no scroll)       */
-  /* ------------------------------ */
-  @media (min-width: 900px) {
+  /* -------------------------------------- */
+  /* DESKTOP MODE (no scroll, two columns)  */
+  /* -------------------------------------- */
+  @media (min-width: 1200px) {
 
     body {
-      overflow:hidden; /* no vertical scroll */
+      overflow:hidden;
     }
 
-    /* Header container */
-    .header-wrapper {
-      width:100%;
-      max-width:900px;
-      margin:0 auto;
-      height:150px; /* fixed desktop header height */
+    /* Header becomes fixed height */
+    .header-row {
       display:flex;
       justify-content:center;
-      align-items:center;
       gap:20px;
+      margin-top:20px;
+      height:150px;
+      align-items:center;
     }
 
     .header-box {
@@ -67,20 +65,18 @@
       font-size:90px !important;
     }
 
-    /* Main desktop layout */
-    .desktop-flex {
+    /* Two-column layout */
+    .content-wrapper {
       display:flex;
-      width:100%;
-      height:calc(100vh - 150px); /* everything below header */
-      gap:20px;
+      height:calc(100vh - 170px);
       padding:20px;
+      gap:20px;
       box-sizing:border-box;
     }
 
     .left-col,
     .right-col {
       flex:1;
-      height:100%;
       position:relative;
     }
 
@@ -91,19 +87,18 @@
       width:100%;
       height:100%;
       border:0;
-      display:block;
     }
 
-    /* Hide the mobile layout in desktop mode */
-    .mobile-only {
+    /* Disable mobile spacing */
+    .mobile-stack {
       display:none;
     }
   }
 
-  /* ------------------------------ */
-  /* MOBILE MODE (your current layout) */
-  /* ------------------------------ */
-  @media (max-width: 899px) {
+  /* -------------------------------------- */
+  /* MOBILE MODE (your original layout)     */
+  /* -------------------------------------- */
+  @media (max-width: 1199px) {
     .desktop-only {
       display:none;
     }
@@ -113,36 +108,22 @@
 </head>
 <body>
 
-<!-- MOBILE LAYOUT (unchanged) -->
-<div class="mobile-only" style="width:calc(7 * 12vw + 6 * 2vw); margin:0 auto;">
+<!-- ONE unified header (works for both modes) -->
+<div class="header-row mobile-stack" style="display:flex; gap:2vw; justify-content:center; margin-top:2vw;">
+  <div class="header-box" style="background:#0000AA;"><span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">J</span></div>
+  <div class="header-box" style="background:#0000AA;"><span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span></div>
+  <div class="header-box" style="background:#0000AA;"><span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">S</span></div>
+  <div class="header-box" style="background:#0000AA;"><span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">E</span></div>
+  <div class="header-box" style="background:#0000AA;"><span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">M</span></div>
+  <div class="header-box" style="background:#0000AA;"><span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span></div>
+  <div class="header-box" style="background:#0000AA;"><span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">N</span></div>
+</div>
 
-  <div style="display:flex; gap:2vw; justify-content:center; margin-top:2vw;">
-    <div class="header-box" style="background:#0000AA;">
-      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">J</span>
-    </div>
-    <div class="header-box" style="background:#0000AA;">
-      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
-    </div>
-    <div class="header-box" style="background:#0000AA;">
-      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">S</span>
-    </div>
-    <div class="header-box" style="background:#0000AA;">
-      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">E</span>
-    </div>
-    <div class="header-box" style="background:#0000AA;">
-      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">M</span>
-    </div>
-    <div class="header-box" style="background:#0000AA;">
-      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">A</span>
-    </div>
-    <div class="header-box" style="background:#0000AA;">
-      <span style="font-size:10vw; color:#fff; font-family:sans-serif; font-weight:bold;">N</span>
-    </div>
-  </div>
+<!-- MOBILE LAYOUT (vertical stack) -->
+<div class="mobile-stack" style="width:calc(7 * 12vw + 6 * 2vw); margin:0 auto;">
 
   <div style="position:relative; width:100%; padding-bottom:56.25%; margin-top:2vw;">
-    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-"
-            frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <div style="position:relative; width:100%; height:58vh; margin-top:2vw;">
@@ -153,18 +134,9 @@
 
 <!-- DESKTOP LAYOUT -->
 <div class="desktop-only">
+  <div class="header-row"></div>
 
-  <div class="header-wrapper">
-    <div class="header-box"><span>J</span></div>
-    <div class="header-box"><span>A</span></div>
-    <div class="header-box"><span>S</span></div>
-    <div class="header-box"><span>E</span></div>
-    <div class="header-box"><span>M</span></div>
-    <div class="header-box"><span>A</span></div>
-    <div class="header-box"><span>N</span></div>
-  </div>
-
-  <div class="desktop-flex">
+  <div class="content-wrapper">
     <div class="left-col">
       <iframe src="https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" allowfullscreen></iframe>
     </div>
@@ -173,7 +145,6 @@
       <iframe src="jaseworld2/jaseworld2.html"></iframe>
     </div>
   </div>
-
 </div>
 
 <script>
