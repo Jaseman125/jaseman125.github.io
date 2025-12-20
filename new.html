@@ -28,14 +28,16 @@
         pointer-events: none;
     }
 
-    /* HEADER LAYER */
-    #msgheader-layer {
+    /* CONTENT LAYER: header + YouTube stacked */
+    #content-layer {
         position: absolute;
-        top: 20px;
+        top: 20px;          /* same as your old header top */
         left: 0;
         right: 0;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;          /* breathing room between header and video */
         pointer-events: none;
         z-index: 50;
     }
@@ -47,18 +49,6 @@
         border: 0;
         background: transparent;
         pointer-events: auto;
-    }
-
-    /* YOUTUBE PLAYLIST LAYER */
-    #ytplaylist-layer {
-        position: absolute;
-        top: 180px; /* header height (140px) + 40px breathing room */
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        pointer-events: none;
-        z-index: 40;
     }
 
     .ytplaylist-iframe {
@@ -79,22 +69,23 @@
 
 <div data-include="topleft-controls.html"></div>
 
-<!-- HEADER MODULE -->
-<div id="msgheader-layer">
+<!-- CONTENT MODULE: HEADER + YOUTUBE -->
+<div id="content-layer">
+
+    <!-- HEADER MODULE -->
     <iframe src="msgheader.html"
             class="msgheader-iframe"
             title="Header"
             loading="lazy">
     </iframe>
-</div>
 
-<!-- YOUTUBE PLAYLIST MODULE -->
-<div id="ytplaylist-layer">
+    <!-- YOUTUBE PLAYLIST MODULE -->
     <iframe src="ytplaylist.html"
             class="ytplaylist-iframe"
             title="YouTube Playlist"
             loading="lazy">
     </iframe>
+
 </div>
 
 <script>
