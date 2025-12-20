@@ -71,7 +71,7 @@
         z-index: 50;
     }
 
-    #topleft-controls {
+    #topleft-controls-wrapper {
         position: fixed;
         top: 40px;
         left: 0;
@@ -84,7 +84,7 @@
 
 <div id="bg-image-layer"></div>
 
-<div data-include="topleft-controls.html"></div>
+<div id="topleft-controls-wrapper" data-include="topleft-controls.html"></div>
 
 <iframe src="msgheader.html"
         class="msgheader-iframe"
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(el.getAttribute("data-include"))
             .then(response => response.text())
             .then(data => {
-                el.outerHTML = data;
+                el.innerHTML = data;
                 setTimeout(initControls, 20);
             });
     });

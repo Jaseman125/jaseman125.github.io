@@ -1,12 +1,14 @@
 <div id="topleft-controls">
   <div class="controls-grid">
 
+    <!-- LEFT COLUMN: RGB sliders -->
     <div class="left-column">
       <input id="r-slider" type="range" min="0" max="255" value="255">
       <input id="g-slider" type="range" min="0" max="255" value="255">
       <input id="b-slider" type="range" min="0" max="255" value="255">
     </div>
 
+    <!-- RIGHT COLUMN: selector + opacity + reset -->
     <div class="right-column">
       <div class="image-selector">
         <button id="bg-prev">&lt;</button>
@@ -23,7 +25,11 @@
 
 <style>
   #topleft-controls {
+    position: fixed;
+    top: 0;
+    left: 0;
     padding: 4px;
+    z-index: 9999;
   }
 
   .controls-grid {
@@ -69,6 +75,7 @@
   #b-slider { accent-color: blue; }
   #bg-opacity { accent-color: gray; }
 
+  /* PHONE: hide the entire control panel */
   @media (max-width: 1520px) {
     #topleft-controls {
       display: none;
