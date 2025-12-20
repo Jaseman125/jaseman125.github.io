@@ -27,13 +27,45 @@
         z-index: -1;
         pointer-events: none;
     }
+
+    /* HEADER LAYER */
+    #msgheader-layer {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        pointer-events: none;
+        z-index: 50;
+    }
+
+    .msgheader-iframe {
+        width: 100%;
+        max-width: 900px;
+        height: 140px;
+        border: 0;
+        background: transparent;
+        pointer-events: auto;
+    }
 </style>
 
 </head>
 <body>
 
 <div id="bg-image-layer"></div>
+
 <div data-include="topleft-controls.html"></div>
+
+<!-- ✅ HEADER MODULE INSERTED HERE -->
+<div id="msgheader-layer">
+    <iframe src="msgheader.html"
+            class="msgheader-iframe"
+            title="Header"
+            loading="lazy">
+    </iframe>
+</div>
+<!-- END HEADER MODULE -->
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
