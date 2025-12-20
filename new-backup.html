@@ -28,37 +28,33 @@
         pointer-events: none;
     }
 
-    /* CONTENT LAYER: header + YouTube stacked */
-    #content-layer {
-        position: absolute;
-        top: 20px;          /* same as your old header top */
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;          /* breathing room between header and video */
-        pointer-events: none;
-        z-index: 50;
-    }
-
     .msgheader-iframe {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
         width: 100%;
         max-width: 900px;
         height: 140px;
         border: 0;
         background: transparent;
         pointer-events: auto;
+        z-index: 50;
     }
 
     .ytplaylist-iframe {
-        width: 100%;
-        max-width: 900px;
+        position: absolute;
+        top: clamp( 40px, calc(150px - ((1100px - 100vw) * 0.08)), 150px );
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 1280px;
         aspect-ratio: 16 / 9;
         height: auto;
         border: 0;
         background: transparent;
         pointer-events: auto;
+        z-index: 50;
     }
 </style>
 
@@ -69,24 +65,15 @@
 
 <div data-include="topleft-controls.html"></div>
 
-<!-- CONTENT MODULE: HEADER + YOUTUBE -->
-<div id="content-layer">
+<iframe src="msgheader.html"
+        class="msgheader-iframe"
+        loading="lazy">
+</iframe>
 
-    <!-- HEADER MODULE -->
-    <iframe src="msgheader.html"
-            class="msgheader-iframe"
-            title="Header"
-            loading="lazy">
-    </iframe>
-
-    <!-- YOUTUBE PLAYLIST MODULE -->
-    <iframe src="ytplaylist.html"
-            class="ytplaylist-iframe"
-            title="YouTube Playlist"
-            loading="lazy">
-    </iframe>
-
-</div>
+<iframe src="ytplaylist.html"
+        class="ytplaylist-iframe"
+        loading="lazy">
+</iframe>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
