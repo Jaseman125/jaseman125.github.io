@@ -19,7 +19,7 @@
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100dvh; /* dynamic viewport height */
+        height: 100dvh;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -31,13 +31,13 @@
     /* CONTENT LAYER: header + YouTube stacked */
     #content-layer {
         position: absolute;
-        top: 0;          /* FIXED: no artificial gap */
+        top: 20px;      /* RESTORED: header no longer touches top */
         left: 0;
         right: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0;          /* FIXED: modules control spacing */
+        gap: 0;         /* keeps header + playlist tight */
         pointer-events: none;
         z-index: 50;
     }
@@ -45,7 +45,7 @@
     .msgheader-iframe {
         width: 100%;
         max-width: 900px;
-        height: 140px;
+        height: auto;   /* FIXED: removes the gap under the header */
         border: 0;
         background: transparent;
         pointer-events: auto;
