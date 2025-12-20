@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function initControls() {
 
-        /* === BACKGROUND SYSTEM (unchanged) === */
+        /* === BACKGROUND SYSTEM === */
 
         const bgImages = [
             { name: "None", url: null },
@@ -251,12 +251,10 @@ document.addEventListener("DOMContentLoaded", () => {
         updateImageOpacity();
 
 
-        /* === RIGHT-SIDE CONTROLS: FULL WIRING === */
+        /* === RIGHT-SIDE CONTROLS (DESKTOP-ONLY EFFECTS) === */
 
         const msgHeaderFrame = document.querySelector(".msgheader-iframe");
-        const ytFrameMobile = document.querySelector(".ytplaylist-iframe");
         const ytFrameDesktop = document.querySelector(".desktop-yt-iframe");
-        const jwFrameMobile = document.querySelector(".jaseworld-iframe");
         const jwFrameDesktop = document.querySelector(".desktop-jaseworld-iframe");
 
         const toggleMsg = document.getElementById("toggle-msgheader");
@@ -267,22 +265,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const opacityYT = document.getElementById("opacity-yt");
         const opacityJW = document.getElementById("opacity-jaseworld");
 
+        const isDesktop = window.innerWidth >= 1521;
+
         /* DEFAULT STATES */
         toggleMsg.checked = true;
         toggleYT.checked = true;
         toggleJW.checked = true;
 
-        msgHeaderFrame.style.display = "block";
-        ytFrameMobile.style.display = "block";
-        ytFrameDesktop.style.display = "block";
-        jwFrameMobile.style.display = "block";
-        jwFrameDesktop.style.display = "block";
-
         msgHeaderFrame.style.opacity = 1;
-        ytFrameMobile.style.opacity = 1;
-        ytFrameDesktop.style.opacity = 1;
-        jwFrameMobile.style.opacity = 1;
-        jwFrameDesktop.style.opacity = 1;
+        if (isDesktop) {
+            if (ytFrameDesktop) ytFrameDesktop.style.opacity = 1;
+            if (jwFrameDesktop) jwFrameDesktop.style.opacity = 1;
+        }
 
         /* VISIBILITY */
         toggleMsg.oninput = () => {
@@ -290,13 +284,17 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         toggleYT.oninput = () => {
-            ytFrameMobile.style.display = toggleYT.checked ? "block" : "none";
-            ytFrameDesktop.style.display = toggleYT.checked ? "block" : "none";
+            if (!isDesktop) return;
+            if (ytFrameDesktop) {
+                ytFrameDesktop.style.display = toggleYT.checked ? "block" : "none";
+            }
         };
 
         toggleJW.oninput = () => {
-            jwFrameMobile.style.display = toggleJW.checked ? "block" : "none";
-            jwFrameDesktop.style.display = toggleJW.checked ? "block" : "none";
+            if (!isDesktop) return;
+            if (jwFrameDesktop) {
+                jwFrameDesktop.style.display = toggleJW.checked ? "block" : "none";
+            }
         };
 
         /* OPACITY */
@@ -305,13 +303,17 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         opacityYT.oninput = () => {
-            ytFrameMobile.style.opacity = opacityYT.value / 100;
-            ytFrameDesktop.style.opacity = opacityYT.value / 100;
+            if (!isDesktop) return;
+            if (ytFrameDesktop) {
+                ytFrameDesktop.style.opacity = opacityYT.value / 100;
+            }
         };
 
         opacityJW.oninput = () => {
-            jwFrameMobile.style.opacity = opacityJW.value / 100;
-            jwFrameDesktop.style.opacity = opacityJW.value / 100;
+            if (!isDesktop) return;
+            if (jwFrameDesktop) {
+                jwFrameDesktop.style.opacity = opacityJW.value / 100;
+            }
         };
     }
 });
