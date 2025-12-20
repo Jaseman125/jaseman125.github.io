@@ -62,10 +62,10 @@
     }
 
     .ytplaylist-iframe {
-        width: 90vw;
+        width: 100%;
         max-width: 900px;
-        height: calc(90vw * 0.5625); /* 16:9 ratio */
-        max-height: calc(900px * 0.5625);
+        aspect-ratio: 16 / 9;
+        height: auto;
         border: 0;
         background: transparent;
         pointer-events: auto;
