@@ -107,6 +107,10 @@
         .jaseworld-iframe {
             display: none;
         }
+
+        #top-right-controls-wrapper {
+            display: block;
+        }
     }
 
     #topleft-controls-wrapper {
@@ -114,6 +118,14 @@
         top: 40px;
         left: 0;
         z-index: 9999;
+    }
+
+    #top-right-controls-wrapper {
+        position: fixed;
+        top: 40px;
+        right: 0;
+        z-index: 9999;
+        display: none;
     }
 </style>
 
@@ -123,6 +135,7 @@
 <div id="bg-image-layer"></div>
 
 <div id="topleft-controls-wrapper" data-include="topleft-controls.html"></div>
+<div id="top-right-controls-wrapper" data-include="top-right-controls.html"></div>
 
 <iframe src="msgheader.html"
         class="msgheader-iframe"

@@ -1,0 +1,56 @@
+<div id="top-right-controls-wrapper">
+
+    <div class="trc-row">
+        <input type="checkbox" id="toggle-msgheader">
+        <label for="toggle-msgheader">Msgheader</label>
+        <input type="range" id="opacity-msgheader" min="0" max="100" value="100">
+    </div>
+
+    <div class="trc-row">
+        <input type="checkbox" id="toggle-yt">
+        <label for="toggle-yt">Desktop YouTube</label>
+        <input type="range" id="opacity-yt" min="0" max="100" value="100">
+    </div>
+
+    <div class="trc-row">
+        <input type="checkbox" id="toggle-jaseworld">
+        <label for="toggle-jaseworld">Jaseworld Frame</label>
+        <input type="range" id="opacity-jaseworld" min="0" max="100" value="100">
+    </div>
+
+</div>
+
+<style>
+#top-right-controls-wrapper {
+    position: fixed;
+    top: 40px;
+    right: 0px;
+    z-index: 9999;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 12px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+}
+
+.trc-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.trc-row:last-child {
+    margin-bottom: 0;
+}
+
+.trc-row input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+}
+
+.trc-row input[type="range"] {
+    width: 140px;
+    accent-color: grey;
+}
+</style>
