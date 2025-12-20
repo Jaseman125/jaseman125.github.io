@@ -81,11 +81,13 @@
         pointer-events: auto;
         z-index: 50;
         display: none;
+        left: 50%;
+        transform: translateX(-960px);
     }
 
     .desktop-jaseworld-iframe {
         position: absolute;
-        top: 720px;
+        top: 160px;
         width: 800px;
         height: 740px;
         border: 0;
@@ -93,22 +95,14 @@
         pointer-events: auto;
         z-index: 50;
         display: none;
+        left: 50%;
+        transform: translateX(20px);
     }
 
     @media (min-width: 1521px) {
         .desktop-yt-iframe,
         .desktop-jaseworld-iframe {
             display: block;
-        }
-
-        .desktop-yt-iframe {
-            left: 50%;
-            transform: translateX(-960px);
-        }
-
-        .desktop-jaseworld-iframe {
-            left: 50%;
-            transform: translateX(0);
         }
 
         .ytplaylist-iframe,
