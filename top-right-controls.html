@@ -1,35 +1,33 @@
-<div id="top-right-controls-wrapper">
+<div id="top-right-controls">
 
     <div class="trc-row">
         <input type="checkbox" id="toggle-msgheader">
-        <label for="toggle-msgheader">Msgheader</label>
+        <label for="toggle-msgheader">Header</label>
         <input type="range" id="opacity-msgheader" min="0" max="100" value="100">
     </div>
 
     <div class="trc-row">
         <input type="checkbox" id="toggle-yt">
-        <label for="toggle-yt">Desktop YouTube</label>
+        <label for="toggle-yt">YouTube</label>
         <input type="range" id="opacity-yt" min="0" max="100" value="100">
     </div>
 
     <div class="trc-row">
         <input type="checkbox" id="toggle-jaseworld">
-        <label for="toggle-jaseworld">Jaseworld Frame</label>
+        <label for="toggle-jaseworld">Jaseworld 2</label>
         <input type="range" id="opacity-jaseworld" min="0" max="100" value="100">
     </div>
 
 </div>
 
 <style>
-#top-right-controls-wrapper {
+#top-right-controls {
     position: fixed;
     top: 40px;
     right: 0px;
     z-index: 9999;
-    background: rgba(0,0,0,0.4);
+    background: transparent;
     padding: 10px 12px;
-    border-radius: 6px;
-    backdrop-filter: blur(4px);
 }
 
 .trc-row {
