@@ -55,6 +55,7 @@
   #left { left: 10px; }
   #right { right: 10px; }
 
+  /* Overlay buttons strip */
   #overlays {
     margin-top: 3vh;
     display: flex;
@@ -68,10 +69,17 @@
     padding: 6px;
     border-radius: 6px;
     text-decoration: none;
-    font-size: 28px;
+    font-size: 14px;
     border: 2px solid white;
   }
+  @media (max-width: 600px) {
+    #overlays a {
+      font-size: 14px;
+      padding: 6px;
+    }
+  }
 
+  /* Inventory strip */
   #inventory {
     margin-top: 5vh;
     display: flex;
@@ -81,7 +89,7 @@
     padding: 5px;
   }
   #inventory img {
-    height: 100px;
+    height: 40px;
     width: auto;
     border: 2px solid white;
     cursor: pointer;
@@ -128,21 +136,19 @@
         { href:"https://github.com/Jaseman125?tab=repositories", label:"Github" }
       ]
     },
-
-    musicroom1: {
-      north: "musicroom1_north.png",
-      east: "musicroom1_east.png",
-      south: "musicroom1_south.png",
-      west: "musicroom1_west.png",
-      doorways: { south:true },
-      nextRooms: { south:"mainfoyer" },
-      items: [],
-      links: [
-        { href:"https://www.youtube.com/watch?v=riyR4kuTaxw&list=PLGnmo4N_SmKKjhsDQGfukgHR8jQfqIuXl", label:"Music Playlist" },
-        { href:"https://www.smule.com/jaseman125", label:"Smule" }
-      ]
-    },
-
+musicroom1: {
+  north: "musicroom1_north.png",
+  east: "musicroom1_east.png",
+  south: "musicroom1_south.png",
+  west: "musicroom1_west.png",
+  doorways: { south:true },
+  nextRooms: { south:"mainfoyer" },
+  items: [],
+  links: [
+    { href:"https://www.youtube.com/watch?v=riyR4kuTaxw&list=PLGnmo4N_SmKKjhsDQGfukgHR8jQfqIuXl", label:"Music Playlist" },
+    { href:"https://www.smule.com/jaseman125", label:"Smule" }
+  ]
+},
     legoroom1: {
       north: "legoroom1_north.png",
       east: "legoroom1_east.png",
@@ -155,7 +161,6 @@
         { href:"https://www.bricklink.com/aboutMe.asp?u=jaseman125", label:"Bricklink" }
       ]
     },
-
     movieroom1: {
       north: "movieroom1_north.png",
       east: "movieroom1_east.png",
@@ -169,7 +174,6 @@
         { href:"https://www.youtube.com/watch?v=aKqWEi68gME&list=PLGnmo4N_SmKKdoqJGkQhpH0ngal5_bdvS", label:"Trailers" }
       ]
     },
-
     photoroom1: {
       north: "photoroom1_north.png",
       east: "photoroom1_east.png",
@@ -200,12 +204,20 @@
     const dir = directions[currentDirIndex];
     roomImage.src = rooms[currentRoom][dir];
 
-    if (rooms[currentRoom].doorways[dir]) upArrow.classList.remove("inactive");
-    else upArrow.classList.add("inactive");
+    // Forward availability
+    if (rooms[currentRoom].doorways[dir]) {
+      upArrow.classList.remove("inactive");
+    } else {
+      upArrow.classList.add("inactive");
+    }
 
+    // Backward availability
     const oppositeDir = directions[(currentDirIndex + 2) % 4];
-    if (rooms[currentRoom].doorways[oppositeDir]) downArrow.classList.remove("inactive");
-    else downArrow.classList.add("inactive");
+    if (rooms[currentRoom].doorways[oppositeDir]) {
+      downArrow.classList.remove("inactive");
+    } else {
+      downArrow.classList.add("inactive");
+    }
 
     updateInventory();
     updateOverlays();
@@ -249,6 +261,7 @@
     updateView();
   }
 
+  // Keep orientation consistent: no automatic flipping.
   function moveForward() {
     const dirIndex = currentDirIndex;
     const dir = directions[dirIndex];
@@ -256,6 +269,7 @@
     const next = rooms[currentRoom].nextRooms[dir];
     if (next) {
       currentRoom = next;
+      // Stay facing the direction you moved.
       currentDirIndex = dirIndex;
       updateView();
     }
@@ -268,6 +282,7 @@
     const next = rooms[currentRoom].nextRooms[oppositeDir];
     if (next) {
       currentRoom = next;
+      // Stay facing the direction you were facing (backwards movement keeps orientation).
       currentDirIndex = currentDirIndex;
       updateView();
     }
