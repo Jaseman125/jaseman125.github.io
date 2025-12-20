@@ -28,6 +28,7 @@
         pointer-events: none;
     }
 
+    /* HEADER */
     .msgheader-iframe {
         position: absolute;
         top: 20px;
@@ -42,6 +43,7 @@
         z-index: 50;
     }
 
+    /* MOBILE YOUTUBE */
     .ytplaylist-iframe {
         position: absolute;
         top: 160px;
@@ -57,6 +59,7 @@
         z-index: 50;
     }
 
+    /* MOBILE JASEWORLD */
     .jaseworld-iframe {
         position: absolute;
         top: 720px;
@@ -71,9 +74,11 @@
         z-index: 50;
     }
 
+    /* DESKTOP YOUTUBE */
     .desktop-yt-iframe {
         position: absolute;
         top: 160px;
+        left: 20px;
         width: 1050px;
         height: 580px;
         border: 0;
@@ -81,12 +86,13 @@
         pointer-events: auto;
         z-index: 50;
         display: none;
-        left: 20px;
     }
 
+    /* DESKTOP JASEWORLD */
     .desktop-jaseworld-iframe {
         position: absolute;
         top: 160px;
+        left: 1090px;
         width: 800px;
         height: 740px;
         border: 0;
@@ -94,26 +100,40 @@
         pointer-events: auto;
         z-index: 50;
         display: none;
-        left: 1090px;
     }
 
+    /* TOOL WRAPPERS — HIDDEN BY DEFAULT */
+    #topleft-controls-wrapper,
+    #top-right-controls-wrapper {
+        position: fixed;
+        top: 40px;
+        z-index: 9999;
+        display: none;
+    }
+
+    #topleft-controls-wrapper { left: 0; }
+    #top-right-controls-wrapper { right: 0; }
+
+    /* DESKTOP MODE */
     @media (min-width: 1521px) {
+
+        /* Show desktop iframes */
         .desktop-yt-iframe,
         .desktop-jaseworld-iframe {
             display: block;
         }
 
+        /* Hide mobile iframes */
         .ytplaylist-iframe,
         .jaseworld-iframe {
             display: none;
         }
-    }
 
-    #topleft-controls-wrapper {
-        position: fixed;
-        top: 40px;
-        left: 0;
-        z-index: 9999;
+        /* SHOW BOTH TOOLBARS */
+        #topleft-controls-wrapper,
+        #top-right-controls-wrapper {
+            display: block;
+        }
     }
 </style>
 
@@ -122,42 +142,36 @@
 
 <div id="bg-image-layer"></div>
 
+<!-- TOOLBARS -->
 <div id="topleft-controls-wrapper" data-include="topleft-controls.html"></div>
+<div id="top-right-controls-wrapper" data-include="top-right-controls.html"></div>
 
-<iframe src="msgheader.html"
-        class="msgheader-iframe"
-        loading="lazy">
-</iframe>
+<!-- HEADER -->
+<iframe src="msgheader.html" class="msgheader-iframe" loading="lazy"></iframe>
 
-<iframe src="ytplaylist.html"
-        class="ytplaylist-iframe"
-        loading="lazy">
-</iframe>
+<!-- MOBILE -->
+<iframe src="ytplaylist.html" class="ytplaylist-iframe" loading="lazy"></iframe>
+<iframe src="jaseworld2/jaseworld2.html" class="jaseworld-iframe" loading="lazy"></iframe>
 
-<iframe src="jaseworld2/jaseworld2.html"
-        class="jaseworld-iframe"
-        loading="lazy">
-</iframe>
-
-<iframe src="ytplaylist.html"
-        class="desktop-yt-iframe"
-        loading="lazy">
-</iframe>
-
-<iframe src="jaseworld2/jaseworld2.html"
-        class="desktop-jaseworld-iframe"
-        loading="lazy">
-</iframe>
+<!-- DESKTOP -->
+<iframe src="ytplaylist.html" class="desktop-yt-iframe" loading="lazy"></iframe>
+<iframe src="jaseworld2/jaseworld2.html" class="desktop-jaseworld-iframe" loading="lazy"></iframe>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-    document.querySelectorAll("[data-include]").forEach(el => {
+    const includes = document.querySelectorAll("[data-include]");
+    let loadedCount = 0;
+
+    includes.forEach(el => {
         fetch(el.getAttribute("data-include"))
             .then(response => response.text())
             .then(data => {
                 el.innerHTML = data;
-                setTimeout(initControls, 20);
+                loadedCount++;
+                if (loadedCount === includes.length) {
+                    initControls();
+                }
             });
     });
 
