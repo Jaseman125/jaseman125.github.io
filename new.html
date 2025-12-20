@@ -42,7 +42,6 @@
         z-index: 50;
     }
 
-    /* PHONE-MODE FRAMES */
     .ytplaylist-iframe {
         position: absolute;
         top: 160px;
@@ -72,21 +71,26 @@
         z-index: 50;
     }
 
-    /* DESKTOP-MODE FRAMES (NEW) */
     .desktop-yt-iframe,
     .desktop-jaseworld-iframe {
         position: absolute;
         top: 160px;
         width: 960px;
-        height: 540px; /* 16:9 at 960px width */
         border: 0;
         background: transparent;
         pointer-events: auto;
         z-index: 50;
-        display: none; /* hidden by default */
+        display: none;
     }
 
-    /* Center the 1920px block */
+    .desktop-yt-iframe {
+        height: 540px;
+    }
+
+    .desktop-jaseworld-iframe {
+        height: 960px;
+    }
+
     @media (min-width: 1521px) {
         .desktop-yt-iframe,
         .desktop-jaseworld-iframe {
@@ -95,15 +99,14 @@
 
         .desktop-yt-iframe {
             left: 50%;
-            transform: translateX(-960px); /* left half of 1920px */
+            transform: translateX(-960px);
         }
 
         .desktop-jaseworld-iframe {
             left: 50%;
-            transform: translateX(0); /* right half */
+            transform: translateX(0);
         }
 
-        /* Hide phone-mode frames */
         .ytplaylist-iframe,
         .jaseworld-iframe {
             display: none;
@@ -130,7 +133,6 @@
         loading="lazy">
 </iframe>
 
-<!-- PHONE-MODE FRAMES -->
 <iframe src="ytplaylist.html"
         class="ytplaylist-iframe"
         loading="lazy">
@@ -141,7 +143,6 @@
         loading="lazy">
 </iframe>
 
-<!-- DESKTOP-MODE FRAMES (NEW) -->
 <iframe src="ytplaylist.html"
         class="desktop-yt-iframe"
         loading="lazy">
