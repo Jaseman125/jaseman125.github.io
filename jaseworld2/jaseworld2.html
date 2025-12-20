@@ -1,3 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jaseworld 2</title>
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    color: #fff;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  }
+  #viewer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .arrow {
+    font-size: 3em;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    text-shadow: 2px 2px 4px black;
+    margin: 4px 0;
+  }
+  .arrow.inactive {
+    visibility: hidden;
+    cursor: default;
+    text-shadow: none;
+  }
+  #imageContainer {
+    position: relative;
+  }
+  #roomImage {
+    max-width: 90vw;
+    max-height: 80vh;
+    display: block;
+  }
+  #left, #right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3em;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    text-shadow: 2px 2px 4px black;
+  }
+  #left { left: 10px; }
+  #right { right: 10px; }
+
+  #overlays {
+    margin-top: 3vh;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #overlays a {
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 6px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 28px;
+    border: 2px solid white;
+  }
+
+  #inventory {
+    margin-top: 5vh;
+    display: flex;
+    gap: 10px;
+    max-width: 90vw;
+    overflow-x: auto;
+    padding: 5px;
+  }
+  #inventory img {
+    height: 100px;
+    width: auto;
+    border: 2px solid white;
+    cursor: pointer;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div id="viewer">
+  <div id="up" class="arrow" aria-label="Move forward">&#8593;</div>
+  <div id="imageContainer">
+    <img id="roomImage" src="mainfoyer_north.png" alt="Room view" />
+    <div id="left" class="arrow" aria-label="Rotate left">&#8592;</div>
+    <div id="right" class="arrow" aria-label="Rotate right">&#8594;</div>
+  </div>
+  <div id="down" class="arrow" aria-label="Move backward">&#8595;</div>
+  <div id="overlays" aria-label="Room links"></div>
+  <div id="inventory" aria-label="Room inventory"></div>
+</div>
+
 <script>
   const rooms = {
     mainfoyer: {
