@@ -42,6 +42,7 @@
         z-index: 50;
     }
 
+    /* PHONE-MODE FRAMES */
     .ytplaylist-iframe {
         position: absolute;
         top: 160px;
@@ -71,19 +72,49 @@
         z-index: 50;
     }
 
+    /* DESKTOP-MODE FRAMES (NEW) */
+    .desktop-yt-iframe,
+    .desktop-jaseworld-iframe {
+        position: absolute;
+        top: 160px;
+        width: 960px;
+        height: 540px; /* 16:9 at 960px width */
+        border: 0;
+        background: transparent;
+        pointer-events: auto;
+        z-index: 50;
+        display: none; /* hidden by default */
+    }
+
+    /* Center the 1920px block */
+    @media (min-width: 1521px) {
+        .desktop-yt-iframe,
+        .desktop-jaseworld-iframe {
+            display: block;
+        }
+
+        .desktop-yt-iframe {
+            left: 50%;
+            transform: translateX(-960px); /* left half of 1920px */
+        }
+
+        .desktop-jaseworld-iframe {
+            left: 50%;
+            transform: translateX(0); /* right half */
+        }
+
+        /* Hide phone-mode frames */
+        .ytplaylist-iframe,
+        .jaseworld-iframe {
+            display: none;
+        }
+    }
+
     #topleft-controls-wrapper {
         position: fixed;
         top: 40px;
         left: 0;
         z-index: 9999;
-    }
-
-    /* DESKTOP MODE: hide phone-mode frames */
-    @media (min-width: 1521px) {
-        .ytplaylist-iframe,
-        .jaseworld-iframe {
-            display: none;
-        }
     }
 </style>
 
@@ -99,6 +130,7 @@
         loading="lazy">
 </iframe>
 
+<!-- PHONE-MODE FRAMES -->
 <iframe src="ytplaylist.html"
         class="ytplaylist-iframe"
         loading="lazy">
@@ -106,6 +138,17 @@
 
 <iframe src="jaseworld2/jaseworld2.html"
         class="jaseworld-iframe"
+        loading="lazy">
+</iframe>
+
+<!-- DESKTOP-MODE FRAMES (NEW) -->
+<iframe src="ytplaylist.html"
+        class="desktop-yt-iframe"
+        loading="lazy">
+</iframe>
+
+<iframe src="jaseworld2/jaseworld2.html"
+        class="desktop-jaseworld-iframe"
         loading="lazy">
 </iframe>
 
