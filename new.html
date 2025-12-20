@@ -44,7 +44,7 @@
 
     .ytplaylist-iframe {
         position: absolute;
-        top: 150px;
+        top: clamp( 40px, calc(150px - ((1100px - 100vw) * 0.20)), 150px );
         left: 50%;
         transform: translateX(-50%);
         width: calc(100% - 40px);
