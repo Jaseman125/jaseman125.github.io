@@ -71,11 +71,11 @@
         z-index: 50;
     }
 
-    .desktop-yt-iframe,
-    .desktop-jaseworld-iframe {
+    .desktop-yt-iframe {
         position: absolute;
         top: 160px;
         width: 960px;
+        height: 540px;
         border: 0;
         background: transparent;
         pointer-events: auto;
@@ -83,13 +83,16 @@
         display: none;
     }
 
-    .desktop-yt-iframe {
-        height: 540px;
-    }
-
     .desktop-jaseworld-iframe {
+        position: absolute;
+        top: 720px;
         width: 800px;
         height: 740px;
+        border: 0;
+        background: transparent;
+        pointer-events: auto;
+        z-index: 50;
+        display: none;
     }
 
     @media (min-width: 1521px) {
