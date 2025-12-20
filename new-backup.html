@@ -71,41 +71,38 @@
         z-index: 50;
     }
 
-    .desktop-yt-iframe,
-    .desktop-jaseworld-iframe {
+    .desktop-yt-iframe {
         position: absolute;
         top: 160px;
         width: 960px;
+        height: 540px;
         border: 0;
         background: transparent;
         pointer-events: auto;
         z-index: 50;
         display: none;
-    }
-
-    .desktop-yt-iframe {
-        height: 540px;
+        left: 50%;
+        transform: translateX(-960px);
     }
 
     .desktop-jaseworld-iframe {
+        position: absolute;
+        top: 160px;
         width: 800px;
         height: 740px;
+        border: 0;
+        background: transparent;
+        pointer-events: auto;
+        z-index: 50;
+        display: none;
+        left: 50%;
+        transform: translateX(20px);
     }
 
     @media (min-width: 1521px) {
         .desktop-yt-iframe,
         .desktop-jaseworld-iframe {
             display: block;
-        }
-
-        .desktop-yt-iframe {
-            left: 50%;
-            transform: translateX(-960px);
-        }
-
-        .desktop-jaseworld-iframe {
-            left: 50%;
-            transform: translateX(0);
         }
 
         .ytplaylist-iframe,

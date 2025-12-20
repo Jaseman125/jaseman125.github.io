@@ -82,7 +82,7 @@
         z-index: 50;
         display: none;
         left: 50%;
-        transform: translateX(-960px);
+        transform: translateX(-940px);
     }
 
     .desktop-jaseworld-iframe {
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         nextBtn.onclick = () => {
-            currentImageIndex = (currentImageIndex + 1) % bgImages.length;
+            current.currentImageIndex = (currentImageIndex + 1) % bgImages.length;
             updateImage();
         };
 
