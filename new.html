@@ -97,6 +97,7 @@
         left: 1090px;
     }
 
+    /* DESKTOP MODE */
     @media (min-width: 1521px) {
         .desktop-yt-iframe,
         .desktop-jaseworld-iframe {
@@ -114,21 +115,17 @@
         }
     }
 
-    #topleft-controls-wrapper {
+    /* TOOL WRAPPERS */
+    #topleft-controls-wrapper,
+    #top-right-controls-wrapper {
         position: fixed;
         top: 40px;
-        left: 0;
         z-index: 9999;
         display: none;
     }
 
-    #top-right-controls-wrapper {
-        position: fixed;
-        top: 40px;
-        right: 0;
-        z-index: 9999;
-        display: none;
-    }
+    #topleft-controls-wrapper { left: 0; }
+    #top-right-controls-wrapper { right: 0; }
 </style>
 
 </head>
