@@ -28,12 +28,14 @@
         pointer-events: none;
     }
 
+    /* HEADER */
     .msgheader-iframe {
         position: absolute;
         top: 20px;
         left: 50%;
         transform: translateX(-50%);
         width: 1000px;
+        max-width: 1000px;
         height: 140px;
         border: 0;
         background: transparent;
@@ -41,12 +43,14 @@
         z-index: 50;
     }
 
+    /* MOBILE YOUTUBE */
     .ytplaylist-iframe {
         position: absolute;
         top: 160px;
         left: 50%;
         transform: translateX(-50%);
         width: 960px;
+        max-width: 1280px;
         aspect-ratio: 16 / 9;
         height: auto;
         border: 0;
@@ -55,12 +59,14 @@
         z-index: 50;
     }
 
+    /* MOBILE JASEWORLD */
     .jaseworld-iframe {
         position: absolute;
         top: 720px;
         left: 50%;
         transform: translateX(-50%);
         width: 960px;
+        max-width: 1280px;
         height: 960px;
         border: 0;
         background: transparent;
@@ -68,6 +74,7 @@
         z-index: 50;
     }
 
+    /* DESKTOP YOUTUBE */
     .desktop-yt-iframe {
         position: absolute;
         top: 160px;
@@ -81,6 +88,7 @@
         display: none;
     }
 
+    /* DESKTOP JASEWORLD */
     .desktop-jaseworld-iframe {
         position: absolute;
         top: 160px;
@@ -94,25 +102,7 @@
         display: none;
     }
 
-    /* DESKTOP MODE */
-    @media (min-width: 1521px) {
-        .desktop-yt-iframe,
-        .desktop-jaseworld-iframe {
-            display: block;
-        }
-
-        .ytplaylist-iframe,
-        .jaseworld-iframe {
-            display: none;
-        }
-
-        #topleft-controls-wrapper,
-        #top-right-controls-wrapper {
-            display: block;
-        }
-    }
-
-    /* TOOL WRAPPERS */
+    /* TOOL WRAPPERS — HIDDEN BY DEFAULT */
     #topleft-controls-wrapper,
     #top-right-controls-wrapper {
         position: fixed;
@@ -123,6 +113,28 @@
 
     #topleft-controls-wrapper { left: 0; }
     #top-right-controls-wrapper { right: 0; }
+
+    /* DESKTOP MODE */
+    @media (min-width: 1521px) {
+
+        /* Show desktop iframes */
+        .desktop-yt-iframe,
+        .desktop-jaseworld-iframe {
+            display: block;
+        }
+
+        /* Hide mobile iframes */
+        .ytplaylist-iframe,
+        .jaseworld-iframe {
+            display: none;
+        }
+
+        /* SHOW BOTH TOOLBARS */
+        #topleft-controls-wrapper,
+        #top-right-controls-wrapper {
+            display: block;
+        }
+    }
 </style>
 
 </head>
@@ -130,13 +142,18 @@
 
 <div id="bg-image-layer"></div>
 
+<!-- TOOLBARS -->
 <div id="topleft-controls-wrapper" data-include="topleft-controls.html"></div>
 <div id="top-right-controls-wrapper" data-include="top-right-controls.html"></div>
 
+<!-- HEADER -->
 <iframe src="msgheader.html" class="msgheader-iframe" loading="lazy"></iframe>
+
+<!-- MOBILE -->
 <iframe src="ytplaylist.html" class="ytplaylist-iframe" loading="lazy"></iframe>
 <iframe src="jaseworld2/jaseworld2.html" class="jaseworld-iframe" loading="lazy"></iframe>
 
+<!-- DESKTOP -->
 <iframe src="ytplaylist.html" class="desktop-yt-iframe" loading="lazy"></iframe>
 <iframe src="jaseworld2/jaseworld2.html" class="desktop-jaseworld-iframe" loading="lazy"></iframe>
 
