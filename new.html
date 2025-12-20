@@ -2,209 +2,73 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JASEMAN.COM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaseman – New Layout</title>
 
 <style>
-    html, body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: transparent;
-    }
+  body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    overflow-x: hidden;
+    border: 3px solid black; /* DEBUG: page bounds */
+  }
 
-    #bg-image-layer {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100dvh;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 1;
-        z-index: -1;
-        pointer-events: none;
-    }
+  /* Floating content layer */
+  #content-layer {
+    width: 100%;
+    max-width: 1600px; /* prevents collapse caused by header iframe */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 3px solid purple; /* DEBUG: container bounds */
+  }
 
-    #content-layer {
-        position: absolute;
-        top: 20px;
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        pointer-events: none;
-        z-index: 50;
-    }
+  /* HEADER IFRAME */
+  .header-iframe {
+    width: 100%;
+    border: 3px solid red; /* DEBUG: header iframe bounds */
+    background: transparent;
+  }
 
-    .msgheader-iframe {
-        width: 100%;
-        max-width: 900px;
-        border: 1px solid red;   /* DEBUG */
-        background: transparent;
-        pointer-events: auto;
-    }
+  /* YOUTUBE IFRAME – FIXED */
+  .ytplaylist-iframe {
+    width: 100%;          /* full width */
+    aspect-ratio: 16 / 9; /* correct scaling */
+    height: auto;
+    border: 3px solid blue; /* DEBUG: youtube iframe bounds */
+    background: transparent;
+    pointer-events: auto;
+  }
 
+  /* Optional: limit width on ultra-wide screens */
+  @media (min-width: 1800px) {
     .ytplaylist-iframe {
-        width: 100%;
-        max-width: 900px;
-        aspect-ratio: 16 / 9;
-        height: auto;
-        border: 1px solid blue;  /* DEBUG */
-        background: transparent;
-        pointer-events: auto;
+      max-width: 1600px;
     }
+  }
+
 </style>
-
 </head>
+
 <body>
-
-<div id="bg-image-layer"></div>
-
-<div data-include="topleft-controls.html"></div>
 
 <div id="content-layer">
 
-    <iframe src="msgheader.html"
-            class="msgheader-iframe"
-            title="Header"
-            loading="lazy">
-    </iframe>
+  <!-- HEADER MODULE -->
+  <iframe class="header-iframe"
+          src="msgheader.html"
+          scrolling="no"
+          frameborder="0"></iframe>
 
-    <iframe src="ytplaylist.html"
-            class="ytplaylist-iframe"
-            title="YouTube Playlist"
-            loading="lazy">
-    </iframe>
+  <!-- YOUTUBE MODULE -->
+  <iframe class="ytplaylist-iframe"
+          src="https://www.youtube.com/embed/videoseries?list=PLt8f0n5EJz0g8n8qg9t8k"
+          allowfullscreen></iframe>
 
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    document.querySelectorAll("[data-include]").forEach(el => {
-        fetch(el.getAttribute("data-include"))
-            .then(response => response.text())
-            .then(data => {
-                el.outerHTML = data;
-                setTimeout(initControls, 20);
-            });
-    });
-
-    function initControls() {
-
-        const bgImages = [
-            { name: "None", url: null },
-            { name: "01", url: "img/backgrounds/01.png" },
-            { name: "02", url: "img/backgrounds/02.png" },
-            { name: "03", url: "img/backgrounds/03.png" },
-            { name: "04", url: "img/backgrounds/04.png" },
-            { name: "05", url: "img/backgrounds/05.png" },
-            { name: "06", url: "img/backgrounds/06.png" },
-            { name: "07", url: "img/backgrounds/07.png" },
-            { name: "08", url: "img/backgrounds/08.png" },
-            { name: "09", url: "img/backgrounds/09.png" },
-            { name: "10", url: "img/backgrounds/10.png" }
-        ];
-
-        let currentImageIndex = 0;
-
-        const rSlider = document.getElementById("r-slider");
-        const gSlider = document.getElementById("g-slider");
-        const bSlider = document.getElementById("b-slider");
-        const opacitySlider = document.getElementById("bg-opacity");
-
-        const prevBtn = document.getElementById("bg-prev");
-        const nextBtn = document.getElementById("bg-next");
-        const nameSpan = document.getElementById("bg-name");
-
-        const resetBtn = document.getElementById("reset-button");
-
-        const bgLayer = document.getElementById("bg-image-layer");
-
-        function updateSolidBackground() {
-            document.body.style.backgroundColor =
-                `rgb(${rSlider.value}, ${gSlider.value}, ${bSlider.value})`;
-        }
-
-        function updateImageOpacity() {
-            bgLayer.style.opacity = opacitySlider.value / 100;
-        }
-
-        function updateImage() {
-            const item = bgImages[currentImageIndex];
-            nameSpan.textContent = item.name;
-            bgLayer.style.backgroundImage = item.url ? `url('${item.url}')` : "none";
-        }
-
-        prevBtn.onclick = () => {
-            currentImageIndex = (currentImageIndex - 1 + bgImages.length) % bgImages.length;
-            updateImage();
-        };
-
-        nextBtn.onclick = () => {
-            currentImageIndex = (currentImageIndex + 1) % bgImages.length;
-            updateImage();
-        };
-
-        rSlider.oninput = updateSolidBackground;
-        gSlider.oninput = updateSolidBackground;
-        bSlider.oninput = updateSolidBackground;
-        opacitySlider.oninput = updateImageOpacity;
-
-        resetBtn.onclick = () => {
-            rSlider.value = 255;
-            gSlider.value = 255;
-            bSlider.value = 255;
-            opacitySlider.value = 100;
-            currentImageIndex = 0;
-
-            updateSolidBackground();
-            updateImage();
-            updateImageOpacity();
-        };
-
-        updateSolidBackground();
-        updateImage();
-        updateImageOpacity();
-    }
-
-    /* AUTO-RESIZE HEADER IFRAME */
-    function resizeHeaderIframe() {
-        const iframe = document.querySelector(".msgheader-iframe");
-        if (!iframe) return;
-
-        const doc = iframe.contentWindow && iframe.contentWindow.document;
-        if (!doc) return;
-
-        const body = doc.body;
-        const html = doc.documentElement;
-
-        const height = Math.max(
-            body.scrollHeight, body.offsetHeight,
-            html.clientHeight, html.scrollHeight, html.offsetHeight
-        );
-
-        iframe.style.height = height + "px";
-    }
-
-    const headerIframe = document.querySelector(".msgheader-iframe");
-    if (headerIframe) {
-        headerIframe.addEventListener("load", () => {
-            resizeHeaderIframe();
-            setTimeout(resizeHeaderIframe, 50);
-        });
-    }
-
-    window.addEventListener("resize", () => {
-        setTimeout(resizeHeaderIframe, 50);
-    });
-});
-</script>
 
 </body>
 </html>
