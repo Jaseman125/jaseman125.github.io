@@ -165,12 +165,18 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-    document.querySelectorAll("[data-include]").forEach(el => {
+    const includes = document.querySelectorAll("[data-include]");
+    let loadedCount = 0;
+
+    includes.forEach(el => {
         fetch(el.getAttribute("data-include"))
             .then(response => response.text())
             .then(data => {
                 el.innerHTML = data;
-                setTimeout(initControls, 20);
+                loadedCount++;
+                if (loadedCount === includes.length) {
+                    initControls();
+                }
             });
     });
 
