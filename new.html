@@ -46,7 +46,7 @@
         position: absolute;
         top: 160px;
         left: 50%;
-        transform: translateX(-100%);
+        transform: translateX(-50%);
         width: 960px;
         max-width: 1280px;
         aspect-ratio: 16 / 9;
@@ -59,9 +59,9 @@
 
     .jaseworld-iframe {
         position: absolute;
-        top: 160px;
+        top: 720px;
         left: 50%;
-        transform: translateX(0);
+        transform: translateX(-50%);
         width: 960px;
         max-width: 1280px;
         height: 960px;
@@ -70,13 +70,6 @@
         pointer-events: auto;
         z-index: 50;
     }
-
-    #topleft-controls-wrapper {
-        position: fixed;
-        top: 40px;
-        left: 0;
-        z-index: 9999;
-    }
 </style>
 
 </head>
@@ -84,7 +77,7 @@
 
 <div id="bg-image-layer"></div>
 
-<div id="topleft-controls-wrapper" data-include="topleft-controls.html"></div>
+<div data-include="topleft-controls.html"></div>
 
 <iframe src="msgheader.html"
         class="msgheader-iframe"
@@ -108,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(el.getAttribute("data-include"))
             .then(response => response.text())
             .then(data => {
-                el.innerHTML = data;
+                el.outerHTML = data;
                 setTimeout(initControls, 20);
             });
     });
