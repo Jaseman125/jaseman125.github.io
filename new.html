@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jaseman – New Layout</title>
+<title>JASEMAN.COM</title>
 
 <style>
   body {
@@ -17,7 +17,7 @@
   /* Floating content layer */
   #content-layer {
     width: 100%;
-    max-width: 1600px; /* prevents collapse caused by header iframe */
+    max-width: 1880px; /* 1920 - 20 - 20, per your requirement */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -33,23 +33,17 @@
     background: transparent;
   }
 
-  /* YOUTUBE IFRAME – FIXED */
+  /* YOUTUBE IFRAME */
   .ytplaylist-iframe {
-    width: 100%;          /* full width */
-    aspect-ratio: 16 / 9; /* correct scaling */
+    width: 100%;          /* fill container width */
+    aspect-ratio: 16 / 9; /* maintain 16:9 */
     height: auto;
     border: 3px solid blue; /* DEBUG: youtube iframe bounds */
     background: transparent;
     pointer-events: auto;
   }
 
-  /* Optional: limit width on ultra-wide screens */
-  @media (min-width: 1800px) {
-    .ytplaylist-iframe {
-      max-width: 1600px;
-    }
-  }
-
+  /* No extra max-widths, no invented constraints */
 </style>
 </head>
 
