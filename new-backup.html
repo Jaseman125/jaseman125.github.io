@@ -19,7 +19,7 @@
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100dvh; /* FIXED: dynamic viewport height */
+        height: 100vh;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -31,13 +31,13 @@
     /* CONTENT LAYER: header + YouTube stacked */
     #content-layer {
         position: absolute;
-        top: 20px;
+        top: 20px;          /* same as your old header top */
         left: 0;
         right: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 40px;
+        gap: 40px;          /* breathing room between header and video */
         pointer-events: none;
         z-index: 50;
     }
