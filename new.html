@@ -48,7 +48,7 @@
         left: 50%;
         transform: translateX(-50%);
         width: calc(100% - 40px);
-        max-width: 900px;
+        max-width: 1280px;
         aspect-ratio: 16 / 9;
         height: auto;
         border: 0;
@@ -77,6 +77,18 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+
+    function syncHeaderWidth() {
+        const yt = document.querySelector('.ytplaylist-iframe');
+        const header = document.querySelector('.msgheader-iframe');
+        if (yt && header) {
+            const w = yt.offsetWidth;
+            header.style.width = w + 'px';
+        }
+    }
+
+    window.addEventListener('load', syncHeaderWidth);
+    window.addEventListener('resize', syncHeaderWidth);
 
     document.querySelectorAll("[data-include]").forEach(el => {
         fetch(el.getAttribute("data-include"))
