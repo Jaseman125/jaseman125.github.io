@@ -28,7 +28,6 @@
         pointer-events: none;
     }
 
-    /* CONTENT LAYER: header + YouTube stacked */
     #content-layer {
         position: absolute;
         top: 20px;
@@ -45,8 +44,7 @@
     .msgheader-iframe {
         width: 100%;
         max-width: 900px;
-        height: fit-content;   /* shrink-wraps to header height */
-        border: 1px solid red; /* DEBUG BORDER */
+        border: 1px solid red;   /* DEBUG */
         background: transparent;
         pointer-events: auto;
     }
@@ -56,7 +54,7 @@
         max-width: 900px;
         aspect-ratio: 16 / 9;
         height: auto;
-        border: 1px solid blue; /* DEBUG BORDER */
+        border: 1px solid blue;  /* DEBUG */
         background: transparent;
         pointer-events: auto;
     }
@@ -69,17 +67,14 @@
 
 <div data-include="topleft-controls.html"></div>
 
-<!-- CONTENT MODULE: HEADER + YOUTUBE -->
 <div id="content-layer">
 
-    <!-- HEADER MODULE -->
     <iframe src="msgheader.html"
             class="msgheader-iframe"
             title="Header"
             loading="lazy">
     </iframe>
 
-    <!-- YOUTUBE PLAYLIST MODULE -->
     <iframe src="ytplaylist.html"
             class="ytplaylist-iframe"
             title="YouTube Playlist"
@@ -177,6 +172,37 @@ document.addEventListener("DOMContentLoaded", () => {
         updateImage();
         updateImageOpacity();
     }
+
+    /* AUTO-RESIZE HEADER IFRAME */
+    function resizeHeaderIframe() {
+        const iframe = document.querySelector(".msgheader-iframe");
+        if (!iframe) return;
+
+        const doc = iframe.contentWindow && iframe.contentWindow.document;
+        if (!doc) return;
+
+        const body = doc.body;
+        const html = doc.documentElement;
+
+        const height = Math.max(
+            body.scrollHeight, body.offsetHeight,
+            html.clientHeight, html.scrollHeight, html.offsetHeight
+        );
+
+        iframe.style.height = height + "px";
+    }
+
+    const headerIframe = document.querySelector(".msgheader-iframe");
+    if (headerIframe) {
+        headerIframe.addEventListener("load", () => {
+            resizeHeaderIframe();
+            setTimeout(resizeHeaderIframe, 50);
+        });
+    }
+
+    window.addEventListener("resize", () => {
+        setTimeout(resizeHeaderIframe, 50);
+    });
 });
 </script>
 

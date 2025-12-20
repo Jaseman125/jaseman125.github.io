@@ -13,13 +13,11 @@
     overflow:hidden;
   }
 
-  /* HEADER WRAPPER — FIXED: no padding, no extra height */
   .header-wrapper {
     margin:0;
     padding:0;
   }
 
-  /* DESKTOP HEADER ROW */
   .header-desktop-row {
     display:flex;
     align-items:center;
@@ -27,7 +25,6 @@
     column-gap:20px;
   }
 
-  /* MOBILE HEADER */
   .header-row {
     display:flex;
     justify-content:center;
@@ -51,7 +48,6 @@
     transition:opacity 1s;
   }
 
-  /* DESKTOP MODE */
   @media (min-width: 1100px) {
 
     .header-row {
@@ -75,7 +71,6 @@
 <div class="header-wrapper">
   <div class="header-desktop-row">
 
-    <!-- HEADER -->
     <div class="header-row">
       <div class="header-box"><span>J</span></div>
       <div class="header-box"><span>A</span></div>
@@ -90,7 +85,6 @@
 </div>
 
 <script>
-/* HEADER ANIMATION — EXACTLY AS IN INDEX.HTML */
 const words = [
   { letters:["W","E","L","C","O","M","E"], color:"#000000" },
   { letters:["★","✦","♥","✿","☃","❄","☮"], color:"#000000" },
