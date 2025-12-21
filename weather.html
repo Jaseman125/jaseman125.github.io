@@ -10,11 +10,15 @@ html, body {
     background: transparent;
     overflow: hidden;
 }
+
 .weather-inner {
     width: 100%;
     height: 100%;
 }
-.weather-inner iframe {
+
+/* Updated selector — ALWAYS catches the injected iframe */
+.weather-inner iframe,
+.weather-inner * iframe {
     transform: scale(0.72);
     transform-origin: top left;
 }

@@ -102,9 +102,9 @@ html, body {
 
 .floating-weather {
     position: absolute;
-    top: 180px; /* adjust as needed */
+    top: 180px;
     left: 20px;
-    width: 220px; /* tighter containment */
+    width: 220px;
     height: 180px;
     border: none;
     padding: 0;
@@ -112,7 +112,8 @@ html, body {
     background: transparent;
 }
 
-.weather-inner iframe {
+.weather-inner iframe,
+.weather-inner * iframe {
     transform: scale(0.72);
     transform-origin: top left;
 }
