@@ -1,54 +1,16 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-<meta charset="UTF-8">
-<title>JASEMAN.COM</title>
-<link rel="stylesheet" href="copilot.css">
-</head>
-
-<body>
-
-<div id="bg-image-layer"></div>
-
-<div id="topleft-controls-wrapper" data-include="topleft-controls.html"></div>
-<div id="top-right-controls-wrapper" data-include="top-right-controls.html"></div>
-
-<iframe src="msgheader.html" class="msgheader-iframe" loading="lazy"></iframe>
-
-<iframe src="ytplaylist.html" class="ytplaylist-iframe" loading="lazy"></iframe>
-<iframe src="jaseworld2/jaseworld2.html" class="jaseworld-iframe" loading="lazy"></iframe>
-
-<iframe src="ytplaylist.html" class="desktop-yt-iframe" loading="lazy"></iframe>
-<iframe src="jaseworld2/jaseworld2.html" class="desktop-jaseworld-iframe" loading="lazy"></iframe>
-
-<iframe src="clock.html" class="floating-clock" loading="lazy"></iframe>
-
-<div class="floating-weather">
-    <div class="weather-inner">
-        <a class="weatherwidget-io"
-           href="https://forecast7.com/en/53d09n2d98/gresford/"
-           data-label_1="GRESFORD"
-           data-label_2="WEATHER"
-           data-theme="original">
-           GRESFORD WEATHER
-        </a>
-    </div>
-</div>
-
-<script>
-!function(d,s,id){
-    var js,fjs=d.getElementsByTagName(s)[0];
-    if(!d.getElementById(id)){
-        js=d.createElement(s);
-        js.id=id;
-        js.src='https://weatherwidget.io/js/widget.min.js';
-        fjs.parentNode.insertBefore(js,fjs);
+// Load the weather widget script
+!function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://weatherwidget.io/js/widget.min.js';
+        fjs.parentNode.insertBefore(js, fjs);
     }
-}(document,'script','weatherwidget-io-js');
-</script>
+}(document, 'script', 'weatherwidget-io-js');
 
-<script>
+
+// Main logic
 document.addEventListener("DOMContentLoaded", () => {
 
     const includes = document.querySelectorAll("[data-include]");
@@ -203,8 +165,3 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 });
-</script>
-
-</body>
-</html>
-
