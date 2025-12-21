@@ -1,5 +1,14 @@
-// Main logic
 document.addEventListener("DOMContentLoaded", () => {
+
+    // Inject weather scaling CSS (required for widget visibility)
+    const style = document.createElement("style");
+    style.textContent = `
+        .weather-inner iframe {
+            transform: scale(0.72);
+            transform-origin: top left;
+        }
+    `;
+    document.head.appendChild(style);
 
     const includes = document.querySelectorAll("[data-include]");
     let loadedCount = 0;
