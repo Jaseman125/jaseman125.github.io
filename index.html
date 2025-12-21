@@ -111,8 +111,16 @@ html, body {
     position: absolute;
     top: 750px;
     left: 190px;
+    width: 400px;
+    height: 150px;
     z-index: 9999;
     opacity: 0.5;
+    overflow: hidden;
+}
+
+.weather-inner {
+    width: 100%;
+    height: 100%;
 }
 
 @media (max-width: 1520px) {
@@ -151,6 +159,7 @@ html, body {
 </style>
 
 </head>
+
 <body>
 
 <div id="bg-image-layer"></div>
@@ -169,13 +178,15 @@ html, body {
 <iframe src="clock.html" class="floating-clock" loading="lazy"></iframe>
 
 <div class="floating-weather">
-    <a class="weatherwidget-io"
-       href="https://forecast7.com/en/53d09n2d98/gresford/"
-       data-label_1="GRESFORD"
-       data-label_2="WEATHER"
-       data-theme="original">
-       GRESFORD WEATHER
-    </a>
+    <div class="weather-inner">
+        <a class="weatherwidget-io"
+           href="https://forecast7.com/en/53d09n2d98/gresford/"
+           data-label_1="GRESFORD"
+           data-label_2="WEATHER"
+           data-theme="original">
+           GRESFORD WEATHER
+        </a>
+    </div>
 </div>
 
 <script>
@@ -349,3 +360,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
