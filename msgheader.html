@@ -279,13 +279,22 @@ function applyWord(index) {
   const letters = entry.letters;
   const color = entry.color;
 
-  spans.forEach((span, i) => {
+spans.forEach((span, i) => {
+  if (isAlbumSelectorMode) {
+    span.textContent = "";
     span.style.opacity = 0;
-    setTimeout(() => {
+    return;
+  }
+
+  span.style.opacity = 0;
+  setTimeout(() => {
+    if (!isAlbumSelectorMode) {
       span.textContent = letters[i] || "";
       span.style.opacity = 1;
-    }, 1000);
-  });
+    }
+  }, 1000);
+});
+
 
   boxes.forEach(box => {
     box.style.background = color;
