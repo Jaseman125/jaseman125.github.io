@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>JASEMAN.COM</title>
@@ -107,8 +108,33 @@ html, body {
     opacity: 0.5;
 }
 
+.floating-weather {
+    position: absolute;
+    top: 750px;
+    left: 190px;
+    width: 360px;
+    height: 150px;
+    z-index: 9999;
+    opacity: 0.5;
+    overflow: hidden;
+}
+
+.weather-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.weather-inner iframe {
+    transform: scale(0.72);
+    transform-origin: top left;
+}
+
+
 @media (max-width: 1520px) {
     .floating-clock {
+        display: none;
+    }
+    .floating-weather {
         display: none;
     }
 }
@@ -140,6 +166,7 @@ html, body {
 </style>
 
 </head>
+
 <body>
 
 <div id="bg-image-layer"></div>
@@ -156,6 +183,30 @@ html, body {
 <iframe src="jaseworld2/jaseworld2.html" class="desktop-jaseworld-iframe" loading="lazy"></iframe>
 
 <iframe src="clock.html" class="floating-clock" loading="lazy"></iframe>
+
+<div class="floating-weather">
+    <div class="weather-inner">
+        <a class="weatherwidget-io"
+           href="https://forecast7.com/en/53d09n2d98/gresford/"
+           data-label_1="GRESFORD"
+           data-label_2="WEATHER"
+           data-theme="original">
+           GRESFORD WEATHER
+        </a>
+    </div>
+</div>
+
+<script>
+!function(d,s,id){
+    var js,fjs=d.getElementsByTagName(s)[0];
+    if(!d.getElementById(id)){
+        js=d.createElement(s);
+        js.id=id;
+        js.src='https://weatherwidget.io/js/widget.min.js';
+        fjs.parentNode.insertBefore(js,fjs);
+    }
+}(document,'script','weatherwidget-io-js');
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -252,6 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const ytFrameDesktop = document.querySelector(".desktop-yt-iframe");
         const jwFrameDesktop = document.querySelector(".desktop-jaseworld-iframe");
         const clockFrame = document.querySelector(".floating-clock");
+        const weatherFrame = document.querySelector(".floating-weather");
 
         const toggleMsg = document.getElementById("toggle-msgheader");
         const toggleYT = document.getElementById("toggle-yt");
@@ -272,6 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ytFrameDesktop.style.opacity = 1;
         jwFrameDesktop.style.opacity = 1;
         clockFrame.style.opacity = 0.5;
+        weatherFrame.style.opacity = 0.5;
 
         toggleMsg.oninput = () => {
             msgHeaderFrame.style.display = toggleMsg.checked ? "block" : "none";
@@ -286,7 +339,9 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         toggleClock.oninput = () => {
-            clockFrame.style.display = toggleClock.checked ? "block" : "none";
+            const show = toggleClock.checked ? "block" : "none";
+            clockFrame.style.display = show;
+            weatherFrame.style.display = show;
         };
 
         opacityMsg.oninput = () => {
@@ -302,7 +357,9 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         opacityClock.oninput = () => {
-            clockFrame.style.opacity = opacityClock.value / 100;
+            const value = opacityClock.value / 100;
+            clockFrame.style.opacity = value;
+            weatherFrame.style.opacity = value;
         };
     }
 });
@@ -310,3 +367,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
