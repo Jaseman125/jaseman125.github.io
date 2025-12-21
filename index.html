@@ -46,8 +46,22 @@
 <!-- Desktop floating clock -->
 <iframe src="clock.html" class="floating-clock" loading="lazy"></iframe>
 
-<!-- Desktop floating weather -->
-<iframe src="weather.html" class="floating-weather" loading="lazy"></iframe>
+<!-- ========================================================= -->
+<!--  WEATHER WIDGET                                           -->
+<!--  IMPORTANT: NEVER PUT THE WEATHER WIDGET IN AN IFRAME.    -->
+<!--  It will NOT render inside an iframe. Must stay INLINE.   -->
+<!-- ========================================================= -->
+<div class="floating-weather">
+    <div class="weather-inner">
+        <a class="weatherwidget-io"
+           href="https://forecast7.com/en/53d09n2d98/gresford/"
+           data-label_1="GRESFORD"
+           data-label_2="WEATHER"
+           data-theme="original">
+           GRESFORD WEATHER
+        </a>
+    </div>
+</div>
 
 
 <!-- ========================================================= -->
