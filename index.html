@@ -48,20 +48,10 @@
 
 
 <!-- ========================================================= -->
-<!--  WEATHER WIDGET — MUST REMAIN INLINE (NEVER IN AN IFRAME) -->
+<!--  WEATHER WIDGET (LOADED FROM weather.html IN AN IFRAME)   -->
+<!--  DO NOT INLINE THIS WIDGET — IT MUST STAY IN weather.html -->
 <!-- ========================================================= -->
-<div class="floating-weather">
-    <a class="weatherwidget-io"
-       href="https://forecast7.com/en/53d09n2d98/gresford/"
-       data-label_1="GRESFORD"
-       data-label_2="WEATHER"
-       data-theme="original">
-       GRESFORD WEATHER
-    </a>
-</div>
-
-<!-- FORCE‑LOAD WEATHER WIDGET SCRIPT -->
-<script id="weatherwidget-io-js" src="https://weatherwidget.io/js/widget.min.js"></script>
+<iframe src="weather.html" class="floating-weather" loading="lazy"></iframe>
 
 
 <!-- ========================================================= -->
