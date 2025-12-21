@@ -321,6 +321,8 @@ function enterAlbumSelectorMode() {
   // First batch of 7 albums
   const selectedAlbums = pickRandomAlbums(7);
 document.querySelectorAll(".header-box span").forEach(s => s.textContent = "");
+document.querySelectorAll(".header-box span").forEach(s => s.style.opacity = "0");
+currentMessageIndex = 0;
 
 
   boxes.forEach((box, i) => {
