@@ -36,9 +36,7 @@
     </div>
 </div>
 
-<script src="copilot.js"></script>
-
-<!-- WEATHER WIDGET SCRIPT (this was the missing piece) -->
+<!-- WEATHER WIDGET SCRIPT — must run before copilot.js -->
 <script>
 !function(d,s,id){
     var js,fjs=d.getElementsByTagName(s)[0];
@@ -50,6 +48,8 @@
     }
 }(document,'script','weatherwidget-io-js');
 </script>
+
+<script src="copilot.js"></script>
 
 </body>
 </html>
