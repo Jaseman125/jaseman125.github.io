@@ -34,7 +34,6 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     width: 1000px;
-    max-width: 1000px;
     height: 140px;
     border: 0;
     background: transparent;
@@ -48,7 +47,6 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     width: 960px;
-    max-width: 1280px;
     aspect-ratio: 16 / 9;
     height: auto;
     border: 0;
@@ -63,7 +61,6 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     width: 960px;
-    max-width: 1280px;
     height: 960px;
     border: 0;
     background: transparent;
@@ -110,16 +107,21 @@ html, body {
     opacity: 0.5;
 }
 
+@media (max-width: 1520px) {
+    .floating-clock {
+        display: none;
+    }
+}
+
 #topleft-controls-wrapper,
 #top-right-controls-wrapper {
     position: fixed;
-    top: 40px;
     z-index: 9999;
     display: none;
 }
 
-#topleft-controls-wrapper { left: 0; }
-#top-right-controls-wrapper { right: 0; }
+#topleft-controls-wrapper { left: 0; top: 40px; }
+#top-right-controls-wrapper { right: 0; top: 28px; }
 
 @media (min-width: 1521px) {
     .desktop-yt-iframe,
@@ -249,22 +251,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const msgHeaderFrame = document.querySelector(".msgheader-iframe");
         const ytFrameDesktop = document.querySelector(".desktop-yt-iframe");
         const jwFrameDesktop = document.querySelector(".desktop-jaseworld-iframe");
+        const clockFrame = document.querySelector(".floating-clock");
 
         const toggleMsg = document.getElementById("toggle-msgheader");
         const toggleYT = document.getElementById("toggle-yt");
         const toggleJW = document.getElementById("toggle-jaseworld");
+        const toggleClock = document.getElementById("toggle-clock");
 
         const opacityMsg = document.getElementById("opacity-msgheader");
         const opacityYT = document.getElementById("opacity-yt");
         const opacityJW = document.getElementById("opacity-jaseworld");
+        const opacityClock = document.getElementById("opacity-clock");
 
         toggleMsg.checked = true;
         toggleYT.checked = true;
         toggleJW.checked = true;
+        toggleClock.checked = true;
 
         msgHeaderFrame.style.opacity = 1;
         ytFrameDesktop.style.opacity = 1;
         jwFrameDesktop.style.opacity = 1;
+        clockFrame.style.opacity = 0.5;
 
         toggleMsg.oninput = () => {
             msgHeaderFrame.style.display = toggleMsg.checked ? "block" : "none";
@@ -278,6 +285,10 @@ document.addEventListener("DOMContentLoaded", () => {
             jwFrameDesktop.style.display = toggleJW.checked ? "block" : "none";
         };
 
+        toggleClock.oninput = () => {
+            clockFrame.style.display = toggleClock.checked ? "block" : "none";
+        };
+
         opacityMsg.oninput = () => {
             msgHeaderFrame.style.opacity = opacityMsg.value / 100;
         };
@@ -288,6 +299,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         opacityJW.oninput = () => {
             jwFrameDesktop.style.opacity = opacityJW.value / 100;
+        };
+
+        opacityClock.oninput = () => {
+            clockFrame.style.opacity = opacityClock.value / 100;
         };
     }
 });
