@@ -318,33 +318,6 @@ function enterAlbumSelectorMode() {
     messageInterval = null;
   }
 
-  function showRandomAlbums() {
-    const selectedAlbums = pickRandomAlbums(7);
-
-    boxes.forEach((box, i) => {
-      const span = box.querySelector("span");
-      const img = box.querySelector("img");
-      const album = selectedAlbums[i];
-
-      if (span) {
-        span.style.opacity = 0;
-      }
-
-      if (img && album) {
-        img.src = BASE_ALBUM_URL + album.cover;
-        img.alt = album.cover;
-        img.style.display = "block";
-      }
-
-      box.style.background = "#000000";
-      box.dataset.playlist = album.playlist;
-    });
-  }
-
-  showRandomAlbums();
-  setInterval(showRandomAlbums, 5000);
-}
-
   const selectedAlbums = pickRandomAlbums(7);
 
   boxes.forEach((box, i) => {
