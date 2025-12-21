@@ -1,3 +1,15 @@
+// Load the weather widget script
+!function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://weatherwidget.io/js/widget.min.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+}(document, 'script', 'weatherwidget-io-js');
+
+
 // Main logic
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -93,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const ytFrameDesktop = document.querySelector(".desktop-yt-iframe");
         const jwFrameDesktop = document.querySelector(".desktop-jaseworld-iframe");
         const clockFrame = document.querySelector(".floating-clock");
+        const weatherFrame = document.querySelector(".floating-weather");
 
         const toggleMsg = document.getElementById("toggle-msgheader");
         const toggleYT = document.getElementById("toggle-yt");
@@ -113,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ytFrameDesktop.style.opacity = 1;
         jwFrameDesktop.style.opacity = 1;
         clockFrame.style.opacity = 0.5;
+        weatherFrame.style.opacity = 0.5;
 
         toggleMsg.oninput = () => {
             msgHeaderFrame.style.display = toggleMsg.checked ? "block" : "none";
@@ -127,7 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         toggleClock.oninput = () => {
-            clockFrame.style.display = toggleClock.checked ? "block" : "none";
+            const show = toggleClock.checked ? "block" : "none";
+            clockFrame.style.display = show;
+            weatherFrame.style.display = show;
         };
 
         opacityMsg.oninput = () => {
@@ -143,7 +159,9 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         opacityClock.oninput = () => {
-            clockFrame.style.opacity = opacityClock.value / 100;
+            const value = opacityClock.value / 100;
+            clockFrame.style.opacity = value;
+            weatherFrame.style.opacity = value;
         };
     }
 });
