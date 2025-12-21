@@ -9,33 +9,50 @@
 
 <body>
 
+<!-- ========================================================= -->
+<!--  UNIVERSAL ELEMENTS (always visible)                      -->
+<!-- ========================================================= -->
+
+<!-- Background layer -->
 <div id="bg-image-layer"></div>
 
-<div id="topleft-controls-wrapper" data-include="topleft-controls.html"></div>
-<div id="top-right-controls-wrapper" data-include="top-right-controls.html"></div>
-
+<!-- Header -->
 <iframe src="msgheader.html" class="msgheader-iframe" loading="lazy"></iframe>
 
+
+<!-- ========================================================= -->
+<!--  PHONE MODE ELEMENTS (auto‑enabled below 1520px)          -->
+<!--  These appear ONLY in phone / narrow mode                 -->
+<!-- ========================================================= -->
+
+<!-- Phone-mode YouTube + Jaseworld -->
 <iframe src="ytplaylist.html" class="ytplaylist-iframe" loading="lazy"></iframe>
 <iframe src="jaseworld2/jaseworld2.html" class="jaseworld-iframe" loading="lazy"></iframe>
 
+
+<!-- ========================================================= -->
+<!--  DESKTOP MODE ELEMENTS (enabled at 1521px and above)      -->
+<!--  These appear ONLY on desktop / wide screens              -->
+<!-- ========================================================= -->
+
+<!-- Desktop-mode controls (loaded dynamically) -->
+<div id="topleft-controls-wrapper" data-include="topleft-controls.html"></div>
+<div id="top-right-controls-wrapper" data-include="top-right-controls.html"></div>
+
+<!-- Desktop YouTube + Jaseworld -->
 <iframe src="ytplaylist.html" class="desktop-yt-iframe" loading="lazy"></iframe>
 <iframe src="jaseworld2/jaseworld2.html" class="desktop-jaseworld-iframe" loading="lazy"></iframe>
 
+<!-- Desktop floating clock -->
 <iframe src="clock.html" class="floating-clock" loading="lazy"></iframe>
 
-<div class="floating-weather">
-    <div class="weather-inner">
-        <a class="weatherwidget-io"
-           href="https://forecast7.com/en/53d09n2d98/gresford/"
-           data-label_1="GRESFORD"
-           data-label_2="WEATHER"
-           data-theme="original">
-           GRESFORD WEATHER
-        </a>
-    </div>
-</div>
+<!-- Desktop floating weather -->
+<iframe src="weather.html" class="floating-weather" loading="lazy"></iframe>
 
+
+<!-- ========================================================= -->
+<!--  GLOBAL SCRIPT (controls, background logic, toggles)      -->
+<!-- ========================================================= -->
 <script src="copilot.js"></script>
 
 </body>
