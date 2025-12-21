@@ -318,6 +318,7 @@ function enterAlbumSelectorMode() {
     messageInterval = null;
   }
 
+  // First batch of 7 albums
   const selectedAlbums = pickRandomAlbums(7);
 
   boxes.forEach((box, i) => {
@@ -338,7 +339,25 @@ function enterAlbumSelectorMode() {
     box.style.background = "#000000";
     box.dataset.playlist = album && album.playlist ? album.playlist : "";
   });
+
+  // Refresh albums every 5 seconds
+  setInterval(() => {
+    const nextAlbums = pickRandomAlbums(7);
+
+    boxes.forEach((box, i) => {
+      const img = box.querySelector("img");
+      const album = nextAlbums[i];
+
+      if (img && album) {
+        img.src = BASE_ALBUM_URL + album.cover;
+        img.alt = album.cover;
+      }
+
+      box.dataset.playlist = album && album.playlist ? album.playlist : "";
+    });
+  }, 5000);
 }
+
 
 boxes.forEach(box => {
   box.addEventListener("click", () => {
