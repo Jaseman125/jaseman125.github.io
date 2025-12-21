@@ -97,6 +97,18 @@ html, body {
     display: none;
 }
 
+.floating-clock {
+    position: absolute;
+    top: 760px;
+    left: 20px;
+    width: 180px;
+    height: 180px;
+    border: 0;
+    background: transparent;
+    pointer-events: auto;
+    z-index: 9999;
+}
+
 #topleft-controls-wrapper,
 #top-right-controls-wrapper {
     position: fixed;
@@ -139,6 +151,8 @@ html, body {
 
 <iframe src="ytplaylist.html" class="desktop-yt-iframe" loading="lazy"></iframe>
 <iframe src="jaseworld2/jaseworld2.html" class="desktop-jaseworld-iframe" loading="lazy"></iframe>
+
+<iframe src="clock.html" class="floating-clock" loading="lazy"></iframe>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
