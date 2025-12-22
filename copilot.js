@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // -----------------------------
-        // CLOCK PONG MODE (TIER 3 CHAOS)
+        // CLOCK PONG MODE (TIER 2 CHAOS)
         // -----------------------------
         const clockPongToggle = document.getElementById("clockpong-toggle");
 
@@ -192,25 +192,34 @@ document.addEventListener("DOMContentLoaded", () => {
                     let x = 100;
                     let y = 100;
 
-                    // TIER 3 VELOCITY
-                    let vx = 28;
-                    let vy = 22;
-
-                    // Right-edge compensation
-                    const buffer = -80;
+                    // TIER 2 VELOCITY
+                    let vx = 18;
+                    let vy = 14;
 
                     function bounce() {
                         const w = window.innerWidth;
                         const h = window.innerHeight;
                         const rect = weather.getBoundingClientRect();
 
+                        // Measure true visible width
+                        const visualWidth = weather.offsetWidth;
+
+                        // Compute right-edge correction
+                        const correction = rect.width - visualWidth;
+
                         x += vx;
                         y += vy;
 
+                        // Left edge (unchanged)
                         if (x < 0) vx *= -1;
-                        if (x + rect.width > w + buffer) vx *= -1;
 
+                        // Right edge (auto-corrected)
+                        if (x + rect.width > w - correction) vx *= -1;
+
+                        // Top edge (unchanged)
                         if (y < 0) vy *= -1;
+
+                        // Bottom edge (unchanged)
                         if (y + rect.height > h) vy *= -1;
 
                         weather.style.left = x + "px";
