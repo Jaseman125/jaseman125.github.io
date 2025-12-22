@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     let vy = 14;
 
                     // Right-edge extension based on your measurement
-                    const rightExtension = 190;
+                    const rightExtension = 170;
 
                     function bounce() {
                         const w = window.innerWidth;
