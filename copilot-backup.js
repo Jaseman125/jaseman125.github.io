@@ -1,3 +1,14 @@
+// Patched copilot.js with pointer-events fix
+// (Full drop-in replacement)
+
+// NOTE: This version includes the fix where all floating iframes
+// (YouTube, Jaseworld, Header) disable pointer-events during Chaos Mode
+// so the clock continues following the mouse even when hovering over them.
+
+// ------------------------------------------------------------
+// FULL FILE CONTENT BELOW
+// ------------------------------------------------------------
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // Inject weather scaling CSS (required for widget visibility)
@@ -190,12 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // -----------------------------
-        // CLOCK PONG CHAOS MODE
-        // Clock follows mouse
-        // Weather bounces off clock + edges
-        // Tier 2 speed + 130px right extension
-        // Pink background (already in your original)
-        // Fully reversible
+        // CLOCK PONG CHAOS MODE (PATCHED)
         // -----------------------------
         const clockPongToggle = document.getElementById("clockpong-toggle");
 
@@ -217,6 +223,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let bounceAnimationId = null;
         let mouseMoveHandler = null;
+
+        // NEW: store original pointer-events for all frames
+        const floatingFrames = [msgHeaderFrame, ytFrameDesktop, jwFrameDesktop];
+        const originalPointerEvents = new Map();
 
         if (clockPongToggle) {
             clockPongToggle.addEventListener("change", () => {
@@ -254,6 +264,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 clockFrame.style.zIndex = "9998";
                 clockFrame.style.pointerEvents = "none";
             }
+
+            // PATCH: disable pointer-events on all floating frames
+            floatingFrames.forEach(frame => {
+                if (frame) {
+                    originalPointerEvents.set(frame, frame.style.pointerEvents);
+                    frame.style.pointerEvents = "none";
+                }
+            });
 
             const weather = document.querySelector(".floating-weather");
             if (weather) {
@@ -392,6 +410,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 clockFrame.style.pointerEvents = originalClockPosition.pointerEvents;
                 clockFrame.style.display       = originalClockDisplay;
             }
+
+            // RESTORE pointer-events
+            floatingFrames.forEach(frame => {
+                if (frame && originalPointerEvents.has(frame)) {
+                    frame.style.pointerEvents = originalPointerEvents.get(frame);
+                }
+            });
 
             const weather = document.querySelector(".floating-weather");
             if (weather && originalWeatherStyles) {

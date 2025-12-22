@@ -1,9 +1,6 @@
-// Patched copilot.js with pointer-events fix
-// (Full drop-in replacement)
-
-// NOTE: This version includes the fix where all floating iframes
-// (YouTube, Jaseworld, Header) disable pointer-events during Chaos Mode
-// so the clock continues following the mouse even when hovering over them.
+// Full patched copilot.js
+// Sliders now update when Chaos Mode turns on
+// RGB sliders jump to 255/0/255 and opacity slider drops to 0
 
 // ------------------------------------------------------------
 // FULL FILE CONTENT BELOW
@@ -11,7 +8,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Inject weather scaling CSS (required for widget visibility)
+    // Inject weather scaling CSS
     const style = document.createElement("style");
     style.textContent = `
         .weather-inner iframe {
@@ -22,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.head.appendChild(style);
 
     // ----------------------------------
-    // HTML INCLUDES (TOP LEFT / TOP RIGHT)
+    // HTML INCLUDES
     // ----------------------------------
     const includes = document.querySelectorAll("[data-include]");
     let loadedCount = 0;
@@ -224,7 +221,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let bounceAnimationId = null;
         let mouseMoveHandler = null;
 
-        // NEW: store original pointer-events for all frames
         const floatingFrames = [msgHeaderFrame, ytFrameDesktop, jwFrameDesktop];
         const originalPointerEvents = new Map();
 
@@ -240,6 +236,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function enableChaosMode() {
             chaosActive = true;
+
+            // Sync sliders to chaos mode
+            if (rSlider) rSlider.value = 255;
+            if (gSlider) gSlider.value = 0;
+            if (bSlider) bSlider.value = 255;
+            if (opacitySlider) opacitySlider.value = 0;
+
+            updateSolidBackground();
+            updateImageOpacity();
 
             originalBodyBg = document.body.style.backgroundColor;
             document.body.style.backgroundColor = "rgb(255, 0, 255)";
@@ -265,7 +270,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 clockFrame.style.pointerEvents = "none";
             }
 
-            // PATCH: disable pointer-events on all floating frames
             floatingFrames.forEach(frame => {
                 if (frame) {
                     originalPointerEvents.set(frame, frame.style.pointerEvents);
@@ -411,7 +415,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 clockFrame.style.display       = originalClockDisplay;
             }
 
-            // RESTORE pointer-events
             floatingFrames.forEach(frame => {
                 if (frame && originalPointerEvents.has(frame)) {
                     frame.style.pointerEvents = originalPointerEvents.get(frame);
