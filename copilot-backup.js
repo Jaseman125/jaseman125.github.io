@@ -190,90 +190,216 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // -----------------------------
-        // CLOCK PONG MODE (TIER 2 + 130px RIGHT EDGE + BRIGHT PINK)
+        // CLOCK PONG CHAOS MODE
+        // Clock follows mouse
+        // Weather bounces off clock + edges
+        // Tier 2 speed + 130px right extension
+        // Pink background (already in your original)
+        // Fully reversible
         // -----------------------------
         const clockPongToggle = document.getElementById("clockpong-toggle");
 
+        let chaosActive = false;
+
+        let originalBodyBg = document.body.style.backgroundColor;
+        let originalBgLayerOpacity = bgLayer ? bgLayer.style.opacity : "";
+
+        let originalClockDisplay = clockFrame ? clockFrame.style.display : "";
+        let originalClockPosition = clockFrame ? {
+            position: clockFrame.style.position,
+            left: clockFrame.style.left,
+            top: clockFrame.style.top,
+            zIndex: clockFrame.style.zIndex,
+            pointerEvents: clockFrame.style.pointerEvents
+        } : null;
+
+        let originalWeatherStyles = null;
+
+        let bounceAnimationId = null;
+        let mouseMoveHandler = null;
+
         if (clockPongToggle) {
             clockPongToggle.addEventListener("change", () => {
-                if (!clockPongToggle.checked) return;
+                if (clockPongToggle.checked) {
+                    if (!chaosActive) enableChaosMode();
+                } else {
+                    if (chaosActive) disableChaosMode();
+                }
+            });
+        }
 
-                // Fade out background image layer
-                if (bgLayer) {
-                    bgLayer.style.opacity = "0";
+        function enableChaosMode() {
+            chaosActive = true;
+
+            originalBodyBg = document.body.style.backgroundColor;
+            document.body.style.backgroundColor = "rgb(255, 0, 255)";
+
+            if (bgLayer) {
+                originalBgLayerOpacity = bgLayer.style.opacity;
+                bgLayer.style.opacity = "0";
+            }
+
+            if (clockFrame) {
+                originalClockDisplay = clockFrame.style.display;
+                originalClockPosition = {
+                    position: clockFrame.style.position,
+                    left: clockFrame.style.left,
+                    top: clockFrame.style.top,
+                    zIndex: clockFrame.style.zIndex,
+                    pointerEvents: clockFrame.style.pointerEvents
+                };
+
+                clockFrame.style.display = "block";
+                clockFrame.style.position = "fixed";
+                clockFrame.style.zIndex = "9998";
+                clockFrame.style.pointerEvents = "none";
+            }
+
+            const weather = document.querySelector(".floating-weather");
+            if (weather) {
+                originalWeatherStyles = {
+                    position: weather.style.position,
+                    left: weather.style.left,
+                    top: weather.style.top,
+                    zIndex: weather.style.zIndex
+                };
+
+                let startX = parseInt(weather.style.left, 10);
+                let startY = parseInt(weather.style.top, 10);
+                if (isNaN(startX)) startX = 100;
+                if (isNaN(startY)) startY = 100;
+
+                weather.style.position = "fixed";
+                weather.style.zIndex = "9999";
+
+                let x = startX;
+                let y = startY;
+
+                let vx = 18;
+                let vy = 14;
+
+                const rightExtension = 130;
+
+                function rectsOverlap(r1, r2) {
+                    return !(
+                        r1.right < r2.left ||
+                        r1.left > r2.right ||
+                        r1.bottom < r2.top ||
+                        r1.top > r2.bottom
+                    );
                 }
 
-                // Force bright pink background
-                document.body.style.backgroundColor = "rgb(255, 0, 255)";
+                function bounce() {
+                    if (!chaosActive) return;
 
-                // Hide the floating clock
-                if (clockFrame) {
-                    clockFrame.style.display = "none";
-                }
+                    const w = window.innerWidth;
+                    const h = window.innerHeight;
 
-                // Make the weather widget bounce around the screen
-                const weather = document.querySelector(".floating-weather");
-                if (weather) {
-                    weather.style.position = "fixed";
-                    weather.style.zIndex = "9999";
+                    const elemWidth  = weather.offsetWidth;
+                    const elemHeight = weather.offsetHeight;
 
-                    let startX = parseInt(weather.style.left, 10);
-                    let startY = parseInt(weather.style.top, 10);
-                    if (isNaN(startX)) startX = 100;
-                    if (isNaN(startY)) startY = 100;
+                    const rightLimit  = (w - elemWidth) + rightExtension;
+                    const bottomLimit = h - elemHeight;
 
-                    let x = startX;
-                    let y = startY;
+                    x += vx;
+                    y += vy;
 
-                    let vx = 18;
-                    let vy = 14;
-
-                    const rightExtension = 130;
-
-                    function bounce() {
-                        const w = window.innerWidth;
-                        const h = window.innerHeight;
-
-                        const elemWidth  = weather.offsetWidth;
-                        const elemHeight = weather.offsetHeight;
-
-                        const rightLimit  = (w - elemWidth) + rightExtension;
-                        const bottomLimit = h - elemHeight;
-
-                        x += vx;
-                        y += vy;
-
-                        if (x < 0) {
-                            x = 0;
-                            vx *= -1;
-                        }
-
-                        if (x > rightLimit) {
-                            x = rightLimit;
-                            vx *= -1;
-                        }
-
-                        if (y < 0) {
-                            y = 0;
-                            vy *= -1;
-                        }
-
-                        if (y > bottomLimit) {
-                            y = bottomLimit;
-                            vy *= -1;
-                        }
-
-                        weather.style.left = x + "px";
-                        weather.style.top  = y + "px";
-
-                        requestAnimationFrame(bounce);
+                    if (x < 0) {
+                        x = 0;
+                        vx *= -1;
                     }
 
-                    bounce();
+                    if (x > rightLimit) {
+                        x = rightLimit;
+                        vx *= -1;
+                    }
+
+                    if (y < 0) {
+                        y = 0;
+                        vy *= -1;
+                    }
+
+                    if (y > bottomLimit) {
+                        y = bottomLimit;
+                        vy *= -1;
+                    }
+
+                    weather.style.left = x + "px";
+                    weather.style.top  = y + "px";
+
+                    if (clockFrame) {
+                        const weatherRect = weather.getBoundingClientRect();
+                        const clockRect   = clockFrame.getBoundingClientRect();
+
+                        if (rectsOverlap(weatherRect, clockRect)) {
+                            vx *= -1;
+                            vy *= -1;
+
+                            x += vx;
+                            y += vy;
+                            weather.style.left = x + "px";
+                            weather.style.top  = y + "px";
+                        }
+                    }
+
+                    bounceAnimationId = requestAnimationFrame(bounce);
                 }
 
-                clockPongToggle.disabled = true;
-            });
+                bounceAnimationId = requestAnimationFrame(bounce);
+            }
+
+            if (clockFrame) {
+                mouseMoveHandler = (ev) => {
+                    const rect = clockFrame.getBoundingClientRect();
+                    const width = rect.width;
+                    const height = rect.height;
+
+                    const x = ev.clientX - width / 2;
+                    const y = ev.clientY - height / 2;
+
+                    clockFrame.style.left = x + "px";
+                    clockFrame.style.top  = y + "px";
+                };
+
+                window.addEventListener("mousemove", mouseMoveHandler);
+            }
+        }
+
+        function disableChaosMode() {
+            chaosActive = false;
+
+            if (bounceAnimationId !== null) {
+                cancelAnimationFrame(bounceAnimationId);
+                bounceAnimationId = null;
+            }
+
+            if (mouseMoveHandler) {
+                window.removeEventListener("mousemove", mouseMoveHandler);
+                mouseMoveHandler = null;
+            }
+
+            document.body.style.backgroundColor = originalBodyBg || "";
+
+            if (bgLayer) {
+                bgLayer.style.opacity = originalBgLayerOpacity || "";
+            }
+
+            if (clockFrame && originalClockPosition) {
+                clockFrame.style.position      = originalClockPosition.position;
+                clockFrame.style.left          = originalClockPosition.left;
+                clockFrame.style.top           = originalClockPosition.top;
+                clockFrame.style.zIndex        = originalClockPosition.zIndex;
+                clockFrame.style.pointerEvents = originalClockPosition.pointerEvents;
+                clockFrame.style.display       = originalClockDisplay;
+            }
+
+            const weather = document.querySelector(".floating-weather");
+            if (weather && originalWeatherStyles) {
+                weather.style.position = originalWeatherStyles.position;
+                weather.style.left     = originalWeatherStyles.left;
+                weather.style.top      = originalWeatherStyles.top;
+                weather.style.zIndex   = originalWeatherStyles.zIndex;
+            }
         }
     }
 });
