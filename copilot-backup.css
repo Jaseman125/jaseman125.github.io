@@ -1,12 +1,4 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: transparent;
-}
-
+/* Background layer */
 #bg-image-layer {
     position: fixed;
     top: 0;
@@ -21,6 +13,7 @@ html, body {
     pointer-events: none;
 }
 
+/* Iframes */
 .msgheader-iframe {
     position: absolute;
     top: 20px;
@@ -30,7 +23,6 @@ html, body {
     height: 140px;
     border: 0;
     background: transparent;
-    pointer-events: auto;
     z-index: 50;
 }
 
@@ -40,11 +32,9 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     width: 960px;
-    aspect-ratio: 16 / 9;
-    height: auto;
+    aspect-ratio: 16/9;
     border: 0;
     background: transparent;
-    pointer-events: auto;
     z-index: 50;
 }
 
@@ -57,7 +47,6 @@ html, body {
     height: 960px;
     border: 0;
     background: transparent;
-    pointer-events: auto;
     z-index: 50;
 }
 
@@ -69,7 +58,6 @@ html, body {
     height: 580px;
     border: 0;
     background: transparent;
-    pointer-events: auto;
     z-index: 50;
     display: none;
 }
@@ -82,11 +70,11 @@ html, body {
     height: 740px;
     border: 0;
     background: transparent;
-    pointer-events: auto;
     z-index: 50;
     display: none;
 }
 
+/* Clock */
 .floating-clock {
     position: absolute;
     top: 750px;
@@ -95,32 +83,34 @@ html, body {
     height: 150px;
     border: 0;
     background: transparent;
-    pointer-events: auto;
     z-index: 9999;
     opacity: 0.5;
 }
 
+/* Weather */
 .floating-weather {
     position: absolute;
-    top: 180px;
-    left: 20px;
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    background: transparent;
-    display: block;
+    top: 750px;
+    left: 190px;
+    width: 360px;
+    height: 150px;
+    z-index: 9999;
+    opacity: 0.5;
+    overflow: hidden;
 }
 
-@media (max-width: 1520px) {
-    .floating-clock {
-        display: none;
-    }
-    .floating-weather {
-        display: none;
-    }
+.weather-inner {
+    width: 100%;
+    height: 100%;
 }
 
+/* ⭐ REQUIRED FOR WIDGET TO BE VISIBLE */
+.weather-inner iframe {
+    transform: scale(0.72);
+    transform-origin: top left;
+}
+
+/* Controls */
 #topleft-controls-wrapper,
 #top-right-controls-wrapper {
     position: fixed;
@@ -129,8 +119,9 @@ html, body {
 }
 
 #topleft-controls-wrapper { left: 0; top: 40px; }
-#top-right-controls-wrapper { right: 0; top: 0px; }
+#top-right-controls-wrapper { right: 0; top: 0; }
 
+/* Desktop mode */
 @media (min-width: 1521px) {
     .desktop-yt-iframe,
     .desktop-jaseworld-iframe {
@@ -144,7 +135,12 @@ html, body {
     #top-right-controls-wrapper {
         display: block;
     }
+}
+
+/* Mobile mode */
+@media (max-width: 1520px) {
+    .floating-clock,
     .floating-weather {
-        display: block;
+        display: none;
     }
 }

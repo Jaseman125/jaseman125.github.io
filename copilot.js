@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function initControls() {
 
+        // -----------------------------
+        // BACKGROUND IMAGE / COLOR SYSTEM
+        // -----------------------------
         const bgImages = [
             { name: "01", url: "img/backgrounds/01.png" },
             { name: "02", url: "img/backgrounds/02.png" },
@@ -98,24 +101,28 @@ document.addEventListener("DOMContentLoaded", () => {
         updateImage();
         updateImageOpacity();
 
-        const msgHeaderFrame = document.querySelector(".msgheader-iframe");
-        const ytFrameDesktop = document.querySelector(".desktop-yt-iframe");
-        const jwFrameDesktop = document.querySelector(".desktop-jaseworld-iframe");
-        const clockFrame = document.querySelector(".floating-clock");
+        // -----------------------------
+        // MAIN FLOATING LAYERS / TOGGLES
+        // -----------------------------
+        const msgHeaderFrame   = document.querySelector(".msgheader-iframe");
+        const ytFrameDesktop   = document.querySelector(".desktop-yt-iframe");
+        const jwFrameDesktop   = document.querySelector(".desktop-jaseworld-iframe");
+        const clockFrame       = document.querySelector(".floating-clock");
 
-        const toggleMsg = document.getElementById("toggle-msgheader");
-        const toggleYT = document.getElementById("toggle-yt");
-        const toggleJW = document.getElementById("toggle-jaseworld");
+        const toggleMsg   = document.getElementById("toggle-msgheader");
+        const toggleYT    = document.getElementById("toggle-yt");
+        const toggleJW    = document.getElementById("toggle-jaseworld");
         const toggleClock = document.getElementById("toggle-clock");
 
-        const opacityMsg = document.getElementById("opacity-msgheader");
-        const opacityYT = document.getElementById("opacity-yt");
-        const opacityJW = document.getElementById("opacity-jaseworld");
+        const opacityMsg   = document.getElementById("opacity-msgheader");
+        const opacityYT    = document.getElementById("opacity-yt");
+        const opacityJW    = document.getElementById("opacity-jaseworld");
         const opacityClock = document.getElementById("opacity-clock");
 
-        toggleMsg.checked = true;
-        toggleYT.checked = true;
-        toggleJW.checked = true;
+        // Initial states
+        toggleMsg.checked   = true;
+        toggleYT.checked    = true;
+        toggleJW.checked    = true;
         toggleClock.checked = true;
 
         msgHeaderFrame.style.opacity = 1;
@@ -123,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
         jwFrameDesktop.style.opacity = 1;
         clockFrame.style.opacity = 0.5;
 
+        // Visibility toggles
         toggleMsg.oninput = () => {
             msgHeaderFrame.style.display = toggleMsg.checked ? "block" : "none";
         };
@@ -139,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
             clockFrame.style.display = toggleClock.checked ? "block" : "none";
         };
 
+        // Opacity sliders
         opacityMsg.oninput = () => {
             msgHeaderFrame.style.opacity = opacityMsg.value / 100;
         };
@@ -154,5 +163,60 @@ document.addEventListener("DOMContentLoaded", () => {
         opacityClock.oninput = () => {
             clockFrame.style.opacity = opacityClock.value / 100;
         };
+
+        // -----------------------------
+        // CLOCK PONG MODE
+        // -----------------------------
+        const clockPongToggle = document.getElementById("clockpong-toggle");
+
+        if (clockPongToggle) {
+            clockPongToggle.addEventListener("change", () => {
+                if (!clockPongToggle.checked) return;
+
+                // Fade out background image layer
+                if (bgLayer) {
+                    bgLayer.style.opacity = "0";
+                }
+
+                // Hide the floating clock
+                if (clockFrame) {
+                    clockFrame.style.display = "none";
+                }
+
+                // Make the weather widget bounce around the screen
+                const weather = document.querySelector(".floating-weather");
+                if (weather) {
+                    weather.style.position = "fixed";
+                    weather.style.zIndex = "9999";
+
+                    let x = 100;
+                    let y = 100;
+                    let vx = 3;
+                    let vy = 2;
+
+                    function bounce() {
+                        const w = window.innerWidth;
+                        const h = window.innerHeight;
+                        const rect = weather.getBoundingClientRect();
+
+                        x += vx;
+                        y += vy;
+
+                        if (x < 0 || x + rect.width > w)  vx *= -1;
+                        if (y < 0 || y + rect.height > h) vy *= -1;
+
+                        weather.style.left = x + "px";
+                        weather.style.top  = y + "px";
+
+                        requestAnimationFrame(bounce);
+                    }
+
+                    bounce();
+                }
+
+                // Lock the toggle until refresh
+                clockPongToggle.disabled = true;
+            });
+        }
     }
 });
