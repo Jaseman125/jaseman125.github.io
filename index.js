@@ -1,11 +1,3 @@
-// Full patched copilot.js
-// Sliders now update when Chaos Mode turns on
-// RGB sliders jump to 255/0/255 and opacity slider drops to 0
-
-// ------------------------------------------------------------
-// FULL FILE CONTENT BELOW
-// ------------------------------------------------------------
-
 document.addEventListener("DOMContentLoaded", () => {
 
     // Inject weather scaling CSS
@@ -128,6 +120,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const ytFrameDesktop   = document.querySelector(".desktop-yt-iframe");
         const jwFrameDesktop   = document.querySelector(".desktop-jaseworld-iframe");
         const clockFrame       = document.querySelector(".floating-clock");
+        const weatherFrame     = document.querySelector(".floating-weather");
+        const pasteboxFrame    = document.querySelector(".desktop-pastebox-iframe");
 
         const toggleMsg   = document.getElementById("toggle-msgheader");
         const toggleYT    = document.getElementById("toggle-yt");
@@ -167,16 +161,31 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         }
 
-if (toggleClock && clockFrame) {
-    toggleClock.oninput = () => {
-        const state = toggleClock.checked ? "block" : "none";
-        clockFrame.style.display = state;
+        // ----------------------------------------------------
+        // CLOCK TOGGLE — CLOCK + WEATHER + PASTEBOX
+        // ----------------------------------------------------
+        if (toggleClock) {
+            toggleClock.oninput = () => {
+                const state = toggleClock.checked ? "block" : "none";
 
-        // NEW: hide/show weather together with clock
-        const weatherFrame = document.querySelector(".floating-weather");
-        if (weatherFrame) weatherFrame.style.display = state;
-    };
-}
+                if (clockFrame)     clockFrame.style.display     = state;
+                if (weatherFrame)   weatherFrame.style.display   = state;
+                if (pasteboxFrame)  pasteboxFrame.style.display  = state;
+            };
+        }
+
+        // ----------------------------------------------------
+        // OPACITY — NOW APPLIES TO CLOCK + WEATHER + PASTEBOX
+        // ----------------------------------------------------
+        if (opacityClock) {
+            opacityClock.oninput = () => {
+                const value = opacityClock.value / 100;
+
+                if (clockFrame)    clockFrame.style.opacity    = value;
+                if (weatherFrame)  weatherFrame.style.opacity  = value;
+                if (pasteboxFrame) pasteboxFrame.style.opacity = value;
+            };
+        }
 
         if (opacityMsg && msgHeaderFrame) {
             opacityMsg.oninput = () => {
@@ -196,14 +205,8 @@ if (toggleClock && clockFrame) {
             };
         }
 
-        if (opacityClock && clockFrame) {
-            opacityClock.oninput = () => {
-                clockFrame.style.opacity = opacityClock.value / 100;
-            };
-        }
-
         // -----------------------------
-        // CLOCK PONG CHAOS MODE (PATCHED)
+        // CLOCK PONG CHAOS MODE (UNCHANGED)
         // -----------------------------
         const clockPongToggle = document.getElementById("clockpong-toggle");
 
@@ -242,7 +245,6 @@ if (toggleClock && clockFrame) {
         function enableChaosMode() {
             chaosActive = true;
 
-            // Sync sliders to chaos mode
             if (rSlider) rSlider.value = 255;
             if (gSlider) gSlider.value = 0;
             if (bSlider) bSlider.value = 255;
