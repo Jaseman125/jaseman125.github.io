@@ -167,11 +167,16 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         }
 
-        if (toggleClock && clockFrame) {
-            toggleClock.oninput = () => {
-                clockFrame.style.display = toggleClock.checked ? "block" : "none";
-            };
-        }
+if (toggleClock && clockFrame) {
+    toggleClock.oninput = () => {
+        const state = toggleClock.checked ? "block" : "none";
+        clockFrame.style.display = state;
+
+        // NEW: hide/show weather together with clock
+        const weatherFrame = document.querySelector(".floating-weather");
+        if (weatherFrame) weatherFrame.style.display = state;
+    };
+}
 
         if (opacityMsg && msgHeaderFrame) {
             opacityMsg.oninput = () => {
