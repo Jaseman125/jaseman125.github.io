@@ -99,11 +99,15 @@
 /* -------------------------------------------------- */
 /* PasteBox (desktop layout — aligned with clock row) */
 /* -------------------------------------------------- */
+/* Geometry tuned:
+   - left: 460px (was 490px)
+   - width: 610px (was 580px)
+   So: left gap ≈ 20px, right edge aligned with Jaseworld */
 .desktop-pastebox-iframe {
     position: absolute;
     top: 750px;
-    left: 490px;
-    width: 580px;
+    left: 460px;
+    width: 610px;
     height: 150px;
     border: 0;
     background: transparent;
@@ -130,9 +134,39 @@
     height: 100%;
 }
 
+/* Force actual iframe size so bounding box ≈ visible size */
 .weather-inner iframe {
+    width: 360px;
+    height: 150px;
     transform: scale(0.72);
     transform-origin: top left;
+}
+
+/* -------------------------------------------------- */
+/* Clock (desktop only — aligned with weather row)    */
+/* -------------------------------------------------- */
+/* This ensures:
+   - It sits back on the clock/weather/PasteBox row
+   - No frame/border
+   - Transparent background */
+.floating-clock {
+    position: absolute;
+    top: 750px;      /* same row as weather + PasteBox */
+    left: 20px;
+    width: 150px;
+    height: 150px;
+    z-index: 9999;
+    opacity: 0.5;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+/* If your clock uses a canvas, remove its frame too */
+#clockCanvas {
+    border: none;
+    outline: none;
+    background: transparent;
 }
 
 /* -------------------------------------------------- */
