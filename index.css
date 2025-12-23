@@ -1,4 +1,6 @@
-/* Background layer */
+/* -------------------------------------------------- */
+/* Background layer (full‑screen image behind all UI) */
+/* -------------------------------------------------- */
 #bg-image-layer {
     position: fixed;
     top: 0;
@@ -9,11 +11,13 @@
     background-position: center;
     background-repeat: no-repeat;
     opacity: 1;
-    z-index: -1;
+    z-index: -1; /* sits behind everything */
     pointer-events: none;
 }
 
-/* Iframes */
+/* -------------------------------------------------- */
+/* Main iframes (mobile/tablet layout)                */
+/* -------------------------------------------------- */
 .msgheader-iframe {
     position: absolute;
     top: 20px;
@@ -50,6 +54,9 @@
     z-index: 50;
 }
 
+/* -------------------------------------------------- */
+/* Desktop‑only iframes (appear only above 1521px)    */
+/* -------------------------------------------------- */
 .desktop-yt-iframe {
     position: absolute;
     top: 160px;
@@ -59,7 +66,7 @@
     border: 0;
     background: transparent;
     z-index: 50;
-    display: none;
+    display: none; /* enabled in desktop media query */
 }
 
 .desktop-jaseworld-iframe {
@@ -71,10 +78,12 @@
     border: 0;
     background: transparent;
     z-index: 50;
-    display: none;
+    display: none; /* enabled in desktop media query */
 }
 
-/* Clock */
+/* -------------------------------------------------- */
+/* Floating clock (desktop only)                      */
+/* -------------------------------------------------- */
 .floating-clock {
     position: absolute;
     top: 750px;
@@ -87,7 +96,9 @@
     opacity: 0.5;
 }
 
-/* Weather */
+/* -------------------------------------------------- */
+/* Weather widget (desktop only)                      */
+/* -------------------------------------------------- */
 .floating-weather {
     position: absolute;
     top: 750px;
@@ -104,24 +115,28 @@
     height: 100%;
 }
 
-/* ⭐ REQUIRED FOR WIDGET TO BE VISIBLE */
+/* Required to scale the embedded weather iframe */
 .weather-inner iframe {
     transform: scale(0.72);
     transform-origin: top left;
 }
 
-/* Controls */
+/* -------------------------------------------------- */
+/* Controls (desktop only)                            */
+/* -------------------------------------------------- */
 #topleft-controls-wrapper,
 #top-right-controls-wrapper {
     position: fixed;
     z-index: 9999;
-    display: none;
+    display: none; /* shown in desktop mode */
 }
 
 #topleft-controls-wrapper { left: 0; top: 40px; }
 #top-right-controls-wrapper { right: 0; top: 0; }
 
-/* Desktop mode */
+/* -------------------------------------------------- */
+/* Desktop mode (wide layout)                         */
+/* -------------------------------------------------- */
 @media (min-width: 1521px) {
     .desktop-yt-iframe,
     .desktop-jaseworld-iframe {
@@ -137,10 +152,24 @@
     }
 }
 
-/* Mobile mode */
+/* -------------------------------------------------- */
+/* Mobile/tablet mode                                 */
+/* -------------------------------------------------- */
 @media (max-width: 1520px) {
     .floating-clock,
     .floating-weather {
-        display: none;
+        display: none; /* hide desktop widgets */
     }
+}
+
+/* -------------------------------------------------- */
+/* Fade‑in animation (restored)                       */
+/* -------------------------------------------------- */
+.fade-start {
+    opacity: 0;
+    transition: opacity 3s ease; /* updated from 1.2s to 3s */
+}
+
+.fade-start.fade-in {
+    opacity: 1;
 }
