@@ -6,31 +6,55 @@
     <style>
         body {
             margin: 0;
-            padding: 20px;
+            padding: 0;
             font-family: Arial, sans-serif;
             background: transparent;
         }
 
-        #box {
+        /* Outer container with fixed total height */
+        .pastebox-container {
+            position: relative;
             width: 100%;
-            height: 300px;
+            height: 150px; /* TOTAL height limit */
             box-sizing: border-box;
             padding: 10px;
-            font-size: 14px;
-            resize: none;
+            overflow: hidden;
         }
 
+        /* COPY button pinned top-right */
         #copyBtn {
-            margin-top: 10px;
-            padding: 8px 16px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 6px 12px;
+            font-size: 13px;
             cursor: pointer;
+            z-index: 10;
+        }
+
+        /* Textarea fills remaining space below button */
+        #box {
+            position: absolute;
+            top: 45px; /* space for button */
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            width: calc(100% - 20px);
+            height: calc(100% - 55px);
+            box-sizing: border-box;
+            padding: 8px;
+            font-size: 14px;
+            resize: none;
+            overflow-y: auto;
         }
     </style>
 </head>
 <body>
 
-    <textarea id="box" readonly></textarea>
-    <button id="copyBtn">COPY</button>
+    <div class="pastebox-container">
+        <button id="copyBtn">COPY</button>
+        <textarea id="box" readonly></textarea>
+    </div>
 
     <script src="pastebox.js"></script>
 </body>
