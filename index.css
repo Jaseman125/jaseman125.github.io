@@ -263,18 +263,12 @@
     border: 1px solid red; /* TEMPORARY DEBUG BORDER */
 }
 
-/* COLUMN WIDTHS */
-.col-tick {
-    width: 30px;
-}
+/* COLUMN WIDTHS — ONLY SLIDER IS FIXED */
+.col-tick { }
 
-.col-label {
-    width: 180px;
-}
+.col-label { }
 
-.col-abbrev {
-    width: 50px;
-}
+.col-abbrev { }
 
 .col-slider {
     width: 150px;
