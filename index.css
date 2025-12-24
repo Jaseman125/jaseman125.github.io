@@ -276,18 +276,17 @@
     appearance: none;
     background: transparent;
     cursor: pointer;
+    width: 70px;
 }
 
-/* TRACK — NOW 70PX */
+/* TRACK */
 .trc-slider::-webkit-slider-runnable-track {
-    width: 70px;
     height: 4px;
     background: grey;
     border-radius: 2px;
 }
 
 .trc-slider::-moz-range-track {
-    width: 70px;
     height: 4px;
     background: grey;
     border-radius: 2px;
