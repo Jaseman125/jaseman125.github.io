@@ -99,16 +99,12 @@
 /* -------------------------------------------------- */
 /* PasteBox (desktop layout — aligned with clock row) */
 /* -------------------------------------------------- */
-/* Geometry tuned:
-   - left: 460px (was 490px)
-   - width: 610px (was 580px)
-   So: left gap ≈ 20px, right edge aligned with Jaseworld */
 .desktop-pastebox-iframe {
     position: absolute;
     top: 750px;
     left: 460px;
     width: 610px;
-    height: 160px; /* UPDATED from 150px */
+    height: 160px;
     border: 0;
     background: transparent;
     z-index: 50;
@@ -134,7 +130,6 @@
     height: 100%;
 }
 
-/* Force actual iframe size so bounding box ≈ visible size */
 .weather-inner iframe {
     width: 360px;
     height: 150px;
@@ -145,13 +140,9 @@
 /* -------------------------------------------------- */
 /* Clock (desktop only — aligned with weather row)    */
 /* -------------------------------------------------- */
-/* This ensures:
-   - It sits back on the clock/weather/PasteBox row
-   - No frame/border
-   - Transparent background */
 .floating-clock {
     position: absolute;
-    top: 750px;      /* same row as weather + PasteBox */
+    top: 750px;
     left: 20px;
     width: 150px;
     height: 150px;
@@ -162,7 +153,6 @@
     background: transparent;
 }
 
-/* If your clock uses a canvas, remove its frame too */
 #clockCanvas {
     border: none;
     outline: none;
@@ -172,15 +162,27 @@
 /* -------------------------------------------------- */
 /* Controls (desktop only)                            */
 /* -------------------------------------------------- */
-#topleft-controls-wrapper,
-#top-right-controls-wrapper {
+#topleft-controls-wrapper {
     position: fixed;
+    left: 0;
+    top: 40px;
     z-index: 9999;
     display: none;
 }
 
-#topleft-controls-wrapper { left: 0; top: 40px; }
-#top-right-controls-wrapper { right: 0; top: 0; }
+/* NEW: Top‑right controls iframe */
+.top-right-controls-iframe {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 320px;      /* adjust if needed */
+    height: auto;
+    border: none;
+    background: transparent;
+    z-index: 9999;
+    display: none;     /* shown in desktop mode */
+    pointer-events: auto;
+}
 
 /* -------------------------------------------------- */
 /* Desktop mode (wide layout)                         */
@@ -198,8 +200,11 @@
         display: none;
     }
 
-    #topleft-controls-wrapper,
-    #top-right-controls-wrapper {
+    #topleft-controls-wrapper {
+        display: block;
+    }
+
+    .top-right-controls-iframe {
         display: block;
     }
 }
