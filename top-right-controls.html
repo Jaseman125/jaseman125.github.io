@@ -99,9 +99,9 @@
     margin-right: 6px;
 }
 
-/* Shorter sliders to avoid wrapping */
-.trc-slider {
-    width: 150px;   /* reduced from 140px → more room for labels */
+/* Shorter sliders — specificity increased so this ALWAYS wins */
+.trc-row input[type="range"].trc-slider {
+    width: 150px;   /* adjust if you want even shorter */
     accent-color: grey;
 }
 </style>
