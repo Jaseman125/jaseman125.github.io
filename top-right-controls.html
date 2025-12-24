@@ -99,10 +99,11 @@
     margin-right: 6px;
 }
 
-/* Shorter sliders — specificity increased so this ALWAYS wins */
+/* Shorter sliders — now guaranteed to shrink */
 .trc-row input[type="range"].trc-slider {
-    width: 150px;   /* adjust if you want even shorter */
+    width: 150px;
     accent-color: grey;
+    display: block;   /* ← THIS forces Chrome/Edge/Safari to respect width */
 }
 </style>
 
