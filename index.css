@@ -175,7 +175,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 300px;
+    width: 440px;
     height: auto;
     border: none;
     background: transparent;
@@ -250,43 +250,45 @@
 .trc-table {
     border-collapse: collapse;
     table-layout: fixed;
-    width: 300px;
+    width: 440px;
+    border: 1px solid red; /* TEMPORARY DEBUG BORDER */
 }
 
 .trc-table td {
-    padding: 4px 4px;
+    padding: 4px 6px;
     vertical-align: middle;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    border: 1px solid red; /* TEMPORARY DEBUG BORDER */
 }
 
 /* COLUMN WIDTHS */
 .col-tick {
-    width: 20px;
+    width: 30px;
 }
 
 .col-label {
-    width: 110px;
+    width: 180px;
 }
 
 .col-abbrev {
-    width: 40px;
+    width: 50px;
 }
 
 .col-slider {
-    width: 110px;
-    min-width: 110px;
-    max-width: 110px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
     overflow: hidden;
 }
 
 /* SLIDER */
 .trc-slider {
     display: block;
-    width: 110px;
-    min-width: 110px;
-    max-width: 110px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
     box-sizing: border-box;
     -webkit-appearance: none;
     appearance: none;
