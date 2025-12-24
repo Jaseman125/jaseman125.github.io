@@ -251,38 +251,26 @@
     border-collapse: collapse;
     table-layout: fixed;
     width: 440px;
-    border: 1px solid red; /* TEMPORARY DEBUG BORDER */
 }
 
+/* TABLE CELLS */
 .trc-table td {
     padding: 4px 6px;
     vertical-align: middle;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    border: 1px solid red; /* TEMPORARY DEBUG BORDER */
 }
 
-/* COLUMN WIDTHS — ONLY SLIDER IS FIXED */
+/* COLUMN WIDTHS — ALL AUTO EXCEPT SLIDER */
 .col-tick { }
-
 .col-label { }
-
 .col-abbrev { }
-
-.col-slider {
-    width: 150px;
-    min-width: 150px;
-    max-width: 150px;
-    overflow: hidden;
-}
+.col-slider { }
 
 /* SLIDER */
 .trc-slider {
     display: block;
-    width: 150px;
-    min-width: 150px;
-    max-width: 150px;
     box-sizing: border-box;
     -webkit-appearance: none;
     appearance: none;
@@ -290,16 +278,14 @@
     cursor: pointer;
 }
 
-/* TRACK – FIXED 150PX */
+/* TRACK */
 .trc-slider::-webkit-slider-runnable-track {
-    width: 150px;
     height: 4px;
     background: grey;
     border-radius: 2px;
 }
 
 .trc-slider::-moz-range-track {
-    width: 150px;
     height: 4px;
     background: grey;
     border-radius: 2px;
