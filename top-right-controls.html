@@ -1,114 +1,167 @@
-<div id="top-right-controls">
-
-    <div class="trc-columns">
-
-        <!-- LEFT COLUMN: Modes -->
-        <div class="trc-column trc-modes">
-            <div class="trc-row">
-                <input type="checkbox" id="clockpong-toggle">
-                <label for="clockpong-toggle" class="nowrap">DON'T DO IT!</label>
-            </div>
-        </div>
-
-        <!-- RIGHT COLUMN: Main controls -->
-        <div class="trc-column trc-main">
-
-            <div class="trc-row">
-                <label class="nowrap">
-                    <input type="checkbox" id="toggle-msgheader">
-                    HDR
-                </label>
-                <input type="range" id="opacity-msgheader" min="0" max="100" value="100" class="trc-slider">
-            </div>
-
-            <div class="trc-row">
-                <label class="nowrap">
-                    <input type="checkbox" id="toggle-yt">
-                    YT
-                </label>
-                <input type="range" id="opacity-yt" min="0" max="100" value="100" class="trc-slider">
-            </div>
-
-            <div class="trc-row">
-                <label class="nowrap">
-                    <input type="checkbox" id="toggle-jaseworld">
-                    JW2
-                </label>
-                <input type="range" id="opacity-jaseworld" min="0" max="100" value="100" class="trc-slider">
-            </div>
-
-            <div class="trc-row">
-                <label class="nowrap">
-                    <input type="checkbox" id="toggle-clock">
-                    CLK
-                </label>
-                <input type="range" id="opacity-clock" min="0" max="100" value="50" class="trc-slider">
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Top Right Controls</title>
 
 <style>
 #top-right-controls {
     position: fixed;
     top: 14px;
-    right: 0px;
+    right: 0;
     z-index: 9999;
     background: transparent;
     padding: 10px 12px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }
 
-/* Prevent label wrapping */
-.nowrap {
+/* Table layout */
+.trc-table {
+    border-collapse: collapse;
+}
+
+.trc-table td {
+    padding: 4px 6px;
+    vertical-align: middle;
     white-space: nowrap;
 }
 
-/* Two-column layout */
-.trc-columns {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+/* Column widths */
+.col-tick {
+    width: 24px;
 }
 
-/* Each column stacks its rows vertically */
-.trc-column {
-    display: flex;
-    flex-direction: column;
+.col-label {
+    width: 160px; /* DON'T DO IT! fits here */
 }
 
-/* Row styling */
-.trc-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;   /* ← stops slider stretching */
-    gap: 14px;
-    margin-bottom: 10px;
+.col-abbrev {
+    width: 40px;
+    text-align: left;
 }
 
-.trc-row:last-child {
-    margin-bottom: 0;
+.col-slider {
+    width: 150px; /* fixed slider column width */
 }
 
-/* Checkbox styling */
-.trc-row input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    margin-right: 6px;
-}
-
-/* Shorter sliders — now guaranteed to shrink */
-.trc-row input[type="range"].trc-slider {
+/* Slider styling */
+.trc-slider {
     width: 150px;
-    accent-color: grey;
-
-    display: block;          /* width now applies */
-    flex: 0 0 auto;          /* flexbox no longer stretches it */
     -webkit-appearance: none;
     appearance: none;
+    background: transparent;
+}
+
+/* Track */
+.trc-slider::-webkit-slider-runnable-track {
+    height: 4px;              /* thin line */
+    background: grey;         /* grey track */
+    border-radius: 2px;
+}
+
+.trc-slider::-moz-range-track {
+    height: 4px;
+    background: grey;
+    border-radius: 2px;
+}
+
+/* Thumb */
+.trc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: grey;         /* grey dot */
+    border-radius: 50%;
+    margin-top: -5px;         /* centers thumb on thin track */
+}
+
+.trc-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: grey;
+    border-radius: 50%;
 }
 </style>
 
+</head>
+<body>
+
+<div id="top-right-controls">
+
+    <table class="trc-table">
+
+        <!-- ROW 1: DON'T DO IT -->
+        <tr>
+            <td class="col-tick">
+                <input type="checkbox" id="clockpong-toggle">
+            </td>
+            <td class="col-label">
+                DON'T DO IT!
+            </td>
+            <td class="col-tick"></td>
+            <td class="col-abbrev"></td>
+            <td class="col-slider"></td>
+        </tr>
+
+        <!-- ROW 2: HDR -->
+        <tr>
+            <td class="col-tick"></td>
+            <td class="col-label"></td>
+            <td class="col-tick">
+                <input type="checkbox" id="toggle-msgheader">
+            </td>
+            <td class="col-abbrev">HDR</td>
+            <td class="col-slider">
+                <input type="range" id="opacity-msgheader" min="0" max="100" value="100" class="trc-slider">
+            </td>
+        </tr>
+
+        <!-- ROW 3: YT -->
+        <tr>
+            <td class="col-tick"></td>
+            <td class="col-label"></td>
+            <td class="col-tick">
+                <input type="checkbox" id="toggle-yt">
+            </td>
+            <td class="col-abbrev">YT</td>
+            <td class="col-slider">
+                <input type="range" id="opacity-yt" min="0" max="100" value="100" class="trc-slider">
+            </td>
+        </tr>
+
+        <!-- ROW 4: JW2 -->
+        <tr>
+            <td class="col-tick"></td>
+            <td class="col-label"></td>
+            <td class="col-tick">
+                <input type="checkbox" id="toggle-jaseworld">
+            </td>
+            <td class="col-abbrev">JW2</td>
+            <td class="col-slider">
+                <input type="range" id="opacity-jaseworld" min="0" max="100" value="100" class="trc-slider">
+            </td>
+        </tr>
+
+        <!-- ROW 5: CLK -->
+        <tr>
+            <td class="col-tick"></td>
+            <td class="col-label"></td>
+            <td class="col-tick">
+                <input type="checkbox" id="toggle-clock">
+            </td>
+            <td class="col-abbrev">CLK</td>
+            <td class="col-slider">
+                <input type="range" id="opacity-clock" min="0" max="100" value="50" class="trc-slider">
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
 <script src="top-right-controls.js"></script>
+
+</body>
+</html>

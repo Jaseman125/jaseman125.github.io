@@ -11,7 +11,7 @@
     background-position: center;
     background-repeat: no-repeat;
     opacity: 1;
-    z-index: -1; /* sits behind everything */
+    z-index: -1;
     pointer-events: none;
 }
 
@@ -59,7 +59,7 @@
 /* -------------------------------------------------- */
 .pastebox-iframe {
     position: absolute;
-    top: 1700px; /* placeholder; hidden in desktop */
+    top: 1700px;
     left: 50%;
     transform: translateX(-50%);
     width: 960px;
@@ -170,17 +170,17 @@
     display: none;
 }
 
-/* NEW: Top‑right controls iframe (corrected layout) */
+/* NEW: Top‑right controls iframe */
 .top-right-controls-iframe {
     position: fixed;
     top: 0;
     right: 0;
-    width: 440px;      /* increased from 320px */
+    width: 440px;
     height: auto;
     border: none;
     background: transparent;
     z-index: 9999;
-    display: none;     /* shown in desktop mode */
+    display: none;
     pointer-events: auto;
 }
 
@@ -220,7 +220,7 @@
 }
 
 /* -------------------------------------------------- */
-/* Fade‑in animation (restored)                       */
+/* Fade‑in animation                                  */
 /* -------------------------------------------------- */
 .fade-start {
     opacity: 0;
@@ -229,4 +229,86 @@
 
 .fade-start.fade-in {
     opacity: 1;
+}
+
+/* -------------------------------------------------- */
+/* TOP‑RIGHT CONTROLS (TABLE + SLIDERS)               */
+/* -------------------------------------------------- */
+
+#top-right-controls {
+    position: fixed;
+    top: 14px;
+    right: 0;
+    z-index: 9999;
+    background: transparent;
+    padding: 10px 12px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Table layout */
+.trc-table {
+    border-collapse: collapse;
+}
+
+.trc-table td {
+    padding: 4px 6px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* Column widths */
+.col-tick {
+    width: 24px;
+}
+
+.col-label {
+    width: 160px;
+}
+
+.col-abbrev {
+    width: 40px;
+}
+
+.col-slider {
+    width: 150px;
+}
+
+/* Slider styling */
+.trc-slider {
+    width: 150px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+}
+
+/* Track */
+.trc-slider::-webkit-slider-runnable-track {
+    height: 4px;
+    background: grey;
+    border-radius: 2px;
+}
+
+.trc-slider::-moz-range-track {
+    height: 4px;
+    background: grey;
+    border-radius: 2px;
+}
+
+/* Thumb */
+.trc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: grey;
+    border-radius: 50%;
+    margin-top: -5px;
+}
+
+.trc-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: grey;
+    border-radius: 50%;
 }

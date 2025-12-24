@@ -1,79 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JASEMAN.COM Homepage Right Sidebar</title>
-<style>
-        .transparent-image {
-            opacity: 0.4; /* Adjust this value between 0 (completely transparent) and 1 (fully opaque) */
-        }
-
-        #specific-image-container {
-            position: relative;
-            width: 100%;
-        }
-        #specific-image {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-        #specific-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            white-space: nowrap;
-            color: black;
-
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Top Right Controls</title>
 </head>
+<body>
 
-<body style="margin: 0; padding: 0; border: 0;">
-<center>
+<div id="top-right-controls">
 
-<div id="specific-image-container">
-<img src="https://jaseman125.github.io/photo-album/100-photos/20200522-jaseman-com-hat.jpg" id="specific-image" class="transparent-image">
-<div id="specific-text">
+    <table class="trc-table">
 
-<p style='font-family: sans-serif; font-weight: bold; font-size: 38px; margin-top: 0px; margin-bottom: 22px; color: yellow; text-shadow: 2px 2px 4px black;'>How to navigate<br>this website:</p>
+        <!-- ROW 1: DON'T DO IT -->
+        <tr>
+            <td class="col-tick">
+                <input type="checkbox" id="clockpong-toggle">
+            </td>
+            <td class="col-label">DON'T DO IT!</td>
+            <td class="col-tick"></td>
+            <td class="col-abbrev"></td>
+            <td class="col-slider"></td>
+        </tr>
 
-<p style='font-family: sans-serif; font-weight: bold; font-size: 14px; margin-top: 0px; margin-bottom: 18px; color: yellow; text-shadow: 2px 2px 4px black;'>There are 3 columns on this page.</p>
+        <!-- ROW 2: HDR -->
+        <tr>
+            <td class="col-tick"></td>
+            <td class="col-label"></td>
+            <td class="col-tick">
+                <input type="checkbox" id="toggle-msgheader">
+            </td>
+            <td class="col-abbrev">HDR</td>
+            <td class="col-slider">
+                <input type="range" id="opacity-msgheader" min="0" max="100" value="100" class="trc-slider">
+            </td>
+        </tr>
 
-<p style='font-family: sans-serif; font-weight: bold; font-size: 14px; margin-top: 0px; margin-bottom: 18px; color: yellow; text-shadow: 2px 2px 4px black;'>Along the top of each column are 8 checkboxes.</p>
+        <!-- ROW 3: YT -->
+        <tr>
+            <td class="col-tick"></td>
+            <td class="col-label"></td>
+            <td class="col-tick">
+                <input type="checkbox" id="toggle-yt">
+            </td>
+            <td class="col-abbrev">YT</td>
+            <td class="col-slider">
+                <input type="range" id="opacity-yt" min="0" max="100" value="100" class="trc-slider">
+            </td>
+        </tr>
 
-<p style='font-family: sans-serif; font-weight: bold; font-size: 14px; margin-top: 0px; margin-bottom: 20px; color: yellow; text-shadow: 2px 2px 4px black;'>The checkboxes represent categories:</p>
+        <!-- ROW 4: JW2 -->
+        <tr>
+            <td class="col-tick"></td>
+            <td class="col-label"></td>
+            <td class="col-tick">
+                <input type="checkbox" id="toggle-jaseworld">
+            </td>
+            <td class="col-abbrev">JW2</td>
+            <td class="col-slider">
+                <input type="range" id="opacity-jaseworld" min="0" max="100" value="100" class="trc-slider">
+            </td>
+        </tr>
 
-<center>
-<table align='center' cellpadding='0' cellspacing='0'>
-<tr>
+        <!-- ROW 5: CLK -->
+        <tr>
+            <td class="col-tick"></td>
+            <td class="col-label"></td>
+            <td class="col-tick">
+                <input type="checkbox" id="toggle-clock">
+            </td>
+            <td class="col-abbrev">CLK</td>
+            <td class="col-slider">
+                <input type="range" id="opacity-clock" min="0" max="100" value="50" class="trc-slider">
+            </td>
+        </tr>
 
-<td align='center' width='16%' bgcolor='red'><img src='img/home.png' height='45'><br><p style='font-family: sans-serif; font-weight: bold; font-size: 10px; margin-top: -2px; margin-bottom: 0px;'>1 Home</p></td>
-<td align='center' width='16%' bgcolor='white'><img src='img/lego.png' height='45'><br><p style='font-family: sans-serif; font-weight: bold; font-size: 10px; margin-top: -2px; margin-bottom: 0px;'>2 LEGO</p></td>
-<td align='center' width='16%' bgcolor='white'><img src='img/music.png' height='45'><br><p style='font-family: sans-serif; font-weight: bold; font-size: 10px; margin-top: -2px; margin-bottom: 0px;'>3 Music</p></td>
-<td align='center' width='16%' bgcolor='white'><img src='img/movies.png' height='45'><br><p style='font-family: sans-serif; font-weight: bold; font-size: 10px; margin-top: -2px; margin-bottom: 0px;'>4 Movies</p></td>
-<td align='center' width='16%' bgcolor='white'><img src='img/photos.png' height='45'><br><p style='font-family: sans-serif; font-weight: bold; font-size: 10px; margin-top: -2px; margin-bottom: 0px;'>5 Photos</p></td>
-<td align='center' width='16%' bgcolor='white'><img src='img/pictures.png' height='45'><br><p style='font-family: sans-serif; font-weight: bold; font-size: 10px; margin-top: -2px; margin-bottom: 0px;'>6 Pics</p></td>
-<td align='center' width='16%' bgcolor='white'><img src='img/software.png' height='45'><br><p style='font-family: sans-serif; font-weight: bold; font-size: 10px; margin-top: -2px; margin-bottom: 0px;'>7 Software</p></td>
-<td align='center' width='16%' bgcolor='white'><img src='img/misc.png' height='45'><br><p style='font-family: sans-serif; font-weight: bold; font-size: 10px; margin-top: -2px; margin-bottom: 0px;'>8 Misc</p></td>
-</tr>
-</table>
-<br>
+    </table>
 
-<p style='font-family: sans-serif; font-weight: bold; font-size: 14px; margin-top: 0px; margin-bottom: 18px; color: yellow; text-shadow: 2px 2px 4px black;'>The Red checkboxes indicate the current selection.</p>
+</div>
 
-<p style='font-family: sans-serif; font-weight: bold; font-size: 14px; margin-top: 0px; margin-bottom: 18px; color: yellow; text-shadow: 2px 2px 4px black;'>Click on the checkboxes to switch categories.</p>
+<script src="top-right-controls.js"></script>
 
-<p style='font-family: sans-serif; font-weight: bold; font-size: 14px; margin-top: 0px; margin-bottom: 18px; color: yellow; text-shadow: 2px 2px 4px black;'>Use the left and right arrows<br>
-when available to reveal more content.</p>
-
-<p style='font-family: sans-serif; font-weight: bold; font-size: 14px; margin-top: 0px; margin-bottom: 18px; color: yellow; text-shadow: 2px 2px 4px black;'>Change the page background using<br>the arrows at the top left corner.</p>
-</center>
-</div></div>
-
-<iframe src='https://calendar.google.com/calendar/embed?src=ac61d573f2bcbb1fd36dcdf82de63fe9b4874347f95a3149e82ecbff9ed6e74e%40group.calendar.google.com&ctz=Europe%2FLondon' style='border: 0; width: 100%; height: 366px; frameborder: 0; scrolling: no; filter: opacity(50%);margin-top: 0px;'></iframe>
-
-</center>
 </body>
 </html>
