@@ -16,7 +16,7 @@
             <div class="trc-row">
                 <label class="nowrap">
                     <input type="checkbox" id="toggle-msgheader">
-                    Header
+                    HDR
                 </label>
                 <input type="range" id="opacity-msgheader" min="0" max="100" value="100" class="trc-slider">
             </div>
@@ -24,7 +24,7 @@
             <div class="trc-row">
                 <label class="nowrap">
                     <input type="checkbox" id="toggle-yt">
-                    YouTube
+                    YT
                 </label>
                 <input type="range" id="opacity-yt" min="0" max="100" value="100" class="trc-slider">
             </div>
@@ -32,7 +32,7 @@
             <div class="trc-row">
                 <label class="nowrap">
                     <input type="checkbox" id="toggle-jaseworld">
-                    Jaseworld 2
+                    JW2
                 </label>
                 <input type="range" id="opacity-jaseworld" min="0" max="100" value="100" class="trc-slider">
             </div>
@@ -40,7 +40,7 @@
             <div class="trc-row">
                 <label class="nowrap">
                     <input type="checkbox" id="toggle-clock">
-                    Clock
+                    CLK
                 </label>
                 <input type="range" id="opacity-clock" min="0" max="100" value="50" class="trc-slider">
             </div>
@@ -103,7 +103,10 @@
 .trc-row input[type="range"].trc-slider {
     width: 150px;
     accent-color: grey;
-    display: block;
+
+    /* These three lines are the magic trio */
+    display: block;          /* makes width apply */
+    flex: 0 0 auto;          /* stops flexbox stretching */
     -webkit-appearance: none;
     appearance: none;
 }
