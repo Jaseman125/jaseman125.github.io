@@ -1,166 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Top Right Controls</title>
+    <meta charset="UTF-8">
+    <title>Top Right Controls</title>
 
-<style>
-#top-right-controls {
-    position: fixed;
-    top: 14px;
-    right: 0;
-    z-index: 9999;
-    background: transparent;
-    padding: 10px 12px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-}
-
-/* Table layout */
-.trc-table {
-    border-collapse: collapse;
-}
-
-.trc-table td {
-    padding: 4px 6px;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
-/* Column widths */
-.col-tick {
-    width: 24px;
-}
-
-.col-label {
-    width: 160px; /* DON'T DO IT! fits here */
-}
-
-.col-abbrev {
-    width: 40px;
-    text-align: left;
-}
-
-.col-slider {
-    width: 150px; /* fixed slider column width */
-}
-
-/* Slider styling */
-.trc-slider {
-    width: 150px;
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
-}
-
-/* Track */
-.trc-slider::-webkit-slider-runnable-track {
-    height: 4px;              /* thin line */
-    background: grey;         /* grey track */
-    border-radius: 2px;
-}
-
-.trc-slider::-moz-range-track {
-    height: 4px;
-    background: grey;
-    border-radius: 2px;
-}
-
-/* Thumb */
-.trc-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 14px;
-    height: 14px;
-    background: grey;         /* grey dot */
-    border-radius: 50%;
-    margin-top: -5px;         /* centers thumb on thin track */
-}
-
-.trc-slider::-moz-range-thumb {
-    width: 14px;
-    height: 14px;
-    background: grey;
-    border-radius: 50%;
-}
-</style>
-
+    <!-- Assumes index.css is in the same folder as this HTML file -->
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
 <div id="top-right-controls">
 
     <table class="trc-table">
-
-        <!-- ROW 1: DON'T DO IT -->
+        <!-- ROW 1: DON'T DO IT + HDR -->
         <tr>
+            <!-- Column 1: DON'T DO IT tick -->
             <td class="col-tick">
                 <input type="checkbox" id="clockpong-toggle">
             </td>
+
+            <!-- Column 2: DON'T DO IT label -->
             <td class="col-label">
                 DON'T DO IT!
             </td>
-            <td class="col-tick"></td>
-            <td class="col-abbrev"></td>
-            <td class="col-slider"></td>
-        </tr>
 
-        <!-- ROW 2: HDR -->
-        <tr>
-            <td class="col-tick"></td>
-            <td class="col-label"></td>
+            <!-- Column 3: HDR tick -->
             <td class="col-tick">
                 <input type="checkbox" id="toggle-msgheader">
             </td>
-            <td class="col-abbrev">HDR</td>
+
+            <!-- Column 4: HDR abbrev -->
+            <td class="col-abbrev">
+                HDR
+            </td>
+
+            <!-- Column 5: HDR slider -->
             <td class="col-slider">
-                <input type="range" id="opacity-msgheader" min="0" max="100" value="100" class="trc-slider">
+                <input
+                    type="range"
+                    id="opacity-msgheader"
+                    class="trc-slider"
+                    min="0"
+                    max="100"
+                    value="100"
+                >
             </td>
         </tr>
 
-        <!-- ROW 3: YT -->
+        <!-- ROW 2: YT -->
         <tr>
+            <!-- Columns 1–2 empty -->
             <td class="col-tick"></td>
             <td class="col-label"></td>
+
+            <!-- Column 3: YT tick -->
             <td class="col-tick">
                 <input type="checkbox" id="toggle-yt">
             </td>
-            <td class="col-abbrev">YT</td>
+
+            <!-- Column 4: YT abbrev -->
+            <td class="col-abbrev">
+                YT
+            </td>
+
+            <!-- Column 5: YT slider -->
             <td class="col-slider">
-                <input type="range" id="opacity-yt" min="0" max="100" value="100" class="trc-slider">
+                <input
+                    type="range"
+                    id="opacity-yt"
+                    class="trc-slider"
+                    min="0"
+                    max="100"
+                    value="100"
+                >
             </td>
         </tr>
 
-        <!-- ROW 4: JW2 -->
+        <!-- ROW 3: JW2 -->
         <tr>
+            <!-- Columns 1–2 empty -->
             <td class="col-tick"></td>
             <td class="col-label"></td>
+
+            <!-- Column 3: JW2 tick -->
             <td class="col-tick">
                 <input type="checkbox" id="toggle-jaseworld">
             </td>
-            <td class="col-abbrev">JW2</td>
+
+            <!-- Column 4: JW2 abbrev -->
+            <td class="col-abbrev">
+                JW2
+            </td>
+
+            <!-- Column 5: JW2 slider -->
             <td class="col-slider">
-                <input type="range" id="opacity-jaseworld" min="0" max="100" value="100" class="trc-slider">
+                <input
+                    type="range"
+                    id="opacity-jaseworld"
+                    class="trc-slider"
+                    min="0"
+                    max="100"
+                    value="100"
+                >
             </td>
         </tr>
 
-        <!-- ROW 5: CLK -->
+        <!-- ROW 4: CLK -->
         <tr>
+            <!-- Columns 1–2 empty -->
             <td class="col-tick"></td>
             <td class="col-label"></td>
+
+            <!-- Column 3: CLK tick -->
             <td class="col-tick">
                 <input type="checkbox" id="toggle-clock">
             </td>
-            <td class="col-abbrev">CLK</td>
+
+            <!-- Column 4: CLK abbrev -->
+            <td class="col-abbrev">
+                CLK
+            </td>
+
+            <!-- Column 5: CLK slider -->
             <td class="col-slider">
-                <input type="range" id="opacity-clock" min="0" max="100" value="50" class="trc-slider">
+                <input
+                    type="range"
+                    id="opacity-clock"
+                    class="trc-slider"
+                    min="0"
+                    max="100"
+                    value="50"
+                >
             </td>
         </tr>
-
     </table>
 
 </div>
 
+<!-- Your JS if needed -->
 <script src="top-right-controls.js"></script>
 
 </body>
