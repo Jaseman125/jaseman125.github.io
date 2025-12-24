@@ -366,7 +366,6 @@ const albums = [
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/steve-winwood-chronicles.png",
     playlist: "https://en.wikipedia.org/wiki/Chronicles_(Steve_Winwood_album)" }
-];
 ]; // end of albums array
 
 // ---------------------------------------------
