@@ -175,7 +175,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 440px;
+    width: 300px;
     height: auto;
     border: none;
     background: transparent;
@@ -250,11 +250,11 @@
 .trc-table {
     border-collapse: collapse;
     table-layout: fixed;
-    width: 440px;
+    width: 300px;
 }
 
 .trc-table td {
-    padding: 4px 6px;
+    padding: 4px 4px;
     vertical-align: middle;
     white-space: nowrap;
     overflow: hidden;
@@ -263,40 +263,38 @@
 
 /* COLUMN WIDTHS */
 .col-tick {
-    width: 30px;
+    width: 20px;
 }
 
 .col-label {
-    width: 180px;
+    width: 110px;
 }
 
 .col-abbrev {
-    width: 50px;
+    width: 40px;
 }
 
-/* LAST COLUMN: HARD‑LOCKED AT 150PX */
 .col-slider {
-    width: 150px;
-    min-width: 150px;
-    max-width: 150px;
+    width: 110px;
+    min-width: 110px;
+    max-width: 110px;
     overflow: hidden;
 }
 
-/* SLIDER: HARD‑LOCKED AT 150PX */
+/* SLIDER */
 .trc-slider {
     display: block;
-    width: 150px;
-    min-width: 150px;
-    max-width: 150px;
+    width: 110px;
+    min-width: 110px;
+    max-width: 110px;
     box-sizing: border-box;
-
     -webkit-appearance: none;
     appearance: none;
     background: transparent;
     cursor: pointer;
 }
 
-/* TRACK – WIDTH FORCED TO 150PX */
+/* TRACK – FIXED 150PX */
 .trc-slider::-webkit-slider-runnable-track {
     width: 150px;
     height: 4px;
