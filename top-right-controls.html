@@ -2,37 +2,49 @@
 
     <div class="trc-columns">
 
+        <!-- LEFT COLUMN: Modes -->
         <div class="trc-column trc-modes">
             <div class="trc-row">
                 <input type="checkbox" id="clockpong-toggle">
-                <label for="clockpong-toggle">DON'T DO IT!</label>
+                <label for="clockpong-toggle" class="nowrap">DON'T DO IT!</label>
             </div>
         </div>
 
+        <!-- RIGHT COLUMN: Main controls -->
         <div class="trc-column trc-main">
+
             <div class="trc-row">
-                <input type="checkbox" id="toggle-msgheader">
-                <label for="toggle-msgheader">Header</label>
-                <input type="range" id="opacity-msgheader" min="0" max="100" value="100">
+                <label class="nowrap">
+                    <input type="checkbox" id="toggle-msgheader">
+                    Header
+                </label>
+                <input type="range" id="opacity-msgheader" min="0" max="100" value="100" class="trc-slider">
             </div>
 
             <div class="trc-row">
-                <input type="checkbox" id="toggle-yt">
-                <label for="toggle-yt">YouTube</label>
-                <input type="range" id="opacity-yt" min="0" max="100" value="100">
+                <label class="nowrap">
+                    <input type="checkbox" id="toggle-yt">
+                    YouTube
+                </label>
+                <input type="range" id="opacity-yt" min="0" max="100" value="100" class="trc-slider">
             </div>
 
             <div class="trc-row">
-                <input type="checkbox" id="toggle-jaseworld">
-                <label for="toggle-jaseworld">Jaseworld 2</label>
-                <input type="range" id="opacity-jaseworld" min="0" max="100" value="100">
+                <label class="nowrap">
+                    <input type="checkbox" id="toggle-jaseworld">
+                    Jaseworld 2
+                </label>
+                <input type="range" id="opacity-jaseworld" min="0" max="100" value="100" class="trc-slider">
             </div>
 
             <div class="trc-row">
-                <input type="checkbox" id="toggle-clock">
-                <label for="toggle-clock">Clock</label>
-                <input type="range" id="opacity-clock" min="0" max="100" value="50">
+                <label class="nowrap">
+                    <input type="checkbox" id="toggle-clock">
+                    Clock
+                </label>
+                <input type="range" id="opacity-clock" min="0" max="100" value="50" class="trc-slider">
             </div>
+
         </div>
 
     </div>
@@ -49,11 +61,16 @@
     padding: 10px 12px;
 }
 
+/* Prevent label wrapping */
+.nowrap {
+    white-space: nowrap;
+}
+
 /* Two-column layout */
 .trc-columns {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
+    gap: 20px;
 }
 
 /* Each column stacks its rows vertically */
@@ -67,21 +84,24 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 8px;
+    gap: 14px;
+    margin-bottom: 10px;
 }
 
 .trc-row:last-child {
     margin-bottom: 0;
 }
 
+/* Checkbox styling */
 .trc-row input[type="checkbox"] {
     width: 16px;
     height: 16px;
+    margin-right: 6px;
 }
 
-.trc-row input[type="range"] {
-    width: 140px;
+/* Shorter sliders to avoid wrapping */
+.trc-slider {
+    width: 150px;   /* reduced from 140px → more room for labels */
     accent-color: grey;
 }
 </style>
