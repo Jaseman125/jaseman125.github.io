@@ -170,12 +170,12 @@
     display: none;
 }
 
-/* NEW: Top‑right controls iframe */
+/* NEW: Top‑right controls iframe (corrected layout) */
 .top-right-controls-iframe {
     position: fixed;
     top: 0;
     right: 0;
-    width: 320px;      /* adjust if needed */
+    width: 440px;      /* increased from 320px */
     height: auto;
     border: none;
     background: transparent;
