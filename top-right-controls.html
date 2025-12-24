@@ -103,7 +103,9 @@
 .trc-row input[type="range"].trc-slider {
     width: 150px;
     accent-color: grey;
-    display: block;   /* ← THIS forces Chrome/Edge/Safari to respect width */
+    display: block;
+    -webkit-appearance: none;
+    appearance: none;
 }
 </style>
 
