@@ -142,6 +142,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (ytFrameDesktop) ytFrameDesktop.style.opacity = 1;
         if (jwFrameDesktop) jwFrameDesktop.style.opacity = 1;
         if (clockFrame)     clockFrame.style.opacity     = 0.5;
+        if (pasteboxFrame) pasteboxFrame.style.opacity = 0.5;
+
 
         if (toggleMsg && msgHeaderFrame) {
             toggleMsg.oninput = () => {
