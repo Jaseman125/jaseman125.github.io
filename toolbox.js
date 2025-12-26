@@ -48,7 +48,6 @@ window.parent.addEventListener("mousemove", function(e) {
   if (el) el.textContent = e.clientX + "," + e.clientY;
 });
 
-
 // -----------------------------
 // IF05 EDITOR
 // -----------------------------
@@ -69,18 +68,41 @@ function loadIF05Editor() {
 
   pageContent.innerHTML = `
     <input id="if05Input" type="text" value="${currentSrc}"
-      style="width:390px; font-size:12px;"><br>
+      style="width:390px; font-size:12px;"><br><br>
 
-    <input id="if05X" type="text" value="${currentX}"
-      style="width:40px; font-size:12px; margin-top:4px;"> X<br>
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td width="60">
+          <input id="if05X" type="text" value="${currentX}"
+            style="width:40px; font-size:12px;"> X
+        </td>
 
-    <input id="if05Y" type="text" value="${currentY}"
-      style="width:40px; font-size:12px; margin-top:4px;"> Y
+        <td width="40" align="center">
+          <input id="if05Visible" type="checkbox" ${iframe.style.display !== "none" ? "checked" : ""}>
+        </td>
+
+        <td width="100">
+          <input id="if05Opacity" type="range" min="0" max="100" value="${Math.round((iframe.style.opacity || 1) * 100)}"
+            class="toolbox-slider">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input id="if05Y" type="text" value="${currentY}"
+            style="width:40px; font-size:12px;"> Y
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
   `;
 
   const inputSrc = document.getElementById("if05Input");
   const inputX = document.getElementById("if05X");
   const inputY = document.getElementById("if05Y");
+  const tickVisible = document.getElementById("if05Visible");
+  const sliderOpacity = document.getElementById("if05Opacity");
 
   inputSrc.addEventListener("change", () => {
     iframe.setAttribute("src", inputSrc.value);
@@ -96,5 +118,13 @@ function loadIF05Editor() {
     if (e.key === "Enter") {
       iframe.style.top = inputY.value + "px";
     }
+  });
+
+  tickVisible.addEventListener("change", () => {
+    iframe.style.display = tickVisible.checked ? "block" : "none";
+  });
+
+  sliderOpacity.addEventListener("input", () => {
+    iframe.style.opacity = sliderOpacity.value / 100;
   });
 }
