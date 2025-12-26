@@ -15,7 +15,6 @@ let currentPage = 0;
 
 function updatePage() {
   document.getElementById("pageLabel").innerText = pages[currentPage];
-  document.getElementById("pageContent").innerText = "Page: " + pages[currentPage];
 }
 
 document.getElementById("nextBtn").addEventListener("click", function () {
