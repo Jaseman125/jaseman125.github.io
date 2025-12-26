@@ -68,7 +68,7 @@ function loadIF05Editor() {
 
   pageContent.innerHTML = `
     <input id="if05Input" type="text" value="${currentSrc}"
-      style="width:390px; font-size:12px;"><br><br>
+      style="width:390px; font-size:12px;">
 
     <table cellpadding="0" cellspacing="0" border="0">
       <tr>
