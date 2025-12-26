@@ -22,20 +22,41 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 8px;
+  position: relative; /* allows absolute positioning inside */
 }
 
-/* Arrows */
-#prevBtn,
+/* Left arrow */
+#prevBtn {
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+}
+
+/* Right arrow — positioned in top-right corner */
 #nextBtn {
   width: 32px;
   height: 32px;
   font-size: 16px;
   padding: 0;
   margin: 0;
+  border: none;
+  background: none;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 /* Page label */
 #pageLabel {
   font-size: 16px;
   font-weight: bold;
+}
+
+/* Content area (currently empty but required structurally) */
+#pageContent {
+  display: none; /* hidden since you don't want it visible */
 }
