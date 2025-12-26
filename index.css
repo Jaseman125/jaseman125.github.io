@@ -3,6 +3,30 @@ body {
   padding: 0;
 }
 
+/* IF01 – background */
+#IF01 {
+  width: 200px;
+  height: 50px;
+}
+
+/* IF02 – msgheader */
+#IF02 {
+  width: 200px;
+  height: 50px;
+}
+
+/* IF03 – ytplaylist */
+#IF03 {
+  width: 200px;
+  height: 50px;
+}
+
+/* IF04 – jaseworld2 */
+#IF04 {
+  width: 200px;
+  height: 50px;
+}
+
 /* IF05 – clock */
 #IF05 {
   position: absolute;
@@ -11,6 +35,30 @@ body {
   width: 150px;
   height: 150px;
   border: none;
+}
+
+/* IF06 – weather */
+#IF06 {
+  width: 200px;
+ height: 50px;
+}
+
+/* IF07 – pastebox */
+#IF07 {
+  width: 200px;
+  height: 50px;
+}
+
+/* IF08 – googlesheet */
+#IF08 {
+  width: 200px;
+  height: 50px;
+}
+
+/* IF09 – calendar */
+#IF09 {
+  width: 200px;
+  height: 50px;
 }
 
 /* IF10 – toolbox */
