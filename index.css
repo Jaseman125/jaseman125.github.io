@@ -5,6 +5,7 @@ body {
 
 /* IF01 – background */
 #IF01 {
+  position: absolute;
   width: 200px;
   height: 50px;
   top: 856px;
@@ -12,6 +13,7 @@ body {
 
 /* IF02 – msgheader */
 #IF02 {
+  position: absolute;
   width: 200px;
   height: 50px;
   top: 856px;
@@ -19,6 +21,7 @@ body {
 
 /* IF03 – ytplaylist */
 #IF03 {
+  position: absolute;
   width: 200px;
   height: 50px;
   top: 856px;
@@ -26,6 +29,7 @@ body {
 
 /* IF04 – jaseworld2 */
 #IF04 {
+  position: absolute;
   width: 200px;
   height: 50px;
   top: 856px;
@@ -43,6 +47,7 @@ body {
 
 /* IF06 – weather */
 #IF06 {
+  position: absolute;
   width: 200px;
   height: 50px;
   top: 856px;
@@ -50,6 +55,7 @@ body {
 
 /* IF07 – pastebox */
 #IF07 {
+  position: absolute;
   width: 200px;
   height: 50px;
   top: 856px;
@@ -57,6 +63,7 @@ body {
 
 /* IF08 – googlesheet */
 #IF08 {
+  position: absolute;
   width: 200px;
   height: 50px;
   top: 856px;
@@ -64,6 +71,7 @@ body {
 
 /* IF09 – calendar */
 #IF09 {
+  position: absolute;
   width: 200px;
   height: 50px;
   top: 856px;
