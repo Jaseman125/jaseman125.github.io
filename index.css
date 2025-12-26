@@ -3,6 +3,17 @@ body {
   padding: 0;
 }
 
+/* IF05 – clock */
+#IF05 {
+  position: absolute;
+  top: 690px;
+  left: 16px;
+  width: 150px;
+  height: 150px;
+  border: none;
+}
+
+/* IF10 – toolbox */
 #IF10 {
   position: absolute;
   top: 16px;
