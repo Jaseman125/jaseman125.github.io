@@ -12,11 +12,16 @@ body {
   left: 0;
 }
 
-#browserSize,
-#mousePos {
+#browserSizeValue,
+#mousePosValue {
   font-size: 10px;
   padding: 0;
   white-space: nowrap;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: bold;
 }
 
 #pageflip {

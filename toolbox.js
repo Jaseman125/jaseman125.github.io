@@ -36,7 +36,7 @@ updatePage();
 function updateBrowserSize() {
   const w = window.parent.innerWidth;
   const h = window.parent.innerHeight;
-  const el = document.getElementById("browserSize");
+  const el = document.getElementById("browserSizeValue");
   if (el) el.textContent = w + "×" + h;
 }
 
@@ -44,6 +44,6 @@ window.parent.addEventListener("resize", updateBrowserSize);
 updateBrowserSize();
 
 window.parent.addEventListener("mousemove", function(e) {
-  const el = document.getElementById("mousePos");
+  const el = document.getElementById("mousePosValue");
   if (el) el.textContent = e.clientX + "," + e.clientY;
 });
