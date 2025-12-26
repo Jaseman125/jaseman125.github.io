@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Header Module</title>
+
+<style>
+  body {
+    margin:0;
+    padding:0;
+    background:transparent;
+    overflow:hidden;
+  }
+
+  .header-wrapper {
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .header-desktop-row {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    column-gap:20px;
+    height:100%;
+  }
+
+  .header-row {
+    display:flex;
+    justify-content:center;
+    gap:2vw;
+    height:100%;
+  }
+
+  .header-box {
+    width:12vw;
+    height:12vw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#0000AA;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+  }
+
+  .header-box span {
+    font-size:10vw;
+    color:white;
+    font-family:sans-serif;
+    font-weight:bold;
+    transition:opacity 1s;
+    z-index:1;
+  }
+
+  .header-box img {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:none;
+    z-index:0;
+  }
+
+  @media (min-width:1100px) {
+    .header-row {
+      gap:20px;
+    }
+    .header-box {
+      width:100px;
+      height:100px;
+    }
+    .header-box span {
+      font-size:70px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="header-wrapper">
+  <div class="header-desktop-row">
+    <div class="header-row">
+      <div class="header-box"><span>J</span><img alt=""></div>
+      <div class="header-box"><span>A</span><img alt=""></div>
+      <div class="header-box"><span>S</span><img alt=""></div>
+      <div class="header-box"><span>E</span><img alt=""></div>
+      <div class="header-box"><span>M</span><img alt=""></div>
+      <div class="header-box"><span>A</span><img alt=""></div>
+      <div class="header-box"><span>N</span><img alt=""></div>
+    </div>
+  </div>
+</div>
+
+<!-- Load the clean, modular JS -->
+<script src="msgheader.js"></script>
+
+</body>
+</html>

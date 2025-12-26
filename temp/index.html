@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JASEMAN.COM</title>
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<!-- Page wrapper with fade‑in start state -->
+<body class="fade-start">
+
+    <!-- -------------------------------------------------- -->
+    <!-- Background layer (full‑screen image behind all UI) -->
+    <!-- -------------------------------------------------- -->
+    <div id="bg-image-layer"></div>
+
+    <!-- -------------------------------------------------- -->
+    <!-- Desktop control panels (shown only in desktop mode) -->
+    <!-- -------------------------------------------------- -->
+    <div id="topleft-controls-wrapper" data-include="topleft-controls.html"></div>
+
+    <!-- *** CHANGED: Now a real iframe instead of include *** -->
+    <iframe src="top-right-controls.html" class="top-right-controls-iframe"></iframe>
+
+    <!-- -------------------------------------------------- -->
+    <!-- Header iframe (logo + message bar)                 -->
+    <!-- -------------------------------------------------- -->
+    <iframe src="msgheader.html" class="msgheader-iframe" loading="lazy"></iframe>
+
+    <!-- -------------------------------------------------- -->
+    <!-- Mobile/tablet layout iframes                       -->
+    <!-- -------------------------------------------------- -->
+    <iframe src="ytplaylist.html" class="ytplaylist-iframe" loading="lazy"></iframe>
+    <iframe src="jaseworld2/jaseworld2.html" class="jaseworld-iframe" loading="lazy"></iframe>
+
+    <!-- -------------------------------------------------- -->
+    <!-- Desktop layout iframes (enabled above 1521px)      -->
+    <!-- -------------------------------------------------- -->
+    <iframe src="ytplaylist.html" class="desktop-yt-iframe" loading="lazy"></iframe>
+    <iframe src="jaseworld2/jaseworld2.html" class="desktop-jaseworld-iframe" loading="lazy"></iframe>
+
+    <!-- -------------------------------------------------- -->
+    <!-- PasteBox (desktop version)                         -->
+    <!-- -------------------------------------------------- -->
+    <iframe src="pastebox.html" class="desktop-pastebox-iframe" loading="lazy"></iframe>
+
+    <!-- -------------------------------------------------- -->
+    <!-- Floating clock (desktop only)                      -->
+    <!-- -------------------------------------------------- -->
+    <iframe src="clock.html" class="floating-clock" loading="lazy"></iframe>
+
+    <!-- -------------------------------------------------- -->
+    <!-- Weather widget (desktop only)                      -->
+    <!-- -------------------------------------------------- -->
+    <div class="floating-weather">
+        <div class="weather-inner">
+            <a class="weatherwidget-io"
+               href="https://forecast7.com/en/53d09n2d98/gresford/"
+               data-label_1="GRESFORD"
+               data-label_2="WEATHER"
+               data-theme="original">
+               GRESFORD WEATHER
+            </a>
+        </div>
+    </div>
+
+    <!-- -------------------------------------------------- -->
+    <!-- Weather widget script loader                       -->
+    <!-- -------------------------------------------------- -->
+    <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){
+                js=d.createElement(s);
+                js.id=id;
+                js.src='https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document,'script','weatherwidget-io-js');
+    </script>
+
+    <!-- -------------------------------------------------- -->
+    <!-- Main JavaScript (includes fade‑in activation)      -->
+    <!-- -------------------------------------------------- -->
+    <script src="index.js"></script>
+
+</body>
+</html>
