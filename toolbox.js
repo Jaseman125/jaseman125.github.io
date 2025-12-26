@@ -72,7 +72,7 @@ function loadIF05Editor() {
 
     <table cellpadding="0" cellspacing="0" border="0">
       <tr>
-        <td width="60">
+        <td width="70">
           <input id="if05X" type="text" value="${currentX}"
             style="width:40px; font-size:12px;"> X
         </td>
