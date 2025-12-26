@@ -15,8 +15,7 @@ body {
 /* IF02 – msgheader */
 #IF02 {
   position: absolute;
-  width: 200px;
-  height: 50px;
+  width: 960px;
   top: 856px;
   left: 232px;
 }
@@ -24,8 +23,6 @@ body {
 /* IF03 – ytplaylist */
 #IF03 {
   position: absolute;
-  width: 200px;
-  height: 50px;
   top: 132px;
   left: 16px;
   width: 960px;
