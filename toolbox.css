@@ -12,6 +12,13 @@ body {
   left: 0;
 }
 
+#browserSize,
+#mousePos {
+  font-size: 10px;
+  padding: 0;
+  white-space: nowrap;
+}
+
 #pageflip {
   position: absolute;
   top: 0;
