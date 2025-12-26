@@ -74,7 +74,7 @@ function loadIF05Editor() {
 
   pageContent.innerHTML = `
     <input id="if05Input" type="text" value="${currentSrc}" 
-      style="width: 400px; font-size: 12px;">
+      style="width: 390px; font-size: 12px;">
   `;
 
   const input = document.getElementById("if05Input");
