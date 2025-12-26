@@ -1,0 +1,8 @@
+#IF10 {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 400px;
+  height: 100px;
+  border: none;
+}
