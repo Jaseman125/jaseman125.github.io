@@ -7,7 +7,6 @@ body {
   color: #000;
   font-family: sans-serif;
   box-sizing: border-box;
-  display: block;
   position: absolute;
   top: 16px;
   left: 16px;
@@ -15,26 +14,15 @@ body {
 
 #pageflip {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 4px;
+  right: 4px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  padding: 4px;
 }
 
-#prevBtn {
-  width: 28px;
-  height: 28px;
-  font-size: 16px;
-  padding: 0;
-  margin: 0;
-  border: none;
-  background: none;
-}
-
+#prevBtn,
 #nextBtn {
   width: 28px;
   height: 28px;
@@ -43,9 +31,6 @@ body {
   margin: 0;
   border: none;
   background: none;
-  position: absolute;
-  top: 4px;
-  right: 4px;
 }
 
 #pageLabel {
