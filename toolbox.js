@@ -1,4 +1,3 @@
-// List of the 10 iframe pages
 let pages = [
   "IF01",
   "IF02",
@@ -14,13 +13,11 @@ let pages = [
 
 let currentPage = 0;
 
-// Update the label and the content area
 function updatePage() {
   document.getElementById("pageLabel").innerText = pages[currentPage];
   document.getElementById("pageContent").innerText = "Page: " + pages[currentPage];
 }
 
-// Next page
 document.getElementById("nextBtn").addEventListener("click", function () {
   if (currentPage < pages.length - 1) {
     currentPage++;
@@ -28,7 +25,6 @@ document.getElementById("nextBtn").addEventListener("click", function () {
   }
 });
 
-// Previous page
 document.getElementById("prevBtn").addEventListener("click", function () {
   if (currentPage > 0) {
     currentPage--;
@@ -36,5 +32,19 @@ document.getElementById("prevBtn").addEventListener("click", function () {
   }
 });
 
-// Initialise display
 updatePage();
+
+function updateBrowserSize() {
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  const el = document.getElementById("browserSize");
+  if (el) el.textContent = w + "×" + h;
+}
+
+window.addEventListener("resize", updateBrowserSize);
+updateBrowserSize();
+
+document.addEventListener("mousemove", function(e) {
+  const el = document.getElementById("mousePos");
+  if (el) el.textContent = e.clientX + "," + e.clientY;
+});
