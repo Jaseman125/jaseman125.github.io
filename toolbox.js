@@ -72,10 +72,10 @@ function loadIF05Editor() {
       style="width:390px; font-size:12px;"><br>
 
     <input id="if05X" type="text" value="${currentX}"
-      style="width:80px; font-size:12px; margin-top:4px;"> X<br>
+      style="width:40px; font-size:12px; margin-top:4px;"> X<br>
 
     <input id="if05Y" type="text" value="${currentY}"
-      style="width:80px; font-size:12px; margin-top:4px;"> Y
+      style="width:40px; font-size:12px; margin-top:4px;"> Y
   `;
 
   const inputSrc = document.getElementById("if05Input");
