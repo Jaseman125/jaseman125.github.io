@@ -71,18 +71,26 @@ function loadIF05Editor() {
       style="width:390px; font-size:12px;">
 
     <table cellpadding="0" cellspacing="0" border="0">
+
       <tr>
-        <td width="70">
+        <td width="90"><span class="label">POS:</span></td>
+        <td width="40" align="center"><span class="label">OFF:</span></td>
+        <td width="100"><span class="label">OPACITY</span></td>
+      </tr>
+
+      <tr>
+        <td>
           <input id="if05X" type="text" value="${currentX}"
             style="width:40px; font-size:12px;"> X
         </td>
 
-        <td width="40" align="center">
+        <td align="center">
           <input id="if05Visible" type="checkbox" ${iframe.style.display !== "none" ? "checked" : ""}>
         </td>
 
-        <td width="100">
-          <input id="if05Opacity" type="range" min="0" max="100" value="${Math.round((iframe.style.opacity || 1) * 100)}"
+        <td>
+          <input id="if05Opacity" type="range" min="0" max="100"
+            value="${Math.round((iframe.style.opacity || 1) * 100)}"
             class="toolbox-slider">
         </td>
       </tr>
@@ -95,6 +103,7 @@ function loadIF05Editor() {
         <td></td>
         <td></td>
       </tr>
+
     </table>
   `;
 
