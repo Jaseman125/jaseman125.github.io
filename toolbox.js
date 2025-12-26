@@ -1,14 +1,6 @@
 let pages = [
-  "IF01",
-  "IF02",
-  "IF03",
-  "IF04",
-  "IF05",
-  "IF06",
-  "IF07",
-  "IF08",
-  "IF09",
-  "IF10"
+  "IF01","IF02","IF03","IF04","IF05",
+  "IF06","IF07","IF08","IF09","IF10"
 ];
 
 let currentPage = 0;
@@ -18,7 +10,6 @@ function updatePage() {
 
   const pageContent = document.getElementById("pageContent");
 
-  // IF05 editor logic
   if (pages[currentPage] === "IF05") {
     loadIF05Editor();
   } else {
@@ -26,14 +17,14 @@ function updatePage() {
   }
 }
 
-document.getElementById("nextBtn").addEventListener("click", function () {
+document.getElementById("nextBtn").addEventListener("click", () => {
   if (currentPage < pages.length - 1) {
     currentPage++;
     updatePage();
   }
 });
 
-document.getElementById("prevBtn").addEventListener("click", function () {
+document.getElementById("prevBtn").addEventListener("click", () => {
   if (currentPage > 0) {
     currentPage--;
     updatePage();
@@ -71,15 +62,39 @@ function loadIF05Editor() {
   }
 
   const currentSrc = iframe.getAttribute("src");
+  const currentX = parseInt(iframe.style.left || 0);
+  const currentY = parseInt(iframe.style.top || 0);
 
   pageContent.innerHTML = `
-    <input id="if05Input" type="text" value="${currentSrc}" 
-      style="width: 390px; font-size: 12px;">
+    <input id="if05Input" type="text" value="${currentSrc}"
+      style="width:390px; font-size:12px;"><br>
+
+    <input id="if05X" type="text" value="${currentX}"
+      style="width:80px; font-size:12px; margin-top:4px;"> X<br>
+
+    <input id="if05Y" type="text" value="${currentY}"
+      style="width:80px; font-size:12px; margin-top:4px;"> Y
   `;
 
-  const input = document.getElementById("if05Input");
+  const inputSrc = document.getElementById("if05Input");
+  const inputX = document.getElementById("if05X");
+  const inputY = document.getElementById("if05Y");
 
-  input.addEventListener("change", function () {
-    iframe.setAttribute("src", input.value);
+  // Change iframe src
+  inputSrc.addEventListener("change", () => {
+    iframe.setAttribute("src", inputSrc.value);
+  });
+
+  // Move iframe on Enter
+  inputX.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      iframe.style.left = inputX.value + "px";
+    }
+  });
+
+  inputY.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      iframe.style.top = inputY.value + "px";
+    }
   });
 }
