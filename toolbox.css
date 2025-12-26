@@ -7,28 +7,27 @@ body {
   color: #000;
   font-family: sans-serif;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: block;
   position: absolute;
   top: 16px;
   left: 16px;
 }
 
-/* Page flip container */
 #pageflip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  position: relative; /* allows absolute positioning inside */
+  padding: 4px;
 }
 
-/* Left arrow */
 #prevBtn {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   font-size: 16px;
   padding: 0;
   margin: 0;
@@ -36,27 +35,20 @@ body {
   background: none;
 }
 
-/* Right arrow — positioned in top-right corner */
 #nextBtn {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   font-size: 16px;
   padding: 0;
   margin: 0;
   border: none;
   background: none;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 4px;
+  right: 4px;
 }
 
-/* Page label */
 #pageLabel {
   font-size: 16px;
   font-weight: bold;
-}
-
-/* Content area (currently empty but required structurally) */
-#pageContent {
-  display: none; /* hidden since you don't want it visible */
 }
