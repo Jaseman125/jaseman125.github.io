@@ -34,16 +34,16 @@ document.getElementById("prevBtn").addEventListener("click", function () {
 updatePage();
 
 function updateBrowserSize() {
-  const w = window.innerWidth;
-  const h = window.innerHeight;
+  const w = window.parent.innerWidth;
+  const h = window.parent.innerHeight;
   const el = document.getElementById("browserSize");
   if (el) el.textContent = w + "×" + h;
 }
 
-window.addEventListener("resize", updateBrowserSize);
+window.parent.addEventListener("resize", updateBrowserSize);
 updateBrowserSize();
 
-document.addEventListener("mousemove", function(e) {
+window.parent.addEventListener("mousemove", function(e) {
   const el = document.getElementById("mousePos");
   if (el) el.textContent = e.clientX + "," + e.clientY;
 });
