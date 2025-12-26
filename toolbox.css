@@ -15,7 +15,7 @@ body {
 #pageflip {
   position: absolute;
   top: 0;
-  right: 0;
+  /* right: 0;  <-- removed as requested */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -30,6 +30,7 @@ body {
   margin: 0;
   border: none;
   background: none;
+  display: block;
 }
 
 #pageLabel {
