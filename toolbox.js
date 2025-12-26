@@ -73,68 +73,61 @@ function loadIF05Editor() {
     <input id="if05Input" type="text" value="${currentSrc}"
       style="width:390px; font-size:12px;">
 
-    <table cellpadding="0" cellspacing="0" border="0">
+   <table cellpadding="0" cellspacing="0" border="0">
 
-      <tr>
-        <td width="90"><span class="label">POSITION:</span></td>
-        <td width="90"><span class="label">DIMENSIONS:</span></td>
-        <td width="40" align="center"><span class="label">OFF:</span></td>
-        <td width="100"></td>
-      </tr>
+  <tr>
+    <td width="90"><span class="label">POSITION:</span></td>
+    <td width="90"><span class="label">DIMENSIONS:</span></td>
+    <td width="40" align="center"><span class="label">OFF:</span></td>
+    <td width="100">
+      <input id="if05Opacity" type="range" min="0" max="100"
+        value="${Math.round((iframe.style.opacity || 1) * 100)}"
+        class="toolbox-slider">
+    </td>
+  </tr>
 
-      <tr>
-        <td>
-          <input id="if05X" type="text" value="${currentX}"
-            style="width:40px; font-size:12px;"> X
-        </td>
+  <tr>
+    <td>
+      <input id="if05X" type="text" value="${currentX}"
+        style="width:40px; font-size:12px;"> X
+    </td>
 
-        <td>
-          <input id="if05W" type="text" value="${currentW}"
-            style="width:40px; font-size:12px;"> W
-        </td>
+    <td>
+      <input id="if05W" type="text" value="${currentW}"
+        style="width:40px; font-size:12px;"> W
+    </td>
 
-        <td align="center">
-          <input id="if05Visible" type="checkbox" ${iframe.style.display !== "none" ? "checked" : ""}>
-        </td>
+    <td align="center">
+      <input id="if05Visible" type="checkbox" ${iframe.style.display !== "none" ? "checked" : ""}>
+    </td>
 
-        <td>
-          <input id="if05Opacity" type="range" min="0" max="100"
-            value="${Math.round((iframe.style.opacity || 1) * 100)}"
-            class="toolbox-slider">
-        </td>
-      </tr>
+    <td>
+      <input id="if05Brightness" type="range" min="0" max="200" value="100"
+        class="toolbox-slider">
+    </td>
+  </tr>
 
-      <tr>
-        <td>
-          <input id="if05Y" type="text" value="${currentY}"
-            style="width:40px; font-size:12px;"> Y
-        </td>
+  <tr>
+    <td>
+      <input id="if05Y" type="text" value="${currentY}"
+        style="width:40px; font-size:12px;"> Y
+    </td>
 
-        <td>
-          <input id="if05H" type="text" value="${currentH}"
-            style="width:40px; font-size:12px;"> H
-        </td>
+    <td>
+      <input id="if05H" type="text" value="${currentH}"
+        style="width:40px; font-size:12px;"> H
+    </td>
 
-        <td></td>
+    <td></td>
 
-        <td>
-          <input id="if05Brightness" type="range" min="0" max="200" value="100"
-            class="toolbox-slider">
-        </td>
-      </tr>
+    <td>
+      <input id="if05Contrast" type="range" min="0" max="200" value="100"
+        class="toolbox-slider">
+    </td>
+  </tr>
 
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+</table>
 
-        <td>
-          <input id="if05Contrast" type="range" min="0" max="200" value="100"
-            class="toolbox-slider">
-        </td>
-      </tr>
-
-    </table>
   `;
 
   const inputSrc = document.getElementById("if05Input");
