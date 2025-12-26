@@ -62,8 +62,10 @@ function loadIF05Editor() {
   }
 
   const currentSrc = iframe.getAttribute("src");
-  const currentX = parseInt(iframe.style.left || 0);
-  const currentY = parseInt(iframe.style.top || 0);
+
+  const rect = iframe.getBoundingClientRect();
+  const currentX = Math.round(rect.left);
+  const currentY = Math.round(rect.top);
 
   pageContent.innerHTML = `
     <input id="if05Input" type="text" value="${currentSrc}"
@@ -80,12 +82,10 @@ function loadIF05Editor() {
   const inputX = document.getElementById("if05X");
   const inputY = document.getElementById("if05Y");
 
-  // Change iframe src
   inputSrc.addEventListener("change", () => {
     iframe.setAttribute("src", inputSrc.value);
   });
 
-  // Move iframe on Enter
   inputX.addEventListener("keydown", e => {
     if (e.key === "Enter") {
       iframe.style.left = inputX.value + "px";
