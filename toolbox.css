@@ -8,8 +8,8 @@ body {
   font-family: sans-serif;
   box-sizing: border-box;
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
 }
 
 #pageflip {
@@ -19,14 +19,13 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0px;
 }
 
 #prevBtn,
 #nextBtn {
-  width: 24px;
-  height: 24px;
-  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
   padding: 0;
   margin: 0;
   border: none;
@@ -34,7 +33,9 @@ body {
 }
 
 #pageLabel {
-  font-size: 14px;
+  font-size: 10px;
   font-weight: bold;
   line-height: 1;
+  margin: 0;
+  padding: 0;
 }
