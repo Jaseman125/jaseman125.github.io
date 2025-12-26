@@ -26,8 +26,11 @@ body {
   position: absolute;
   width: 200px;
   height: 50px;
-  top: 856px;
-  left: 448px;
+  top: 132px;
+  left: 16px;
+  width: 960px;
+  aspect-ratio: 16/9;
+  border: 0;
 }
 
 /* IF04 – jaseworld2 */
