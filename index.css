@@ -9,6 +9,7 @@ body {
   width: 200px;
   height: 50px;
   top: 856px;
+  left: 16px;
 }
 
 /* IF02 – msgheader */
@@ -17,6 +18,7 @@ body {
   width: 200px;
   height: 50px;
   top: 856px;
+  left: 232px;
 }
 
 /* IF03 – ytplaylist */
@@ -25,6 +27,7 @@ body {
   width: 200px;
   height: 50px;
   top: 856px;
+  left: 448px;
 }
 
 /* IF04 – jaseworld2 */
@@ -33,6 +36,7 @@ body {
   width: 200px;
   height: 50px;
   top: 856px;
+  left: 664px;
 }
 
 /* IF05 – clock */
@@ -51,6 +55,7 @@ body {
   width: 200px;
   height: 50px;
   top: 856px;
+  left: 880px;
 }
 
 /* IF07 – pastebox */
@@ -59,6 +64,7 @@ body {
   width: 200px;
   height: 50px;
   top: 856px;
+  left: 1096px;
 }
 
 /* IF08 – googlesheet */
@@ -67,6 +73,7 @@ body {
   width: 200px;
   height: 50px;
   top: 856px;
+  left: 1312px;
 }
 
 /* IF09 – calendar */
@@ -75,6 +82,7 @@ body {
   width: 200px;
   height: 50px;
   top: 856px;
+  left: 1528px;
 }
 
 /* IF10 – toolbox */
