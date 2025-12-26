@@ -79,7 +79,7 @@ function loadIF05Editor() {
         <td width="90"><span class="label">POSITION:</span></td>
         <td width="90"><span class="label">DIMENSIONS:</span></td>
         <td width="40" align="center"><span class="label">OFF:</span></td>
-        <td width="100"><span class="label">OPACITY</span></td>
+        <td width="100"></td>
       </tr>
 
       <tr>
@@ -116,7 +116,22 @@ function loadIF05Editor() {
         </td>
 
         <td></td>
+
+        <td>
+          <input id="if05Brightness" type="range" min="0" max="200" value="100"
+            class="toolbox-slider">
+        </td>
+      </tr>
+
+      <tr>
         <td></td>
+        <td></td>
+        <td></td>
+
+        <td>
+          <input id="if05Contrast" type="range" min="0" max="200" value="100"
+            class="toolbox-slider">
+        </td>
       </tr>
 
     </table>
@@ -129,6 +144,8 @@ function loadIF05Editor() {
   const inputH = document.getElementById("if05H");
   const tickVisible = document.getElementById("if05Visible");
   const sliderOpacity = document.getElementById("if05Opacity");
+  const sliderBrightness = document.getElementById("if05Brightness");
+  const sliderContrast = document.getElementById("if05Contrast");
 
   inputSrc.addEventListener("change", () => {
     iframe.setAttribute("src", inputSrc.value);
@@ -164,5 +181,13 @@ function loadIF05Editor() {
 
   sliderOpacity.addEventListener("input", () => {
     iframe.style.opacity = sliderOpacity.value / 100;
+  });
+
+  sliderBrightness.addEventListener("input", () => {
+    iframe.style.filter = `brightness(${sliderBrightness.value}%)`;
+  });
+
+  sliderContrast.addEventListener("input", () => {
+    iframe.style.filter = `contrast(${sliderContrast.value}%)`;
   });
 }
