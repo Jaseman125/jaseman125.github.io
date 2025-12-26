@@ -66,6 +66,9 @@ function loadIF05Editor() {
   const currentX = Math.round(rect.left);
   const currentY = Math.round(rect.top);
 
+  const currentW = iframe.offsetWidth;
+  const currentH = iframe.offsetHeight;
+
   pageContent.innerHTML = `
     <input id="if05Input" type="text" value="${currentSrc}"
       style="width:390px; font-size:12px;">
@@ -73,7 +76,8 @@ function loadIF05Editor() {
     <table cellpadding="0" cellspacing="0" border="0">
 
       <tr>
-        <td width="90"><span class="label">POS:</span></td>
+        <td width="90"><span class="label">POSITION:</span></td>
+        <td width="90"><span class="label">DIMENSIONS:</span></td>
         <td width="40" align="center"><span class="label">OFF:</span></td>
         <td width="100"><span class="label">OPACITY</span></td>
       </tr>
@@ -82,6 +86,11 @@ function loadIF05Editor() {
         <td>
           <input id="if05X" type="text" value="${currentX}"
             style="width:40px; font-size:12px;"> X
+        </td>
+
+        <td>
+          <input id="if05W" type="text" value="${currentW}"
+            style="width:40px; font-size:12px;"> W
         </td>
 
         <td align="center">
@@ -100,6 +109,12 @@ function loadIF05Editor() {
           <input id="if05Y" type="text" value="${currentY}"
             style="width:40px; font-size:12px;"> Y
         </td>
+
+        <td>
+          <input id="if05H" type="text" value="${currentH}"
+            style="width:40px; font-size:12px;"> H
+        </td>
+
         <td></td>
         <td></td>
       </tr>
@@ -110,6 +125,8 @@ function loadIF05Editor() {
   const inputSrc = document.getElementById("if05Input");
   const inputX = document.getElementById("if05X");
   const inputY = document.getElementById("if05Y");
+  const inputW = document.getElementById("if05W");
+  const inputH = document.getElementById("if05H");
   const tickVisible = document.getElementById("if05Visible");
   const sliderOpacity = document.getElementById("if05Opacity");
 
@@ -126,6 +143,18 @@ function loadIF05Editor() {
   inputY.addEventListener("keydown", e => {
     if (e.key === "Enter") {
       iframe.style.top = inputY.value + "px";
+    }
+  });
+
+  inputW.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      iframe.style.width = inputW.value + "px";
+    }
+  });
+
+  inputH.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      iframe.style.height = inputH.value + "px";
     }
   });
 
