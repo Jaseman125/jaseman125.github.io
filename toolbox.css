@@ -1,8 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  width: 368px;
-  height: 68px;
+  width: 400px;
+  height: 100px;
   background-color: #ccc;
   color: #000;
   font-family: sans-serif;
@@ -15,7 +15,6 @@ body {
 #pageflip {
   position: absolute;
   top: 0;
-  /* right: 0;  <-- removed as requested */
   display: flex;
   flex-direction: row;
   align-items: center;
