@@ -8,8 +8,8 @@ body {
   font-family: sans-serif;
   box-sizing: border-box;
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 0px;
+  left: 0px;
 }
 
 #pageflip {
