@@ -82,6 +82,7 @@ body {
   height: 708px;
   top: 132px;
   left: 16px;
+  display: none;
 }
 
 /* IF09 – calendar */
@@ -91,6 +92,7 @@ body {
   height: 708px;
   top: 132px;
   left: 16px;
+  display: none;
 }
 
 /* IF10 – toolbox */
