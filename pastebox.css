@@ -29,7 +29,7 @@ body {
     top: 45px;
     left: 10px;
     right: 10px;
-    height: 100px; /* displays exactly 5 lines */
+    height: 84px; /* displays exactly 4 lines */
     box-sizing: border-box;
     padding: 8px;
     font-size: 14px;
