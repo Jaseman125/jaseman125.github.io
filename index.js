@@ -12,12 +12,12 @@ window.addEventListener("load", updateMode);
 window.addEventListener("resize", updateMode);
 
 function applyPhoneMode() {
-    hideFrame("Calendar");
-    hideFrame("GoogleSheet");
-    hideFrame("Pastebox");
-    hideFrame("Weather");
-    hideFrame("Clock");
-    hideFrame("Toolbox");
+    hideFrame("IF05");
+    hideFrame("IF06");
+    hideFrame("IF07");
+    hideFrame("IF08");
+    hideFrame("IF09");
+    hideFrame("IF10");
 
     setMsgHeaderPhone();
     setYTPlaylistPhone();
@@ -26,10 +26,10 @@ function applyPhoneMode() {
 }
 
 function applyDesktopMode() {
-    showFrame("Pastebox");
-    showFrame("Weather");
-    showFrame("Clock");
-    showFrame("Toolbox");
+    showFrame("IF05");
+    showFrame("IF06");
+    showFrame("IF07");
+    showFrame("IF10");
 
     setMsgHeaderDesktop();
     setYTPlaylistDesktop();
