@@ -59,3 +59,8 @@ function setYTPlaylistPhone() {
     const el = document.getElementById("IF03");
     el.style.width = "288px";
 }
+
+function setYTPlaylistDesktop() {
+    const el = document.getElementById("IF03");
+    el.style.width = "960px";
+}
