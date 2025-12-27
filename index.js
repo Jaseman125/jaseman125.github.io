@@ -26,8 +26,6 @@ function applyPhoneMode() {
 }
 
 function applyDesktopMode() {
-    showFrame("Calendar");
-    showFrame("GoogleSheet");
     showFrame("Pastebox");
     showFrame("Weather");
     showFrame("Clock");
