@@ -21,17 +21,15 @@ body {
 
 .header-row {
   height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 10px;
-  box-sizing: border-box;
+  justify-content: center;
+  gap: 8px;
 }
 
 .header-box {
-  height: 100%;
-  aspect-ratio: 1 / 1;
+  width: 100px;
+  height: 100px;
   background: #0000AA;
   display: flex;
   align-items: center;
@@ -39,10 +37,11 @@ body {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  flex: 0 0 auto;
 }
 
 .header-box span {
-  font-size: 70%;
+  font-size: 70px;
   color: white;
   font-family: sans-serif;
   font-weight: bold;
