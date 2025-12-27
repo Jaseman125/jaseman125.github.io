@@ -21,21 +21,23 @@ function updatePage() {
   if (pages[currentPage] === "PRESETS") {
     pageContent.innerHTML = `
       <div style="width:400px; display:flex; justify-content:space-between; margin-bottom:8px;">
-        <button style="width:75px;">PRESET 01</button>
-        <button style="width:75px;">PRESET 02</button>
-        <button style="width:75px;">PRESET 03</button>
-        <button style="width:75px;">PRESET 04</button>
-        <button style="width:75px;">PRESET 05</button>
+        <button id="PRESET01" style="width:75px;">PRESET 01</button>
+        <button id="PRESET02" style="width:75px;">PRESET 02</button>
+        <button id="PRESET03" style="width:75px;">PRESET 03</button>
+        <button id="PRESET04" style="width:75px;">PRESET 04</button>
+        <button id="PRESET05" style="width:75px;">PRESET 05</button>
       </div>
 
       <div style="width:400px; display:flex; justify-content:space-between;">
-        <button style="width:75px;">PRESET 06</button>
-        <button style="width:75px;">PRESET 07</button>
-        <button style="width:75px;">PRESET 08</button>
-        <button style="width:75px;">PRESET 09</button>
-        <button style="width:75px;">PRESET 10</button>
+        <button id="PRESET06" style="width:75px;">PRESET 06</button>
+        <button id="PRESET07" style="width:75px;">PRESET 07</button>
+        <button id="PRESET08" style="width:75px;">PRESET 08</button>
+        <button id="PRESET09" style="width:75px;">PRESET 09</button>
+        <button id="PRESET10" style="width:75px;">PRESET 10</button>
       </div>
     `;
+
+    attachPresetButtons();
     return;
   }
 
@@ -202,3 +204,85 @@ function loadIFEditor(ifID) {
     iframe.style.filter = `contrast(${e.target.value}%)`;
   });
 }
+
+/* ------------------------------------------------ */
+/* PRESET LOADER (placed at the bottom as requested) */
+/* ------------------------------------------------ */
+
+let presets = {};
+
+function parseToolboxText(text) {
+  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+  const result = {};
+  let currentKey = null;
+  let buffer = [];
+  for (const line of lines) {
+    if (line.startsWith("---PRESET") && line.endsWith("---")) {
+      if (currentKey && buffer.length === 10) {
+        result[currentKey] = buffer.slice();
+      }
+      currentKey = line.replace(/-/g, "");
+      buffer = [];
+    } else {
+      if (currentKey) buffer.push(line);
+    }
+  }
+  if (currentKey && buffer.length === 10) {
+    result[currentKey] = buffer.slice();
+  }
+  return result;
+}
+
+function applyPreset(presetKey) {
+  const preset = presets[presetKey];
+  if (!preset || preset.length !== 10) return;
+
+  const iframeIds = [
+    "IF01","IF02","IF03","IF04","IF05",
+    "IF06","IF07","IF08","IF09","IF10"
+  ];
+
+  for (let i = 0; i < 10; i++) {
+    const line = preset[i];
+    const parts = line.split(",").map(p => p.trim());
+    if (parts.length !== 9) continue;
+
+    const src = parts[0];
+    const x = parseInt(parts[1], 10);
+    const y = parseInt(parts[2], 10);
+    const w = parseInt(parts[3], 10);
+    const h = parseInt(parts[4], 10);
+    const visible = parts[5].toLowerCase() === "true";
+    const opacity = parseInt(parts[6], 10);
+    const brightness = parseInt(parts[7], 10);
+    const contrast = parseInt(parts[8], 10);
+
+    const iframe = window.parent.document.getElementById(iframeIds[i]);
+    if (!iframe) continue;
+
+    iframe.src = src;
+    iframe.style.position = "absolute";
+    iframe.style.left = x + "px";
+    iframe.style.top = y + "px";
+    iframe.style.width = w + "px";
+    iframe.style.height = h + "px";
+    iframe.style.display = visible ? "block" : "none";
+    iframe.style.opacity = String(Math.max(0, Math.min(100, opacity)) / 100);
+    iframe.style.filter =
+      "brightness(" + Math.max(0, Math.min(200, brightness)) +
+      "%) contrast(" + Math.max(0, Math.min(200, contrast)) + "%)";
+  }
+}
+
+function attachPresetButtons() {
+  for (let i = 1; i <= 10; i++) {
+    const key = "PRESET" + String(i).padStart(2, "0");
+    const btn = document.getElementById(key);
+    if (!btn) continue;
+    btn.addEventListener("click", () => applyPreset(key));
+  }
+}
+
+fetch("toolbox.txt")
+  .then(r => r.text())
+  .then(text => presets = parseToolboxText(text));
