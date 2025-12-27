@@ -38,7 +38,7 @@ function applyPhoneMode() {
 
     showFrame("IF03P");
     setWidth("IF03P", "410px");
-    setHeight("IF03P", "230px");
+    
     setBorder("IF03P", "0");
     setPosition("IF03P", "absolute");
     setTop("IF03P", "60px");
