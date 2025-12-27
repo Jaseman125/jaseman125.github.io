@@ -42,7 +42,7 @@ body {
 #IF04 {
   position: absolute;
   width: 894px;
-  height: 720px;
+  height: 710px;
   top: 132px;
   left: 992px;
 }
@@ -69,7 +69,7 @@ body {
 /* IF07 – pastebox */
 #IF07 {
   position: absolute;
-  width: 410px;
+  width: 414px;
   height: 150px;
   top: 690px;
   left: 558px;
@@ -78,7 +78,7 @@ body {
 /* IF08 – googlesheet */
 #IF08 {
   position: absolute;
-  width: 1888px;
+  width: 1878px;
   height: 706px;
   top: 132px;
   left: 16px;
@@ -87,7 +87,7 @@ body {
 /* IF09 – calendar */
 #IF09 {
   position: absolute;
-  width: 1888px;
+  width: 1878px;
   height: 706px;
   top: 132px;
   left: 16px;
