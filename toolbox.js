@@ -37,7 +37,10 @@ function updatePage() {
       </div>
     `;
 
-    attachPresetButtons();
+    setTimeout(() => {
+      attachPresetButtons();
+    }, 0);
+
     return;
   }
 
@@ -205,10 +208,6 @@ function loadIFEditor(ifID) {
   });
 }
 
-/* ------------------------------------------------ */
-/* PRESET LOADER (placed at the bottom as requested) */
-/* ------------------------------------------------ */
-
 let presets = {};
 
 function parseToolboxText(text) {
@@ -281,12 +280,11 @@ function attachPresetButtons() {
     if (!btn) continue;
 
     btn.onclick = (e) => {
-      e.stopPropagation();   // ← THIS is the fix
+      e.stopPropagation();
       applyPreset(key);
     };
   }
 }
-
 
 fetch("toolbox.txt")
   .then(r => r.text())
