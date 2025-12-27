@@ -80,10 +80,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    let frame = parent.document.getElementById("IF02P");
-    if (!frame || frame.style.display === "none") {
-        frame = parent.document.getElementById("IF02");
-    }
+    const frame = window.frameElement;
     if (!frame) return;
 
     const h = frame.clientHeight;
