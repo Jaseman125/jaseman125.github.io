@@ -196,7 +196,7 @@ function loadIFEditor(ifID) {
   });
 
   document.getElementById(`${ifID}_opacity`).addEventListener("input", e => {
-    iframe.style.opacity = e.target.value / 100;
+    iframe.style.opacity = String(Math.max(0, Math.min(100, opacity)) / 100);
   });
 
   document.getElementById(`${ifID}_brightness`).addEventListener("input", e => {
@@ -211,10 +211,13 @@ function loadIFEditor(ifID) {
 let presets = {};
 
 function parseToolboxText(text) {
-  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+  // FIXED: removed the destructive filter
+  const lines = text.split(/\r?\n/).map(l => l.trim());
+
   const result = {};
   let currentKey = null;
   let buffer = [];
+
   for (const line of lines) {
     if (line.startsWith("---PRESET") && line.endsWith("---")) {
       if (currentKey && buffer.length === 10) {
@@ -223,12 +226,14 @@ function parseToolboxText(text) {
       currentKey = line.replace(/-/g, "");
       buffer = [];
     } else {
-      if (currentKey) buffer.push(line);
+      if (currentKey && line.length > 0) buffer.push(line);
     }
   }
+
   if (currentKey && buffer.length === 10) {
     result[currentKey] = buffer.slice();
   }
+
   return result;
 }
 
