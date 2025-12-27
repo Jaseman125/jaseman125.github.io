@@ -95,6 +95,11 @@ function loadIFEditor(ifID) {
   const currentW = iframe.offsetWidth;
   const currentH = iframe.offsetHeight;
 
+  const isVisible =
+    iframe.style.display !== "none" &&
+    iframe.offsetWidth > 0 &&
+    iframe.offsetHeight > 0;
+
   pageContent.innerHTML = `
     <input id="${ifID}_src" type="text" value="${currentSrc}"
       style="width:390px; font-size:12px;">
@@ -124,7 +129,7 @@ function loadIFEditor(ifID) {
     </td>
 
     <td align="center">
-      <input id="${ifID}_visible" type="checkbox" ${iframe.style.display !== "none" ? "checked" : ""}>
+      <input id="${ifID}_visible" type="checkbox" ${isVisible ? "checked" : ""}>
     </td>
 
     <td>
