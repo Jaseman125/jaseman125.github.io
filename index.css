@@ -17,6 +17,7 @@ body {
 #IF02 {
   position: absolute;
   width: 200px;
+  height: 50px;
   top: 856px;
   left: 232px;
 }
