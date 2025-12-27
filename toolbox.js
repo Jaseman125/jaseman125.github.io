@@ -274,16 +274,16 @@ function applyPreset(presetKey) {
 }
 
 function attachPresetButtons() {
-  for (let i = 1; i <= 10; i++) {
-    const key = "PRESET" + String(i).padStart(2, "0");
-    const btn = document.getElementById(key);
-    if (!btn) continue;
+  const root = document.getElementById("pageContent");
+  const buttons = root.querySelectorAll("button[id^='PRESET']");
 
+  buttons.forEach(btn => {
+    const key = btn.id;
     btn.onclick = (e) => {
       e.stopPropagation();
       applyPreset(key);
     };
-  }
+  });
 }
 
 fetch("toolbox.txt")
