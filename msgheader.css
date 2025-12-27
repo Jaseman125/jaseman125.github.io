@@ -21,10 +21,10 @@ body {
 
 .header-row {
   height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   padding: 0 10px;
   box-sizing: border-box;
 }
@@ -42,7 +42,7 @@ body {
 }
 
 .header-box span {
-  font-size: 70px;
+  font-size: 70%;
   color: white;
   font-family: sans-serif;
   font-weight: bold;
