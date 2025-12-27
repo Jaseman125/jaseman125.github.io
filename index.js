@@ -34,6 +34,7 @@ function applyPhoneMode() {
     setWidth("IF04P", "410px");
 
     setHeight("IF01P", "750px");
+    setBorder("IF01P", "0");
 }
 
 function applyDesktopMode() {
