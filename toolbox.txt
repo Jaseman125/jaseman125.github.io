@@ -87,27 +87,27 @@ googlesheet.html,16,132,1870,708,false,100,100,100
 calendar.html,16,132,1870,708,false,100,100,100
 toolbox.html,16,16,400,100,true,100,100,100
 ---PRESET09---
-background.html,0,0,1920,1080,true,100,100,100
-msgheader.html,1600,0,320,30,true,100,100,100
-https://axlblues.com/index.html,0,51,1912,860,true,100,100,100
+background.html,0,0,1920,1080,false,100,100,100
+msgheader.html,432,16,1056,100,false,100,100,100
+ytplaylist.html,16,132,960,540,false,100,100,100
 jaseworld2/jaseworld2.html,992,132,894,708,false,100,100,100
-clock.html,1616,31,280,280,true,100,100,100
+clock.html,0,101,150,150,false,100,100,100
 weather.html,182,690,360,150,false,100,100,100
 pastebox.html,558,690,414,150,false,100,100,100
 googlesheet.html,16,132,1870,708,false,100,100,100
 calendar.html,16,132,1870,708,false,100,100,100
-toolbox.html,0,0,400,100,true,100,100,100
+toolbox.html,16,16,400,100,true,100,100,100
 ---PRESET10---
-background.html,0,0,1920,1080,true,100,100,100
-msgheader.html,1600,0,320,30,true,100,100,100
-https://axlblues.com/index.html,0,51,1912,860,true,100,100,100
+background.html,0,0,1920,1080,false,100,100,100
+msgheader.html,432,16,1056,100,false,100,100,100
+ytplaylist.html,16,132,960,540,false,100,100,100
 jaseworld2/jaseworld2.html,992,132,894,708,false,100,100,100
-clock.html,1616,31,280,280,true,100,100,100
+clock.html,0,101,150,150,false,100,100,100
 weather.html,182,690,360,150,false,100,100,100
 pastebox.html,558,690,414,150,false,100,100,100
 googlesheet.html,16,132,1870,708,false,100,100,100
 calendar.html,16,132,1870,708,false,100,100,100
-toolbox.html,0,0,400,100,true,100,100,100
+toolbox.html,16,16,400,100,true,100,100,100
 
 src,x,y,w,h,visible,opacity,brightness,contrast
 
