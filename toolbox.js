@@ -279,9 +279,14 @@ function attachPresetButtons() {
     const key = "PRESET" + String(i).padStart(2, "0");
     const btn = document.getElementById(key);
     if (!btn) continue;
-    btn.addEventListener("click", () => applyPreset(key));
+
+    btn.onclick = (e) => {
+      e.stopPropagation();   // ← THIS is the fix
+      applyPreset(key);
+    };
   }
 }
+
 
 fetch("toolbox.txt")
   .then(r => r.text())
