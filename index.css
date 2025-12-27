@@ -60,7 +60,7 @@ body {
 /* IF06 – weather */
 #IF06 {
   position: absolute;
-  width: 200px;
+  width: 360px;
   height: 150px;
   top: 690px;
   left: 182px;
@@ -72,7 +72,7 @@ body {
   width: 200px;
   height: 150px;
   top: 690px;
-  left: 1096px;
+  left: 558px;
 }
 
 /* IF08 – googlesheet */
