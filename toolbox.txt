@@ -14,7 +14,7 @@ background.html,0,0,1920,1080,true,100,100,100
 msgheader.html,432,16,1056,100,false,100,100,100
 ytplaylist.html,16,132,960,540,false,100,100,100
 jaseworld2/jaseworld2.html,992,132,894,708,false,100,100,100
-clock.html,510,16,900,900,true,100,50,50
+clock.html,510,16,900,900,true,100,100,100
 weather.html,0,770,360,150,true,100,100,100
 pastebox.html,558,690,414,150,false,100,100,100
 googlesheet.html,16,132,1870,708,false,100,100,100
