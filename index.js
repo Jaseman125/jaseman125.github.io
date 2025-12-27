@@ -28,10 +28,10 @@ function applyPhoneMode() {
     showFrame("IF03P");
     showFrame("IF04P");
 
-    setWidth("IF01P", "400px");
-    setWidth("IF02P", "400px");
-    setWidth("IF03P", "400px");
-    setWidth("IF04P", "400px");
+    setWidth("IF01P", "410px");
+    setWidth("IF02P", "410px");
+    setWidth("IF03P", "410px");
+    setWidth("IF04P", "410px");
 }
 
 function applyDesktopMode() {
