@@ -38,14 +38,17 @@ function applyPhoneMode() {
 
     showFrame("IF03P");
     setWidth("IF03P", "410px");
-    setHeight("IF03P", "230px");   // ← restored
-    setBorder("IF03P", "0");        // ← restored
+    setHeight("IF03P", "230px");
+    setBorder("IF03P", "0");
     setPosition("IF03P", "absolute");
     setTop("IF03P", "60px");
     setLeft("IF03P", "0");
 
     showFrame("IF04P");
     setWidth("IF04P", "410px");
+    setPosition("IF04P", "absolute");
+    setTop("IF04P", "306px");
+    setLeft("IF04P", "0");
 }
 
 function applyDesktopMode() {
