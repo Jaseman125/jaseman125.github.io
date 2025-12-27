@@ -30,6 +30,7 @@ function applyPhoneMode() {
 
     showFrame("IF02P");
     setWidth("IF02P", "410px");
+    setPosition("IF02P", "absolute");
     setTop("IF02P", "0");
     setLeft("IF02P", "0");
 
@@ -89,4 +90,9 @@ function setTop(id, value) {
 function setLeft(id, value) {
     const el = document.getElementById(id);
     if (el) el.style.left = value;
+}
+
+function setPosition(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.style.position = value;
 }
