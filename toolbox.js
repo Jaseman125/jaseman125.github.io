@@ -1,8 +1,5 @@
-/* ---------------------------------------------------------
-   PAGE LIST
---------------------------------------------------------- */
-
 let pages = [
+  "PRESETS",
   "IF01 Settings",
   "IF02 Settings",
   "IF03 Settings",
@@ -17,13 +14,30 @@ let pages = [
 
 let currentPage = 0;
 
-/* ---------------------------------------------------------
-   PAGE ROUTER
---------------------------------------------------------- */
-
 function updatePage() {
   document.getElementById("pageLabel").innerText = pages[currentPage];
   const pageContent = document.getElementById("pageContent");
+
+  if (pages[currentPage] === "PRESETS") {
+    pageContent.innerHTML = `
+      <div style="width:400px; display:flex; justify-content:space-between; margin-bottom:8px;">
+        <button style="width:75px;">PRESET 01</button>
+        <button style="width:75px;">PRESET 02</button>
+        <button style="width:75px;">PRESET 03</button>
+        <button style="width:75px;">PRESET 04</button>
+        <button style="width:75px;">PRESET 05</button>
+      </div>
+
+      <div style="width:400px; display:flex; justify-content:space-between;">
+        <button style="width:75px;">PRESET 06</button>
+        <button style="width:75px;">PRESET 07</button>
+        <button style="width:75px;">PRESET 08</button>
+        <button style="width:75px;">PRESET 09</button>
+        <button style="width:75px;">PRESET 10</button>
+      </div>
+    `;
+    return;
+  }
 
   switch (pages[currentPage]) {
     case "IF01 Settings": loadIFEditor("IF01"); break;
@@ -55,10 +69,6 @@ document.getElementById("prevBtn").addEventListener("click", () => {
 
 updatePage();
 
-/* ---------------------------------------------------------
-   BROWSER SIZE + MOUSE XY
---------------------------------------------------------- */
-
 function updateBrowserSize() {
   const w = window.parent.innerWidth;
   const h = window.parent.innerHeight;
@@ -73,10 +83,6 @@ window.parent.addEventListener("mousemove", function(e) {
   const el = document.getElementById("mousePosValue");
   if (el) el.textContent = e.clientX + "," + e.clientY;
 });
-
-/* ---------------------------------------------------------
-   UNIVERSAL IFRAME EDITOR (USED BY ALL 10)
---------------------------------------------------------- */
 
 function loadIFEditor(ifID) {
   const pageContent = document.getElementById("pageContent");
@@ -159,10 +165,6 @@ function loadIFEditor(ifID) {
 
 </table>
   `;
-
-  /* ---------------------------------------------------------
-     EVENT LISTENERS (UNIQUE PER IFRAME)
-  --------------------------------------------------------- */
 
   document.getElementById(`${ifID}_src`).addEventListener("change", e => {
     iframe.setAttribute("src", e.target.value);
