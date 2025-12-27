@@ -69,7 +69,7 @@ body {
 /* IF07 – pastebox */
 #IF07 {
   position: absolute;
-  width: 380px;
+  width: 410px;
   height: 150px;
   top: 690px;
   left: 558px;
@@ -79,7 +79,7 @@ body {
 #IF08 {
   position: absolute;
   width: 1888px;
-  height: 838px;
+  height: 706px;
   top: 132px;
   left: 16px;
 }
@@ -88,7 +88,7 @@ body {
 #IF09 {
   position: absolute;
   width: 1888px;
-  height: 838px;
+  height: 706px;
   top: 132px;
   left: 16px;
 }
