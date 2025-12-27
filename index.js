@@ -31,13 +31,13 @@ function applyPhoneMode() {
     showFrame("IF02P");
     setWidth("IF02P", "410px");
     setTop("IF02P", "0");
+    setLeft("IF02P", "0");
 
     showFrame("IF03P");
     setWidth("IF03P", "410px");
 
     showFrame("IF04P");
     setWidth("IF04P", "410px");
-
 }
 
 function applyDesktopMode() {
@@ -84,4 +84,9 @@ function setBorder(id, value) {
 function setTop(id, value) {
     const el = document.getElementById(id);
     if (el) el.style.top = value;
+}
+
+function setLeft(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.style.left = value;
 }
