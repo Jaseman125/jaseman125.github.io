@@ -46,3 +46,16 @@ function showFrame(id) {
     const el = document.getElementById(id);
     if (el) el.style.display = "block";
 }
+
+function setBackgroundPhone() {
+    const el = document.getElementById("IF01");
+    el.style.width = "100vw";
+    el.style.height = "100vh";
+    el.style.left = "0px";
+    el.style.top = "0px";
+}
+
+function setYTPlaylistPhone() {
+    const el = document.getElementById("IF03");
+    el.style.width = "288px";
+}
