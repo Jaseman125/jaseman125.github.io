@@ -7,11 +7,13 @@ body {
 /* IF01 – background */
 #IF01 {
   position: absolute;
-  width: 200px;
-  height: 50px;
-  top: 856px;
-  left: 16px;
+  width: 1920px;
+  height: 1080px;
+  top: 0px;
+  left: 0px;
+  border: 0;
 }
+
 
 /* IF02 – msgheader */
 #IF02 {
