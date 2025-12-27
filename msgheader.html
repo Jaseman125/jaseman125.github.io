@@ -80,14 +80,20 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const IF02 = parent.document.getElementById("IF02");
-    if (!IF02) return;
-    const h = IF02.clientHeight;
+    let frame = parent.document.getElementById("IF02P");
+    if (!frame || frame.style.display === "none") {
+        frame = parent.document.getElementById("IF02");
+    }
+    if (!frame) return;
+
+    const h = frame.clientHeight;
+
     const boxes = document.querySelectorAll(".header-box");
     boxes.forEach(box => {
         box.style.width = h + "px";
         box.style.height = h + "px";
     });
+
     const labels = document.querySelectorAll(".header-box span");
     labels.forEach(label => {
         label.style.fontSize = (h * 0.7) + "px";
