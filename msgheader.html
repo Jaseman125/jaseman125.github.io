@@ -79,11 +79,12 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+function applySizing() {
     const frame = window.frameElement;
     if (!frame) return;
 
     const h = frame.clientHeight;
+    if (!h) return;
 
     const boxes = document.querySelectorAll(".header-box");
     boxes.forEach(box => {
@@ -95,7 +96,10 @@ document.addEventListener("DOMContentLoaded", () => {
     labels.forEach(label => {
         label.style.fontSize = (h * 0.7) + "px";
     });
-});
+}
+
+document.addEventListener("DOMContentLoaded", applySizing);
+window.addEventListener("resize", applySizing);
 </script>
 
 <script src="msgheader.js"></script>
