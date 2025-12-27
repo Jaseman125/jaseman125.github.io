@@ -20,20 +20,20 @@ function updatePage() {
 
   if (pages[currentPage] === "PRESETS") {
     pageContent.innerHTML = `
-      <div style="width:400px; display:flex; justify-content:space-between; margin-bottom:8px;">
-        <button id="PRESET01" style="width:70px;">PRESET 01</button>
-        <button id="PRESET02" style="width:70px;">PRESET 02</button>
-        <button id="PRESET03" style="width:70px;">PRESET 03</button>
-        <button id="PRESET04" style="width:70px;">PRESET 04</button>
-        <button id="PRESET05" style="width:70px;">PRESET 05</button>
+      <div style="width:400px; display:flex; justify-content:flex-start; margin-bottom:8px;">
+        <button id="PRESET01" style="width:70px; margin-right:5px;">PRESET 01</button>
+        <button id="PRESET02" style="width:70px; margin-right:5px;">PRESET 02</button>
+        <button id="PRESET03" style="width:70px; margin-right:5px;">PRESET 03</button>
+        <button id="PRESET04" style="width:70px; margin-right:5px;">PRESET 04</button>
+        <button id="PRESET05" style="width:70px; margin-right:5px;">PRESET 05</button>
       </div>
 
-      <div style="width:400px; display:flex; justify-content:space-between;">
-        <button id="PRESET06" style="width:70px;">PRESET 06</button>
-        <button id="PRESET07" style="width:70px;">PRESET 07</button>
-        <button id="PRESET08" style="width:70px;">PRESET 08</button>
-        <button id="PRESET09" style="width:70px;">PRESET 09</button>
-        <button id="PRESET10" style="width:70px;">PRESET 10</button>
+      <div style="width:400px; display:flex; justify-content:flex-start;">
+        <button id="PRESET06" style="width:70px; margin-right:5px;">PRESET 06</button>
+        <button id="PRESET07" style="width:70px; margin-right:5px;">PRESET 07</button>
+        <button id="PRESET08" style="width:70px; margin-right:5px;">PRESET 08</button>
+        <button id="PRESET09" style="width:70px; margin-right:5px;">PRESET 09</button>
+        <button id="PRESET10" style="width:70px; margin-right:5px;">PRESET 10</button>
       </div>
     `;
 
