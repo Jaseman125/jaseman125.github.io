@@ -38,6 +38,8 @@ function applyPhoneMode() {
 
     showFrame("IF03P");
     setWidth("IF03P", "410px");
+    setHeight("IF03P", "230px");
+    setBorder("IF03P", "0");
     setPosition("IF03P", "absolute");
     setTop("IF03P", "60px");
     setLeft("IF03P", "0");
@@ -89,15 +91,4 @@ function setBorder(id, value) {
 
 function setTop(id, value) {
     const el = document.getElementById(id);
-    if (el) el.style.top = value;
-}
-
-function setLeft(id, value) {
-    const el = document.getElementById(id);
-    if (el) el.style.left = value;
-}
-
-function setPosition(id, value) {
-    const el = document.getElementById(id);
-    if (el) el.style.position = value;
-}
+    if
