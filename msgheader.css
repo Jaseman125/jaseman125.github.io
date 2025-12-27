@@ -24,12 +24,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .header-box {
+  height: 100%;
   width: 100px;
-  height: 100px;
   background: #0000AA;
   display: flex;
   align-items: center;
@@ -41,7 +41,7 @@ body {
 }
 
 .header-box span {
-  font-size: 70px;
+  font-size: 70%;
   color: white;
   font-family: sans-serif;
   font-weight: bold;
