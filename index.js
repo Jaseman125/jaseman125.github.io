@@ -24,17 +24,20 @@ function applyPhoneMode() {
     hideFrame("IF10");
 
     showFrame("IF01P");
-    showFrame("IF02P");
-    showFrame("IF03P");
-    showFrame("IF04P");
-
     setWidth("IF01P", "412px");
-    setWidth("IF02P", "410px");
-    setWidth("IF03P", "410px");
-    setWidth("IF04P", "410px");
-
     setHeight("IF01P", "750px");
     setBorder("IF01P", "0");
+
+    showFrame("IF02P");
+    setWidth("IF02P", "410px");
+    setTop("IF02P", "0");
+
+    showFrame("IF03P");
+    setWidth("IF03P", "410px");
+
+    showFrame("IF04P");
+    setWidth("IF04P", "410px");
+
 }
 
 function applyDesktopMode() {
@@ -71,4 +74,14 @@ function setWidth(id, value) {
 function setHeight(id, value) {
     const el = document.getElementById(id);
     if (el) el.style.height = value;
+}
+
+function setBorder(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.style.border = value;
+}
+
+function setTop(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.style.top = value;
 }
