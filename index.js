@@ -27,6 +27,11 @@ function applyPhoneMode() {
     showFrame("IF02P");
     showFrame("IF03P");
     showFrame("IF04P");
+
+    setWidth("IF01P", "150px");
+    setWidth("IF02P", "150px");
+    setWidth("IF03P", "150px");
+    setWidth("IF04P", "150px");
 }
 
 function applyDesktopMode() {
@@ -53,4 +58,9 @@ function hideFrame(id) {
 function showFrame(id) {
     const el = document.getElementById(id);
     if (el) el.style.display = "block";
+}
+
+function setWidth(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.style.width = value;
 }
