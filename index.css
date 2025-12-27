@@ -61,7 +61,7 @@ body {
 #IF06 {
   position: absolute;
   width: 200px;
-  height: 50px;
+  height: 150px;
   top: 690px;
   left: 880px;
 }
@@ -70,7 +70,7 @@ body {
 #IF07 {
   position: absolute;
   width: 200px;
-  height: 50px;
+  height: 150px;
   top: 690px;
   left: 1096px;
 }
