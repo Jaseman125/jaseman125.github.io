@@ -32,6 +32,8 @@ function applyPhoneMode() {
     setWidth("IF02P", "410px");
     setWidth("IF03P", "410px");
     setWidth("IF04P", "410px");
+
+    setHeight("IF01P", "600px");
 }
 
 function applyDesktopMode() {
@@ -63,4 +65,9 @@ function showFrame(id) {
 function setWidth(id, value) {
     const el = document.getElementById(id);
     if (el) el.style.width = value;
+}
+
+function setHeight(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.style.height = value;
 }
