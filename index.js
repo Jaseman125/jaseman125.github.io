@@ -12,7 +12,6 @@ window.addEventListener("load", updateMode);
 window.addEventListener("resize", updateMode);
 
 function applyPhoneMode() {
-    // Hide ALL frames in phone mode
     hideFrame("IF01");
     hideFrame("IF02");
     hideFrame("IF03");
@@ -23,10 +22,14 @@ function applyPhoneMode() {
     hideFrame("IF08");
     hideFrame("IF09");
     hideFrame("IF10");
+
+    showFrame("IF01P");
+    showFrame("IF02P");
+    showFrame("IF03P");
+    showFrame("IF04P");
 }
 
 function applyDesktopMode() {
-    // Show all frames EXCEPT IF08 + IF09 (toolbox controls those)
     showFrame("IF01");
     showFrame("IF02");
     showFrame("IF03");
@@ -35,6 +38,11 @@ function applyDesktopMode() {
     showFrame("IF06");
     showFrame("IF07");
     showFrame("IF10");
+
+    hideFrame("IF01P");
+    hideFrame("IF02P");
+    hideFrame("IF03P");
+    hideFrame("IF04P");
 }
 
 function hideFrame(id) {
