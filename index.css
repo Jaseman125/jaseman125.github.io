@@ -12,8 +12,8 @@ body {
   top: 0px;
   left: 0px;
   border: 0;
+  overflow: hidden;
 }
-
 
 /* IF02 – msgheader */
 #IF02 {
