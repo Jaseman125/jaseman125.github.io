@@ -211,7 +211,6 @@ function loadIFEditor(ifID) {
 let presets = {};
 
 function parseToolboxText(text) {
-  // FIXED: removed the destructive filter
   const lines = text.split(/\r?\n/).map(l => l.trim());
 
   const result = {};
@@ -226,7 +225,14 @@ function parseToolboxText(text) {
       currentKey = line.replace(/-/g, "");
       buffer = [];
     } else {
-      if (currentKey && line.length > 0) buffer.push(line);
+      if (
+        currentKey &&
+        line.length > 0 &&
+        !line.startsWith("src,") &&
+        !line.startsWith("IMPORTANT:")
+      ) {
+        buffer.push(line);
+      }
     }
   }
 
