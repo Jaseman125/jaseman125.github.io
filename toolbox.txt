@@ -22,9 +22,9 @@ calendar.html,16,132,1870,708,false,100,100,100
 toolbox.html,385,0,400,100,true,100,100,100
 ---PRESET03---
 background.html,0,0,1920,1080,true,100,100,100
-https://jaseman125.github.io/lego/lego-left-sidebar.html,0,0,400,930,true,100,100,100
-https://jaseman125.github.io/lego/lego-centre-column.html,400,0,1130,910,true,100,100,100
-https://jaseman125.github.io/lego/lego-right-sidebar.html,1510,0,400,910,true,100,100,100
+https://jaseman125.github.io/music/music-left-sidebar.html,0,0,400,930,true,100,100,100
+https://jaseman125.github.io/music/music-centre-column.html,400,0,1130,910,true,100,100,100
+https://jaseman125.github.io/music/music-right-sidebar.html,1510,0,400,910,true,100,100,100
 clock.html,16,690,150,150,false,100,100,100
 weather.html,182,690,360,150,false,100,100,100
 pastebox.html,558,690,414,150,false,100,100,100
