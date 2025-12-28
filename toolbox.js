@@ -51,7 +51,11 @@ function updatePage() {
     for (let i = 1; i <= 10; i++) {
       const id = "IF" + String(i).padStart(2, "0");
       const checked = iframeStates[id]?.visible ? "checked" : "";
-      tickRow += `<td><input type="checkbox" id="TB${id}" ${checked}></td>`;
+      if (i === 10) {
+        tickRow += `<td bgcolor="red"><input type="checkbox" id="TB${id}" ${checked}></td>`;
+      } else {
+        tickRow += `<td><input type="checkbox" id="TB${id}" ${checked}></td>`;
+      }
     }
 
     for (let i = 1; i <= 10; i++) {
