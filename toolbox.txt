@@ -6,8 +6,8 @@ jaseworld2/jaseworld2.html,992,132,894,708,true,100,100,100
 clock.html,16,690,150,150,true,100,100,100
 weather.html,182,690,360,150,true,100,100,100
 pastebox.html,558,690,414,150,true,100,100,100
-smallselector.html,16,132,1870,708,true,100,100,100
-largeselector.html,1500,16,400,100,false,100,100,100
+smallselector.html,1500,16,400,100,true,100,100,100
+largeselector.html,0,0,1912,910,false,100,100,100
 toolbox.html,16,16,400,100,true,100,100,100
 ---PRESET02---
 background.html,0,0,1920,1080,true,100,100,100
