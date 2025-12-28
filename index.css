@@ -106,7 +106,6 @@ body {
   width: 400px;
   height: 100px;
   border: none;
-  pointer-events: none;
 }
 
 /* Fade‑in animation */
