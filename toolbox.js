@@ -84,9 +84,11 @@ function updateBrowserSize() {
 window.parent.addEventListener("resize", updateBrowserSize);
 updateBrowserSize();
 
-window.parent.addEventListener("mousemove", function(e) {
-  const el = document.getElementById("mousePosValue");
-  if (el) el.textContent = e.clientX + "," + e.clientY;
+window.addEventListener("message", function(e) {
+  if (e.data.type === "mouseXY") {
+    const el = document.getElementById("mousePosValue");
+    if (el) el.textContent = e.data.x + "," + e.data.y;
+  }
 });
 
 function loadIFEditor(ifID) {
