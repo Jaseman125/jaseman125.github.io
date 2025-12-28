@@ -11,8 +11,8 @@ calendar.html,16,132,1870,708,false,100,100,100
 toolbox.html,16,16,400,100,true,100,100,100
 ---PRESET02---
 background.html,0,0,1920,1080,true,100,100,100
-https://jaseman125.github.io/lego/lego-left-sidebar.html,0,0,400,910,true,100,100,100
-https://jaseman125.github.io/lego/lego-centre-column.html,366,0,1160,910,true,100,100,100
+https://jaseman125.github.io/lego/lego-left-sidebar.html,0,0,400,930,true,100,100,100
+https://jaseman125.github.io/lego/lego-centre-column.html,400,0,1130,910,true,100,100,100
 https://jaseman125.github.io/lego/lego-right-sidebar.html,1510,0,400,910,true,100,100,100
 clock.html,16,690,150,150,false,100,100,100
 weather.html,182,690,360,150,false,100,100,100
@@ -22,8 +22,8 @@ calendar.html,16,132,1870,708,false,100,100,100
 toolbox.html,385,0,400,100,true,100,100,100
 ---PRESET03---
 background.html,0,0,1920,1080,true,100,100,100
-https://jaseman125.github.io/lego/lego-left-sidebar.html,0,0,400,910,true,100,100,100
-https://jaseman125.github.io/lego/lego-centre-column.html,366,0,1160,910,true,100,100,100
+https://jaseman125.github.io/lego/lego-left-sidebar.html,0,0,400,930,true,100,100,100
+https://jaseman125.github.io/lego/lego-centre-column.html,400,0,1130,910,true,100,100,100
 https://jaseman125.github.io/lego/lego-right-sidebar.html,1510,0,400,910,true,100,100,100
 clock.html,16,690,150,150,false,100,100,100
 weather.html,182,690,360,150,false,100,100,100
