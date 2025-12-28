@@ -1,15 +1,15 @@
 let pages = [
   "PRESETS",
-  "IF01 Settings",
-  "IF02 Settings",
-  "IF03 Settings",
-  "IF04 Settings",
-  "IF05 Settings",
-  "IF06 Settings",
-  "IF07 Settings",
-  "IF08 Settings",
-  "IF09 Settings",
-  "IF10 Settings"
+  "IF01",
+  "IF02",
+  "IF03",
+  "IF04",
+  "IF05",
+  "IF06",
+  "IF07",
+  "IF08",
+  "IF09",
+  "IF10"
 ];
 
 let currentPage = 0;
@@ -80,16 +80,16 @@ function updatePage() {
   }
 
   switch (pages[currentPage]) {
-    case "IF01 Settings": loadIFEditor("IF01"); break;
-    case "IF02 Settings": loadIFEditor("IF02"); break;
-    case "IF03 Settings": loadIFEditor("IF03"); break;
-    case "IF04 Settings": loadIFEditor("IF04"); break;
-    case "IF05 Settings": loadIFEditor("IF05"); break;
-    case "IF06 Settings": loadIFEditor("IF06"); break;
-    case "IF07 Settings": loadIFEditor("IF07"); break;
-    case "IF08 Settings": loadIFEditor("IF08"); break;
-    case "IF09 Settings": loadIFEditor("IF09"); break;
-    case "IF10 Settings": loadIFEditor("IF10"); break;
+    case "IF01": loadIFEditor("IF01"); break;
+    case "IF02": loadIFEditor("IF02"); break;
+    case "IF03": loadIFEditor("IF03"); break;
+    case "IF04": loadIFEditor("IF04"); break;
+    case "IF05": loadIFEditor("IF05"); break;
+    case "IF06": loadIFEditor("IF06"); break;
+    case "IF07": loadIFEditor("IF07"); break;
+    case "IF08": loadIFEditor("IF08"); break;
+    case "IF09": loadIFEditor("IF09"); break;
+    case "IF10": loadIFEditor("IF10"); break;
   }
 }
 
