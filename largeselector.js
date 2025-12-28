@@ -3,11 +3,11 @@ let lsCurrent = 1;
 const lsSlides = [
   {
     id: "slide-1",
-    title: "Calendar"
+    title: "Google Sheet"
   },
   {
     id: "slide-2",
-    title: "Google Sheet"
+    title: "Calendar"
   }
 ];
 
