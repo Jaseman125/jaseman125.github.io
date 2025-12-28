@@ -1,0 +1,64 @@
+/* Header bar */
+#ls-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  z-index: 10;
+}
+
+/* Arrows */
+.ls-arrow {
+  width: 60px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#ls-left {
+  position: absolute;
+  left: 0;
+}
+
+#ls-right {
+  position: absolute;
+  right: 0;
+}
+
+/* Slide title */
+#ls-title {
+  pointer-events: none;
+}
+
+/* Content area */
+#ls-content {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 40px);
+  overflow: hidden;
+}
+
+/* Slides */
+.ls-slide {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.ls-slide iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
