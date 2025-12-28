@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="index.css">
   <script src="index.js" defer></script>
 </head>
-<body>
+<body class="fade-start">
 
   <iframe id="IF01P" src="background.html" scrolling="no"></iframe>
   <iframe id="IF02P" src="msgheader.html" style="display:none;"></iframe>
@@ -24,6 +24,16 @@
   <iframe id="IF08" src="googlesheet.html"></iframe>
   <iframe id="IF09" src="calendar.html"></iframe>
   <iframe id="IF10" src="toolbox.html"></iframe>
+
+  <script>
+  window.addEventListener("mousemove", function(e) {
+    const toolboxFrame = document.getElementById("IF10");
+    if (!toolboxFrame) return;
+    const win = toolboxFrame.contentWindow;
+    if (!win) return;
+    win.postMessage({ type: "mouseXY", x: e.clientX, y: e.clientY }, "*");
+  });
+  </script>
 
 </body>
 </html>

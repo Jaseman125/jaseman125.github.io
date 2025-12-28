@@ -11,6 +11,10 @@ function updateMode() {
 window.addEventListener("load", updateMode);
 window.addEventListener("resize", updateMode);
 
+window.addEventListener("load", () => {
+    document.body.classList.add("fade-in");
+});
+
 function applyPhoneMode() {
     hideFrame("IF01");
     hideFrame("IF02");
