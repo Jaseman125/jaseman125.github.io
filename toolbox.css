@@ -58,5 +58,15 @@ button[id^="PRESET"] {
   font-size: 10px;
   font-weight: bold;
   padding: 0;
-  margin: 0 3px 0 0;
+  margin: 0;
+}
+
+.presetTable {
+  margin: 0 auto;
+}
+
+.presetTable td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 2px;
 }

@@ -14,43 +14,64 @@ let pages = [
 
 let currentPage = 0;
 
+function refreshIframeState() {
+  const iframeStates = {};
+  for (let i = 1; i <= 10; i++) {
+    const id = "IF" + String(i).padStart(2, "0");
+    const iframe = window.parent.document.getElementById(id);
+    if (!iframe) continue;
+
+    const rect = iframe.getBoundingClientRect();
+
+    iframeStates[id] = {
+      visible: iframe.style.display !== "none" && iframe.offsetWidth > 0 && iframe.offsetHeight > 0,
+      x: Math.round(rect.left),
+      y: Math.round(rect.top),
+      w: iframe.offsetWidth,
+      h: iframe.offsetHeight,
+      opacity: Math.round((iframe.style.opacity || 1) * 100),
+      brightness: 100,
+      contrast: 100
+    };
+  }
+  return iframeStates;
+}
+
 function updatePage() {
   document.getElementById("pageLabel").innerText = pages[currentPage];
   const pageContent = document.getElementById("pageContent");
 
-  if (pages[currentPage] === "PRESETS") {
-    pageContent.innerHTML = `
-      <div style="width:400px; display:flex; justify-content:flex-start; margin-bottom:4px;">
-        <button id="PRESET01">01</button>
-        <button id="PRESET02">02</button>
-        <button id="PRESET03">03</button>
-        <button id="PRESET04">04</button>
-        <button id="PRESET05">05</button>
-        <button id="PRESET06">06</button>
-        <button id="PRESET07">07</button>
-        <button id="PRESET08">08</button>
-        <button id="PRESET09">09</button>
-        <button id="PRESET10">10</button>
-      </div>
+  const iframeStates = refreshIframeState();
 
-      <div style="width:400px; display:flex; justify-content:flex-start;">
-        <button id="PRESET11">11</button>
-        <button id="PRESET12">12</button>
-        <button id="PRESET13">13</button>
-        <button id="PRESET14">14</button>
-        <button id="PRESET15">15</button>
-        <button id="PRESET16">16</button>
-        <button id="PRESET17">17</button>
-        <button id="PRESET18">18</button>
-        <button id="PRESET19">19</button>
-        <button id="PRESET20">20</button>
-      </div>
+  if (pages[currentPage] === "PRESETS") {
+    let tickRow = "";
+    let row1 = "";
+    let row2 = "";
+
+    for (let i = 1; i <= 10; i++) {
+      const id = "IF" + String(i).padStart(2, "0");
+      const checked = iframeStates[id]?.visible ? "checked" : "";
+      tickRow += `<td><input type="checkbox" id="TB${id}" ${checked}></td>`;
+    }
+
+    for (let i = 1; i <= 10; i++) {
+      row1 += `<td><button id="PRESET${String(i).padStart(2, "0")}">${String(i).padStart(2, "0")}</button></td>`;
+    }
+
+    for (let i = 11; i <= 20; i++) {
+      row2 += `<td><button id="PRESET${String(i).padStart(2, "0")}">${String(i).padStart(2, "0")}</button></td>`;
+    }
+
+    pageContent.innerHTML = `
+      <table class="presetTable" cellpadding="0" cellspacing="0" border="0">
+        <tr>${tickRow}</tr>
+        <tr>${row1}</tr>
+        <tr>${row2}</tr>
+      </table>
     `;
 
-    setTimeout(() => {
-      attachPresetButtons();
-    }, 0);
-
+    attachPresetButtons();
+    attachTickboxes();
     return;
   }
 
@@ -110,9 +131,9 @@ function loadIFEditor(ifID) {
     return;
   }
 
-  const currentSrc = iframe.getAttribute("src");
   const rect = iframe.getBoundingClientRect();
 
+  const currentSrc = iframe.getAttribute("src");
   const currentX = Math.round(rect.left);
   const currentY = Math.round(rect.top);
   const currentW = iframe.offsetWidth;
@@ -307,6 +328,19 @@ function attachPresetButtons() {
       applyPreset(key);
     };
   });
+}
+
+function attachTickboxes() {
+  for (let i = 1; i <= 10; i++) {
+    const id = "IF" + String(i).padStart(2, "0");
+    const tick = document.getElementById("TB" + id);
+    const iframe = window.parent.document.getElementById(id);
+    if (!tick || !iframe) continue;
+
+    tick.addEventListener("change", () => {
+      iframe.style.display = tick.checked ? "block" : "none";
+    });
+  }
 }
 
 fetch("toolbox.txt")
