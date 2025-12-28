@@ -117,3 +117,12 @@ body {
 .fade-start.fade-in {
   opacity: 1;
 }
+
+/* Pointer‑events fix */
+iframe {
+  pointer-events: none;
+}
+
+#IF10 {
+  pointer-events: auto;
+}
