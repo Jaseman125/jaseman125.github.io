@@ -116,3 +116,11 @@ button[id^="PRESET"] {
   vertical-align: middle;
   padding: 2px;
 }
+
+/* ----------------------------- */
+/* Pointer‑events restoration */
+/* ----------------------------- */
+
+table, #pageContent {
+  pointer-events: auto;
+}

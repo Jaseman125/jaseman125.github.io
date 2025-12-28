@@ -78,7 +78,7 @@ body {
   border: 0;
 }
 
-/* IF08 – googlesheet */
+/* IF08 – smallselector */
 #IF08 {
   position: absolute;
   width: 1870px;
@@ -88,7 +88,7 @@ body {
   display: none;
 }
 
-/* IF09 – calendar */
+/* IF09 – largeselector */
 #IF09 {
   position: absolute;
   width: 1870px;
@@ -106,6 +106,7 @@ body {
   width: 400px;
   height: 100px;
   border: none;
+  pointer-events: none;
 }
 
 /* Fade‑in animation */
@@ -118,11 +119,7 @@ body {
   opacity: 1;
 }
 
-/* Pointer‑events fix */
+/* Global iframe rule */
 iframe {
   pointer-events: none;
-}
-
-#IF10 {
-  pointer-events: auto;
 }
