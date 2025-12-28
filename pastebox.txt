@@ -1,3 +1,30 @@
 Above is the JASEMAN PODCAST playlist — a collection of 100 videos.
 
 Some are mine, others created by different people, but all reflect information and values that align with my own.
+
+
+
+** I AM LEAVING FACEBOOK VERY SOON! - 1st of January 2026 **
+
+
+
+THE PURPOSE OF THIS TEXT FILE IS TO PROVIDE INFORMATION AND PASTABLE CONTENT SUCH AS POWERSHELL COMMANDS
+
+
+
+Below is a list of useful shell commands for different systems
+
+	WINDOWS 11 POWERSHELL
+	---------------------
+
+	WINDOWS 11 COMMAND PROMPT
+	-------------------------
+	cleanmgr.exe		Disk Cleanup Tool
+	dir			List Directories
+	regedit.exe		Launch the Registry Editor
+	rmdir /s		Remove a directory including all subfolders
+	systeminfo		Get the date and time that the PC was last Rebooted
+
+	LINUX
+	-----
+	ls - List Directory Structure
