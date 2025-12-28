@@ -52,6 +52,52 @@ body {
   padding: 0;
 }
 
+/* ----------------------------- */
+/* Toolbox slider (self-contained) */
+/* ----------------------------- */
+
+.toolbox-slider {
+  width: 70px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 14px;
+}
+
+.toolbox-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  background: grey;
+  border-radius: 2px;
+}
+
+.toolbox-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: grey;
+  border-radius: 50%;
+  margin-top: -5px;
+}
+
+.toolbox-slider::-moz-range-track {
+  height: 4px;
+  background: grey;
+  border-radius: 2px;
+}
+
+.toolbox-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: grey;
+  border-radius: 50%;
+}
+
+/* ----------------------------- */
+/* Preset table (unchanged) */
+/* ----------------------------- */
+
 button[id^="PRESET"] {
   width: 20px;
   height: 16px;
