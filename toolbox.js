@@ -26,14 +26,24 @@ function updatePage() {
         <button id="PRESET03">03</button>
         <button id="PRESET04">04</button>
         <button id="PRESET05">05</button>
-      </div>
-
-      <div style="width:400px; display:flex; justify-content:flex-start;">
         <button id="PRESET06">06</button>
         <button id="PRESET07">07</button>
         <button id="PRESET08">08</button>
         <button id="PRESET09">09</button>
         <button id="PRESET10">10</button>
+      </div>
+
+      <div style="width:400px; display:flex; justify-content:flex-start;">
+        <button id="PRESET11">11</button>
+        <button id="PRESET12">12</button>
+        <button id="PRESET13">13</button>
+        <button id="PRESET14">14</button>
+        <button id="PRESET15">15</button>
+        <button id="PRESET16">16</button>
+        <button id="PRESET17">17</button>
+        <button id="PRESET18">18</button>
+        <button id="PRESET19">19</button>
+        <button id="PRESET20">20</button>
       </div>
     `;
 
