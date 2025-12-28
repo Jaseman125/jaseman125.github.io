@@ -196,7 +196,7 @@ function loadIFEditor(ifID) {
   });
 
   document.getElementById(`${ifID}_opacity`).addEventListener("input", e => {
-    iframe.style.opacity = String(Math.max(0, Math.min(100, opacity)) / 100);
+    iframe.style.opacity = String(Math.max(0, Math.min(100, e.target.value)) / 100);
   });
 
   document.getElementById(`${ifID}_brightness`).addEventListener("input", e => {
