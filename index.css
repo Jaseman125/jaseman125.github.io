@@ -118,8 +118,3 @@ body {
 .fade-start.fade-in {
   opacity: 1;
 }
-
-/* Global iframe rule */
-iframe {
-  pointer-events: none;
-}
