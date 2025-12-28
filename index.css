@@ -11,32 +11,32 @@ body {
 /* IF01 – background */
 #IF01 {
   position: absolute;
+  overflow: hidden;
+  border: 0;
+  left: 0px;
+  top: 0px;
   width: 1920px;
   height: 1080px;
-  top: 0px;
-  left: 0px;
-  border: 0;
-  overflow: hidden;
 }
 
 /* IF02 – msgheader */
 #IF02 {
   position: absolute;
+  border: 0;
+  left: 432px;
+  top: 16px;
   width: 1056px;
   height: 100px;
-  top: 16px;
-  left: 432px;
-  border: 0;
 }
 
 /* IF03 – ytplaylist */
 #IF03 {
   position: absolute;
-  top: 132px;
-  left: 16px;
-  width: 960px;
   aspect-ratio: 16/9;
   border: 0;
+  left: 16px;
+  top: 132px;
+  width: 960px;
 }
 
 /* IF04 – jaseworld2 */
@@ -51,60 +51,63 @@ body {
 /* IF05 – clock */
 #IF05 {
   position: absolute;
-  top: 690px;
+  border: none;
   left: 16px;
+  top: 690px;
   width: 150px;
   height: 150px;
-  border: none;
 }
 
 /* IF06 – weather */
 #IF06 {
   position: absolute;
+  border: 0;
+  left: 182px;
+  top: 690px;
   width: 360px;
   height: 150px;
-  top: 690px;
-  left: 182px;
-  border: 0;
 }
 
 /* IF07 – pastebox */
 #IF07 {
   position: absolute;
+  border: 0;
+  left: 558px;
+  top: 690px;
   width: 414px;
   height: 150px;
-  top: 690px;
-  left: 558px;
-  border: 0;
 }
 
 /* IF08 – smallselector */
 #IF08 {
   position: absolute;
-  width: 1870px;
-  height: 708px;
-  top: 132px;
-  left: 16px;
+  border: 0;
+  left: 1500px;
+  top: 16px;
+  width: 400px;
+  height: 100px;
+
 }
 
 /* IF09 – largeselector */
 #IF09 {
   position: absolute;
+  border: 0;
+  display: none;
+  left: 16px;
+  top: 132px;
   width: 1870px;
   height: 708px;
-  top: 132px;
-  left: 16px;
-  display: none;
 }
 
 /* IF10 – toolbox */
 #IF10 {
   position: absolute;
-  top: 16px;
+  border: none;
   left: 16px;
+  top: 16px;
   width: 400px;
   height: 100px;
-  border: none;
 }
 
 /* Fade‑in animation */
