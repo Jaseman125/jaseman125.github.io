@@ -198,7 +198,6 @@ function loadIFEditor(ifID) {
     </td>
 
     <td></td>
-
     <td>
       <input id="${ifID}_contrast" type="range" min="0" max="200" value="100"
         class="toolbox-slider">
@@ -330,6 +329,7 @@ function attachPresetButtons() {
     btn.onclick = (e) => {
       e.stopPropagation();
       applyPreset(key);
+      updatePage(); // re-evaluate tickboxes after preset load
     };
   });
 }
