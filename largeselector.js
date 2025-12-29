@@ -1,37 +1,29 @@
-let lsCurrent = 1;
+let currentPage = 0;
 
-const lsSlides = [
-  {
-    id: "slide-1",
-    title: "Google Sheet"
-  },
-  {
-    id: "slide-2",
-    title: "Calendar"
-  }
-];
-
-function lsShowSlide(n) {
-  if (n < 1) n = lsSlides.length;
-  if (n > lsSlides.length) n = 1;
-  lsCurrent = n;
-
-  lsSlides.forEach((slide, index) => {
-    const el = document.getElementById(slide.id);
-    el.style.display = (index + 1 === n) ? "block" : "none";
-  });
-
-  document.getElementById("ls-title").textContent = lsSlides[n - 1].title;
+function updateContent() {
+    document.getElementById("ls-content").innerHTML = pages[currentPage];
+    document.getElementById("ls-counter").innerText = currentPage;
 }
 
-document.getElementById("ls-left").addEventListener("click", () => {
-  lsShowSlide(lsCurrent - 1);
-});
+function nextPage() {
+    if (currentPage < pages.length - 1) {
+        currentPage++;
+    } else {
+        currentPage = 0; // wrap around
+    }
+    updateContent();
+}
 
-document.getElementById("ls-right").addEventListener("click", () => {
-  lsShowSlide(lsCurrent + 1);
-});
+function prevPage() {
+    if (currentPage > 0) {
+        currentPage--;
+    } else {
+        currentPage = pages.length - 1; // wrap around
+    }
+    updateContent();
+}
 
-window.onload = () => {
-  lsShowSlide(1);
-};
+document.getElementById("ls-left").addEventListener("click", prevPage);
+document.getElementById("ls-right").addEventListener("click", nextPage);
+
+updateContent(); // initial load
