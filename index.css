@@ -42,6 +42,7 @@ body {
 /* IF04 – jaseworld2 */
 #IF04 {
   position: absolute;
+  border: 0;
   width: 894px;
   height: 708px;
   top: 132px;
