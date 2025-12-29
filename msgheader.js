@@ -366,6 +366,33 @@ const albums = [
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/steve-winwood-chronicles.png",
     playlist: "https://en.wikipedia.org/wiki/Chronicles_(Steve_Winwood_album)" }
+
+
+
+
+
+  { cover: "https://jaseman125.github.io/img/bricklink.png",
+    playlist: "https://www.bricklink.com/aboutMe.asp?u=jaseman125" }
+
+  { cover: "https://jaseman125.github.io/img/ebay.png",
+    playlist: "https://www.ebay.co.uk/usr/jaseman125" }
+
+  { cover: "https://jaseman125.github.io/img/facebook.png",
+    playlist: "https://www.facebook.com/jason.a.davies" }
+
+  { cover: "https://jaseman125.github.io/img/home.png",
+    playlist: "https://jaseman.com/" }
+
+  { cover: "https://jaseman125.github.io/img/podcast.png",
+    playlist: "https://www.youtube.com/watch?v=0UVUW11FENs&list=PLGnmo4N_SmKKj7XS6RQDUjXMzCNW08jW-" }
+
+  { cover: "https://jaseman125.github.io/img/smule.png",
+    playlist: "https://www.smule.com/jaseman125" }
+
+  { cover: "https://jaseman125.github.io/img/youtube.png",
+    playlist: "https://www.youtube.com/@jaseman" }
+
+
 ]; // end of albums array
 
 // ---------------------------------------------
