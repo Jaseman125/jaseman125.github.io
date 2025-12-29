@@ -13,7 +13,6 @@ const rooms = {
       "https://jaseman125.github.io/photo-album/20190908_173050-audi-tt-and-a4-rear-chocks-away-car-park-hawarden-airport.jpg"
     ],
     links: [
-      { href:"https://jaseman.com/index-wide.html", label:"2025 page" },
       { href:"https://www.youtube.com/@jaseman", label:"YouTube" },
       { href:"https://www.facebook.com/jason.a.davies", label:"FB" },
       { href:"https://calendar.google.com/calendar/u/0?cid=YWM2MWQ1NzNmMmJjYmIxZmQzNmRjZGY4MmRlNjNmZTliNDg3NDM0N2Y5NWEzMTQ5ZTgyZWNiZmY5ZWQ2ZTc0ZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t", label:"Calendar" },
@@ -31,7 +30,7 @@ const rooms = {
     nextRooms: { south:"mainfoyer" },
     items: [],
     links: [
-      { href:"https://jaseman125.github.io/music/music.html", label:"2025 Page" },
+      { href:"https://jaseman125.github.io/music/music.html", label:"Music" },
       { href:"https://www.youtube.com/embed/videoseries?list=PLGnmo4N_SmKKjhsDQGfukgHR8jQfqIuXl", label:"Music Playlist" },
       { href:"https://www.smule.com/jaseman125", label:"Smule" }
     ]
@@ -46,7 +45,7 @@ const rooms = {
     nextRooms: { west:"mainfoyer" },
     items: [],
     links: [
-      { href:"https://jaseman125.github.io/lego/lego.html", label:"2025 Page" },
+      { href:"https://jaseman125.github.io/lego/lego.html", label:"LEGO" },
       { href:"https://www.bricklink.com/aboutMe.asp?u=jaseman125", label:"Bricklink" }
     ]
   },
@@ -60,7 +59,7 @@ const rooms = {
     nextRooms: { north:"mainfoyer" },
     items: [],
     links: [
-      { href:"https://jaseman125.github.io/movies/movies.html", label:"2025 Page" },
+      { href:"https://jaseman125.github.io/movies/movies.html", label:"Movies" },
       { href:"http://youtube.com/post/UgkxTbvisBlCliKZm5smGklnrnTvtOY4qGsR?si=aaOmG_cw2_wMLpKd", label:"100 Movies" },
       { href:"https://www.youtube.com/watch?v=aKqWEi68gME&list=PLGnmo4N_SmKKdoqJGkQhpH0ngal5_bdvS", label:"Trailers" }
     ]
@@ -77,10 +76,10 @@ const rooms = {
       "https://jaseman125.github.io/photo-album/2023-jaseburner-at-the-flash.jpg"
     ],
     links: [
-      { href:"https://jaseman125.github.io/photo-album/photos.html", label:"2025 Photos" },
-      { href:"https://jaseman125.github.io/pictures/pictures.html", label:"2025 Pics" },
-      { href:"https://youtu.be/NifPw1cM2W0?si=VBL_yio4ONlRjMBV", label:"Slideshow" },
-      { href:"https://jaseman125.github.io/software/software.html", label:"2025 Software" }
+      { href:"https://jaseman125.github.io/photo-album/photos.html", label:"Photos" },
+      { href:"https://jaseman125.github.io/pictures/pictures.html", label:"Pics" },
+      { href:"https://youtu.be/NifPw1cM2W0?si=VBL_yio4ONlRjMBV", label:"Photos Slideshow" },
+      { href:"https://jaseman125.github.io/software/software.html", label:"Software" }
     ]
   }
 };
