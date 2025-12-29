@@ -1,37 +1,25 @@
-let ssCurrent = 1;
+let ssCurrent = 0;
 
-const ssSlides = [
-  {
-    id: "ss-slide-1",
-    title: "Slide 1"
-  },
-  {
-    id: "ss-slide-2",
-    title: "Slide 2"
-  }
-];
-
-function ssShowSlide(n) {
-  if (n < 1) n = ssSlides.length;
-  if (n > ssSlides.length) n = 1;
-  ssCurrent = n;
-
-  ssSlides.forEach((slide, index) => {
-    const el = document.getElementById(slide.id);
-    el.style.display = (index + 1 === n) ? "flex" : "none";
-  });
-
-  document.getElementById("ss-title").textContent = ssSlides[n - 1].title;
+function ssUpdate() {
+    document.getElementById("ss-content").innerHTML = pages[ssCurrent];
+    document.getElementById("ss-counter").innerText = ssCurrent;
 }
 
-document.getElementById("ss-left").addEventListener("click", () => {
-  ssShowSlide(ssCurrent - 1);
-});
+function ssNext() {
+    if (ssCurrent < pages.length - 1) {
+        ssCurrent++;
+        ssUpdate();
+    }
+}
 
-document.getElementById("ss-right").addEventListener("click", () => {
-  ssShowSlide(ssCurrent + 1);
-});
+function ssPrev() {
+    if (ssCurrent > 0) {
+        ssCurrent--;
+        ssUpdate();
+    }
+}
 
-window.onload = () => {
-  ssShowSlide(1);
-};
+document.getElementById("ss-left").addEventListener("click", ssPrev);
+document.getElementById("ss-right").addEventListener("click", ssNext);
+
+ssUpdate();

@@ -1,64 +1,39 @@
-/* Header bar */
 #ss-header {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 30px;
   background-color: rgba(0,0,0,0.6);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 20px;
   font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   z-index: 10;
+
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 40px;
 }
 
-/* Arrows */
 .ss-arrow {
-  width: 40px;
   text-align: center;
   cursor: pointer;
   user-select: none;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
+  line-height: 40px;
 }
 
-#ss-left {
-  position: absolute;
-  left: 0;
+#ss-counter {
 }
 
-#ss-right {
-  position: absolute;
-  right: 0;
-}
-
-/* Slide title */
-#ss-title {
-  pointer-events: none;
-}
-
-/* Content area */
 #ss-content {
   position: absolute;
-  top: 30px;
-  left: 0;
-  width: 100%;
-  height: calc(100% - 30px);
   overflow: hidden;
-}
 
-/* Slides */
-.ss-slide {
+  left: 0;
+  top: 40px;
   width: 100%;
-  height: 100%;
-  display: none;
-  color: white;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: calc(100% - 40px);
 }

@@ -9,22 +9,23 @@
 <body>
 
   <div id="ss-header">
-    <div id="ss-left" class="ss-arrow">&#9664;</div>
-    <div id="ss-title">Slide 1</div>
-    <div id="ss-right" class="ss-arrow">&#9654;</div>
+    <div id="ss-left" class="ss-arrow">◀</div>
+    <div id="ss-counter">0</div>
+    <div id="ss-right" class="ss-arrow">▶</div>
   </div>
 
-  <div id="ss-content">
+  <div id="ss-content"></div>
 
-    <div class="ss-slide" id="ss-slide-1">
+  <script>
+    const pages = [
+      `
       Small Selector Slide 1
-    </div>
-
-    <div class="ss-slide" id="ss-slide-2">
+      `,
+      `
       Small Selector Slide 2
-    </div>
-
-  </div>
+      `
+    ];
+  </script>
 
 </body>
 </html>
