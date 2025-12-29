@@ -22,7 +22,6 @@ body {
   cursor: pointer;
   user-select: none;
   text-shadow: 2px 2px 4px black;
-  margin: 4px 0;
 }
 
 .arrow.inactive {
@@ -45,15 +44,19 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 3em;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-  text-shadow: 2px 2px 4px black;
 }
 
 #left { left: 10px; }
 #right { right: 10px; }
+
+#up, #down {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#up { top: 10px; }
+#down { bottom: 10px; }
 
 #overlays {
   margin-top: 3vh;
