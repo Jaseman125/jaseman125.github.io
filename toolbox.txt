@@ -45,7 +45,7 @@ toolbox.html,385,0,400,100,true,100,100,100
 ---PRESET05---
 background.html,0,0,1920,1080,true,100,100,100
 https://jaseman125.github.io/photo-album/photos-left-sidebar.html,0,0,400,930,true,100,100,100
-https://jaseman125.github.io/photo-album/photos-centre-column.html,400,0,1130,910,true,100,100,100
+https://jaseman125.github.io/photo-album/photos-centre-column.html,385,0,1160,910,true,100,100,100
 https://jaseman125.github.io/photo-album/photos-right-sidebar.html,1510,0,400,910,true,100,100,100
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
