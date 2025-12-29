@@ -1,4 +1,3 @@
-/* Header bar */
 #ls-header {
   position: absolute;
   background-color: rgba(0,0,0,0.6);
@@ -6,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 20px;
   font-family: Arial, sans-serif;
   font-size: 18px;
   z-index: 10;
@@ -16,41 +16,18 @@
   height: 40px;
 }
 
-/* Arrows */
 .ls-arrow {
   text-align: center;
   cursor: pointer;
   user-select: none;
   font-size: 24px;
   font-weight: bold;
-  position: absolute;
   line-height: 40px;
-
-  top: 0;
-  width: 60px;
-  height: 40px;
 }
 
-#ls-left {
-  left: 0;
-  top: 0;
-  width: 60px;
-  height: 40px;
-}
-
-#ls-right {
-  right: 0; /* this one legitimately uses right */
-  top: 0;
-  width: 60px;
-  height: 40px;
-}
-
-/* Counter */
 #ls-counter {
-  /* No positional properties needed */
 }
 
-/* Content area */
 #ls-content {
   position: absolute;
   overflow: hidden;
