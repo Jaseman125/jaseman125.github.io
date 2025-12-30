@@ -44,11 +44,24 @@
         left: 0;
         width: 100%;
         height: calc(100% - 40px);
-        overflow: auto;
+        overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: flex-start;
         padding-top: 20px;
+    }
+
+    /* Slide wrapper */
+    .slide-wrapper {
+        width: 100%;
+        text-align: center;
+    }
+
+    .slide-title {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #6cf;
     }
 
     /* Grid layout: 8 columns, centered */
@@ -100,23 +113,14 @@
 <div id="ls-content"></div>
 
 <script>
-/* ---------------------------
-   PAGINATION VARIABLES
----------------------------- */
 let pages = [];
 let currentPage = 0;
 
-/* ---------------------------
-   UPDATE SLIDE CONTENT
----------------------------- */
 function updateContent() {
     document.getElementById("ls-content").innerHTML = pages[currentPage];
     document.getElementById("ls-counter").innerText = currentPage;
 }
 
-/* ---------------------------
-   ARROW NAVIGATION
----------------------------- */
 function nextPage() {
     if (currentPage < pages.length - 1) {
         currentPage++;
@@ -134,9 +138,6 @@ function prevPage() {
 document.getElementById("ls-left").addEventListener("click", prevPage);
 document.getElementById("ls-right").addEventListener("click", nextPage);
 
-/* ---------------------------
-   FETCH BRICKLINK FILES
----------------------------- */
 const apiURL = "https://api.github.com/repos/Jaseman125/lego/contents/bricklink-studio-files";
 
 fetch(apiURL)
@@ -152,9 +153,6 @@ fetch(apiURL)
             ioMap[base] = file.download_url;
         });
 
-        /* ---------------------------
-           BUILD MODEL OBJECTS
-        ---------------------------- */
         const models = pngFiles.map(png => {
             const base = png.name.replace(/\.png$/i, "");
             return {
@@ -164,14 +162,15 @@ fetch(apiURL)
             };
         });
 
-        /* ---------------------------
-           SPLIT INTO CHUNKS OF 24
-        ---------------------------- */
         const chunkSize = 24;
         for (let i = 0; i < models.length; i += chunkSize) {
             const chunk = models.slice(i, i + chunkSize);
 
-            let html = `<div class="grid">`;
+            let html = `
+            <div class="slide-wrapper">
+                <div class="slide-title">Bricklink Studio Files</div>
+                <div class="grid">
+            `;
 
             chunk.forEach(m => {
                 html += `
@@ -182,13 +181,14 @@ fetch(apiURL)
                 </div>`;
             });
 
-            html += `</div>`;
+            html += `
+                </div>
+            </div>
+            `;
+
             pages.push(html);
         }
 
-        /* ---------------------------
-           INITIAL RENDER
-        ---------------------------- */
         updateContent();
     })
     .catch(err => {
