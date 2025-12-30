@@ -12,23 +12,39 @@
     }
     h2 {
         color: #6cf;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
-    ul {
-        list-style: none;
-        padding: 0;
+
+    /* Grid layout: 8 columns, auto rows */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(8, 180px);
+        gap: 20px;
     }
-    li {
+
+    .item {
+        text-align: center;
         background: #222;
-        margin: 8px 0;
         padding: 10px;
         border-radius: 6px;
     }
+
+    .item img {
+        width: 180px;
+        height: auto;
+        border-radius: 4px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
     a {
         color: #9df;
-        font-weight: bold;
         text-decoration: none;
+        font-size: 14px;
+        display: block;
+        margin: 4px 0;
     }
+
     a:hover {
         text-decoration: underline;
     }
@@ -36,10 +52,9 @@
 </head>
 <body>
 
-<h2>Bricklink Studio Files</h2>
-<p>Loading files…</p>
+<h2>Bricklink Studio Models</h2>
 
-<ul id="fileList"></ul>
+<div id="grid" class="grid"></div>
 
 <script>
 const apiURL = "https://api.github.com/repos/Jaseman125/lego/contents/bricklink-studio-files";
@@ -47,29 +62,49 @@ const apiURL = "https://api.github.com/repos/Jaseman125/lego/contents/bricklink-
 fetch(apiURL)
     .then(response => response.json())
     .then(items => {
-        const list = document.getElementById("fileList");
-        list.innerHTML = "";
+        const grid = document.getElementById("grid");
+        grid.innerHTML = "";
 
-        // ⭐ NO FILTERING — show every file GitHub returns
-        items.forEach(file => {
-            const li = document.createElement("li");
+        const pngFiles = items.filter(f => f.name.toLowerCase().endsWith(".png"));
+        const ioFiles = items.filter(f => f.name.toLowerCase().endsWith(".io"));
 
-            // If it's a folder, show it differently
-            if (file.type === "dir") {
-                li.textContent = file.name + " (folder)";
-            } else {
-                const a = document.createElement("a");
-                a.href = file.download_url;
-                a.textContent = file.name;
-                li.appendChild(a);
+        const ioMap = {};
+        ioFiles.forEach(file => {
+            const base = file.name.replace(/\.io$/i, "");
+            ioMap[base] = file.download_url;
+        });
+
+        pngFiles.forEach(png => {
+            const base = png.name.replace(/\.png$/i, "");
+            const ioURL = ioMap[base] || null;
+
+            const div = document.createElement("div");
+            div.className = "item";
+
+            const img = document.createElement("img");
+            img.src = png.download_url;
+            img.alt = base;
+            div.appendChild(img);
+
+            const viewLink = document.createElement("a");
+            viewLink.href = png.download_url;
+            viewLink.target = "_blank";
+            viewLink.textContent = "View Full Size";
+            div.appendChild(viewLink);
+
+            if (ioURL) {
+                const ioLink = document.createElement("a");
+                ioLink.href = ioURL;
+                ioLink.textContent = "Download .io File";
+                div.appendChild(ioLink);
             }
 
-            list.appendChild(li);
+            grid.appendChild(div);
         });
     })
     .catch(err => {
-        document.getElementById("fileList").innerHTML =
-            "<li>Error loading files from GitHub.</li>";
+        document.getElementById("grid").innerHTML =
+            "<p>Error loading files from GitHub.</p>";
         console.error(err);
     });
 </script>
