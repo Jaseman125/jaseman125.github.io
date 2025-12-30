@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bricklink Studio Files</title>
+<style>
+    body { font-family: Arial; background: #111; color: #eee; padding: 20px; }
+    h2 { color: #6cf; }
+    ul { list-style: none; padding: 0; }
+    li { background: #222; margin: 8px 0; padding: 10px; border-radius: 6px; }
+    a { color: #9df; font-weight: bold; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<h2>Bricklink Studio Files</h2>
+<p>Loading files…</p>
+
+<ul id="fileList"></ul>
+
+<script>
+const apiURL = "https://api.github.com/repos/Jaseman125/lego/contents/bricklink-studio-files";
+
+fetch(apiURL)
+    .then(response => response.json())
+    .then(items => {
+        const list = document.getElementById("fileList");
+        list.innerHTML = "";
+
+        const files = items.filter(item =>
+            item.name.endsWith(".io") ||
+            item.name.endsWith(".ldr") ||
+            item.name.endsWith(".zip")
+        );
+
+        if (files.length === 0) {
+            list.innerHTML = "<li>No Bricklink Studio files found.</li>";
+            return;
+        }
+
+        files.forEach(file => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = file.download_url;
+            a.textContent = file.name;
+            li.appendChild(a);
+            list.appendChild(li);
+        });
+    })
+    .catch(err => {
+        document.getElementById("fileList").innerHTML =
+            "<li>Error loading files from GitHub.</li>";
+        console.error(err);
+    });
+</script>
+
+</body>
+</html>
