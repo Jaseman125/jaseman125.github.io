@@ -15,10 +15,10 @@
         margin-bottom: 20px;
     }
 
-    /* Grid layout: 10 columns, auto rows */
+    /* Grid layout: 8 columns, auto rows */
     .grid {
         display: grid;
-        grid-template-columns: repeat(10, 180px);
+        grid-template-columns: repeat(8, 180px);
         gap: 20px;
     }
 
@@ -53,7 +53,6 @@
 <body>
 
 <h2>Bricklink Studio Models</h2>
-<p>Loading previews…</p>
 
 <div id="grid" class="grid"></div>
 
@@ -66,18 +65,15 @@ fetch(apiURL)
         const grid = document.getElementById("grid");
         grid.innerHTML = "";
 
-        // Build a map of files by extension
         const pngFiles = items.filter(f => f.name.toLowerCase().endsWith(".png"));
         const ioFiles = items.filter(f => f.name.toLowerCase().endsWith(".io"));
 
-        // Create a lookup for .io files by base name
         const ioMap = {};
         ioFiles.forEach(file => {
             const base = file.name.replace(/\.io$/i, "");
             ioMap[base] = file.download_url;
         });
 
-        // For each PNG, create a grid item
         pngFiles.forEach(png => {
             const base = png.name.replace(/\.png$/i, "");
             const ioURL = ioMap[base] || null;
@@ -85,20 +81,17 @@ fetch(apiURL)
             const div = document.createElement("div");
             div.className = "item";
 
-            // Preview image
             const img = document.createElement("img");
             img.src = png.download_url;
             img.alt = base;
             div.appendChild(img);
 
-            // View full-size PNG
             const viewLink = document.createElement("a");
             viewLink.href = png.download_url;
             viewLink.target = "_blank";
             viewLink.textContent = "View Full Size";
             div.appendChild(viewLink);
 
-            // Download .io file (only if exists)
             if (ioURL) {
                 const ioLink = document.createElement("a");
                 ioLink.href = ioURL;
