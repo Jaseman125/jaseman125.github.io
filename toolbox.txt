@@ -177,14 +177,14 @@ toolbox.html,16,16,400,100,true,100,100,100
 ---PRESET17---
 background.html,0,0,1920,1080,true,100,100,100
 clock.html,560,16,850,850,true,100,100,100
-weather.html,182,690,360,150,true,100,100,100
+weather.html,1410,720,490,150,true,100,100,100
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
-toolbox.html,16,16,400,100,true,100,100,100
+toolbox.html,16,16,544,100,true,100,100,100
 ---PRESET18---
 background.html,0,0,1920,1080,true,100,100,100
 https://stardrivepaintings.com/index.html,0,0,640,910,true,100,100,100
