@@ -175,8 +175,8 @@ about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 toolbox.html,16,16,400,100,true,100,100,100
 ---PRESET17---
-about:blank,0,0,0,0,false,0,0,0
-about:blank,0,0,0,0,false,0,0,0
+background.html,0,0,1920,1080,true,100,100,100
+clock.html,16,690,300,300,true,100,100,100
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
