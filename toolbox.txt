@@ -164,7 +164,6 @@ about:blank,0,0,0,0,false,0,0,0
 https://jaseman125.github.io/lego/books/celestial-orbit/Celestial%20Orbit%20Magazine%20-%20Issue%202.pdf,0,0,1912,910,true,100,100,100
 toolbox.html,1450,0,400,100,true,100,100,100
 ---PRESET16---
-background.html,0,0,1920,1080,true,100,100,100
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
@@ -173,13 +172,14 @@ about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
-toolbox.html,16,16,400,100,true,100,100,100
+https://en.wikipedia.org/wiki/Autism,0,0,1912,910,true,100,100,100
+toolbox.html,1500,800,400,100,true,100,100,100
 ---PRESET17---
 background.html,0,0,1920,1080,true,100,100,100
 clock.html,530,16,850,850,true,100,100,100
 weather.html,1380,720,520,150,true,100,100,100
 ytplaylist.html,1380,16,520,704,true,100,100,100
-https://jaseman125.github.io/photo-album/photos-right-sidebar.html,1510,0,400,910,true,100,100,100
+https://jaseman125.github.io/photo-album/photos-right-sidebar.html,16,116,514,750,true,100,100,100
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
