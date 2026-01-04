@@ -7,9 +7,9 @@ const rooms = {
     doorways: { north:true, east:true, south:true, west:true },
     nextRooms: { north:"musicroom1", east:"legoroom1", south:"movieroom1", west:"photoroom1" },
     items: [
-      "https://jaseman125.github.io/photo-album/100-photos/20200522-jaseman-com-hat.jpg",
+      "https://jaseman125.github.io/photo-album/100-photos/092-20200522-jaseman-com-hat.jpg",
       "https://jaseman125.github.io/photo-album/house.jpg",
-      "https://jaseman125.github.io/photo-album/100-photos/2015-marco-island1.jpg",
+      "https://jaseman125.github.io/photo-album/100-photos/037-2015-marco-island1.jpg",
       "https://jaseman125.github.io/photo-album/20190908_173050-audi-tt-and-a4-rear-chocks-away-car-park-hawarden-airport.jpg"
     ],
     links: [
