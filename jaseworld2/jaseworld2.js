@@ -9,7 +9,7 @@ const rooms = {
     items: [
       "https://jaseman125.github.io/photo-album/100-photos/089-2020-uk-wales-gresford-22-may-jaseman-com-hat.jpg",
       "https://jaseman125.github.io/photo-album/house.jpg",
-      "https://jaseman125.github.io/photo-album/100-photos/100-2025-uk-wales-gresford-25-dec-jaseman-martin-irina-enid-christmas.jpg",
+      "https://jaseman125.github.io/photo-album/100-photos/100-2025-uk-england-chester-hickorys-smokehouse-28-jul-martins-birthday-meal-enid-martin-irina-jaseman.jpg",
       "https://jaseman125.github.io/photo-album/20190908_173050-audi-tt-and-a4-rear-chocks-away-car-park-hawarden-airport.jpg"
     ],
     links: [
