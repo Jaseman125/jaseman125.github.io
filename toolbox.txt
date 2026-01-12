@@ -106,7 +106,7 @@ about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
 about:blank,0,0,0,0,false,0,0,0
-largeselector.html,0,0,1912,1080,true,100,100,100
+largeselector.html,0,0,1912,910,true,100,100,100
 toolbox.html,1450,0,400,100,true,100,100,100
 ---PRESET11---
 about:blank,0,0,0,0,false,0,0,0
