@@ -90,7 +90,7 @@ const albums = [
 
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/bangles-everything.png",
-    playlist: "https://en.wikipedia.org/wiki/Everything_(The_Bangles_album)" },
+    playlist: "https://www.youtube.com/watch?v=xTEp5lV5ytc&list=PLGnmo4N_SmKKp0zdzVwHFB9XHpLSMwPy6" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/the-beat-bpm-the-very-best-of-the-beat.png",
     playlist: "https://en.wikipedia.org/wiki/B.P.M.:_The_Very_Best_of_the_Beat" },
@@ -373,9 +373,6 @@ const albums = [
 
   { cover: "https://jaseman125.github.io/img/ebay.png",
     playlist: "https://www.ebay.co.uk/usr/jaseman125" },
-
-  { cover: "https://jaseman125.github.io/img/facebook.png",
-    playlist: "https://www.facebook.com/jason.a.davies" },
 
   { cover: "https://jaseman125.github.io/img/home.png",
     playlist: "https://jaseman.com/" },
