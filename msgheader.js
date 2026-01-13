@@ -65,7 +65,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=1Ep9c1-Ef5I&list=PLGnmo4N_SmKIAIkA9RjiQRvEOl7YSId7d" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/a-ha-hunting-high-and-low.png",
-    playlist: "https://en.wikipedia.org/wiki/Hunting_High_and_Low" },
+    playlist: "https://www.youtube.com/watch?v=HzdD8kbDzZA&list=PLGnmo4N_SmKIswUyMbz1UnUtnbETMhGvO" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/a-ha-scoundrel-days.png",
     playlist: "https://en.wikipedia.org/wiki/Scoundrel_Days" },
@@ -195,8 +195,9 @@ const albums = [
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/falco-falco3.png",
     playlist: "https://en.wikipedia.org/wiki/Falco_3" },
+
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/jaseman-turbo-dreams.png",
-    playlist: "https://www.youtube.com/watch?v=NgN5AIHo7qE&list=PLGnmo4N_SmKK6jYbqESBcCFsvYF-sHcta" },
+    playlist: "https://www.youtube.com/watch?v=79zINoERzM0&list=PLGnmo4N_SmKK6jYbqESBcCFsvYF-sHcta" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/jessie-fry-obsidian.png",
     playlist: "https://www.youtube.com/watch?v=7yVa0tCsYqA&list=RD7yVa0tCsYqA&start_radio=1" },
