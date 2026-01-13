@@ -68,7 +68,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=HzdD8kbDzZA&list=PLGnmo4N_SmKIswUyMbz1UnUtnbETMhGvO" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/a-ha-scoundrel-days.png",
-    playlist: "https://en.wikipedia.org/wiki/Scoundrel_Days" },
+    playlist: "https://www.youtube.com/watch?v=wY-O9rLSNyc&list=PLGnmo4N_SmKITXhqT50GG6FyvWzWAoP0G" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/a-ha-stay-on-these-roads.png",
     playlist: "https://en.wikipedia.org/wiki/Stay_on_These_Roads" },
