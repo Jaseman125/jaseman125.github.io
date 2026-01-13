@@ -80,7 +80,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=KL6RL-hTRac&list=PLGnmo4N_SmKLkMGw2-sPsvOh7onKWsykD" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/tori-amos-little-earthquakes.png",
-    playlist: "https://en.wikipedia.org/wiki/Little_Earthquakes" },
+    playlist: "https://www.youtube.com/watch?v=dGBwsC0yJ8o&list=PLGnmo4N_SmKLrqTYtwS91KIH-qeE8t40g" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/the-b-52s-cosmic-thing.png",
     playlist: "https://en.wikipedia.org/wiki/Cosmic_Thing" },
