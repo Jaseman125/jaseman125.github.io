@@ -74,7 +74,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=ozc5-TcZbvI&list=PLGnmo4N_SmKI9ne8lkUAQWhsGZzo-qesk" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/a-ha-east-of-the-sun-west-of-the-moon.png",
-    playlist: "https://en.wikipedia.org/wiki/East_of_the_Sun,_West_of_the_Moon" },
+    playlist: "https://www.youtube.com/watch?v=4IMppxFcnpc&list=PLGnmo4N_SmKKQh5w8tuMNlu_2hwIPMylD" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/all-about-eve-all-about-eve.png",
     playlist: "https://en.wikipedia.org/wiki/All_About_Eve_(album)" },
