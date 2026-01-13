@@ -71,7 +71,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=wY-O9rLSNyc&list=PLGnmo4N_SmKITXhqT50GG6FyvWzWAoP0G" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/a-ha-stay-on-these-roads.png",
-    playlist: "https://en.wikipedia.org/wiki/Stay_on_These_Roads" },
+    playlist: "https://www.youtube.com/watch?v=ozc5-TcZbvI&list=PLGnmo4N_SmKI9ne8lkUAQWhsGZzo-qesk" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/a-ha-east-of-the-sun-west-of-the-moon.png",
     playlist: "https://en.wikipedia.org/wiki/East_of_the_Sun,_West_of_the_Moon" },
