@@ -77,7 +77,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=4IMppxFcnpc&list=PLGnmo4N_SmKKQh5w8tuMNlu_2hwIPMylD" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/all-about-eve-all-about-eve.png",
-    playlist: "https://en.wikipedia.org/wiki/All_About_Eve_(album)" },
+    playlist: "https://www.youtube.com/watch?v=KL6RL-hTRac&list=PLGnmo4N_SmKLkMGw2-sPsvOh7onKWsykD" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/tori-amos-little-earthquakes.png",
     playlist: "https://en.wikipedia.org/wiki/Little_Earthquakes" },
