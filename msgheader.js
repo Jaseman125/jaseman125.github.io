@@ -86,7 +86,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=axyFMQUFASA&list=PLGnmo4N_SmKLtI8QKfeRkij7zS6wkcda6" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/bangles-different-light.png",
-    playlist: "https://en.wikipedia.org/wiki/Different_Light" },
+    playlist: "https://www.youtube.com/watch?v=rHQrSx9LRN8&list=PLGnmo4N_SmKI9V1gJrMrbIv7uTHxoi7It" },
 
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/bangles-everything.png",
