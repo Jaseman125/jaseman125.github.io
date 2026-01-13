@@ -83,7 +83,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=dGBwsC0yJ8o&list=PLGnmo4N_SmKLrqTYtwS91KIH-qeE8t40g" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/the-b-52s-cosmic-thing.png",
-    playlist: "https://en.wikipedia.org/wiki/Cosmic_Thing" },
+    playlist: "https://www.youtube.com/watch?v=axyFMQUFASA&list=PLGnmo4N_SmKLtI8QKfeRkij7zS6wkcda6" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/bangles-different-light.png",
     playlist: "https://en.wikipedia.org/wiki/Different_Light" },
