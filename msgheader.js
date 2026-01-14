@@ -96,7 +96,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=Cw5awfyRfUE&list=PLGnmo4N_SmKKTFYFpLxB8vxmu_QH7axCl" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/pat-benatar-greatest-hits.png",
-    playlist: "https://en.wikipedia.org/wiki/Greatest_Hits_(Pat_Benatar_album)" },
+    playlist: "https://www.youtube.com/watch?v=fd_7jIC9180&list=PLGnmo4N_SmKL-XYi6OM2CWNAFf7K7tGoq" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/bon-jovi-slippery-when-wet.png",
     playlist: "https://en.wikipedia.org/wiki/Slippery_When_Wet" },
