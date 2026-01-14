@@ -102,7 +102,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=M15gawGu6VE&list=PLGnmo4N_SmKJ9qLdeU11NOLCkSqlKByJa" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/bon-jovi-new-jersey.png",
-    playlist: "https://en.wikipedia.org/wiki/New_Jersey_(album)" },
+    playlist: "https://www.youtube.com/watch?v=Tf-3xV3bCv0&list=PLGnmo4N_SmKIfAx-7WMG1t_aSVs7clHgh" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/kate-bush-the-kick-inside.png",
     playlist: "https://en.wikipedia.org/wiki/The_Kick_Inside" },
