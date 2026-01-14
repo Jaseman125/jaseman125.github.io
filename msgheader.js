@@ -93,7 +93,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=xTEp5lV5ytc&list=PLGnmo4N_SmKKp0zdzVwHFB9XHpLSMwPy6" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/the-beat-bpm-the-very-best-of-the-beat.png",
-    playlist: "https://en.wikipedia.org/wiki/B.P.M.:_The_Very_Best_of_the_Beat" },
+    playlist: "https://www.youtube.com/watch?v=Cw5awfyRfUE&list=PLGnmo4N_SmKKTFYFpLxB8vxmu_QH7axCl" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/pat-benatar-greatest-hits.png",
     playlist: "https://en.wikipedia.org/wiki/Greatest_Hits_(Pat_Benatar_album)" },
