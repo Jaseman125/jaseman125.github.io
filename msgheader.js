@@ -99,7 +99,7 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=fd_7jIC9180&list=PLGnmo4N_SmKL-XYi6OM2CWNAFf7K7tGoq" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/bon-jovi-slippery-when-wet.png",
-    playlist: "https://en.wikipedia.org/wiki/Slippery_When_Wet" },
+    playlist: "https://www.youtube.com/watch?v=M15gawGu6VE&list=PLGnmo4N_SmKJ9qLdeU11NOLCkSqlKByJa" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/bon-jovi-new-jersey.png",
     playlist: "https://en.wikipedia.org/wiki/New_Jersey_(album)" },
