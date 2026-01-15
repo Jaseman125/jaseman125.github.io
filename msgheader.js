@@ -105,111 +105,111 @@ const albums = [
     playlist: "https://www.youtube.com/watch?v=Tf-3xV3bCv0&list=PLGnmo4N_SmKIfAx-7WMG1t_aSVs7clHgh" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/kate-bush-the-kick-inside.png",
-    playlist: "https://en.wikipedia.org/wiki/The_Kick_Inside" },
+    playlist: "https://www.youtube.com/watch?v=UPxi6EmWp-o&list=PLGnmo4N_SmKLVb0DygKmOU-wCQLU8zmYa" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/kate-bush-hounds-of-love.png",
-    playlist: "https://en.wikipedia.org/wiki/Hounds_of_Love" },
+    playlist: "https://www.youtube.com/watch?v=HYwNM1t9ltI&list=PLGnmo4N_SmKK0g8uLr37-QbsocQkSi7mO" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/belinda-carlisle-heaven-on-earth.png",
-    playlist: "https://en.wikipedia.org/wiki/Heaven_on_Earth_(Belinda_Carlisle_album)" },
+    playlist: "https://www.youtube.com/watch?v=vFPajU-d-Ek&list=PLGnmo4N_SmKJhKZQGeNB9Iflohrdu4__7" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/belinda-carlisle-runaway-horses.png",
-    playlist: "https://en.wikipedia.org/wiki/Runaway_Horses_(album)" },
+    playlist: "https://www.youtube.com/watch?v=AWUBrKBA3_w&list=PLGnmo4N_SmKLoKIL9scrKB0MF3paC1K_p" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/cher-cher.png",
-    playlist: "https://en.wikipedia.org/wiki/Cher_(1987_album)" },
+    playlist: "https://www.youtube.com/watch?v=48L1BTVpxjA&list=PLGnmo4N_SmKL3GFKMSqQKXvNJY45d_Vrj" },
 
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/cher-heart-of-stone.png",
-    playlist: "https://en.wikipedia.org/wiki/Heart_of_Stone_(Cher_album)" },
+    playlist: "https://www.youtube.com/watch?v=BUbjmLrp9dc&list=PLGnmo4N_SmKLmyPcBGPyDcfSORDUYH6Eh" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/lloyd-cole-the-collection.png",
-    playlist: "https://en.wikipedia.org/wiki/Lloyd_Cole" },
+    playlist: "https://www.youtube.com/watch?v=2HRSTe0iE6g&list=PLGnmo4N_SmKKPzN8wSTBEGiqVHqgxHLsI" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/phil-collins-hits.png",
-    playlist: "https://en.wikipedia.org/wiki/Hits_(Phil_Collins_album)" },
+    playlist: "https://www.youtube.com/watch?v=8xPAjMSkCGI&list=PLGnmo4N_SmKJLdg5LwQXhnikiVTSEAypQ" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/communards-the-collection.png",
-    playlist: "https://en.wikipedia.org/wiki/The_Communards" },
+    playlist: "https://www.youtube.com/watch?v=qq_oG1vD_O8&list=PLGnmo4N_SmKKB-RH5gK-cQsnYrnBf12Su" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/the-corrs-talk-on-corners-special-edition.png",
-    playlist: "https://en.wikipedia.org/wiki/Talk_on_Corners" },
+    playlist: "https://www.youtube.com/watch?v=4aTneAfopTs&list=PLGnmo4N_SmKKt5LNhrkr3a6C9JSPp3Om-" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/the-corrs-in-blue.png",
-    playlist: "https://en.wikipedia.org/wiki/In_Blue" },
+    playlist: "https://www.youtube.com/watch?v=z2Y_2mhFp5g&list=PLGnmo4N_SmKIigbcCMyeG776F9eVumBFv" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/beverley-craven-beverley-craven.png",
-    playlist: "https://en.wikipedia.org/wiki/Beverley_Craven_(album)" },
+    playlist: "https://www.youtube.com/watch?v=tcYukoFt_VA&list=PLGnmo4N_SmKIscPl_fCHbJIHkaWQuvp2k" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/the-cure-mixed-up.png",
-    playlist: "https://en.wikipedia.org/wiki/Mixed_Up_(The_Cure_album)" },
+    playlist: "https://www.youtube.com/watch?v=OkEQ9iZbfj0&list=PLGnmo4N_SmKLtu90WeANNaL-BFiNt8I91" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/the-cure-wish.png",
-    playlist: "https://en.wikipedia.org/wiki/Wish_(The_Cure_album)" },
+    playlist: "https://www.youtube.com/watch?v=67ulFSNIdCU&list=PLGnmo4N_SmKKIsunvXsimMiNYzQRJz8SQ" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/the-darkness-permission-to-land.png",
-    playlist: "https://en.wikipedia.org/wiki/Permission_to_Land" },
+    playlist: "https://www.youtube.com/watch?v=et_3LDM_teA&list=PLGnmo4N_SmKI6gNVrbu8GQf_gwXVb8QN7" },
 
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/def-leppard-hysteria.png",
-    playlist: "https://en.wikipedia.org/wiki/Hysteria_(Def_Leppard_album)" },
+    playlist: "https://www.youtube.com/watch?v=7Q5Pksn4VA0&list=PLGnmo4N_SmKJ2P5SBC0V6EYmTwIR7lcXO" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/dido-no-angel.png",
-    playlist: "https://en.wikipedia.org/wiki/No_Angel" },
+    playlist: "https://www.youtube.com/watch?v=HHchQdWuIAs&list=PLGnmo4N_SmKJGNPJz_yD50Wj236f0f6tp" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/drab-majesty-careless.png",
-    playlist: "https://en.wikipedia.org/wiki/Drab_Majesty" },
+    playlist: "https://www.youtube.com/watch?v=0Y3xg-1SQ7k&list=PLGnmo4N_SmKKwW96Z1Nzi-joF_cfhEoE-" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/drab-majesty-the-demonstration.png",
-    playlist: "https://en.wikipedia.org/wiki/Drab_Majesty" },
+    playlist: "https://www.youtube.com/watch?v=WPvalVuP9FE&list=PLGnmo4N_SmKLHgilcOF9mUiotsu2YtDp2" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/drab-majesty-modern-mirror.png",
-    playlist: "https://en.wikipedia.org/wiki/Modern_Mirror" },
+    playlist: "https://www.youtube.com/watch?v=mmOSv-PG0ow&list=PLGnmo4N_SmKKK3kf-MIqrG22f1FHn4OOE" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/duran-duran-greatest.png",
-    playlist: "https://en.wikipedia.org/wiki/Greatest_(Duran_Duran_album)" },
+    playlist: "https://www.youtube.com/watch?v=E297U6jqQj0&list=PLGnmo4N_SmKLpfjbAFbivJPYDgzKGx4fe" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/electric-six-fire.png",
-    playlist: "https://en.wikipedia.org/wiki/Fire_(Electric_Six_album)" },
+    playlist: "https://www.youtube.com/watch?v=BzabCVOBUJI&list=PLGnmo4N_SmKKLcTV6NTqiVvj16AHH_Qxq" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/electric-six-senor-smoke.png",
-    playlist: "https://en.wikipedia.org/wiki/Se%C3%B1or_Smoke" },
+    playlist: "https://www.youtube.com/watch?v=vtH3DJ8Dyyg&list=PLGnmo4N_SmKJXwLw5h7cZTloT6-K09Ioq" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/erasure-wonderland.png",
-    playlist: "https://en.wikipedia.org/wiki/Wonderland_(Erasure_album)" },
+    playlist: "https://www.youtube.com/watch?v=pkMJP0GTGBU&list=PLGnmo4N_SmKLBQPYIqDyqa3ofNZRc-D1Y" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/erasure-the-circus.png",
-    playlist: "https://en.wikipedia.org/wiki/The_Circus_(Erasure_album)" },
+    playlist: "https://www.youtube.com/watch?v=wlIOP7Vfi3I&list=PLGnmo4N_SmKKVFhDj-3auNTkFG5pQdIN7" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/erasure-wild!.png",
-    playlist: "https://en.wikipedia.org/wiki/Wild!" },
+    playlist: "https://www.youtube.com/watch?v=59YnyzWGzPs&list=PLGnmo4N_SmKKbRAM69HdSjIQUxSkzxojD" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/melissa-etheridge-melissa-etheridge.png",
-    playlist: "https://en.wikipedia.org/wiki/Melissa_Etheridge_(album)" },
+    playlist: "https://www.youtube.com/watch?v=CvZwOA_62ew&list=PLGnmo4N_SmKJwK70l14jFQaRqRM_mszZb" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/eurythmics-greatest-hits.png",
-    playlist: "https://en.wikipedia.org/wiki/Greatest_Hits_(Eurythmics_album)" },
+    playlist: "https://www.youtube.com/watch?v=zD9thE3n2V0&list=PLGnmo4N_SmKIKonQQ8G8mS30gAmyTqZBs" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/evanescence-fallen.png",
-    playlist: "https://en.wikipedia.org/wiki/Fallen_(Evanescence_album)" },
+    playlist: "https://www.youtube.com/watch?v=ysJ82L-1rEc&list=PLGnmo4N_SmKJMw64mghbSiSzYlJQow5SM" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/falco-falco3.png",
-    playlist: "https://en.wikipedia.org/wiki/Falco_3" },
+    playlist: "https://www.youtube.com/watch?v=OKxBk4V79Co&list=PLGnmo4N_SmKKnn94G88g4ko13pYY2nCmh" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/jaseman-turbo-dreams.png",
     playlist: "https://www.youtube.com/watch?v=79zINoERzM0&list=PLGnmo4N_SmKK6jYbqESBcCFsvYF-sHcta" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/jessie-fry-obsidian.png",
-    playlist: "https://www.youtube.com/watch?v=7yVa0tCsYqA&list=RD7yVa0tCsYqA&start_radio=1" },
+    playlist: "https://www.jiosaavn.com/album/obsidian/vsyhtrHy0N0_" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/genesis-invisible-touch.png",
-    playlist: "https://en.wikipedia.org/wiki/Invisible_Touch" },
+    playlist: "https://www.youtube.com/watch?v=tMbiHCMYJtw&list=PLGnmo4N_SmKKU8D5KZZBTzadaVb8ut69Z" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/go-west-go-west.png",
-    playlist: "https://en.wikipedia.org/wiki/Go_West_(Go_West_album)" },
+    playlist: "https://www.youtube.com/watch?v=9OifIwh53gY&list=PLGnmo4N_SmKLXdaXe7FwvcI4kHwtwicjp" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/jan-hammer-escape-from-television.png",
-    playlist: "https://en.wikipedia.org/wiki/Escape_from_Television" },
+    playlist: "https://www.youtube.com/watch?v=v9s0xO1_l6U&list=PLGnmo4N_SmKIaNppE6N663LckqExKdfgZ" },
 
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/heart-heart.png",
