@@ -213,156 +213,156 @@ const albums = [
 
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/heart-heart.png",
-    playlist: "https://en.wikipedia.org/wiki/Heart_(Heart_album)" },
+    playlist: "https://www.youtube.com/watch?v=NdzSZdpEeyE&list=PLGnmo4N_SmKLCT6VGWgfl5egujIGh31vD" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/buddy-holly-memorial-collection.png",
-    playlist: "https://en.wikipedia.org/wiki/Memorial_Collection" },
+    playlist: "https://www.youtube.com/watch?v=XAmnmKivHjA&list=PLGnmo4N_SmKLbMm27XGGFqjso_4QDdmQ1" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/bruce-hornsby-and-the-range-the-way-it-is.png",
-    playlist: "https://en.wikipedia.org/wiki/The_Way_It_Is_(Bruce_Hornsby_album)" },
+    playlist: "https://www.youtube.com/watch?v=PHjq52hFSKo&list=PLGnmo4N_SmKJV8K3KWajNsyX0ySOMfAcH" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/bruce-hornsby-and-the-range-scenes-from-the-southside.png",
-    playlist: "https://en.wikipedia.org/wiki/Scenes_from_the_Southside" },
+    playlist: "https://www.youtube.com/watch?v=KewbVGhvPlY&list=PLGnmo4N_SmKKSCvQRr3IljAcOVzI0tleO" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/hothouse-flowers-the-platinum-collection.png",
-    playlist: "https://en.wikipedia.org/wiki/Hothouse_Flowers" },
+    playlist: "https://www.youtube.com/watch?v=PH5u2EEQpBY&list=PLGnmo4N_SmKJrVQfqiUVzjZOJavU9mnTJ" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/chris-isaak-wicked-game.png",
-    playlist: "https://en.wikipedia.org/wiki/Wicked_Game_(Chris_Isaak_album)" },
+    playlist: "https://www.youtube.com/watch?v=CdMqOK4tnkc&list=PLGnmo4N_SmKJzCen2857nYe_DEo1_0q5L" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/billy-joel-an-innocent-man.png",
-    playlist: "https://en.wikipedia.org/wiki/An_Innocent_Man" },
+    playlist: "https://www.youtube.com/watch?v=tdGzzfQ52TQ&list=PLGnmo4N_SmKJE9pib5uncuRGBf8KwP30R" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/keane-hopes-and-fears.png",
-    playlist: "https://en.wikipedia.org/wiki/Hopes_and_Fears" },
+    playlist: "https://www.youtube.com/watch?v=0LuignGmX_0&list=PLGnmo4N_SmKLohKx4ZaVbLpopu0SFzq41" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/avril-lavigne-let-go.png",
-    playlist: "https://en.wikipedia.org/wiki/Let_Go_(Avril_Lavigne_album)" },
+    playlist: "https://www.youtube.com/watch?v=qwlVaTCyfgc&list=PLGnmo4N_SmKKnGH4KnTgenYiKxKKVzpLB" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/cyndi-lauper-shes-so-unusual.png",
-    playlist: "https://en.wikipedia.org/wiki/She%27s_So_Unusual" },
+    playlist: "https://www.youtube.com/watch?v=pEPy2KOh4yY&list=PLGnmo4N_SmKLbVFEVk_Xsw3uyejQ2cZU3" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/cyndi-lauper-true-colors.png",
-    playlist: "https://en.wikipedia.org/wiki/True_Colors_(Cyndi_Lauper_album)" },
+    playlist: "https://www.youtube.com/watch?v=_UtYGg3jEdM&list=PLGnmo4N_SmKIIZIJHpKltXkmqlts3itwS" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/level-42-level-best.png",
-    playlist: "https://en.wikipedia.org/wiki/Level_Best" },
+    playlist: "https://www.youtube.com/watch?v=ArrEfcgwWWc&list=PLGnmo4N_SmKKaoICA5SHim5nF2Bn9hCg3" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/huey-lewis-and-the-news-fore!.png",
-    playlist: "https://en.wikipedia.org/wiki/Fore!" },
+    playlist: "https://www.youtube.com/watch?v=atiJkXBEJks&list=PLGnmo4N_SmKLBHQSY__4zoOJJ96uDcYW2" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/madonna-like-a-virgin.png",
-    playlist: "https://en.wikipedia.org/wiki/Like_a_Virgin_(album)" },
+    playlist: "https://www.youtube.com/watch?v=IlPCW6nLheM&list=PLGnmo4N_SmKLDkj118ZwKfHfUhV_xj46u" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/madonna-true-blue.png",
-    playlist: "https://en.wikipedia.org/wiki/True_Blue_(album)" },
+    playlist: "https://www.youtube.com/watch?v=BlGg-4XIwgg&list=PLGnmo4N_SmKKeDszR_ecxgOeSwMQs4nlK" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/madonna-like-a-prayer.png",
-    playlist: "https://en.wikipedia.org/wiki/Like_a_Prayer_(album)" },
+    playlist: "https://www.youtube.com/watch?v=ilottRbDnGY&list=PLGnmo4N_SmKLkidmOMj5pg2bbv-gShYgf" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/marillion-misplaced-childhood.png",
-    playlist: "https://en.wikipedia.org/wiki/Misplaced_Childhood" },
+    playlist: "https://www.youtube.com/watch?v=M7SDuWgTXU4&list=PLGnmo4N_SmKLgYjI4uX_RF8rJRIa9Ovh0" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/richard-marx-greatest-hits.png",
-    playlist: "https://en.wikipedia.org/wiki/Greatest_Hits_(1997_Richard_Marx_album)" },
+    playlist: "https://www.youtube.com/watch?v=KowI8GbC3S4&list=PLGnmo4N_SmKIXCCGK6d2GbWJV22apQz3o" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/pet-shop-boys-please.png",
-    playlist: "https://en.wikipedia.org/wiki/Please_(Pet_Shop_Boys_album)" },
+    playlist: "https://www.youtube.com/watch?v=1ht9xsdrcoM&list=PLGnmo4N_SmKLKRuFVHpvZrKEBC56bpDhk" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/pet-shop-boys-actually.png",
-    playlist: "https://en.wikipedia.org/wiki/Actually" },
+    playlist: "https://www.youtube.com/watch?v=prntbdZiJSg&list=PLGnmo4N_SmKJ9yslRM7gREdM1jxeTFlt3" },
 
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/primitives-lovely.png",
-    playlist: "https://en.wikipedia.org/wiki/Lovely_(The_Primitives_album)" },
+    playlist: "https://www.youtube.com/watch?v=XmwrDtjhXkE&list=PLGnmo4N_SmKIyrtvWg7xf2DPS_tt55bsz" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/propaganda-a-secret-wish.png",
-    playlist: "https://en.wikipedia.org/wiki/A_Secret_Wish" },
+    playlist: "https://www.youtube.com/watch?v=Myy5qlZdBB0&list=PLGnmo4N_SmKKWKDyT8FOUJO3vP9NXnAZA" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/propaganda-wishful-thinking.png",
-    playlist: "https://en.wikipedia.org/wiki/Wishful_Thinking_(Propaganda_album)" },
+    playlist: "https://www.youtube.com/watch?v=N6U-xDyo0mA&list=PLGnmo4N_SmKJ3KPX0dqg2LUjiO49lr1oE" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/chris-rea-new-light-through-old-windows.png",
-    playlist: "https://en.wikipedia.org/wiki/New_Light_Through_Old_Windows" },
+    playlist: "https://www.youtube.com/watch?v=I_X0NVV-tZY&list=PLGnmo4N_SmKKjScFDG6bS9V8Is7mfSo81" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/simple-minds-live-in-the-city-of-light.png",
-    playlist: "https://en.wikipedia.org/wiki/Live_in_the_City_of_Light" },
+    playlist: "https://www.youtube.com/watch?v=daRtv_JveZg&list=PLGnmo4N_SmKLvPSj8dxDB9w3_Qo3s--aB" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/simple-minds-glittering-prize.png",
-    playlist: "https://en.wikipedia.org/wiki/Glittering_Prize_81/92" },
+    playlist: "https://www.youtube.com/watch?v=QxMh8W4VM98&list=PLGnmo4N_SmKJIvUCKoppVFIAHhgh61PFr" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/skid-row-slave-to-the-grind.png",
-    playlist: "https://en.wikipedia.org/wiki/Slave_to_the_Grind" },
+    playlist: "https://www.youtube.com/watch?v=LFksc3I9kr8&list=PLGnmo4N_SmKLQwPaD6YHUCBikWnse3IDT" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/the-smiths-best.png",
-    playlist: "https://en.wikipedia.org/wiki/Best..._I" },
+    playlist: "https://www.youtube.com/watch?v=jhNUhS1RW2Y&list=PLGnmo4N_SmKIXRM51c8ftX6rgBnGqTk20" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/spandau-ballet-the-best-of.png",
-    playlist: "https://en.wikipedia.org/wiki/The_Best_of_Spandau_Ballet" },
+    playlist: "https://www.youtube.com/watch?v=YjlAHyuq-0o&list=PLGnmo4N_SmKLGFgcbi4NJtK6YS4nINfL6" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/spandau-ballet-once-more.png",
-    playlist: "https://en.wikipedia.org/wiki/Once_More_(Spandau_Ballet_album)" },
+    playlist: "https://www.youtube.com/watch?v=YkujAeoM1R0&list=PLGnmo4N_SmKJEYvj_9bAe2AzO3PotKtL8" },
 
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/tears-for-fears-tears-roll-down-greatest-hits-82-92.png",
-    playlist: "https://en.wikipedia.org/wiki/Tears_Roll_Down_(Greatest_Hits_82%E2%80%9392)" },
+    playlist: "https://www.youtube.com/watch?v=4vbXM98Pd4g&list=PLGnmo4N_SmKKzilI9VV40c63WLv1k7snm" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/10,000-maniacs-mtv-unplugged.png",
-    playlist: "https://en.wikipedia.org/wiki/MTV_Unplugged_(10,000_Maniacs_album)" },
+    playlist: "https://www.youtube.com/watch?v=CoGfCS9DJlk&list=PLGnmo4N_SmKKufMs83NzBNETVWmK131b_" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/therapy-troublegum.png",
-    playlist: "https://en.wikipedia.org/wiki/Troublegum" },
+    playlist: "https://www.youtube.com/watch?v=pqtFx938fbk&list=PLGnmo4N_SmKJ36o1IFk9-qYHVVYT2PAXv" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/tanita-tikaram-ancient-heart.png",
-    playlist: "https://en.wikipedia.org/wiki/Ancient_Heart" },
+    playlist: "https://www.youtube.com/watch?v=r8MtSO06Xi8&list=PLGnmo4N_SmKK5bCDR8NROJ_5nvN5CDjoW" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/tpau-bridge-of-spies.png",
-    playlist: "https://en.wikipedia.org/wiki/Bridge_of_Spies_(album)" },
+    playlist: "https://www.youtube.com/watch?v=nULSZY9gI3Y&list=PLGnmo4N_SmKIsW-BEW8nS1aOAaBExzTLf" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/tpau-rage.png",
-    playlist: "https://en.wikipedia.org/wiki/Rage_(T%27Pau_album)" },
+    playlist: "https://www.youtube.com/watch?v=KIMRiPdjcP0&list=PLGnmo4N_SmKKJm22IyTQrfu0liQwq2zoU" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/u2-under-a-bloodred-sky.png",
-    playlist: "https://en.wikipedia.org/wiki/Under_a_Blood_Red_Sky" },
+    playlist: "https://www.youtube.com/watch?v=q9pEARgUGQ8&list=PLGnmo4N_SmKKwfIG91qob7c5EymFWbcK6" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/u2-the-unforgettable-fire.png",
-    playlist: "https://en.wikipedia.org/wiki/The_Unforgettable_Fire" },
+    playlist: "https://www.youtube.com/watch?v=ot-5qt-T-YQ&list=PLGnmo4N_SmKLgd4KSt5Wi4MjDGkIzv2m3" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/van-halen-1984.png",
-    playlist: "https://en.wikipedia.org/wiki/1984_(Van_Halen_album)" },
+    playlist: "https://www.youtube.com/watch?v=UM68ZL42hp0&list=PLGnmo4N_SmKL0-sVc9jf1DfJHlRNrsrGD" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/van-halen-5150.png",
-    playlist: "https://en.wikipedia.org/wiki/5150_(album)" },
+    playlist: "https://www.youtube.com/watch?v=o936NLQMqJw&list=PLGnmo4N_SmKIa5CBqXp4oQ5VXfqrWY4KR" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/van-halen-ou812.png",
-    playlist: "https://en.wikipedia.org/wiki/OU812" },
+    playlist: "https://www.youtube.com/watch?v=IVH7mHldMOo&list=PLGnmo4N_SmKIgDiYGHAdSUDfT4DXEEuTf" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/suzanne-vega-suzanne-vega.png",
-    playlist: "https://en.wikipedia.org/wiki/Suzanne_Vega_(album)" },
+    playlist: "https://www.youtube.com/watch?v=32GGaizRqu0&list=PLGnmo4N_SmKJ3mwGAXW5f7Ut8OR3TDsu_" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/suzanne-vega-solitude-standing.png",
-    playlist: "https://en.wikipedia.org/wiki/Solitude_Standing" },
+    playlist: "https://www.youtube.com/watch?v=L9x-DENKIts&list=PLGnmo4N_SmKJmvmHeWYa699IYGoI55nb4" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/westworld-where-the-action-is.png",
-    playlist: "https://en.wikipedia.org/wiki/Westworld_(British_band)" },
+    playlist: "https://www.youtube.com/watch?v=uaqM29i3NkQ&list=PLGnmo4N_SmKLcLCYRAilztRNab_STt7ay" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/jane-wiedlin-jane-wiedlin.png",
-    playlist: "https://en.wikipedia.org/wiki/Jane_Wiedlin_(album)" },
+    playlist: "https://www.youtube.com/watch?v=meO9h9KosvQ&list=PLGnmo4N_SmKKUAjvZpFKXtyDtecbXpFRi" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/jane-wiedlin-fur.png",
-    playlist: "https://en.wikipedia.org/wiki/Fur_(Jane_Wiedlin_album)" },
+    playlist: "https://www.youtube.com/watch?v=TnsoVuN8tlE&list=PLGnmo4N_SmKJEDNwRR-4wwASvIwwPL0qN" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/jane-wiedlin-tangled.png",
-    playlist: "https://en.wikipedia.org/wiki/Tangled_(Jane_Wiedlin_album)" },
+    playlist: "https://www.youtube.com/watch?v=0UBkFx56qfw&list=PLGnmo4N_SmKLhOUt3rSXBBsLkGRPT15nd" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/kim-wilde-close.png",
-    playlist: "https://en.wikipedia.org/wiki/Close_(Kim_Wilde_album)" },
+    playlist: "https://www.youtube.com/watch?v=lZFjmkeW-rE&list=PLGnmo4N_SmKJdLY6a90qE-qyxiHeUu9aO" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/kim-wilde-here-come-the-aliens.png",
-    playlist: "https://en.wikipedia.org/wiki/Here_Come_the_Aliens" },
+    playlist: "https://www.youtube.com/watch?v=TdXjvzB-Ehc&list=PLGnmo4N_SmKI-4Xdh4YgBkIjjBwJrz66c" },
 
   { cover: "https://jaseman125.github.io/music/100-albums/lo-res/steve-winwood-chronicles.png",
-    playlist: "https://en.wikipedia.org/wiki/Chronicles_(Steve_Winwood_album)" },
+    playlist: "https://www.youtube.com/watch?v=45aS0UqFXUU&list=PLGnmo4N_SmKJoHnLQ_sr-RSD6jEwZQiW4&pp=gAQBsAgC" },
 
 
 
