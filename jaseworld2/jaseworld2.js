@@ -72,7 +72,7 @@ const rooms = {
     doorways: { east:true },
     nextRooms: { east:"mainfoyer" },
     items: [
-      "https://jaseman125.github.io/photo-album/2023-jaseburner-at-the-flash.jpg"
+      "https://jaseman125.github.io/pictures/100pics/BMX01-2023-jaseburner-at-the-flash.jpg"
     ],
     links: [
       { href:"https://jaseman125.github.io/photo-album/photos.html", label:"PHOTOS" },
