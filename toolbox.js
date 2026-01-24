@@ -28,7 +28,7 @@ async function fetchBackgrounds() {
     backgroundImages = data
       .filter(file => /\.(png|jpg|jpeg|gif)$/i.test(file.name))
       .map(file => ({
-        name: file.name.split('.')[0], 
+        name: file.name, // Now keeping the full extension visible
         path: "img/backgrounds/" + file.name 
       }));
     
@@ -55,6 +55,19 @@ function cycleBackground(direction) {
   const selected = backgroundImages[currentBgIndex];
   window.parent.postMessage({ type: "SET_BACKGROUND", url: selected.path }, "*");
   updatePage(); 
+}
+
+/**
+ * 3. MANUAL ENTRY: Change background via text box
+ */
+function setBackgroundByName(name) {
+  const index = backgroundImages.findIndex(img => img.name.toLowerCase() === name.toLowerCase());
+  if (index !== -1) {
+    currentBgIndex = index;
+    const selected = backgroundImages[currentBgIndex];
+    window.parent.postMessage({ type: "SET_BACKGROUND", url: selected.path }, "*");
+    updatePage();
+  }
 }
 
 function refreshIframeState() {
@@ -88,11 +101,15 @@ function updatePage() {
     let row1 = "";
     let row2 = "";
 
-    const currentName = backgroundImages.length > 0 ? backgroundImages[currentBgIndex].name : "01";
+    const currentName = backgroundImages.length > 0 ? backgroundImages[currentBgIndex].name : "01.png";
     
-    const bgCol1 = `<td width="40" align="center"><button id="bgPrev" style="width:25px; height:16px; font-size:8px; cursor:pointer;">⬅️</button></td>`;
-    const bgCol2 = `<td width="40" align="center" style="font-size:10px; font-weight:bold; background:#bbb; border:1px solid #999; color:#000;">${currentName}</td>`;
-    const bgCol3 = `<td width="40" align="center"><button id="bgNext" style="width:25px; height:16px; font-size:8px; cursor:pointer;">➡️</button></td>`;
+    // Column 1 definitions (Now with the full extension visible)
+    const col1_row1 = `<td width="40" align="center" style="font-size:9px; font-weight:bold; color:#fff; background:#444;">BGND:</td>`;
+    const col1_row2 = `<td width="40" align="center"><input type="text" id="bgNameInput" value="${currentName}" title="${currentName}" style="width:36px; height:14px; font-size:8px; text-align:center; border:1px solid #999;"></td>`;
+    const col1_row3 = `<td width="40" align="center">
+                        <button id="bgPrev" style="width:18px; height:16px; font-size:8px; cursor:pointer; padding:0;">⬅️</button>
+                        <button id="bgNext" style="width:18px; height:16px; font-size:8px; cursor:pointer; padding:0;">➡️</button>
+                      </td>`;
 
     for (let i = 1; i <= 10; i++) {
       const id = "IF" + String(i).padStart(2, "0");
@@ -111,17 +128,24 @@ function updatePage() {
 
     pageContent.innerHTML = `
       <table class="presetTable" cellpadding="0" cellspacing="0" border="0">
-        <tr>${bgCol1}${tickRow}</tr>
-        <tr>${bgCol2}${row1}</tr>
-        <tr>${bgCol3}${row2}</tr>
+        <tr>${col1_row1}${tickRow}</tr>
+        <tr>${col1_row2}${row1}</tr>
+        <tr>${col1_row3}${row2}</tr>
       </table>
     `;
 
     attachPresetButtons();
     attachTickboxes();
     
+    // Background Listeners
     document.getElementById("bgPrev").onclick = () => cycleBackground("prev");
     document.getElementById("bgNext").onclick = () => cycleBackground("next");
+    
+    const bgInput = document.getElementById("bgNameInput");
+    bgInput.onkeydown = (e) => {
+      if (e.key === "Enter") setBackgroundByName(bgInput.value);
+    };
+
     return;
   }
 
@@ -300,5 +324,6 @@ fetch("toolbox.txt")
   .then(r => r.text())
   .then(text => {
     presets = parseToolboxText(text);
+    applyPreset("PRESET01"); // Auto-load objects on start
     fetchBackgrounds(); 
   });
