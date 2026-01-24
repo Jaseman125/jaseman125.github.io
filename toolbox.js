@@ -103,13 +103,19 @@ function updatePage() {
 
     const currentName = backgroundImages.length > 0 ? backgroundImages[currentBgIndex].name : "01.png";
     
-    const col1_row1 = `<td width="40" align="center" style="font-size:9px; font-weight:bold; color:#fff; background:#444;">BGND:</td>`;
-    const col1_row2 = `<td width="40" align="center"><input type="text" id="bgNameInput" value="${currentName}" title="${currentName}" style="width:36px; height:14px; font-size:8px; text-align:center; border:1px solid #999;"></td>`;
-    const col1_row3 = `<td width="40" align="center">
-                        <button id="bgPrev" style="width:18px; height:16px; font-size:8px; cursor:pointer; padding:0;">⬅️</button>
-                        <button id="bgNext" style="width:18px; height:16px; font-size:8px; cursor:pointer; padding:0;">➡️</button>
+    // Column 1: Background Controls (Shaded & Grouped)
+    const col1_style = 'style="background:#2a2a2a; border-right:1px solid #444;"';
+    const col1_row1 = `<td width="45" align="center" ${col1_style}><span style="font-size:9px; font-weight:bold; color:#0cf;">BGND:</span></td>`;
+    const col1_row2 = `<td width="45" align="center" ${col1_style}><input type="text" id="bgNameInput" value="${currentName}" title="${currentName}" style="width:40px; height:14px; font-size:8px; text-align:center; border:1px solid #999; background:#eee; color:#000;"></td>`;
+    const col1_row3 = `<td width="45" align="center" ${col1_style}>
+                        <button id="bgPrev" style="width:20px; height:16px; font-size:8px; cursor:pointer; padding:0;">⬅️</button>
+                        <button id="bgNext" style="width:20px; height:16px; font-size:8px; cursor:pointer; padding:0;">➡️</button>
                       </td>`;
 
+    // The Massive Gap (40px)
+    const spacer = `<td width="40"></td>`;
+
+    // The Content Columns
     for (let i = 1; i <= 10; i++) {
       const id = "IF" + String(i).padStart(2, "0");
       const checked = iframeStates[id]?.visible ? "checked" : "";
@@ -127,9 +133,9 @@ function updatePage() {
 
     pageContent.innerHTML = `
       <table class="presetTable" cellpadding="0" cellspacing="0" border="0">
-        <tr>${col1_row1}${tickRow}</tr>
-        <tr>${col1_row2}${row1}</tr>
-        <tr>${col1_row3}${row2}</tr>
+        <tr>${col1_row1}${spacer}${tickRow}</tr>
+        <tr>${col1_row2}${spacer}${row1}</tr>
+        <tr>${col1_row3}${spacer}${row2}</tr>
       </table>
     `;
 
@@ -291,9 +297,8 @@ function applyPreset(presetKey, isInitialLoad = false) {
     const iframe = window.parent.document.getElementById(ids[i]);
     if (!iframe || parts.length !== 9) continue;
 
-    // LOOP PROTECTION: Don't change IF10's src if it's currently toolbox.html
     if (ids[i] === "IF10" && parts[0].includes("toolbox.html")) {
-       // Only skip the SRC update, still update position/visibility
+       // Loop protection
     } else {
        iframe.src = parts[0];
     }
