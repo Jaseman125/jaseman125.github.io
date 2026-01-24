@@ -1,13 +1,20 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+/* Ensure the page takes up the full browser window */
+body, html { 
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
+    background-color: #000; 
 }
 
 #bg {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* 'cover' ensures the image fills the 1920x1080 area without white gaps */
+    object-fit: cover; 
+    /* This allows background.js to manipulate the opacity for the fade effect */
+    transition: opacity 0.4s ease-in-out;
+    opacity: 1;
+    display: block;
 }
