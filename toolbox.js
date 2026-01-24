@@ -28,7 +28,7 @@ async function fetchBackgrounds() {
     backgroundImages = data
       .filter(file => /\.(png|jpg|jpeg|gif)$/i.test(file.name))
       .map(file => ({
-        name: file.name, // Now keeping the full extension visible
+        name: file.name, 
         path: "img/backgrounds/" + file.name 
       }));
     
@@ -103,7 +103,6 @@ function updatePage() {
 
     const currentName = backgroundImages.length > 0 ? backgroundImages[currentBgIndex].name : "01.png";
     
-    // Column 1 definitions (Now with the full extension visible)
     const col1_row1 = `<td width="40" align="center" style="font-size:9px; font-weight:bold; color:#fff; background:#444;">BGND:</td>`;
     const col1_row2 = `<td width="40" align="center"><input type="text" id="bgNameInput" value="${currentName}" title="${currentName}" style="width:36px; height:14px; font-size:8px; text-align:center; border:1px solid #999;"></td>`;
     const col1_row3 = `<td width="40" align="center">
@@ -137,7 +136,6 @@ function updatePage() {
     attachPresetButtons();
     attachTickboxes();
     
-    // Background Listeners
     document.getElementById("bgPrev").onclick = () => cycleBackground("prev");
     document.getElementById("bgNext").onclick = () => cycleBackground("next");
     
@@ -283,15 +281,23 @@ function parseToolboxText(text) {
   return result;
 }
 
-function applyPreset(presetKey) {
+function applyPreset(presetKey, isInitialLoad = false) {
   const preset = presets[presetKey];
   if (!preset || preset.length !== 10) return;
   const ids = ["IF01","IF02","IF03","IF04","IF05","IF06","IF07","IF08","IF09","IF10"];
+  
   for (let i = 0; i < 10; i++) {
     const parts = preset[i].split(",").map(p => p.trim());
     const iframe = window.parent.document.getElementById(ids[i]);
     if (!iframe || parts.length !== 9) continue;
-    iframe.src = parts[0];
+
+    // LOOP PROTECTION: Don't change IF10's src if it's currently toolbox.html
+    if (ids[i] === "IF10" && parts[0].includes("toolbox.html")) {
+       // Only skip the SRC update, still update position/visibility
+    } else {
+       iframe.src = parts[0];
+    }
+    
     iframe.style.left = parts[1] + "px";
     iframe.style.top = parts[2] + "px";
     iframe.style.width = parts[3] + "px";
@@ -324,6 +330,6 @@ fetch("toolbox.txt")
   .then(r => r.text())
   .then(text => {
     presets = parseToolboxText(text);
-    applyPreset("PRESET01"); // Auto-load objects on start
+    applyPreset("PRESET01", true); 
     fetchBackgrounds(); 
   });
