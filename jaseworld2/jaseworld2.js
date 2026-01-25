@@ -92,7 +92,9 @@ const rooms = {
     doorways: { south:true },
     nextRooms: { south:"photoroom1" },
     items: [],
-    links: []
+    links: [
+      { href:"https://www.google.com/maps/@53.0885118,-2.9732472,41m/data=!3m1!1e3?authuser=0&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D", label:"STREET VIEW" }
+    ]
   }
 };
 
