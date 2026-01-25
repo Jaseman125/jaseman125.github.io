@@ -78,7 +78,7 @@ const rooms = {
     ],
     links: [
       { href:"https://jaseman125.github.io/photo-album/100-photos/index-phone.html", label:"PHOTOS" },
-      { href:"hhttps://jaseman125.github.io/pictures/100pics/index-phone.html", label:"PICS" },
+      { href:"https://jaseman125.github.io/pictures/100pics/index-phone.html", label:"PICS" },
       { href:"https://youtu.be/79zINoERzM0?si=LuDkJipQ4FvAcRAe", label:"Photos Slideshow" },
       { href:"https://jaseman125.github.io/software/software.html", label:"SOFTWARE" }
     ]
