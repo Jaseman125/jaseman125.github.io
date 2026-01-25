@@ -93,7 +93,7 @@ const rooms = {
     nextRooms: { south:"photoroom1" },
     items: [],
     links: [
-      { href:"https://www.google.com/maps/@53.0885118,-2.9732472,41m/data=!3m1!1e3?authuser=0&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D", label:"STREET VIEW" }
+      { href:"https://www.google.com/maps/@53.0884291,-2.9729276,3a,20y,295.46h,90.16t/data=!3m7!1e1!3m5!1sUA8W0uSGJRNCVmm-zqooiw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.15890776006854423%26panoid%3DUA8W0uSGJRNCVmm-zqooiw%26yaw%3D295.45808780129244!7i16384!8i8192?authuser=0&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D", label:"STREET VIEW" }
     ]
   }
 };
