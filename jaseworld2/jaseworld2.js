@@ -69,8 +69,8 @@ const rooms = {
     east: "photoroom1_east.png",
     south: "photoroom1_south.png",
     west: "photoroom1_west.png",
-    doorways: { east:true },
-    nextRooms: { east:"mainfoyer" },
+    doorways: { north:true, east:true },
+    nextRooms: { north:"frontgarden", east:"mainfoyer" },
     items: [
       "https://jaseman125.github.io/pictures/100pics/BMX01-2023-jaseburner-at-the-flash.jpg",
       "https://jaseman125.github.io/pictures/100pics/PLACES05-swan-lake-gresford.jpg",
@@ -82,6 +82,17 @@ const rooms = {
       { href:"https://youtu.be/79zINoERzM0?si=LuDkJipQ4FvAcRAe", label:"Photos Slideshow" },
       { href:"https://jaseman125.github.io/software/software.html", label:"SOFTWARE" }
     ]
+  },
+
+  frontgarden: {
+    north: "frontgarden_north.jpg",
+    east: "frontgarden_east.jpg",
+    south: "frontgarden_south.jpg",
+    west: "frontgarden_west.jpg",
+    doorways: { south:true },
+    nextRooms: { south:"photoroom1" },
+    items: [],
+    links: []
   }
 };
 
