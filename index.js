@@ -1,5 +1,5 @@
 function updateMode() {
-    const phone = document.body.clientWidth < 1521;
+    const phone = window.innerWidth < 1521;
 
     if (phone) {
         applyPhoneMode();
