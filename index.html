@@ -1,62 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JASEMAN.COM</title>
-    <style>
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            width: 100%; 
-            height: 100%; 
-            overflow: hidden; 
-            background: black; 
-        }
-        iframe { 
-            position: absolute; 
-            border: none; 
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JASEMAN.COM</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="index.js" defer></script>
 </head>
-<body>
+<body class="fade-start">
 
-    <!-- <iframe id="IF01" src="background.html" style="z-index:1;"></iframe> -->
-    <iframe id="IF02" src="about:blank" style="z-index:2;"></iframe>
-    <iframe id="IF03" src="about:blank" style="z-index:3;"></iframe>
-    <iframe id="IF04" src="about:blank" style="z-index:4;"></iframe>
-    <iframe id="IF05" src="about:blank" style="z-index:5;"></iframe>
-    <iframe id="IF06" src="about:blank" style="z-index:6;"></iframe>
-    <iframe id="IF07" src="about:blank" style="z-index:7;"></iframe>
-    <iframe id="IF08" src="about:blank" style="z-index:8;"></iframe>
-    <iframe id="IF09" src="about:blank" style="z-index:9;"></iframe>
-    <iframe id="IF10" src="toolbox.html" style="z-index:100; width:400px; height:100px; left:0; top:0;"></iframe>
+  <iframe id="IF01P" src="background.html" scrolling="no"></iframe>
+  <iframe id="IF02P" src="msgheader.html" style="display:none;"></iframe>
+  <iframe id="IF03P" src="ytplaylist.html"></iframe>
+  <iframe id="IF04P" src="jaseworld2/jaseworld2.html"></iframe>
 
-    <iframe id="IF01P" src="background.html" style="display:none; position:absolute; border:0;"></iframe>
-    <iframe id="IF02P" src="about:blank" style="display:none; position:absolute; border:0;"></iframe>
-    <iframe id="IF03P" src="about:blank" style="display:none; position:absolute; border:0;"></iframe>
-    <iframe id="IF04P" src="about:blank" style="display:none; position:absolute; border:0;"></iframe>
+  <iframe id="IF01" src="background.html" scrolling="no"></iframe>
+  <iframe id="IF02" src="msgheader.html"></iframe>
+  <iframe id="IF03" src="ytplaylist.html"></iframe>
+  <iframe id="IF04" src="jaseworld2/jaseworld2.html"></iframe>
+  <iframe id="IF05" src="clock.html"></iframe>
+  <iframe id="IF06" src="weather.html"></iframe>
+  <iframe id="IF07" src="pastebox.html" scrolling="no"></iframe>
+  <iframe id="IF08" src="smallselector.html"></iframe>
+  <iframe id="IF09" src="largeselector.html"></iframe>
+  <iframe id="IF10" src="toolbox.html"></iframe>
 
-    <script>
-        window.addEventListener("message", function(e) {
-            // Relay Mouse Position from Background/Main to Toolbox
-            if (e.data.type === "mouseXY") {
-                const toolbox = document.getElementById("IF10").contentWindow;
-                toolbox.postMessage(e.data, "*");
-            }
-            
-            // Relay Background Change Command from Toolbox to Background IF01
-            if (e.data.type === "SET_BACKGROUND") {
-                const backgroundIframe = document.getElementById("IF01").contentWindow;
-                backgroundIframe.postMessage(e.data, "*");
-            }
-        });
+  <script>
+  window.addEventListener("mousemove", function(e) {
+    const toolboxFrame = document.getElementById("IF10");
+    if (!toolboxFrame) return;
+    const win = toolboxFrame.contentWindow;
+    if (!win) return;
+    win.postMessage({ type: "mouseXY", x: e.clientX, y: e.clientY }, "*");
+  });
+  </script>
 
-        // Track global mouse movement on the parent for the Toolbox readout
-        window.addEventListener("mousemove", function(e) {
-            const toolbox = document.getElementById("IF10").contentWindow;
-            toolbox.postMessage({ type: "mouseXY", x: e.clientX, y: e.clientY }, "*");
-        });
-    </script>
 </body>
 </html>
