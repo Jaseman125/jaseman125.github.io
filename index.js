@@ -1,4 +1,5 @@
 function updateMode() {
+    // window.innerWidth is the industry standard for accurate mobile detection
     const phone = window.innerWidth < 1521;
 
     if (phone) {
@@ -8,6 +9,7 @@ function updateMode() {
     }
 }
 
+// Ensure the mode updates on load and on every resize/orientation change
 window.addEventListener("load", updateMode);
 window.addEventListener("resize", updateMode);
 
@@ -16,6 +18,7 @@ window.addEventListener("load", () => {
 });
 
 function applyPhoneMode() {
+    // Hide all Desktop Frames
     hideFrame("IF01");
     hideFrame("IF02");
     hideFrame("IF03");
@@ -27,6 +30,7 @@ function applyPhoneMode() {
     hideFrame("IF09");
     hideFrame("IF10");
 
+    // Show and Configure Mobile Frames
     showFrame("IF01P");
     setWidth("IF01P", "414px");
     setHeight("IF01P", "750px");
@@ -67,6 +71,7 @@ function applyDesktopMode() {
     showFrame("IF07");
     showFrame("IF10");
 
+    // Hide all Mobile Frames
     hideFrame("IF01P");
     hideFrame("IF02P");
     hideFrame("IF03P");
