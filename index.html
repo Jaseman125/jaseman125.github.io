@@ -2,11 +2,23 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JASEMAN.COM</title>
-    <link rel="stylesheet" href="index.css">
+    <style>
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            width: 100%; 
+            height: 100%; 
+            overflow: hidden; 
+            background: black; 
+        }
+        iframe { 
+            position: absolute; 
+            border: none; 
+        }
+    </style>
 </head>
-<body class="fade-start">
+<body>
 
     <iframe id="IF01" src="background.html" style="width:1920px; height:1080px; z-index:1;"></iframe>
     
@@ -21,31 +33,25 @@
     
     <iframe id="IF10" src="toolbox.html" style="z-index:100; width:400px; height:100px; left:0; top:0;"></iframe>
 
-    <iframe id="IF01P" src="about:blank" style="display:none;"></iframe>
-    <iframe id="IF02P" src="about:blank" style="display:none;"></iframe>
-    <iframe id="IF03P" src="about:blank" style="display:none;"></iframe>
-    <iframe id="IF04P" src="about:blank" style="display:none;"></iframe>
-
-    <script src="index.js"></script>
     <script>
         window.addEventListener("message", function(e) {
             // Relay Mouse Position from Background/Main to Toolbox
             if (e.data.type === "mouseXY") {
                 const toolbox = document.getElementById("IF10").contentWindow;
-                if (toolbox) toolbox.postMessage(e.data, "*");
+                toolbox.postMessage(e.data, "*");
             }
             
             // Relay Background Change Command from Toolbox to Background IF01
             if (e.data.type === "SET_BACKGROUND") {
                 const backgroundIframe = document.getElementById("IF01").contentWindow;
-                if (backgroundIframe) backgroundIframe.postMessage(e.data, "*");
+                backgroundIframe.postMessage(e.data, "*");
             }
         });
 
         // Track global mouse movement on the parent for the Toolbox readout
         window.addEventListener("mousemove", function(e) {
             const toolbox = document.getElementById("IF10").contentWindow;
-            if (toolbox) toolbox.postMessage({ type: "mouseXY", x: e.clientX, y: e.clientY }, "*");
+            toolbox.postMessage({ type: "mouseXY", x: e.clientX, y: e.clientY }, "*");
         });
     </script>
 </body>
