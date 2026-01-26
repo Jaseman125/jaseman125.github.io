@@ -16,6 +16,7 @@ window.addEventListener("load", () => {
 });
 
 function applyPhoneMode() {
+    // Hide all Desktop Frames
     hideFrame("IF01");
     hideFrame("IF02");
     hideFrame("IF03");
@@ -27,6 +28,7 @@ function applyPhoneMode() {
     hideFrame("IF09");
     hideFrame("IF10");
 
+    // Show and Setup Mobile Frames
     showFrame("IF01P");
     setWidth("IF01P", "414px");
     setHeight("IF01P", "750px");
@@ -58,6 +60,7 @@ function applyPhoneMode() {
 }
 
 function applyDesktopMode() {
+    // Show all Desktop Frames
     showFrame("IF01");
     showFrame("IF02");
     showFrame("IF03");
@@ -65,8 +68,11 @@ function applyDesktopMode() {
     showFrame("IF05");
     showFrame("IF06");
     showFrame("IF07");
+    showFrame("IF08");
+    showFrame("IF09");
     showFrame("IF10");
 
+    // Hide all Mobile Frames
     hideFrame("IF01P");
     hideFrame("IF02P");
     hideFrame("IF03P");
