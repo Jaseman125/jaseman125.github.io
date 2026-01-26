@@ -25,15 +25,27 @@
   <iframe id="IF09" src="largeselector.html"></iframe>
   <iframe id="IF10" src="toolbox.html"></iframe>
 
-  <script>
-  window.addEventListener("mousemove", function(e) {
-    const toolboxFrame = document.getElementById("IF10");
-    if (!toolboxFrame) return;
-    const win = toolboxFrame.contentWindow;
-    if (!win) return;
-    win.postMessage({ type: "mouseXY", x: e.clientX, y: e.clientY }, "*");
-  });
-  </script>
+    <script>
+        window.addEventListener("message", function(e) {
+            // Relay Mouse Position from Background/Main to Toolbox
+            if (e.data.type === "mouseXY") {
+                const toolbox = document.getElementById("IF10").contentWindow;
+                toolbox.postMessage(e.data, "*");
+            }
+            
+            // Relay Background Change Command from Toolbox to Background IF01
+            if (e.data.type === "SET_BACKGROUND") {
+                const backgroundIframe = document.getElementById("IF01").contentWindow;
+                backgroundIframe.postMessage(e.data, "*");
+            }
+        });
+
+        // Track global mouse movement on the parent for the Toolbox readout
+        window.addEventListener("mousemove", function(e) {
+            const toolbox = document.getElementById("IF10").contentWindow;
+            toolbox.postMessage({ type: "mouseXY", x: e.clientX, y: e.clientY }, "*");
+        });
+    </script>
 
 </body>
 </html>
