@@ -51,7 +51,7 @@ const rooms = {
 
   movieroom1: {
     north: "movieroom1_north.png",
-    east: "movieroom1_east.png",
+    east: "movierroom1_east.png",
     south: "movieroom1_south.png",
     west: "movieroom1_west.png",
     doorways: { north:true },
@@ -89,12 +89,27 @@ const rooms = {
     east: "frontgarden_east.jpg",
     south: "frontgarden_south.jpg",
     west: "frontgarden_west.jpg",
-    doorways: { south:true },
-    nextRooms: { south:"photoroom1" },
+
+    doorways: { south:true, north:true },
+    nextRooms: { south:"photoroom1", north:"fronthall" },
+
     items: [],
     links: [
       { href:"https://www.google.com/maps/@53.0884291,-2.9729276,3a,20y,295.46h,90.16t/data=!3m7!1e1!3m5!1sUA8W0uSGJRNCVmm-zqooiw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.15890776006854423%26panoid%3DUA8W0uSGJRNCVmm-zqooiw%26yaw%3D295.45808780129244!7i16384!8i8192?authuser=0&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D", label:"STREET VIEW" }
     ]
+  },
+
+  fronthall: {
+    north: "fronthall_north.png",
+    east:  "fronthall_east.png",
+    south: "fronthall_south.png",
+    west:  "fronthall_west.png",
+
+    doorways: { south:true },
+    nextRooms: { south:"frontgarden" },
+
+    items: [],
+    links: []
   }
 };
 
