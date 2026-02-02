@@ -152,17 +152,45 @@ const rooms = {
   },
 
   corridor2: {
-    north: "corridor2_north.jpg",
-    east:  "corridor2_east.jpg",
-    south: "corridor2_south.jpg",
-    west:  "corridor2_west.jpg",
+  north: "corridor2_north.jpg",
+  east:  "corridor2_east.jpg",
+  south: "corridor2_south.jpg",
+  west:  "corridor2_west.jpg",
 
-    doorways: { south:true },
-    nextRooms: { south:"corridor1" },
+  doorways: { south:true, north:true },
+  nextRooms: { south:"corridor1", north:"kitchen" },
 
-    items: [],
-    links: []
-  }
+  items: [],
+  links: []
+}
+
+kitchen: {
+  north: "kitchen_north.jpg",
+  east:  "kitchen_east.jpg",
+  south: "kitchen_south.jpg",
+  west:  "kitchen_west.jpg",
+
+  doorways: { south:true, north:true },
+  nextRooms: { south:"corridor2", north:"backgarden" },
+
+  items: [],
+  links: []
+}
+
+backgarden: {
+  north: "backgarden_north.jpg",
+  east:  "backgarden_east.jpg",
+  south: "backgarden_south.jpg",
+  west:  "backgarden_west.jpg",
+
+  doorways: { south:true },
+  nextRooms: { south:"kitchen" },
+
+  items: [],
+  links: []
+}
+
+
 };
 
 let currentRoom = "mainfoyer";
