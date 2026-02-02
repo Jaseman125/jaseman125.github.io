@@ -51,7 +51,7 @@ const rooms = {
 
   movieroom1: {
     north: "movieroom1_north.png",
-    east: "movierroom1_east.png",
+    east: "movieroom1_east.png",
     south: "movieroom1_south.png",
     west: "movieroom1_west.png",
     doorways: { north:true },
@@ -105,8 +105,21 @@ const rooms = {
     south: "fronthall_south.jpg",
     west:  "fronthall_west.jpg",
 
+    doorways: { south:true, north:true },
+    nextRooms: { south:"frontgarden", north:"corridor1" },
+
+    items: [],
+    links: []
+  },
+
+  corridor1: {
+    north: "corridor1_north.jpg",
+    east:  "corridor1_east.jpg",
+    south: "corridor1_south.jpg",
+    west:  "corridor1_west.jpg",
+
     doorways: { south:true },
-    nextRooms: { south:"frontgarden" },
+    nextRooms: { south:"fronthall" },
 
     items: [],
     links: []
