@@ -100,10 +100,10 @@ const rooms = {
   },
 
   fronthall: {
-    north: "fronthall_north.png",
-    east:  "fronthall_east.png",
-    south: "fronthall_south.png",
-    west:  "fronthall_west.png",
+    north: "fronthall_north.jpg",
+    east:  "fronthall_east.jpg",
+    south: "fronthall_south.jpg",
+    west:  "fronthall_west.jpg",
 
     doorways: { south:true },
     nextRooms: { south:"frontgarden" },
