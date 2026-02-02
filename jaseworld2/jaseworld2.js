@@ -131,8 +131,21 @@ const rooms = {
     south: "lounge_south.jpg",
     west:  "lounge_west.jpg",
 
+    doorways: { west:true, east:true },
+    nextRooms: { west:"corridor1", east:"jasemanroom" },
+
+    items: [],
+    links: []
+  },
+
+  jasemanroom: {
+    north: "jasemanroom_north.jpg",
+    east:  "jasemanroom_east.jpg",
+    south: "jasemanroom_south.jpg",
+    west:  "jasemanroom_west.jpg",
+
     doorways: { west:true },
-    nextRooms: { west:"corridor1" },
+    nextRooms: { west:"lounge" },
 
     items: [],
     links: []
