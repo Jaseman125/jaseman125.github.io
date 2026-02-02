@@ -151,14 +151,14 @@ const rooms = {
     links: []
   },
 
-  corridor2: {
+corridor2: {
   north: "corridor2_north.jpg",
   east:  "corridor2_east.jpg",
   south: "corridor2_south.jpg",
   west:  "corridor2_west.jpg",
 
-  doorways: { south:true, north:true },
-  nextRooms: { south:"corridor1", north:"kitchen" },
+  doorways: { south:true, north:true, east:true, west:true },
+  nextRooms: { south:"corridor1", north:"kitchen", east:"corridor3", west:"bathroom" },
 
   items: [],
   links: []
@@ -190,6 +190,57 @@ backgarden: {
   links: []
 }
 
+corridor3: {
+  north: "corridor3_north.jpg",
+  east:  "corridor3_east.jpg",
+  south: "corridor3_south.jpg",
+  west:  "corridor3_west.jpg",
+
+  doorways: { west:true, east:true, north:true },
+  nextRooms: { west:"corridor2", east:"irinaroom", north:"guestroom" },
+
+  items: [],
+  links: []
+}
+
+irinaroom: {
+  north: "irinaroom_north.jpg",
+  east:  "irinaroom_east.jpg",
+  south: "irinaroom_south.jpg",
+  west:  "irinaroom_west.jpg",
+
+  doorways: { west:true },
+  nextRooms: { west:"corridor3" },
+
+  items: [],
+  links: []
+}
+
+guestroom: {
+  north: "guestroom_north.jpg",
+  east:  "guestroom_east.jpg",
+  south: "guestroom_south.jpg",
+  west:  "guestroom_west.jpg",
+
+  doorways: { south:true },
+  nextRooms: { south:"corridor3" },
+
+  items: [],
+  links: []
+}
+
+bathroom: {
+  north: "bathroom_north.jpg",
+  east:  "bathroom_east.jpg",
+  south: "bathroom_south.jpg",
+  west:  "bathroom_west.jpg",
+
+  doorways: { east:true },
+  nextRooms: { east:"corridor2" },
+
+  items: [],
+  links: []
+}
 
 };
 
