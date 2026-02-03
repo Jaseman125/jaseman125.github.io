@@ -261,8 +261,47 @@ martinoffice: {
   south: "martinoffice_south.jpg",
   west:  "martinoffice_west.jpg",
 
+  doorways: { south:true, east:true },
+  nextRooms: { south:"stairs", east:"martinroom" },
+
+  items: [],
+  links: []
+},
+
+martinroom: {
+  north: "martinroom_north.jpg",
+  east:  "martinroom_east.jpg",
+  south: "martinroom_south.jpg",
+  west:  "martinroom_west.jpg",
+
+  doorways: { west:true, east:true, north:true },
+  nextRooms: { west:"martinoffice", east:"martinbathroom", north:"martinwardrobe" },
+
+  items: [],
+  links: []
+},
+
+martinbathroom: {
+  north: "martinbathroom_north.jpg",
+  east:  "martinbathroom_east.jpg",
+  south: "martinbathroom_south.jpg",
+  west:  "martinbathroom_west.jpg",
+
+  doorways: { west:true },
+  nextRooms: { west:"martinroom" },
+
+  items: [],
+  links: []
+},
+
+martinwardrobe: {
+  north: "martinwardrobe_north.jpg",
+  east:  "martinwardrobe_east.jpg",
+  south: "martinwardrobe_south.jpg",
+  west:  "martinwardrobe_west.jpg",
+
   doorways: { south:true },
-  nextRooms: { south:"stairs" },
+  nextRooms: { south:"martinroom" },
 
   items: [],
   links: []
