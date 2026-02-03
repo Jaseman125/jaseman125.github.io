@@ -162,7 +162,7 @@ corridor2: {
 
   items: [],
   links: []
-}
+},
 
 kitchen: {
   north: "kitchen_north.jpg",
@@ -175,7 +175,7 @@ kitchen: {
 
   items: [],
   links: []
-}
+},
 
 backgarden: {
   north: "backgarden_north.jpg",
@@ -188,7 +188,7 @@ backgarden: {
 
   items: [],
   links: []
-}
+},
 
 corridor3: {
   north: "corridor3_north.jpg",
@@ -201,7 +201,7 @@ corridor3: {
 
   items: [],
   links: []
-}
+},
 
 irinaroom: {
   north: "irinaroom_north.jpg",
@@ -214,7 +214,7 @@ irinaroom: {
 
   items: [],
   links: []
-}
+},
 
 guestroom: {
   north: "guestroom_north.jpg",
@@ -227,7 +227,7 @@ guestroom: {
 
   items: [],
   links: []
-}
+},
 
 bathroom: {
   north: "bathroom_north.jpg",
