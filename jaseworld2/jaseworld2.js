@@ -99,18 +99,18 @@ const rooms = {
     ]
   },
 
-  fronthall: {
-    north: "fronthall_north.jpg",
-    east:  "fronthall_east.jpg",
-    south: "fronthall_south.jpg",
-    west:  "fronthall_west.jpg",
+fronthall: {
+  north: "fronthall_north.jpg",
+  east:  "fronthall_east.jpg",
+  south: "fronthall_south.jpg",
+  west:  "fronthall_west.jpg",
 
-    doorways: { south:true, north:true },
-    nextRooms: { south:"frontgarden", north:"corridor1" },
+  doorways: { south:true, north:true, west:true },
+  nextRooms: { south:"frontgarden", north:"corridor1", west:"stairs" },
 
-    items: [],
-    links: []
-  },
+  items: [],
+  links: []
+},
 
   corridor1: {
     north: "corridor1_north.jpg",
@@ -237,6 +237,32 @@ bathroom: {
 
   doorways: { east:true },
   nextRooms: { east:"corridor2" },
+
+  items: [],
+  links: []
+},
+
+stairs: {
+  north: "stairs_north.jpg",
+  east:  "stairs_east.jpg",
+  south: "stairs_south.jpg",
+  west:  "stairs_west.jpg",
+
+  doorways: { east:true, north:true },
+  nextRooms: { east:"fronthall", north:"martinoffice" },
+
+  items: [],
+  links: []
+},
+
+martinoffice: {
+  north: "martinoffice_north.jpg",
+  east:  "martinoffice_east.jpg",
+  south: "martinoffice_south.jpg",
+  west:  "martinoffice_west.jpg",
+
+  doorways: { south:true },
+  nextRooms: { south:"stairs" },
 
   items: [],
   links: []
