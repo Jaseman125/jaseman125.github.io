@@ -4,11 +4,9 @@
 
 // Rotating message words
 const words = [
-  { letters:["j","4","$","3","m","4","n"], color:"#0000AA" },
-  { letters:["j","a","s","e","m","a","n"], color:"#0000AA" },
   { letters:["J","A","S","E","M","A","N"], color:"#0000AA" },
-  { letters:["☻","H","a","p","p","y","☻"], color:"#008800" },
-  { letters:["N","e","w","Y","e","a","r"], color:"#008800" },
+  { letters:["J","A","S","E","M","A","N"], color:"#0000AA" },
+  { letters:["J","A","S","E","M","A","N"], color:"#0000AA" },
   { letters:["W","E","L","C","O","M","E"], color:"#000000" },
   { letters:["★","✦","♥","✿","☃","❄","☮"], color:"#000000" },
   { letters:["O","n"," ","T","h","i","s"], color:"#0000AA" },
