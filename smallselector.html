@@ -18,16 +18,76 @@
 
   <script>
     const pages = [
+
       `
-     <marquee scrollamount="20" style="color: crimson; font-family: sans-serif; font-weight: 900; font-size: 40px; margin: 0; padding: 0;"> WELCOME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USE THE PRESETS 01-20 IN THE TOOLBOX TO BROWSE THE CONTENT OF THIS WEBSITE - WHEN YOU CLICK THE PRESET BUTTON THE FIRST TIME THERE MAY BE A LONG PAUSE BEFORE ANYTHING HAPPENS - THIS IS DUE TO A LOT OF CONTENT BEING DOWNLOADED FROM GITHUB - DON'T PRESS THE BUTTON REPEATEDLY - IF NOTHING HAPPENS JUST WAIT A LITTTLE WHILE AND THE PAGE SHOULD LOAD: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 01 HOMEPAGE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 02 LEGO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 03 MUSIC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04 MOVIES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 05 100 PHOTOS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 06 PICTURES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 07 SOFTWARE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 08 GOOGLE STREET VIEW OF MY HOUSE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 09 GRESFORD WIKIPEDIA PAGE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10 LARGE SELECTOR - GOOGLE SHEET/CALENDAR/ETC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11 100 LEGO PICS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12 LEGOLAND SPACE SYSTEM BOOK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13 JASEMANS LAIR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14 CELESTIAL ORBIT ISSUE 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15 CELESTIAL ORBIT ISSUE 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16 LEGO COLOURING BOOK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 17 CLOCK AND WEATHER &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18 AXL BLUES WEBSITES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 19 GOOGLE SEARCH &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20 BRICKLINK STUDIO FILES. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; YOU CAN ALSO USE THE SMALL ARROWS AT THE TOP RIGHT OF THE TOOLBOX TO MANUALLY TWEAK THE SETTINGS OF THE 10 IFRAMES THAT APPEAR ON THIS SITE.  YOU CAN MOVE THEM, RESIZE THEM, ALTER OPACITY, BRIGHTNESS AND CONTRAST OR TURN THEM ON OR OFF.  IF YOU TURN OFF THE TOOLBOX BY MISTAKE JUST REFRESH THE PAGE TO GET IT BACK AGAIN. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THE GOOGLE SHEET IS A GOOD REFERENCE POINT TO GET AN OVERVIEW OF THE JASEMAN.COM SITE AND ACCESS THE COMPONENTS AND RESOURCES DIRECTLY. USE THE TABS ALONG THE BOTTOM TO VIEW THE VARIOUS SHEETS.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</marquee>
+      <style>
+        .ss-marquee-container {
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          box-sizing: border-box;
+          position: relative;
+        }
+
+        .ss-marquee-track {
+          display: inline-block;
+          white-space: nowrap;
+          will-change: transform;
+
+          /* The speed you liked */
+          animation: ssMarquee 60s linear infinite;
+
+          /* This pushes the first word off-screen WITHOUT affecting speed */
+          padding-left: 100%;
+        }
+
+        .ss-marquee-text {
+          display: inline-block;
+          padding-right: 4rem;
+          color: crimson;
+          font-family: sans-serif;
+          font-weight: 900;
+          font-size: 40px;
+        }
+
+        /* Seamless loop: move entire track left by its own width */
+        @keyframes ssMarquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      </style>
+
+      <div class="ss-marquee-container">
+        <div class="ss-marquee-track">
+
+          <!-- FIRST COPY -->
+          <span class="ss-marquee-text">
+            WELCOME     USE THE PRESETS 01-20 IN THE TOOLBOX TO BROWSE THE CONTENT OF THIS WEBSITE - WHEN YOU CLICK THE PRESET BUTTON THE FIRST TIME THERE MAY BE A LONG PAUSE BEFORE ANYTHING HAPPENS - THIS IS DUE TO A LOT OF CONTENT BEING DOWNLOADED FROM GITHUB - DON'T PRESS THE BUTTON REPEATEDLY - IF NOTHING HAPPENS JUST WAIT A LITTLE WHILE AND THE PAGE SHOULD LOAD:     01 HOMEPAGE     02 LEGO     03 MUSIC     04 MOVIES     05 100 PHOTOS     06 PICTURES     07 SOFTWARE     08 GOOGLE STREET VIEW OF MY HOUSE     09 GRESFORD WIKIPEDIA PAGE     10 LARGE SELECTOR - GOOGLE SHEET/CALENDAR/ETC     11 100 LEGO PICS     12 LEGOLAND SPACE SYSTEM BOOK     13 JASEMANS LAIR     14 CELESTIAL ORBIT ISSUE 1     15 CELESTIAL ORBIT ISSUE 2     16 LEGO COLOURING BOOK     17 CLOCK AND WEATHER     18 AXL BLUES WEBSITES     19 GOOGLE SEARCH     20 BRICKLINK STUDIO FILES.     YOU CAN ALSO USE THE SMALL ARROWS AT THE TOP RIGHT OF THE TOOLBOX TO MANUALLY TWEAK THE SETTINGS OF THE 10 IFRAMES THAT APPEAR ON THIS SITE. YOU CAN MOVE THEM, RESIZE THEM, ALTER OPACITY, BRIGHTNESS AND CONTRAST OR TURN THEM ON OR OFF. IF YOU TURN OFF THE TOOLBOX BY MISTAKE JUST REFRESH THE PAGE TO GET IT BACK AGAIN.     THE GOOGLE SHEET IS A GOOD REFERENCE POINT TO GET AN OVERVIEW OF THE JASEMAN.COM SITE AND ACCESS THE COMPONENTS AND RESOURCES DIRECTLY. USE THE TABS ALONG THE BOTTOM TO VIEW THE VARIOUS SHEETS.     
+          </span>
+
+          <!-- SECOND COPY FOR SEAMLESS LOOP -->
+          <span class="ss-marquee-text">
+            WELCOME     USE THE PRESETS 01-20 IN THE TOOLBOX TO BROWSE THE CONTENT OF THIS WEBSITE - WHEN YOU CLICK THE PRESET BUTTON THE FIRST TIME THERE MAY BE A LONG PAUSE BEFORE ANYTHING HAPPENS - THIS IS DUE TO A LOT OF CONTENT BEING DOWNLOADED FROM GITHUB - DON'T PRESS THE BUTTON REPEATEDLY - IF NOTHING HAPPENS JUST WAIT A LITTLE WHILE AND THE PAGE SHOULD LOAD:     01 HOMEPAGE     02 LEGO     03 MUSIC     04 MOVIES     05 100 PHOTOS     06 PICTURES     07 SOFTWARE     08 GOOGLE STREET VIEW OF MY HOUSE     09 GRESFORD WIKIPEDIA PAGE     10 LARGE SELECTOR - GOOGLE SHEET/CALENDAR/ETC     11 100 LEGO PICS     12 LEGOLAND SPACE SYSTEM BOOK     13 JASEMANS LAIR     14 CELESTIAL ORBIT ISSUE 1     15 CELESTIAL ORBIT ISSUE 2     16 LEGO COLOURING BOOK     17 CLOCK AND WEATHER     18 AXL BLUES WEBSITES     19 GOOGLE SEARCH     20 BRICKLINK STUDIO FILES.     YOU CAN ALSO USE THE SMALL ARROWS AT THE TOP RIGHT OF THE TOOLBOX TO MANUALLY TWEAK THE SETTINGS OF THE 10 IFRAMES THAT APPEAR ON THIS SITE. YOU CAN MOVE THEM, RESIZE THEM, ALTER OPACITY, BRIGHTNESS AND CONTRAST OR TURN THEM ON OR OFF. IF YOU TURN OFF THE TOOLBOX BY MISTAKE JUST REFRESH THE PAGE TO GET IT BACK AGAIN.     THE GOOGLE SHEET IS A GOOD REFERENCE POINT TO GET AN OVERVIEW OF THE JASEMAN.COM SITE AND ACCESS THE COMPONENTS AND RESOURCES DIRECTLY. USE THE TABS ALONG THE BOTTOM TO VIEW THE VARIOUS SHEETS.     
+          </span>
+
+        </div>
+      </div>
       `,
 
       `
-      <a href="http://jaseman.co.uk/lego/JaseWorld/the-park-north.html"><p style='font-family: sans-serif; font-weight: bold; font-size: 18px; margin-top: 8px; margin-bottom: 16px; color: yellow; text-shadow: 2px 2px 4px black;'>JASEWORLD 1 (Right-Click & Open New Tab)</p></a>
+      <a href="http://jaseman.co.uk/lego/JaseWorld/the-park-north.html">
+        <p style='font-family: sans-serif; font-weight: bold; font-size: 18px; margin-top: 8px; margin-bottom: 16px; color: yellow; text-shadow: 2px 2px 4px black;'>
+          JASEWORLD 1 (Right-Click & Open New Tab)
+        </p>
+      </a>
       `,
 
       `
-      <a href="phone-menu.html" target="_blank"><p style='font-family: sans-serif; font-weight: bold; font-size: 18px; margin-top: 8px; margin-bottom: 16px; color: lime; text-shadow: 2px 2px 4px black;'>PHONE MENU</a></a>
+      <a href="phone-menu.html" target="_blank">
+        <p style='font-family: sans-serif; font-weight: bold; font-size: 18px; margin-top: 8px; margin-bottom: 16px; color: lime; text-shadow: 2px 2px 4px black;'>
+          PHONE MENU
+        </p>
+      </a>
       `
     ];
   </script>
